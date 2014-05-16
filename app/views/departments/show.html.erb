@@ -1,5 +1,3 @@
-<h1>Departments#show</h1>
-
 <p>
 <%= @departments.name %>
 </p>
@@ -17,7 +15,7 @@
 			<td><%= course.name %></td>
 			<td><%= course.number %></td>
 			<td><%= course.abet_accredited %></td>
-			<td><%=link_to("Show Outcomes", {:controller => 'courses', :action => 'show', :id => course.id}) %></td>
+			<td><%=link_to("Show Outcomes", {:controller => 'courses', :action => 'show', :id => course.id}, :class => 'action show') %></td>
 		</tr>
 	<% end %>	
 
