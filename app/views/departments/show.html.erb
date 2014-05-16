@@ -17,8 +17,10 @@
 			<td><%= course.name %></td>
 			<td><%= course.number %></td>
 			<td><%= course.abet_accredited %></td>
-			<td> </td>
+			<td><%=link_to("Show Outcomes", {:controller => 'courses', :action => 'show', :id => course.id}) %></td>
 		</tr>
 	<% end %>	
 
 </table>
+
+
