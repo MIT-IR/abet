@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'subjects/new'
+
+  get 'subjects/edit'
+
+  get 'subjects/show'
+
+  get 'subjects/index'
+
+  get 'assessments/new'
+
+  get 'assessments/edit'
+
+  get 'assessments/show'
+
+  get 'assessments/index'
+
   root 'department#index'
   
   match ':controller(/:action(/:id))', :via => :get

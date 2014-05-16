@@ -1,0 +1,19 @@
+<div class="assessments new">
+  <h2>Create Assessment</h2>
+
+  <%= form_for(:assessment, :url => {:action => 'create'}) do |f| %>
+
+    <table summary="Assessment type">
+      <tr>
+        <th>Type</th>
+        <td><%= f.select :assess_type, options_for_select([["Direct","Direct"],["Indirect","Indirect"]], @assessment.assess_type) %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Assessment") %>
+    </div>
+
+  <% end %>
+</div>
+
