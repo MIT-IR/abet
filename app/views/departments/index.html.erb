@@ -1,0 +1,22 @@
+<div class="departments index">
+  <h2>Departments</h2>
+
+  <table class="listing" summary="Department list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Number</th>
+      <th>Name</th>
+    </tr>
+    <% @departments.each do |department| %>
+    <tr>
+      <td><%= department.number %></td>
+      <td><%= department.name %></td>
+      <td class="actions">
+        <%= link_to("Show", '#', :class => 'action show') %>
+        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
