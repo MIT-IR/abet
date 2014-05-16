@@ -1,2 +1,19 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<h1>Course <%= @course.number %>,&nbsp;<%= @course.name %></h1>
+<table class="listing" summary="Outcome list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Outcome</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @outcomes.each do |out| %>
+    <tr>
+      <td><%= out.outcome %></td>
+      <td><%= out.description %></td>
+      <td class="actions">
+        <%= link_to("Show", '#', :class => 'action show') %>
+        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>

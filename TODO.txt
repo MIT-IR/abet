@@ -12,9 +12,9 @@
 
 ---Controllers-----
 
-Department - show
+Department - *show
 
-Courses - index and show
+Courses - *index and *show
 
 Outcomes - index and show
 
@@ -30,15 +30,15 @@ Data Entry - new, edit, index, show
 
 ----Views-----
 
-Department - show (not sure how this works, but want it to be a view
+Department - *show (not sure how this works, but want it to be a view
 where you click on the department and it shows the associated courses)
 
-Courses - index (index is list of all of them? 
+Courses - *index (index is list of all of them? 
 or can it be the one described
 above where it's just a list of the courses for a particular dept)
-      	   show (click on Course and see all of the outcomes)
+      	  *show (click on Course and see all of the outcomes)
 
-Outcomes - index (list of all outcomes for a course)
+Outcomes - *index (list of all outcomes for a course)
 	   show (list of associated assessments)
 
 Assessments - 

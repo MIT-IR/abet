@@ -43,11 +43,9 @@ courses.each do |course|
 	new_course = Course.create(:number => course[0], :name => course[1])
 	dept = Department.find_by_number(course[2])
 	dept.courses << new_course
-end
-abet_ak.each do |abet_outcome|
-	new_outcome = Outcome.create(:outcome => abet_outcome[0], :commission => abet_outcome[1], :description => abet_outcome[2])
-	courses.each do |course|
-		course = Course.find_by_number(course[0])
-		course.outcomes << new_outcome
+	abet_ak.each do |abet_outcome|
+		new_outcome = Outcome.create(:outcome => abet_outcome[0], :commission => abet_outcome[1], :description => abet_outcome[2])
+		new_course.outcomes << new_outcome
 	end
 end
+

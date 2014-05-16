@@ -1,2 +1,22 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<div class="courses index">
+  <h2>Courses</h2>
+
+  <table class="listing" summary="Course list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Number</th>
+      <th>Name</th>
+    </tr>
+    <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.number %></td>
+      <td><%= course.name %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => course.id}, :class => 'action show') %>
+        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
