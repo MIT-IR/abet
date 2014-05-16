@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515182740) do
+ActiveRecord::Schema.define(version: 20140515180638) do
 
   create_table "assessments", force: true do |t|
     t.string   "assess_type"
@@ -48,18 +48,6 @@ ActiveRecord::Schema.define(version: 20140515182740) do
 
   add_index "courses", ["contact_id"], name: "index_courses_on_contact_id"
 
-  create_table "data_entries", force: true do |t|
-    t.integer  "measure_id"
-    t.string   "semester"
-    t.integer  "contact_id"
-    t.integer  "actual"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "data_entries", ["contact_id"], name: "index_data_entries_on_contact_id"
-  add_index "data_entries", ["measure_id"], name: "index_data_entries_on_measure_id"
-
   create_table "departments", force: true do |t|
     t.string   "name",       null: false
     t.string   "number",     null: false
@@ -75,10 +63,15 @@ ActiveRecord::Schema.define(version: 20140515182740) do
     t.integer  "lower_bound"
     t.integer  "maximum"
     t.integer  "goal"
+    t.integer  "actual"
+    t.text     "year"
+    t.text     "semester"
+    t.integer  "contact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "measures", ["contact_id"], name: "index_measures_on_contact_id"
   add_index "measures", ["subject_id"], name: "index_measures_on_subject_id"
 
   create_table "outcomes", force: true do |t|
