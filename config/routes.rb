@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  
-  get 'measures/new'
-
-  get 'measures/edit'
-
-  get 'measures/show'
-
-  get 'measures/index'
 
   root 'department#index'
   
