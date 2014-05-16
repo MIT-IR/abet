@@ -37,7 +37,7 @@ abet_ak = [['a', 'EAC', "an ability to apply knowledge of mathematics, science, 
 ['j', 'EAC', "a knowledge of contemporary issues"],
 ['k', 'EAC', "an ability to use the techniques, skills, and modern engineering tools necessary for engineering practice"]]
 depts.each do |dept|
-	Department.create(:number => dept[0], :name => dept[1])
+	Department.create(:number => dept[0], :name => dept[1], :sort_num => dept[0].to_i)
 end
 courses.each do |course|
 	new_course = Course.create(:number => course[0], :name => course[1])

@@ -61,8 +61,9 @@ ActiveRecord::Schema.define(version: 20140515182740) do
   add_index "data_entries", ["measure_id"], name: "index_data_entries_on_measure_id"
 
   create_table "departments", force: true do |t|
-    t.string   "name"
-    t.string   "number"
+    t.string   "name",       null: false
+    t.string   "number",     null: false
+    t.integer  "sort_num",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
