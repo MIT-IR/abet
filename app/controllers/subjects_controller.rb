@@ -1,6 +1,5 @@
-class MeasuresController < ApplicationController
+class SubjectsController < ApplicationController
   def new
-  	@measure = Measure.new
   end
 
   def edit
