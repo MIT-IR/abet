@@ -5,6 +5,12 @@ class DepartmentsController < ApplicationController
   end
 
   def show
+    @departments = Department.find(params[:id])
+    @courses = Course.where(department_id: Department.find(params[:id]))
+    #@departments.courses.find(params[:id])
+
+    #Course.find(Department.find(1))
+
   end
 
   def new

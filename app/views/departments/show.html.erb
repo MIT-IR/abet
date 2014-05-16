@@ -1,2 +1,24 @@
 <h1>Departments#show</h1>
-<p>Find me in app/views/departments/show.html.erb</p>
+
+<p>
+<%= @departments.name %>
+</p>
+
+<table>
+	<tr>
+		<th>Course Name</th>
+		<th>Course Number</th>
+		<th>Abet Accredited</th>
+		<th>Show Outcomes</th>
+	</tr>
+
+	<% @courses.each do |course| %>
+		<tr>
+			<td><%= course.name %></td>
+			<td><%= course.number %></td>
+			<td><%= course.abet_accredited %></td>
+			<td> </td>
+		</tr>
+	<% end %>	
+
+</table>
