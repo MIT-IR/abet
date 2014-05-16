@@ -1,7 +1,5 @@
 <p>Course <%= @course.number %>,&nbsp;<%= @course.name %><p>
-
-
-//Go back to courses
+<p><%= link_to("Back to Department", {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'action show') %></p>
 
 <table class="listing" summary="Outcome list">
   <col width = "20">
