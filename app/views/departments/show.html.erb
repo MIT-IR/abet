@@ -2,6 +2,8 @@
 <%= @departments.name %>
 </p>
 
+<p><%=link_to("Back to Departments", {:controller => 'departments', :action => 'index'}, :class => 'action index') %></p>
+
 <table>
 	<tr>
 		<th>Course Name</th>
