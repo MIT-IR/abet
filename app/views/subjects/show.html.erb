@@ -6,30 +6,30 @@
 
 <p><%=link_to("Add New Measure", {:controller => 'measures', :action => 'new', :sub_id => @subject.id}, :class => 'action new') %></p>
 
-<table>
+<table class="bigtable">
 	<tr>
-		<th class="widelist">Subject Number|</th>
-		<th class="widelist">Year|</th>
-		<th class="widelist">Semester|</th>
-		<th class="widelist">Measure Name|</th>
-		<th class="widelist">Measure Description|</th>
-		<th class="widelist">Minimum|</th>
-		<th class="widelist">Max Points|</th>
-		<th class="widelist">Benchmark|</th>
+		<th class="widelist">Subject Number</th>
+		<th class="widelist">Year</th>
+		<th class="widelist">Semester</th>
+		<th class="widelist">Measure Name</th>
+		<th class="widelist">Measure Description</th>
+		<th class="widelist">Minimum</th>
+		<th class="widelist">Max Points</th>
+		<th class="widelist">Benchmark</th>
 		<th class="widelist">Score</th>
 	</tr>
 
 	<% @measures.each do |measure| %>
 		<tr>
-			<td><%= @subject.number %></td>
-			<td><%= measure.year %></td>
-			<td><%= measure.semester %></td>
-			<td><%= measure.name %></td>
-			<td><%= measure.description %></td>
-			<td><%= measure.lower_bound %></td>
-			<td><%= measure.maximum %></td>
-			<td><%= measure.goal %></td>
-			<td><%= measure.actual %></td>
+			<td class="bigtable"><%= @subject.number %></td>
+			<td class="bigtable"><%= measure.year %></td>
+			<td class="bigtable"><%= measure.semester %></td>
+			<td class="bigtable"><%= measure.name %></td>
+			<td class="bigtable"><%= measure.description %></td>
+			<td class="bigtable"><%= measure.lower_bound %></td>
+			<td class="bigtable"><%= measure.maximum %></td>
+			<td class="bigtable"><%= measure.goal %></td>
+			<td class="bigtable"><%= measure.actual %></td>
 			
 		</tr>
 	<% end %>	

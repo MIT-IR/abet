@@ -46,9 +46,15 @@ text-transform: uppercase;
 font-family: 'Maven Pro';	
 }
 
-.widelist{
+.widelist {
 	font-family:'Maven Pro';
 	text-transform: none;
+	border-left: 1px solid #e6e4dd;
+	border-right: 1px solid #e6e4dd;
+}
+.bigtable {
+	border-left: 1px solid #e6e4dd;
+	border-right: 1px solid #e6e4dd;
 }
 a:visited {
 color: #787877;
@@ -105,3 +111,26 @@ font-size: 12px;
 color: #434343;
 margin-bottom: 4px;
 }
+
+.form-buttons {
+   border-top: 1px solid #96d1f8;
+   background: #88a9c3;
+   padding: 10px 14px;
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+   color: #ffffff;
+   font-size: 18px;
+   font-family: 'Maven Pro';
+   text-transform: uppercase;
+   vertical-align: middle;
+   }
+.form-buttons:hover {
+   border-top-color: #32436e;
+   background: #627f97;
+   color: #ccc;
+   }
+.form-buttons:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
