@@ -4,7 +4,7 @@
 #
 #  Created: 5/16/2014 by daries@mit.edu
 #
-#  Last updated: 
+#  Last updated: 5/17/2014 by daries@mit.edu 
 #
 ########################################
 
@@ -12,36 +12,34 @@
 
 ---Controllers-----
 
-Department - *show
+Outcomes - delete index controller
 
-Courses - *index and *show
+Assessments - create: edit, delete index, (show)
+	      modify: new; add logic that checks to 
+	      	      see if one exists already and 
+		      if so, redirects to the list of subjects
+		      under that assessment, if not
+		      then goes to the assessments/new
 
-Outcomes - index and show
+Subjects - edit, (index), show
 
-Assessments - new, index, show, edit
-
-Subjects - new, edit, index, show
-
-Measure - new, edit, index, show
-
-Data Entry - new, edit, index, show
+Measure - new, edit, delete index, show
 
 (Contact) - new, edit, index, show
 
 ----Views-----
 
-Department - *show (not sure how this works, but want it to be a view
-where you click on the department and it shows the associated courses)
+-----View Improvements-----
 
-Courses - *index (index is list of all of them? 
-or can it be the one described
-above where it's just a list of the courses for a particular dept)
-      	  *show (click on Course and see all of the outcomes)
+Departments/index: change show link to text of department name/number
+		   remove edit and delete links
 
-Outcomes - *index (list of all outcomes for a course)
-	   show (list of associated assessments)
+Courses/show: change text of "Back to Department" to "Back to Department <dept number> Courses"
+	      tweak text of links, need "Show assessments" and "New assessment"
+	      remove delete link for now
 
-Assessments - 
-
+Outcomes/show: needs a link for "Add new subject"
+	       
+Subjects/show: needs link for "Add new measure"
 
 
