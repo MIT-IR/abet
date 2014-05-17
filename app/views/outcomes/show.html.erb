@@ -1,10 +1,15 @@
 <p>
-<h2> Direct Assessments for <%= @outcome.commission %> <%= @outcome.outcome %>: "<%= @outcome.description %>" </h2>
+<h2>Assessments for <%= @outcome.commission %> <%= @outcome.outcome %>: "<%= @outcome.description %>" </h2>
 </p>
-
-<p><%=link_to("Back to Outcomes", {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'action show') %></p>
+<% back_link = "Back to Outcomes for Course: " + @course.number %>
+<p><%=link_to(back_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'action show') %></p>
 
 <table>
+	
+
+	<% @assessments.each do |assess| %>
+	<h3><%= assess.assess_type %></h3>
+	<p><%=link_to("Add New Subject", {:controller => 'subjects', :action => 'new', :assessment_id => assess.id}, :class => 'action show') %></p>
 	<tr>
 		<th>Type</th>
 		<th>Subject Number</th>
@@ -12,8 +17,6 @@
 		<th>&nbsp;</th>
 		
 	</tr>
-
-	<% @assessments.each do |assess| %>
 		<% assess.subjects.each do |sub| %>
 		<tr>
 			<td><%= assess.assess_type %></td>

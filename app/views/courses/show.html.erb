@@ -1,9 +1,8 @@
 <p>Course <%= @course.number %>,&nbsp;<%= @course.name %><p>
-<p><%= link_to("Back to Department", {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'action show') %></p>
+<% back_link = "Back to Department " + @department.number + " Courses" %>
+<p><%= link_to(back_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'action show') %></p>
 
 <table class="listing" summary="Outcome list">
-  <col width = "20">
-  <col width = "1000"
     <tr class="header">
       <th>&nbsp;</th>
       <th>Outcome</th>
@@ -14,9 +13,8 @@
       <td><%= out.outcome %></td>
       <td><%= out.description %></td>
       <td class="actions">
-        <%= link_to("Show", {:controller => 'outcomes', :action => 'show', :id => out.id, :course_id => out.course_id}, :class => 'action show') %>
+        <%= link_to("Show Assessments", {:controller => 'outcomes', :action => 'show', :id => out.id, :course_id => out.course_id}, :class => 'action show') %>
         <%= link_to("New Assessment", {:controller => 'assessments', :action => 'new', :out_id => out.id}, :class => 'action edit') %>
-        <%= link_to("Delete", '#', :class => 'action delete') %>
       </td>
     </tr>
     <% end %>

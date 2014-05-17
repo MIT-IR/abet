@@ -15,12 +15,7 @@
 Outcomes - delete index controller
 
 Assessments - create: edit, delete index, (show)
-	      modify: new; add logic that checks to 
-	      	      see if one exists already and 
-		      if so, redirects to the list of subjects
-		      under that assessment, if not
-		      then goes to the assessments/new
-
+	      
 Subjects - edit, (index)
 
 Measure - edit, delete index, show
@@ -31,14 +26,7 @@ Measure - edit, delete index, show
 
 -----View Improvements-----
 
-Departments/index: change show link to text of department name/number
-		   remove edit and delete links
-
-Courses/show: change text of "Back to Department" to "Back to Department <dept number> Courses"
-	      tweak text of links, need "Show assessments" and "New assessment"
-	      remove delete link for now
-
-Outcomes/show: needs a link for "Add new subject"
+Subjects/show: needs an "Edit measure" link
 
 Overall view improvements: add multiple "Back" layers, so you can go back to 
 	     		   department page from deep within the nested views

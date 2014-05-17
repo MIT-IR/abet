@@ -1,5 +1,5 @@
 <div class="assessments new">
-  <h2>Create Assessment</h2>
+  <h2>Create Assessment for <%= @outcome.commission %> <%= @outcome.outcome %>: "<%= @outcome.description %></h2>
 
   <%= form_for(:assessment, :url => {:action => 'create'}) do |f| %>
 

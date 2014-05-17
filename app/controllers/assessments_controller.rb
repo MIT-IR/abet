@@ -1,6 +1,12 @@
 class AssessmentsController < ApplicationController
   def new
-  	@assessment = Assessment.new({:assess_type => "Direct", :outcome_id => params[:out_id]})
+    @outcome = Outcome.find(params[:out_id])
+    @course = @outcome.course
+    if Assessment.find_by_outcome_id(params[:out_id]) 
+      redirect_to(:controller => 'outcomes', :action => 'show', :id => @outcome.id, :course_id => @course.id)
+    else
+  	  @assessment = Assessment.new({:assess_type => "Direct", :outcome_id => @outcome.id})
+    end
   end
 
   def create

@@ -2,19 +2,13 @@
   <h2>Departments</h2>
 
   <table class="listing" summary="Department list">
-    <tr class="header">
-      <th>&nbsp;</th>
-      <th>Number</th>
-      <th>Name</th>
-    </tr>
     <% @departments.each do |department| %>
     <tr>
-      <td><%= department.number %></td>
-      <td><%= department.name %></td>
       <td class="actions">
-        <%= link_to("Show", {:action => 'show', :id => department.id}, :class => 'action show') %>
-        <%= link_to("Edit", '#', :class => 'action edit') %>
-        <%= link_to("Delete", '#', :class => 'action delete') %>
+        <%= link_to(department.number, {:action => 'show', :id => department.id}, :class => 'action show') %>
+      </td>
+      <td class="actions">
+        <%= link_to(department.name, {:action => 'show', :id => department.id}, :class => 'action show') %>
       </td>
     </tr>
     <% end %>
