@@ -3,9 +3,13 @@ class OutcomesController < ApplicationController
   end
 
   def show
-    @courses = Course.find(params[:id])
-    @outcomes = Outcome.where(course_id: Course.find(params[:id]))
-
+    @course = Course.find(params[:course_id])
+    @outcome = Outcome.find(params[:id])
+    @assessments = Assessment.where(outcome_id: params[:id])
+    @subjects = []
+    @assessments.each do |assess|
+      @subjects << assess.subjects
+    end
     #@departments = Department.find(params[:id])
     #@courses = Course.where(department_id: Department.find(params[:id]))
   end

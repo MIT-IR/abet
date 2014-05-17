@@ -6,16 +6,16 @@
 
 <table>
 	<tr>
-		<th>Course Name</th>
 		<th>Course Number</th>
+		<th>Course Name</th>
 		<th>Abet Accredited</th>
 		<th>Show Outcomes</th>
 	</tr>
 
 	<% @courses.each do |course| %>
 		<tr>
-			<td><%= course.name %></td>
 			<td><%= course.number %></td>
+			<td><%= course.name %></td>
 			<td><%= course.abet_accredited %></td>
 			<td><%=link_to("Show Outcomes", {:controller => 'courses', :action => 'show', :id => course.id}, :class => 'action show') %></td>
 		</tr>

@@ -6,7 +6,10 @@
     <table summary="Assessment type">
       <tr>
         <th>Type</th>
-        <td><%= f.select :assess_type, options_for_select([["Direct","Direct"],["Indirect","Indirect"]], @assessment.assess_type) %></td>
+      </tr>
+      <tr>
+        <td><%= f.hidden_field(:outcome_id) %>
+        <%= f.select :assess_type, options_for_select([["Direct","Direct"],["Indirect","Indirect"]], @assessment.assess_type) %></td>
       </tr>
     </table>
 

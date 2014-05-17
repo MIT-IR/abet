@@ -1,2 +1,27 @@
-<h1>Outcomes#show</h1>
-<p>Find me in app/views/outcomes/show.html.erb</p>
+<p>
+<h2> Direct Assessments for <%= @outcome.commission %> <%= @outcome.outcome %>: "<%= @outcome.description %>" </h2>
+</p>
+
+<p><%=link_to("Back to Outcomes", {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'action show') %></p>
+
+<table>
+	<tr>
+		<th>Type</th>
+		<th>Subject Number</th>
+		<th>Subject Name</th>
+		<th>&nbsp;</th>
+		
+	</tr>
+
+	<% @assessments.each do |assess| %>
+		<% assess.subjects.each do |sub| %>
+		<tr>
+			<td><%= assess.assess_type %></td>
+			<td><%= sub.number %></td>
+			<td><%= sub.name %></td>
+			<td><%=link_to("Show Measures", {:controller => 'subjects', :action => 'show', :id => sub.id}, :class => 'action show') %></td>
+		</tr>
+		<% end %>
+	<% end %>	
+
+</table>

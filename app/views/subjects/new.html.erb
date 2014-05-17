@@ -4,11 +4,12 @@
 
     <table summary="Subject form fields">
       <tr>
-        <th>Number (e.g. "2.016"</th>
-        <td><%= f.text_field(:number) %></td>
+        <th>Number (e.g. "2.016")</th>
+        <td><%= f.text_field(:number) %>
+          <%= f.hidden_field(:assessment_id) %></td>
       </tr>
       <tr>
-        <th>Name (e.g. "Hydrodynamics"</th>
+        <th>Name (e.g. "Hydrodynamics")</th>
         <td><%= f.text_field(:name) %></td>
       </tr>
     </table>

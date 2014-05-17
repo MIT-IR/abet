@@ -3,4 +3,6 @@ class Subject < ActiveRecord::Base
 	has_many :measures
 	has_many :subject_instructors
 	has_many :instructors, :through => :subject_instructors, :class_name => "Contact"
+
+	scope :sorted, lambda {order("subjects.number ASC")}
 end

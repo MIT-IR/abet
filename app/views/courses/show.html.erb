@@ -14,8 +14,8 @@
       <td><%= out.outcome %></td>
       <td><%= out.description %></td>
       <td class="actions">
-        <%= link_to("Show", {:controller => 'outcomes', :action => 'show', :id => out.id}, :class => 'action show') %>
-        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to("Show", {:controller => 'outcomes', :action => 'show', :id => out.id, :course_id => out.course_id}, :class => 'action show') %>
+        <%= link_to("New Assessment", {:controller => 'assessments', :action => 'new', :out_id => out.id}, :class => 'action edit') %>
         <%= link_to("Delete", '#', :class => 'action delete') %>
       </td>
     </tr>

@@ -1,2 +1,35 @@
-<h1>Subjects#show</h1>
-<p>Find me in app/views/subjects/show.html.erb</p>
+<p>
+<%= @subject.name %>
+</p>
+
+<p><%=link_to("Back to Subjects", {:controller => 'assessments', :action => 'show', :id => @subject.assessment_id}, :class => 'action show') %></p>
+
+<table>
+	<tr>
+		<th>Subject Number</th>
+		<th>Year</th>
+		<th>Semester</th>
+		<th>Measure Name</th>
+		<th>Measure Description</th>
+		<th>Minimum</th>
+		<th>Max Points</th>
+		<th>Benchmark</th>
+		<th>Score</th>
+	</tr>
+
+	<% @measures.each do |measure| %>
+		<tr>
+			<td><%= @subject.number %></td>
+			<td><%= measure.year %></td>
+			<td><%= measure.semester %></td>
+			<td><%= measure.name %></td>
+			<td><%= measure.description %></td>
+			<td><%= measure.lower_bound %></td>
+			<td><%= measure.maximum %></td>
+			<td><%= measure.goal %></td>
+			<td><%= measure.actual %></td>
+			
+		</tr>
+	<% end %>	
+
+</table>
