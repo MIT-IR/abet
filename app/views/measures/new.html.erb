@@ -1,12 +1,12 @@
 <div class="measures new">
-  <h2>Create Measure for Subject <%=Subject.find(@measure.subject_id)%></h2>
+  <h2>Create Measure for Subject <%=@subject.number%>:&nbsp;<%=@subject.name%></h2>
 
   <%= form_for(:measure, :url => {:action => 'create'}) do |f| %>
 
     <table summary="Measure form fields">
       <tr>
-        <th>Name (e.g. "Problem Set 1)</th>
-        <td><%= f.text_field(:name) %></td>
+        <th>Name (e.g. "Problem Set 1, Question 3")</th>
+        <td><%= f.text_field(:name) %><%= f.hidden_field(:subject_id)%></td>
       </tr>
       <tr>
         <th>Description</th>

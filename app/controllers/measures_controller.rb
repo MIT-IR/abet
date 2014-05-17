@@ -1,12 +1,14 @@
 class MeasuresController < ApplicationController
   def new
-  	@measure = Measure.new(:subject_id => params[:subject_id])
+  	@measure = Measure.new(:subject_id => params[:sub_id])
+    @subject = Subject.find(params[:sub_id])
   end
 
   def create
   	@measure = Measure.new(measure_params)
+    @measure.subject = Subject.find(@measure.subject_id)
   	if @measure.save
-  		redirect_to(:action => 'show', :id => @measure.subject_id)
+  		redirect_to(:controller => 'subjects', :action => 'show', :id => @measure.subject_id)
   	else
   		render('new')
   	end
@@ -25,6 +27,6 @@ class MeasuresController < ApplicationController
 
   private
   def measure_params
-  	params.require(:measure).permit(:name, :description, :lower_bound, :year, :semester, :maximum, :goal, :actual)
+  	params.require(:measure).permit(:name, :description, :lower_bound, :year, :semester, :maximum, :goal, :actual, :subject_id)
   end
 end

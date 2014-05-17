@@ -1,8 +1,10 @@
-<p>
-<%= @subject.name %>
-</p>
+<h1>
+<%=@subject.number%>:&nbsp;<%= @subject.name %>
+</h1>
 
 <p><%=link_to("Back to Subjects", {:controller => 'assessments', :action => 'show', :id => @subject.assessment_id}, :class => 'action show') %></p>
+
+<p><%=link_to("Add New Measure", {:controller => 'measures', :action => 'new', :sub_id => @subject.id}, :class => 'action new') %></p>
 
 <table>
 	<tr>

@@ -21,9 +21,9 @@ Assessments - create: edit, delete index, (show)
 		      under that assessment, if not
 		      then goes to the assessments/new
 
-Subjects - edit, (index), show
+Subjects - edit, (index)
 
-Measure - new, edit, delete index, show
+Measure - edit, delete index, show
 
 (Contact) - new, edit, index, show
 
@@ -39,8 +39,6 @@ Courses/show: change text of "Back to Department" to "Back to Department <dept n
 	      remove delete link for now
 
 Outcomes/show: needs a link for "Add new subject"
-	       
-Subjects/show: needs link for "Add new measure"
 
 Overall view improvements: add multiple "Back" layers, so you can go back to 
 	     		   department page from deep within the nested views
