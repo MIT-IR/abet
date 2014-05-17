@@ -42,4 +42,19 @@ Outcomes/show: needs a link for "Add new subject"
 	       
 Subjects/show: needs link for "Add new measure"
 
+Overall view improvements: add multiple "Back" layers, so you can go back to 
+	     		   department page from deep within the nested views
+
+-----Style------
+
+Background color - from engineering.mit.edu
+
+Font - from engineering.mit.edu
+
+Tables - add borders? or something to make them neater
+
+Header graphic on each page
+
+Navigation bar at top
+
 
