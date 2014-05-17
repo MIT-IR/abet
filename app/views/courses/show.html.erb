@@ -1,21 +1,30 @@
-<p>Course <%= @course.number %>,&nbsp;<%= @course.name %><p>
+<h2>Course <%= @course.number %>,&nbsp;<%= @course.name %></h2>
 <% back_link = "Back to Department " + @department.number + " Courses" %>
-<p><%= link_to(back_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'action show') %></p>
+<%= link_to(back_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'back') %>
 
 <table class="listing" summary="Outcome list">
     <tr class="header">
       <th>&nbsp;</th>
-      <th>Outcome</th>
-      <th>&nbsp;</th>
+      <th>Outcomes</th>
+      <th colspan="2">Assessments</th>
     </tr>
-    <% @outcomes.each do |out| %>
+    <% @outcomes.size.times do |i| %>
     <tr>
-      <td><%= out.outcome %></td>
-      <td><%= out.description %></td>
-      <td class="actions">
-        <%= link_to("Show Assessments", {:controller => 'outcomes', :action => 'show', :id => out.id, :course_id => out.course_id}, :class => 'action show') %>
-        <%= link_to("New Assessment", {:controller => 'assessments', :action => 'new', :out_id => out.id}, :class => 'action edit') %>
+      <td class="num_list"><%= @outcomes[i].outcome %>)</td>
+      <td><%= @outcomes[i].description %></td>
+        <% if @show_flags[i] %>
+        <td>
+        <%= link_to("Show", {:controller => 'outcomes', :action => 'show', :id => @outcomes[i].id, :course_id => @outcomes[i].course_id}, :class => 'rightcol') %>
       </td>
+      <td class="assessments">
+        <%= link_to("New", {:controller => 'assessments', :action => 'new', :out_id => @outcomes[i].id}) %>
+      </td>
+        <% else %>
+        <td></td>
+        <td class="assessments">
+        <%= link_to("New", {:controller => 'assessments', :action => 'new', :out_id => @outcomes[i].id}) %>
+        </td>
+        <% end %>
     </tr>
     <% end %>
   </table>

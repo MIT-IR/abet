@@ -1,6 +1,6 @@
-<h1>
+<h2>
 <%=@subject.number%>:&nbsp;<%= @subject.name %>
-</h1>
+</h2>
 
 <p><%=link_to("Back to Subjects", {:controller => 'assessments', :action => 'show', :id => @subject.assessment_id}, :class => 'action show') %></p>
 
@@ -8,15 +8,15 @@
 
 <table>
 	<tr>
-		<th>Subject Number</th>
-		<th>Year</th>
-		<th>Semester</th>
-		<th>Measure Name</th>
-		<th>Measure Description</th>
-		<th>Minimum</th>
-		<th>Max Points</th>
-		<th>Benchmark</th>
-		<th>Score</th>
+		<th class="widelist">Subject Number|</th>
+		<th class="widelist">Year|</th>
+		<th class="widelist">Semester|</th>
+		<th class="widelist">Measure Name|</th>
+		<th class="widelist">Measure Description|</th>
+		<th class="widelist">Minimum|</th>
+		<th class="widelist">Max Points|</th>
+		<th class="widelist">Benchmark|</th>
+		<th class="widelist">Score</th>
 	</tr>
 
 	<% @measures.each do |measure| %>

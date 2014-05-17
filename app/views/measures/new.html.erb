@@ -1,39 +1,39 @@
-<div class="measures new">
+<div>
   <h2>Create Measure for Subject <%=@subject.number%>:&nbsp;<%=@subject.name%></h2>
 
   <%= form_for(:measure, :url => {:action => 'create'}) do |f| %>
 
     <table summary="Measure form fields">
       <tr>
-        <th>Name (e.g. "Problem Set 1, Question 3")</th>
+        <th class="formlabel">Name (e.g. "Problem Set 1, Question 3")</th>
         <td><%= f.text_field(:name) %><%= f.hidden_field(:subject_id)%></td>
       </tr>
       <tr>
-        <th>Description</th>
+        <th class="formlabel">Description</th>
         <td><%= f.text_field(:description) %></td>
       </tr>
       <tr>
-        <th>Academic Year (e.g. Fall 2012 = AY2013)</th>
+        <th class="formlabel">Academic Year (e.g. Fall 2012 = AY2013)</th>
         <td><%= f.text_field(:year) %></td>
       </tr>
       <tr>
-        <th>Semester</th>
+        <th class="formlabel">Semester</th>
         <td><%= f.text_field(:semester) %></td>
       </tr>
       <tr>
-        <th>Lower Bound (number of points to meet goal, e.g. the '5' in '5 out of 6')</th>
+        <th class="formlabel">Lower Bound (number of points to meet goal, e.g. the '5' in '5 out of 6')</th>
         <td><%= f.text_field(:lower_bound) %></td>
       </tr>
       <tr>
-        <th>Total points possible (e.g., the '6' in '5 out of 6')</th>
+        <th class="formlabel">Total points possible (e.g., the '6' in '5 out of 6')</th>
         <td><%= f.text_field(:maximum) %></td>
       </tr>
       <tr>
-        <th>Goal (the % of students who would ideally meet the goal stated above)</th>
+        <th class="formlabel">Goal (the % of students who would ideally meet the goal stated above)</th>
         <td><%= f.text_field(:goal) %></td>
       </tr>
       <tr>
-        <th>Actual</th>
+        <th class="formlabel">Actual</th>
         <td><%= f.text_field(:actual) %></td>
       </tr>
     </table>

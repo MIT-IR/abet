@@ -12,8 +12,7 @@
 
 ---Controllers-----
 
-Outcomes - show: if no assessments exist, show link doesn't work
-	   delete index controller
+Outcomes - delete index controller
 
 Assessments - create: edit, delete index, (show)
 	      
