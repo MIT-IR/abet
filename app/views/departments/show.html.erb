@@ -1,23 +1,22 @@
+<p><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %></p>
 <p>
 <h2><%= @departments.name %></h2>
 </p>
 
-<p><%=link_to("Back to Departments", {:controller => 'departments', :action => 'index'}, :class => 'action index') %></p>
+
 
 <table>
 	<tr>
 		<th>Course Number</th>
 		<th>Course Name</th>
-		<th>Abet Accredited</th>
-		<th>Show Outcomes</th>
+		<th>Outcomes</th>
 	</tr>
 
 	<% @courses.each do |course| %>
 		<tr>
 			<td><%= course.number %></td>
 			<td><%= course.name %></td>
-			<td><%= course.abet_accredited %></td>
-			<td><%=link_to("Show Outcomes", {:controller => 'courses', :action => 'show', :id => course.id}, :class => 'action show') %></td>
+			<td><%=link_to("Show", {:controller => 'courses', :action => 'show', :id => course.id}, :class => 'action show') %></td>
 		</tr>
 	<% end %>	
 

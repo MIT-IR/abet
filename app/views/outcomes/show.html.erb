@@ -1,30 +1,37 @@
+<% dept_link = "Department " + @department.number %>
+<% course_link = "Course " + @course.number %>
+<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %></p>
 <p>
 <h2>Assessments for <%= @outcome.commission %> <%= @outcome.outcome %>: "<%= @outcome.description %>" </h2>
 </p>
-<% back_link = "Back to Outcomes for Course: " + @course.number %>
-<p><%=link_to(back_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'action show') %></p>
+
 
 <table>
 	
 
 	<% @assessments.each do |assess| %>
 	<h3><%= assess.assess_type %></h3>
-	<p><%=link_to("Add New Subject", {:controller => 'subjects', :action => 'new', :assessment_id => assess.id}, :class => 'action show') %></p>
 	<tr>
-		<th>Type</th>
-		<th>Subject Number</th>
-		<th>Subject Name</th>
-		<th>&nbsp;</th>
+		<th class="widelist">Subject Number</th>
+		<th class="widelist">Subject Name</th>
+		<th colspan="2" class="widelist">Measures</th>
 		
 	</tr>
-		<% assess.subjects.each do |sub| %>
+		<% assess.subjects.size.times do |i| %>
 		<tr>
-			<td><%= assess.assess_type %></td>
-			<td><%= sub.number %></td>
-			<td><%= sub.name %></td>
-			<td><%=link_to("Show Measures", {:controller => 'subjects', :action => 'show', :id => sub.id}, :class => 'action show') %></td>
+			<td class="bigtable"><%= assess.subjects[i].number %></td>
+			<td class="bigtable"><%= assess.subjects[i].name %></td>
+			<% if @show_flags[i] %>
+			<td class="bigtable"><%=link_to("New", {:controller => 'measures', :action => 'new', :sub_id => assess.subjects[i].id}) %></td>
+			<td class="bigtable"><%=link_to("Show", {:controller => 'subjects', :action => 'show', :id => assess.subjects[i].id}) %></td>
+			<%else%>
+			<td colspan="2" class="bigtable"><%=link_to("New", {:controller => 'measures', :action => 'new', :sub_id => assess.subjects[i].id}) %></td>
+			<%end%>
 		</tr>
 		<% end %>
+		</table>
+		<p><%=link_to("Add New Subject", {:controller => 'subjects', :action => 'new', :assessment_id => assess.id}, :class => 'action show') %></p>
+
 	<% end %>	
 
-</table>
+

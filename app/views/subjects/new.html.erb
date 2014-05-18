@@ -1,20 +1,24 @@
+<% dept_link = "Department " + @department.number %>
+<% course_link = "Course " + @course.number %>
+<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %></p>
+<p>
   <h2>Create Subject Entry</h2>
 
   <%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
 
     <table summary="Subject form fields">
       <tr>
-        <th>Number (e.g. "2.016")</th>
+        <th class="formlabel">Number (e.g. "2.016")</th>
         <td><%= f.text_field(:number) %>
           <%= f.hidden_field(:assessment_id) %></td>
       </tr>
       <tr>
-        <th>Name (e.g. "Hydrodynamics")</th>
+        <th class="formlabel">Name (e.g. "Hydrodynamics")</th>
         <td><%= f.text_field(:name) %></td>
       </tr>
     </table>
-    <div class="form-buttons">
-      <%= submit_tag("Create Subject") %>
+    <div>
+      <%= f.submit "Create Subject", class: "form-buttons" %>
     </div>
 
   <% end %>

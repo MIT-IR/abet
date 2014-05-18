@@ -1,6 +1,8 @@
+<% back_link = "Department " + @department.number %>
+<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(back_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'navbar') %></p>
 <h2>Course <%= @course.number %>,&nbsp;<%= @course.name %></h2>
-<% back_link = "Back to Department " + @department.number + " Courses" %>
-<%= link_to(back_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'back') %>
+
+
 
 <table class="listing" summary="Outcome list">
     <tr class="header">

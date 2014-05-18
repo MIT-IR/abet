@@ -1,3 +1,7 @@
+<% dept_link = "Department " + @department.number %>
+<% course_link = "Course " + @course.number %>
+<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %></p>
+<p>
 <div>
   <h2>Create Assessment for <%= @outcome.commission %> <%= @outcome.outcome %>: "<%= @outcome.description %></h2>
 
@@ -6,10 +10,8 @@
     <table summary="Assessment type">
       <tr>
         <th>Type</th>
-      </tr>
-      <tr>
         <td><%= f.hidden_field(:outcome_id) %>
-        <%= f.select :assess_type, options_for_select([["Direct","Direct"],["Indirect","Indirect"]], @assessment.assess_type) %></td>
+        <%= f.select :assess_type, options_for_select([["Direct","Direct"],["Indirect","Indirect"]], @assessment.assess_type), :class => "dropdown" %></td>
       </tr>
     </table>
 

@@ -1,10 +1,15 @@
+<% dept_link = "Department " + @department.number %>
+<% course_link = "Course " + @course.number %>
+<% outcome_link = "Outcome " + @outcome.outcome %>
+<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @department.id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %>&gt;<%=link_to(outcome_link, {:controller => 'outcomes', :action => 'show', :id => @outcome.id, :course_id => @course.id}, :class => 'navbar') %></p>
+<p>
 <h2>
 <%=@subject.number%>:&nbsp;<%= @subject.name %>
 </h2>
 
-<p><%=link_to("Back to Subjects", {:controller => 'assessments', :action => 'show', :id => @subject.assessment_id}, :class => 'action show') %></p>
+<p></p>
 
-<p><%=link_to("Add New Measure", {:controller => 'measures', :action => 'new', :sub_id => @subject.id}, :class => 'action new') %></p>
+
 
 <table class="bigtable">
 	<tr>
@@ -35,3 +40,4 @@
 	<% end %>	
 
 </table>
+<p><%=link_to("Add New Measure", {:controller => 'measures', :action => 'new', :sub_id => @subject.id}, :class => 'action new') %></p>

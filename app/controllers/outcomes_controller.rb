@@ -4,14 +4,21 @@ class OutcomesController < ApplicationController
 
   def show
     @course = Course.find(params[:course_id])
+    @department = @course.department
     @outcome = Outcome.find(params[:id])
     @assessments = Assessment.where(outcome_id: params[:id])
     @subjects = []
+    @show_flags = []
     @assessments.each do |assess|
       @subjects << assess.subjects
+      assess.subjects.each do |sub|
+        if sub.measures.size != 0
+          @show_flags << true
+        else
+          @show_flags << false
+        end
+      end
     end
-    #@departments = Department.find(params[:id])
-    #@courses = Course.where(department_id: Department.find(params[:id]))
   end
 
   def new

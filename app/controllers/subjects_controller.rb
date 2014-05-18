@@ -1,6 +1,10 @@
 class SubjectsController < ApplicationController
   def new
   	@subject = Subject.new({:assessment_id => params[:assessment_id]})
+    @assessment = @subject.assessment
+    @outcome = @assessment.outcome
+    @course = @outcome.course
+    @department = @course.department
   end
   #def new
   #  @assessment = Assessment.new({:assess_type => "Direct", :outcome_id => params[:out_id]})
@@ -30,6 +34,10 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
+    @assessment = @subject.assessment
+    @outcome = @assessment.outcome
+    @course = @outcome.course
+    @department = @course.department
     @measures = @subject.measures
   end
 

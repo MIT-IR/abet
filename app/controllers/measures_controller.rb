@@ -2,6 +2,10 @@ class MeasuresController < ApplicationController
   def new
   	@measure = Measure.new(:subject_id => params[:sub_id])
     @subject = Subject.find(params[:sub_id])
+    @assessment = @subject.assessment
+    @outcome = @assessment.outcome
+    @course = @outcome.course
+    @department = @course.department
   end
 
   def create

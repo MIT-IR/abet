@@ -2,6 +2,7 @@ class AssessmentsController < ApplicationController
   def new
     @outcome = Outcome.find(params[:out_id])
     @course = @outcome.course
+    @department = @course.department
     if Assessment.find_by_outcome_id(params[:out_id]) 
       redirect_to(:controller => 'outcomes', :action => 'show', :id => @outcome.id, :course_id => @course.id)
     else
