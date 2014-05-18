@@ -12,8 +12,7 @@
 
 ---Controllers-----
 
-Outcomes - show: if no assessments exist, show link doesn't work
-	   delete index controller
+Outcomes - delete index controller
 
 Assessments - create: edit, delete index, (show)
 	      
@@ -29,19 +28,7 @@ Measure - edit, delete index, show
 
 Subjects/show: needs an "Edit measure" link
 
-Overall view improvements: add multiple "Back" layers, so you can go back to 
-	     		   department page from deep within the nested views
-
 -----Style------
 
-Background color - from engineering.mit.edu
-
-Font - from engineering.mit.edu
-
-Tables - add borders? or something to make them neater
-
-Header graphic on each page
-
-Navigation bar at top
 
 
