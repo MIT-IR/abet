@@ -1,8 +1,10 @@
 <% dept_link = "Department " + @department.number %>
 <% course_link = "Course " + @course.number %>
-<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %></p>
+<% outcome_link = "Outcome " + @outcome.outcome %>
+<% assess_link = @assessment.assess_type + " Assessment"%>
+<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @course.department_id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %>&gt;<%=link_to(outcome_link, {:controller => 'outcomes', :action => 'show', :id => @outcome.id, :course_id => @course.id}, :class => 'navbar') %>&gt;New <%=assess_link%>&gt; New Subject</p>
 <p>
-  <h2>Create Subject Entry</h2>
+  <h2><%=assess_link %>: Create Subject Entry</h2>
 
   <%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
 

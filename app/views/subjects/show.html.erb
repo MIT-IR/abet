@@ -1,7 +1,8 @@
 <% dept_link = "Department " + @department.number %>
 <% course_link = "Course " + @course.number %>
 <% outcome_link = "Outcome " + @outcome.outcome %>
-<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @department.id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %>&gt;<%=link_to(outcome_link, {:controller => 'outcomes', :action => 'show', :id => @outcome.id, :course_id => @course.id}, :class => 'navbar') %></p>
+<% sub_link = "Subject " + @subject.number%>
+<p class="navbar"><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(dept_link, {:controller => 'departments', :action => 'show', :id => @department.id}, :class => 'navbar') %>&gt;<%=link_to(course_link, {:controller => 'courses', :action => 'show', :id => @course.id}, :class => 'navbar') %>&gt;<%=link_to(outcome_link, {:controller => 'outcomes', :action => 'show', :id => @outcome.id, :course_id => @course.id}, :class => 'navbar') %>&gt;<%=link_to(sub_link, {:controller => 'subjects', :action => 'show', :id => @subject.id}, :class => 'navbar') %></p>
 <p>
 <h2>
 <%=@subject.number%>:&nbsp;<%= @subject.name %>
@@ -20,8 +21,8 @@
 		<th class="widelist">Measure Description</th>
 		<th class="widelist">Minimum</th>
 		<th class="widelist">Max Points</th>
-		<th class="widelist">Benchmark</th>
-		<th class="widelist">Score</th>
+		<th class="widelist">Benchmark %</th>
+		<th class="widelist">Score %</th>
 	</tr>
 
 	<% @measures.each do |measure| %>
@@ -33,8 +34,8 @@
 			<td class="bigtable"><%= measure.description %></td>
 			<td class="bigtable"><%= measure.lower_bound %></td>
 			<td class="bigtable"><%= measure.maximum %></td>
-			<td class="bigtable"><%= measure.goal %></td>
-			<td class="bigtable"><%= measure.actual %></td>
+			<td class="bigtable"><%= measure.goal %>%</td>
+			<td class="bigtable"><%= measure.actual %>%</td>
 			
 		</tr>
 	<% end %>	

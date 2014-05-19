@@ -1,6 +1,7 @@
-<p><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %></p>
+<% back_link = "Department " + @department.number %>
+<p><%=link_to("Home", {:controller => 'departments', :action => 'index'}, :class => 'navbar') %>&gt;<%= link_to(back_link, {:controller => 'departments', :action => 'show', :id => @department.id}, :class => 'navbar') %></p>
 <p>
-<h2><%= @departments.name %></h2>
+<h2><%= @department.name %></h2>
 </p>
 
 
