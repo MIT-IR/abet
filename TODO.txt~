@@ -4,10 +4,31 @@
 #
 #  Created: 5/16/2014 by daries@mit.edu
 #
-#  Last updated: 
+#  Last updated: 5/17/2014 by daries@mit.edu 
 #
 ########################################
 
-Controllers:
+(parens denote something we can put off until later)
 
-Courses - need index and show
+---Controllers-----
+
+Outcomes - delete index controller
+
+Assessments - create: edit, delete index, (show)
+	      
+Subjects - edit, (index)
+
+Measure - edit, delete index, show
+
+(Contact) - new, edit, index, show
+
+----Views-----
+
+-----View Improvements-----
+
+Subjects/show: needs an "Edit measure" link
+
+-----Style------
+
+
+
