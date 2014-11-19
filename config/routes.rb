@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   get '/home/' => 'home#index'
 
   resources :departments, :only => [:show]
-  resources :courses, :only => [:show]
-
+  resources :courses, :only => [:show] do
+    member do
+      get 'adopt_default'
+      get 'interstitial'
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

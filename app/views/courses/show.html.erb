@@ -1,1 +1,12 @@
-To set up outcomes
+<table>	
+	<th>
+		<td>Name</td>
+		<td>Description</td>
+	</th>
+	<% @outcomes.each do |outcome| %>
+		<tr>
+			<td><%= outcome.name%></td>
+			<td><%= outcome.description%></td>
+		</tr>
+	<% end %>
+</table>

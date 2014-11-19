@@ -2,6 +2,7 @@ Feature: Course page
 
 Background:
     Given a Touchstone authenticated user
+    And a user with access to multiple departments
 
 Scenario: A department's courses are displayed on the department landing page
 	Given a department has the following courses:
