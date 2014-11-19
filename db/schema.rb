@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119174222) do
+ActiveRecord::Schema.define(version: 20141119194101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,26 @@ ActiveRecord::Schema.define(version: 20141119174222) do
   create_table "departments", force: true do |t|
     t.string "name"
     t.string "role_department"
+  end
+
+  create_table "direct_assessments", force: true do |t|
+    t.string  "subject_number"
+    t.string  "subject_description"
+    t.string  "semester"
+    t.string  "assignment_name"
+    t.string  "assignment_description"
+    t.string  "minimum_grade"
+    t.integer "target_percentage"
+    t.integer "actual_percentage"
+  end
+
+  create_table "indirect_assessments", force: true do |t|
+    t.string  "assessment_name"
+    t.string  "assessment_description"
+    t.integer "year"
+    t.string  "minimum_category"
+    t.integer "target_percentage"
+    t.integer "actual_percentage"
   end
 
   create_table "outcomes", force: true do |t|

@@ -1,5 +1,5 @@
 Choose type of assessment:
-1) Grade from an assignment, quiz, or exam.
-2) Survey results.
-3) Participation in program.
-4) Other.
+<%=link_to "1) Grade from an assignment, quiz, or exam.", new_direct_assessment_path(@outcome)%>
+<%=link_to "2) Survey results.", new_indirect_assessment_path(@outcome, indirect_type: 'survey')%>
+<%=link_to "3) Participation in program.", new_indirect_assessment_path(@outcome, indirect_type: 'participation')%>
+<%=link_to "4) Other.", new_indirect_assessment_path(@outcome, indirect_type: 'other')%>

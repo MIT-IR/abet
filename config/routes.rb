@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
   resources :assessments
+  resources :direct_assessments
+  resources :indirect_assessments
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

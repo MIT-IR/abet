@@ -1,0 +1,10 @@
+<%=form_for(@assessment) do |f| %>
+	Subject Number: <%=f.text_field :subject_number %>
+	Subject Description: <%=f.text_field :subject_description %>
+	Semester: <%=f.select :semester, @available_semesters  %>
+	Assignment Name: <%=f.text_field :assignment_name %>
+	Assignment Description: <%=f.text_field :assignment_description %>
+	Minimum Satisfactory Grade: <%=f.text_field :minimum_grade %>
+	Target Percentage: <%=f.text_field	:target_percentage %>
+	Actual Percentage: <%=f.text_field :actual_percentage %>
+<% end %>
