@@ -28,4 +28,12 @@ module Abet
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   end
+  RolesDb.configure do |config|
+    config.ssl_cert_key_file = Rails.root.join("config", "certs", "outcomes-key.pem")
+    config.ssl_cert_file = Rails.root.join("config", "certs", "outcomes.cer")
+    config.ssl_ca_cert_file = Rails.root.join("config", "certs", "mit.pem")
+    config.roles_wsdl_file = Rails.root.join("config", "certs", "roles.wsdl")
+    config.ssl_cert_key_password = "abetiscool"
+    config.roles_proxy_user_name = 'abetuser'
+  end
 end

@@ -25,3 +25,16 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+gem 'roles_db', '0.0.3', :path => 'vendor/gems/roles_db-0.0.3'
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
