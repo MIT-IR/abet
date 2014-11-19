@@ -1,0 +1,2130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:rolesService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:rolesService" xmlns:intf="urn:rolesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="urn:rolesService" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="isUserAuthorized">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="function_category" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+      <element name="qualifier_code" type="xsd:string"/>
+      <element name="proxyUserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isUserAuthorizedResponse">
+    <complexType>
+     <sequence>
+      <element name="isUserAuthorizedReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="rolesException">
+    <sequence/>
+   </complexType>
+   <element name="fault" type="impl:rolesException"/>
+   <element name="listAuthorizationsByPerson">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="isActive" type="xsd:boolean"/>
+      <element name="willExpand" type="xsd:boolean"/>
+      <element name="proxyUserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByPersonResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listAuthorizationsByPersonReturn" type="impl:rolesAuthorization"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="rolesAuthorization">
+    <sequence>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="function" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="qualifier" nillable="true" type="xsd:string"/>
+     <element name="qualifierCode" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="getUserAuthorizations">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+      <element name="function_id" type="xsd:string"/>
+      <element name="isActive" type="xsd:boolean"/>
+      <element name="willExpand" type="xsd:boolean"/>
+      <element name="proxyUserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserAuthorizationsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getUserAuthorizationsReturn" type="impl:userAuthorization"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="userAuthorization">
+    <complexContent>
+     <extension base="impl:rolesAuthorization">
+      <sequence>
+       <element name="authorizationID" nillable="true" type="xsd:string"/>
+       <element name="doFunction" nillable="true" type="xsd:string"/>
+       <element name="effectiveDate" nillable="true" type="xsd:string"/>
+       <element name="expirationDate" nillable="true" type="xsd:string"/>
+       <element name="grantAuth" nillable="true" type="xsd:string"/>
+       <element name="modifiedBy" nillable="true" type="xsd:string"/>
+       <element name="modifiedDate" nillable="true" type="xsd:string"/>
+       <element name="qualifierType" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="batchUpdate">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="authIDs" type="xsd:string"/>
+      <element name="effective_date" type="xsd:string"/>
+      <element name="expiration_date" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="batchUpdateResponse">
+    <complexType>
+     <sequence>
+      <element name="batchUpdateReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isUserAuthorizedExt">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="function_category" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+      <element name="qualifier_code" type="xsd:string"/>
+      <element name="proxyUserName" type="xsd:string"/>
+      <element name="realOrImplied" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isUserAuthorizedExtResponse">
+    <complexType>
+     <sequence>
+      <element name="isUserAuthorizedExtReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAuthorization">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+      <element name="qualifier_code" type="xsd:string"/>
+      <element name="kerberos_name" type="xsd:string"/>
+      <element name="effective_date" type="xsd:string"/>
+      <element name="expiration_date" type="xsd:string"/>
+      <element name="do_function" type="xsd:string"/>
+      <element name="grant_auth" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAuthorizationResponse">
+    <complexType>
+     <sequence>
+      <element name="createAuthorizationReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateAuthorization">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="auth_id" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+      <element name="qualifier_code" type="xsd:string"/>
+      <element name="kerberos_name" type="xsd:string"/>
+      <element name="effective_date" type="xsd:string"/>
+      <element name="expiration_date" type="xsd:string"/>
+      <element name="do_function" type="xsd:string"/>
+      <element name="grant_auth" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateAuthorizationResponse">
+    <complexType>
+     <sequence>
+      <element name="updateAuthorizationReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteAuthorization">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="auth_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteAuthorizationResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteAuthorizationReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByPersonExt">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="isActive" type="xsd:boolean"/>
+      <element name="willExpand" type="xsd:boolean"/>
+      <element name="proxyUserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByPersonExtResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listAuthorizationsByPersonExtReturn" type="impl:rolesAuthorizationExt"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="rolesAuthorizationExt">
+    <complexContent>
+     <extension base="impl:rolesAuthorization">
+      <sequence>
+       <element name="authorizationID" nillable="true" type="xsd:string"/>
+       <element name="doFunction" nillable="true" type="xsd:string"/>
+       <element name="effectiveDate" nillable="true" type="xsd:string"/>
+       <element name="expirationDate" nillable="true" type="xsd:string"/>
+       <element name="grantAuth" nillable="true" type="xsd:string"/>
+       <element name="isActiveNow" type="xsd:boolean"/>
+       <element name="modifiedBy" nillable="true" type="xsd:string"/>
+       <element name="modifiedDate" nillable="true" type="xsd:string"/>
+       <element name="qualifierType" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="listAuthorizationsByPersonXML">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="isActive" type="xsd:boolean"/>
+      <element name="willExpand" type="xsd:boolean"/>
+      <element name="proxyUserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByPersonXMLResponse">
+    <complexType>
+     <sequence>
+      <element name="listAuthorizationsByPersonXMLReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listEditableAuthorizationByAuthId">
+    <complexType>
+     <sequence>
+      <element name="authId" type="xsd:string"/>
+      <element name="proxyUserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listEditableAuthorizationByAuthIdResponse">
+    <complexType>
+     <sequence>
+      <element name="listEditableAuthorizationByAuthIdReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByPersonRawXML">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="isActive" type="xsd:boolean"/>
+      <element name="willExpand" type="xsd:boolean"/>
+      <element name="proxyUserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByPersonRawXMLResponse">
+    <complexType>
+     <sequence>
+      <element name="listAuthorizationsByPersonRawXMLReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthByPersonExtend1XML">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="isActive" type="xsd:boolean"/>
+      <element name="willExpand" type="xsd:boolean"/>
+      <element name="proxyUserName" type="xsd:string"/>
+      <element name="realOrImplied" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+      <element name="function_id" type="xsd:string"/>
+      <element name="function_qualifier_type" type="xsd:string"/>
+      <element name="qualifier_code" type="xsd:string"/>
+      <element name="qualifier_id" type="xsd:string"/>
+      <element name="base_qual_code" type="xsd:string"/>
+      <element name="base_qual_id" type="xsd:string"/>
+      <element name="parent_qual_code" type="xsd:string"/>
+      <element name="parent_qual_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthByPersonExtend1XMLResponse">
+    <complexType>
+     <sequence>
+      <element name="listAuthByPersonExtend1XMLReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthByPersonExtend1">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="isActive" type="xsd:boolean"/>
+      <element name="willExpand" type="xsd:boolean"/>
+      <element name="proxyUserName" type="xsd:string"/>
+      <element name="realOrImplied" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+      <element name="function_id" type="xsd:string"/>
+      <element name="function_qualifier_type" type="xsd:string"/>
+      <element name="qualifier_code" type="xsd:string"/>
+      <element name="qualifier_id" type="xsd:string"/>
+      <element name="base_qual_code" type="xsd:string"/>
+      <element name="base_qual_id" type="xsd:string"/>
+      <element name="parent_qual_code" type="xsd:string"/>
+      <element name="parent_qual_id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthByPersonExtend1Response">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listAuthByPersonExtend1Return" type="impl:rolesAuthorizationExt"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByCriteria">
+    <complexType>
+     <sequence>
+      <element name="proxyUserName" type="xsd:string"/>
+      <element name="crit_list" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAuthorizationsByCriteriaResponse">
+    <complexType>
+     <sequence>
+      <element name="listAuthorizationsByCriteriaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkAuthEditPermissions">
+    <complexType>
+     <sequence>
+      <element name="proxyUserName" type="xsd:string"/>
+      <element name="functionName" type="xsd:string"/>
+      <element name="qualifierCode" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkAuthEditPermissionsResponse">
+    <complexType>
+     <sequence>
+      <element name="checkAuthEditPermissionsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listFunctionCategories">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listFunctionCategoriesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listFunctionCategoriesReturn" type="impl:rolesPickableCategory"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="rolesPickableCategory">
+    <sequence>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="listPickableFunctionsByCategory">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listPickableFunctionsByCategoryResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listPickableFunctionsByCategoryReturn" type="impl:rolesPickableFunction"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="rolesPickableFunction">
+    <sequence>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="fqt" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="kname" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="getQualifierTypeForFunction">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQualifierTypeForFunctionResponse">
+    <complexType>
+     <sequence>
+      <element name="getQualifierTypeForFunctionReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFunctionDesc">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="category" type="xsd:string"/>
+      <element name="function_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFunctionDescResponse">
+    <complexType>
+     <sequence>
+      <element name="getFunctionDescReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQualifierXML">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="function" type="xsd:string"/>
+      <element name="qualifier_type" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQualifierXMLResponse">
+    <complexType>
+     <sequence>
+      <element name="getQualifierXMLReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQualifierXMLForCriteriaQuery">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="functionName" type="xsd:string"/>
+      <element name="qualifierType" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQualifierXMLForCriteriaQueryResponse">
+    <complexType>
+     <sequence>
+      <element name="getQualifierXMLForCriteriaQueryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQualifierRootXML">
+    <complexType>
+     <sequence>
+      <element name="root_id" type="xsd:string"/>
+      <element name="root" type="xsd:string"/>
+      <element name="qualifier_type" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQualifierRootXMLResponse">
+    <complexType>
+     <sequence>
+      <element name="getQualifierRootXMLReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listViewableCategories">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listViewableCategoriesResponse">
+    <complexType>
+     <sequence>
+      <element name="listViewableCategoriesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listViewableFunctionsByCategory">
+    <complexType>
+     <sequence>
+      <element name="category" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listViewableFunctionsByCategoryResponse">
+    <complexType>
+     <sequence>
+      <element name="listViewableFunctionsByCategoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="batchCreate">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="kerberos_name" type="xsd:string"/>
+      <element name="authIDs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="batchCreateResponse">
+    <complexType>
+     <sequence>
+      <element name="batchCreateReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="batchDelete">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="deleteIDs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="batchDeleteResponse">
+    <complexType>
+     <sequence>
+      <element name="batchDeleteReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="batchReplace">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="kerberos_name" type="xsd:string"/>
+      <element name="authIDs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="batchReplaceResponse">
+    <complexType>
+     <sequence>
+      <element name="batchReplaceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveCriteria">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+      <element name="selection_id" type="xsd:string"/>
+      <element name="criteria_list" type="xsd:string"/>
+      <element name="value_list" type="xsd:string"/>
+      <element name="apply_list" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="saveCriteriaResponse">
+    <complexType>
+     <sequence>
+      <element name="saveCriteriaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSelectionList">
+    <complexType>
+     <sequence>
+      <element name="UserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSelectionListResponse">
+    <complexType>
+     <sequence>
+      <element name="getSelectionListReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCriteriaSet">
+    <complexType>
+     <sequence>
+      <element name="selectionID" type="xsd:string"/>
+      <element name="UserName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCriteriaSetResponse">
+    <complexType>
+     <sequence>
+      <element name="getCriteriaSetReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listPersonRaw">
+    <complexType>
+     <sequence>
+      <element name="proxyUserName" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+      <element name="search" type="xsd:string"/>
+      <element name="sort" type="xsd:string"/>
+      <element name="filter1" type="xsd:string"/>
+      <element name="filter2" type="xsd:string"/>
+      <element name="filter3" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listPersonRawResponse">
+    <complexType>
+     <sequence>
+      <element name="listPersonRawReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listPersonJSON">
+    <complexType>
+     <sequence>
+      <element name="proxyUserName" type="xsd:string"/>
+      <element name="name" type="xsd:string"/>
+      <element name="search" type="xsd:string"/>
+      <element name="sort" type="xsd:string"/>
+      <element name="filter1" type="xsd:string"/>
+      <element name="filter2" type="xsd:string"/>
+      <element name="filter3" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listPersonJSONResponse">
+    <complexType>
+     <sequence>
+      <element name="listPersonJSONReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="listAuthorizationsByCriteriaRequest">
+
+      <wsdl:part element="impl:listAuthorizationsByCriteria" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listViewableCategoriesResponse">
+
+      <wsdl:part element="impl:listViewableCategoriesResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierXMLForCriteriaQueryRequest">
+
+      <wsdl:part element="impl:getQualifierXMLForCriteriaQuery" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchCreateRequest">
+
+      <wsdl:part element="impl:batchCreate" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchReplaceRequest">
+
+      <wsdl:part element="impl:batchReplace" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAuthorizationRequest">
+
+      <wsdl:part element="impl:updateAuthorization" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByCriteriaResponse">
+
+      <wsdl:part element="impl:listAuthorizationsByCriteriaResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserAuthorizationsRequest">
+
+      <wsdl:part element="impl:getUserAuthorizations" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchDeleteRequest">
+
+      <wsdl:part element="impl:batchDelete" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPersonRawResponse">
+
+      <wsdl:part element="impl:listPersonRawResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAuthorizationRequest">
+
+      <wsdl:part element="impl:createAuthorization" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchReplaceResponse">
+
+      <wsdl:part element="impl:batchReplaceResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAuthorizationResponse">
+
+      <wsdl:part element="impl:createAuthorizationResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchCreateResponse">
+
+      <wsdl:part element="impl:batchCreateResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonExtResponse">
+
+      <wsdl:part element="impl:listAuthorizationsByPersonExtResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCriteriaSetRequest">
+
+      <wsdl:part element="impl:getCriteriaSet" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchDeleteResponse">
+
+      <wsdl:part element="impl:batchDeleteResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listViewableFunctionsByCategoryResponse">
+
+      <wsdl:part element="impl:listViewableFunctionsByCategoryResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPersonJSONResponse">
+
+      <wsdl:part element="impl:listPersonJSONResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierTypeForFunctionResponse">
+
+      <wsdl:part element="impl:getQualifierTypeForFunctionResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkAuthEditPermissionsResponse">
+
+      <wsdl:part element="impl:checkAuthEditPermissionsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listFunctionCategoriesRequest">
+
+      <wsdl:part element="impl:listFunctionCategories" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="isUserAuthorizedExtRequest">
+
+      <wsdl:part element="impl:isUserAuthorizedExt" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthByPersonExtend1Request">
+
+      <wsdl:part element="impl:listAuthByPersonExtend1" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthByPersonExtend1Response">
+
+      <wsdl:part element="impl:listAuthByPersonExtend1Response" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthByPersonExtend1XMLResponse">
+
+      <wsdl:part element="impl:listAuthByPersonExtend1XMLResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="isUserAuthorizedResponse">
+
+      <wsdl:part element="impl:isUserAuthorizedResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveCriteriaRequest">
+
+      <wsdl:part element="impl:saveCriteria" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonResponse">
+
+      <wsdl:part element="impl:listAuthorizationsByPersonResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserAuthorizationsResponse">
+
+      <wsdl:part element="impl:getUserAuthorizationsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="isUserAuthorizedRequest">
+
+      <wsdl:part element="impl:isUserAuthorized" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAuthorizationResponse">
+
+      <wsdl:part element="impl:deleteAuthorizationResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listViewableCategoriesRequest">
+
+      <wsdl:part element="impl:listViewableCategories" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCriteriaSetResponse">
+
+      <wsdl:part element="impl:getCriteriaSetResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierXMLRequest">
+
+      <wsdl:part element="impl:getQualifierXML" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAuthorizationResponse">
+
+      <wsdl:part element="impl:updateAuthorizationResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierRootXMLRequest">
+
+      <wsdl:part element="impl:getQualifierRootXML" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="isUserAuthorizedExtResponse">
+
+      <wsdl:part element="impl:isUserAuthorizedExtResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonRequest">
+
+      <wsdl:part element="impl:listAuthorizationsByPerson" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchUpdateRequest">
+
+      <wsdl:part element="impl:batchUpdate" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSelectionListRequest">
+
+      <wsdl:part element="impl:getSelectionList" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierTypeForFunctionRequest">
+
+      <wsdl:part element="impl:getQualifierTypeForFunction" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAuthorizationRequest">
+
+      <wsdl:part element="impl:deleteAuthorization" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="batchUpdateResponse">
+
+      <wsdl:part element="impl:batchUpdateResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPersonRawRequest">
+
+      <wsdl:part element="impl:listPersonRaw" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthByPersonExtend1XMLRequest">
+
+      <wsdl:part element="impl:listAuthByPersonExtend1XML" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFunctionDescRequest">
+
+      <wsdl:part element="impl:getFunctionDesc" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierRootXMLResponse">
+
+      <wsdl:part element="impl:getQualifierRootXMLResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPersonJSONRequest">
+
+      <wsdl:part element="impl:listPersonJSON" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listEditableAuthorizationByAuthIdResponse">
+
+      <wsdl:part element="impl:listEditableAuthorizationByAuthIdResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonExtRequest">
+
+      <wsdl:part element="impl:listAuthorizationsByPersonExt" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPickableFunctionsByCategoryResponse">
+
+      <wsdl:part element="impl:listPickableFunctionsByCategoryResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listEditableAuthorizationByAuthIdRequest">
+
+      <wsdl:part element="impl:listEditableAuthorizationByAuthId" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFunctionDescResponse">
+
+      <wsdl:part element="impl:getFunctionDescResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSelectionListResponse">
+
+      <wsdl:part element="impl:getSelectionListResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listPickableFunctionsByCategoryRequest">
+
+      <wsdl:part element="impl:listPickableFunctionsByCategory" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierXMLForCriteriaQueryResponse">
+
+      <wsdl:part element="impl:getQualifierXMLForCriteriaQueryResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonXMLRequest">
+
+      <wsdl:part element="impl:listAuthorizationsByPersonXML" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonRawXMLRequest">
+
+      <wsdl:part element="impl:listAuthorizationsByPersonRawXML" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="saveCriteriaResponse">
+
+      <wsdl:part element="impl:saveCriteriaResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonXMLResponse">
+
+      <wsdl:part element="impl:listAuthorizationsByPersonXMLResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listViewableFunctionsByCategoryRequest">
+
+      <wsdl:part element="impl:listViewableFunctionsByCategory" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listFunctionCategoriesResponse">
+
+      <wsdl:part element="impl:listFunctionCategoriesResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAuthorizationsByPersonRawXMLResponse">
+
+      <wsdl:part element="impl:listAuthorizationsByPersonRawXMLResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="rolesException">
+
+      <wsdl:part element="impl:fault" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkAuthEditPermissionsRequest">
+
+      <wsdl:part element="impl:checkAuthEditPermissions" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQualifierXMLResponse">
+
+      <wsdl:part element="impl:getQualifierXMLResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="roles">
+
+      <wsdl:operation name="isUserAuthorized">
+
+         <wsdl:input message="impl:isUserAuthorizedRequest" name="isUserAuthorizedRequest"/>
+
+         <wsdl:output message="impl:isUserAuthorizedResponse" name="isUserAuthorizedResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPerson">
+
+         <wsdl:input message="impl:listAuthorizationsByPersonRequest" name="listAuthorizationsByPersonRequest"/>
+
+         <wsdl:output message="impl:listAuthorizationsByPersonResponse" name="listAuthorizationsByPersonResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserAuthorizations">
+
+         <wsdl:input message="impl:getUserAuthorizationsRequest" name="getUserAuthorizationsRequest"/>
+
+         <wsdl:output message="impl:getUserAuthorizationsResponse" name="getUserAuthorizationsResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchUpdate">
+
+         <wsdl:input message="impl:batchUpdateRequest" name="batchUpdateRequest"/>
+
+         <wsdl:output message="impl:batchUpdateResponse" name="batchUpdateResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isUserAuthorizedExt">
+
+         <wsdl:input message="impl:isUserAuthorizedExtRequest" name="isUserAuthorizedExtRequest"/>
+
+         <wsdl:output message="impl:isUserAuthorizedExtResponse" name="isUserAuthorizedExtResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAuthorization">
+
+         <wsdl:input message="impl:createAuthorizationRequest" name="createAuthorizationRequest"/>
+
+         <wsdl:output message="impl:createAuthorizationResponse" name="createAuthorizationResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAuthorization">
+
+         <wsdl:input message="impl:updateAuthorizationRequest" name="updateAuthorizationRequest"/>
+
+         <wsdl:output message="impl:updateAuthorizationResponse" name="updateAuthorizationResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteAuthorization">
+
+         <wsdl:input message="impl:deleteAuthorizationRequest" name="deleteAuthorizationRequest"/>
+
+         <wsdl:output message="impl:deleteAuthorizationResponse" name="deleteAuthorizationResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPersonExt">
+
+         <wsdl:input message="impl:listAuthorizationsByPersonExtRequest" name="listAuthorizationsByPersonExtRequest"/>
+
+         <wsdl:output message="impl:listAuthorizationsByPersonExtResponse" name="listAuthorizationsByPersonExtResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPersonXML">
+
+         <wsdl:input message="impl:listAuthorizationsByPersonXMLRequest" name="listAuthorizationsByPersonXMLRequest"/>
+
+         <wsdl:output message="impl:listAuthorizationsByPersonXMLResponse" name="listAuthorizationsByPersonXMLResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listEditableAuthorizationByAuthId">
+
+         <wsdl:input message="impl:listEditableAuthorizationByAuthIdRequest" name="listEditableAuthorizationByAuthIdRequest"/>
+
+         <wsdl:output message="impl:listEditableAuthorizationByAuthIdResponse" name="listEditableAuthorizationByAuthIdResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPersonRawXML">
+
+         <wsdl:input message="impl:listAuthorizationsByPersonRawXMLRequest" name="listAuthorizationsByPersonRawXMLRequest"/>
+
+         <wsdl:output message="impl:listAuthorizationsByPersonRawXMLResponse" name="listAuthorizationsByPersonRawXMLResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthByPersonExtend1XML">
+
+         <wsdl:input message="impl:listAuthByPersonExtend1XMLRequest" name="listAuthByPersonExtend1XMLRequest"/>
+
+         <wsdl:output message="impl:listAuthByPersonExtend1XMLResponse" name="listAuthByPersonExtend1XMLResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthByPersonExtend1">
+
+         <wsdl:input message="impl:listAuthByPersonExtend1Request" name="listAuthByPersonExtend1Request"/>
+
+         <wsdl:output message="impl:listAuthByPersonExtend1Response" name="listAuthByPersonExtend1Response"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByCriteria">
+
+         <wsdl:input message="impl:listAuthorizationsByCriteriaRequest" name="listAuthorizationsByCriteriaRequest"/>
+
+         <wsdl:output message="impl:listAuthorizationsByCriteriaResponse" name="listAuthorizationsByCriteriaResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkAuthEditPermissions">
+
+         <wsdl:input message="impl:checkAuthEditPermissionsRequest" name="checkAuthEditPermissionsRequest"/>
+
+         <wsdl:output message="impl:checkAuthEditPermissionsResponse" name="checkAuthEditPermissionsResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listFunctionCategories">
+
+         <wsdl:input message="impl:listFunctionCategoriesRequest" name="listFunctionCategoriesRequest"/>
+
+         <wsdl:output message="impl:listFunctionCategoriesResponse" name="listFunctionCategoriesResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPickableFunctionsByCategory">
+
+         <wsdl:input message="impl:listPickableFunctionsByCategoryRequest" name="listPickableFunctionsByCategoryRequest"/>
+
+         <wsdl:output message="impl:listPickableFunctionsByCategoryResponse" name="listPickableFunctionsByCategoryResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierTypeForFunction">
+
+         <wsdl:input message="impl:getQualifierTypeForFunctionRequest" name="getQualifierTypeForFunctionRequest"/>
+
+         <wsdl:output message="impl:getQualifierTypeForFunctionResponse" name="getQualifierTypeForFunctionResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFunctionDesc">
+
+         <wsdl:input message="impl:getFunctionDescRequest" name="getFunctionDescRequest"/>
+
+         <wsdl:output message="impl:getFunctionDescResponse" name="getFunctionDescResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierXML">
+
+         <wsdl:input message="impl:getQualifierXMLRequest" name="getQualifierXMLRequest"/>
+
+         <wsdl:output message="impl:getQualifierXMLResponse" name="getQualifierXMLResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierXMLForCriteriaQuery">
+
+         <wsdl:input message="impl:getQualifierXMLForCriteriaQueryRequest" name="getQualifierXMLForCriteriaQueryRequest"/>
+
+         <wsdl:output message="impl:getQualifierXMLForCriteriaQueryResponse" name="getQualifierXMLForCriteriaQueryResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierRootXML">
+
+         <wsdl:input message="impl:getQualifierRootXMLRequest" name="getQualifierRootXMLRequest"/>
+
+         <wsdl:output message="impl:getQualifierRootXMLResponse" name="getQualifierRootXMLResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listViewableCategories">
+
+         <wsdl:input message="impl:listViewableCategoriesRequest" name="listViewableCategoriesRequest"/>
+
+         <wsdl:output message="impl:listViewableCategoriesResponse" name="listViewableCategoriesResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listViewableFunctionsByCategory">
+
+         <wsdl:input message="impl:listViewableFunctionsByCategoryRequest" name="listViewableFunctionsByCategoryRequest"/>
+
+         <wsdl:output message="impl:listViewableFunctionsByCategoryResponse" name="listViewableFunctionsByCategoryResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchCreate">
+
+         <wsdl:input message="impl:batchCreateRequest" name="batchCreateRequest"/>
+
+         <wsdl:output message="impl:batchCreateResponse" name="batchCreateResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchDelete">
+
+         <wsdl:input message="impl:batchDeleteRequest" name="batchDeleteRequest"/>
+
+         <wsdl:output message="impl:batchDeleteResponse" name="batchDeleteResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchReplace">
+
+         <wsdl:input message="impl:batchReplaceRequest" name="batchReplaceRequest"/>
+
+         <wsdl:output message="impl:batchReplaceResponse" name="batchReplaceResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="saveCriteria">
+
+         <wsdl:input message="impl:saveCriteriaRequest" name="saveCriteriaRequest"/>
+
+         <wsdl:output message="impl:saveCriteriaResponse" name="saveCriteriaResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSelectionList">
+
+         <wsdl:input message="impl:getSelectionListRequest" name="getSelectionListRequest"/>
+
+         <wsdl:output message="impl:getSelectionListResponse" name="getSelectionListResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCriteriaSet">
+
+         <wsdl:input message="impl:getCriteriaSetRequest" name="getCriteriaSetRequest"/>
+
+         <wsdl:output message="impl:getCriteriaSetResponse" name="getCriteriaSetResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPersonRaw">
+
+         <wsdl:input message="impl:listPersonRawRequest" name="listPersonRawRequest"/>
+
+         <wsdl:output message="impl:listPersonRawResponse" name="listPersonRawResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPersonJSON">
+
+         <wsdl:input message="impl:listPersonJSONRequest" name="listPersonJSONRequest"/>
+
+         <wsdl:output message="impl:listPersonJSONResponse" name="listPersonJSONResponse"/>
+
+         <wsdl:fault message="impl:rolesException" name="rolesException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="rolesSoapBinding" type="impl:roles">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="isUserAuthorized">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isUserAuthorizedRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isUserAuthorizedResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPerson">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAuthorizationsByPersonRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAuthorizationsByPersonResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserAuthorizations">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserAuthorizationsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserAuthorizationsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchUpdate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="batchUpdateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="batchUpdateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isUserAuthorizedExt">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isUserAuthorizedExtRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isUserAuthorizedExtResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAuthorization">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createAuthorizationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createAuthorizationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAuthorization">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateAuthorizationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateAuthorizationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteAuthorization">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteAuthorizationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteAuthorizationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPersonExt">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAuthorizationsByPersonExtRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAuthorizationsByPersonExtResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPersonXML">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAuthorizationsByPersonXMLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAuthorizationsByPersonXMLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listEditableAuthorizationByAuthId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listEditableAuthorizationByAuthIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listEditableAuthorizationByAuthIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByPersonRawXML">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAuthorizationsByPersonRawXMLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAuthorizationsByPersonRawXMLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthByPersonExtend1XML">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAuthByPersonExtend1XMLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAuthByPersonExtend1XMLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthByPersonExtend1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAuthByPersonExtend1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAuthByPersonExtend1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAuthorizationsByCriteria">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAuthorizationsByCriteriaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAuthorizationsByCriteriaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkAuthEditPermissions">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkAuthEditPermissionsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkAuthEditPermissionsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listFunctionCategories">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listFunctionCategoriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listFunctionCategoriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPickableFunctionsByCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listPickableFunctionsByCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listPickableFunctionsByCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierTypeForFunction">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getQualifierTypeForFunctionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getQualifierTypeForFunctionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFunctionDesc">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFunctionDescRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFunctionDescResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierXML">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getQualifierXMLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getQualifierXMLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierXMLForCriteriaQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getQualifierXMLForCriteriaQueryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getQualifierXMLForCriteriaQueryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQualifierRootXML">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getQualifierRootXMLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getQualifierRootXMLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listViewableCategories">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listViewableCategoriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listViewableCategoriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listViewableFunctionsByCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listViewableFunctionsByCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listViewableFunctionsByCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchCreate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="batchCreateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="batchCreateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchDelete">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="batchDeleteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="batchDeleteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="batchReplace">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="batchReplaceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="batchReplaceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="saveCriteria">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="saveCriteriaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="saveCriteriaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSelectionList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSelectionListRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSelectionListResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCriteriaSet">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCriteriaSetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCriteriaSetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPersonRaw">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listPersonRawRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listPersonRawResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listPersonJSON">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listPersonJSONRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listPersonJSONResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="rolesException">
+
+            <wsdlsoap:fault name="rolesException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="rolesService">
+
+      <wsdl:port binding="impl:rolesSoapBinding" name="roles">
+
+         <wsdlsoap:address location="https://ws-test.mit.edu/rolesws/services/roles"/>
+         <!--<wsdlsoap:address location="https://rolesws.mit.edu/rolesws/services/roles"/>-->
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
