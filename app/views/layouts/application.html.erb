@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MIT Engineering Outcomes Assessment</title>
+  <title>Abet</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Maven+Pro' %> 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="shortcut icon" href="/favicon.ico" %>
 </head>
 <body>
-<a href="/"><img src="/ABET-header-image.png"></a>
+
 <%= yield %>
-<p class="footer"><i>For questions or problems with this site, please contact Jon Daries at <a class="footer" href="mailto:daries@mit.edu">daries@mit.edu</a>.</i></p>
+
 </body>
 </html>
