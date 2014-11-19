@@ -1,9 +1,3 @@
-Given /^a Touchstone authenticated user$/ do
-  ENV['eppn'] = "daries@mit.edu"
-  Department.create!(name: 'Mechanical Engineering', role_department: 'D_MECHE Mechanical Engineering')
-  Department.create!(name: 'Nuclear Engineering', role_department: 'D_NUCENG Nuclear Science and Engineering')
-end
-
 Given /^a user with no access$/ do
   TestOnlyAccess.access = TestOnlyAccess::NO_ACCESS
 end

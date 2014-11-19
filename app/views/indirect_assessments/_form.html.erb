@@ -1,0 +1,10 @@
+<%=form_for(@assessment) do |f| %>
+	<%=@labels[:assessment_name_name] %>: <%=f.text_field :assessment_name %>
+	<%=@labels[:assessment_description_name] %>: <%=f.text_field :assessment_description %>
+	<%=@labels[:year_name] %>: <%=f.select :year, @available_years  %>
+	<% if @indirect_type == 'survey'%>
+	<%=@labels[:minimum_category_name] %>: <%=f.text_field :minimum_category %>
+	<% end %>
+	<%=@labels[:target_percentage_name] %>: <%=f.text_field	:target_percentage %>
+	<%=@labels[:actual_percentage_name] %>: <%=f.text_field :actual_percentage %>
+<% end %>

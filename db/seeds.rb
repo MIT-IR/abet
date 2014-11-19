@@ -36,5 +36,22 @@ ActiveRecord::Base.transaction do
 			course_name: course[1],
 			department: dept)
 	end
+	standard_outcomes = [
+		["a", "an ability to apply knowledge of mathematics, science, and engineering"],
+		["b", "an ability to design and conduct experiments, as well as to analyze and interpret data"],
+		["c", "an ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability"],
+		["d", "an ability to function on multidisciplinary teams"],
+		["e", "an ability to identify, formulate, and solve engineering problems"],
+		["f", "an understanding of professional and ethical responsibility"],
+		["g", "an ability to communicate effectively"],
+		["h", "the broad education necessary to understand the impact of engineering solutions in a global, economic, environmental, and societal context"],
+		["i", "a recognition of the need for, and an ability to engage in life-long learning"],
+		["j", "a knowledge of contemporary issues"],
+		["k", "an ability to use the techniques, skills, and modern engineering tools necessary for engineering practice"]
+	]
+	standard_outcomes.each do |outcome|
+		StandardOutcome.find_or_create_by(name: outcome[0],
+			description: outcome[1])
+	end
 end
 
