@@ -2873,3 +2873,2028 @@ Processing by DepartmentsController#show as HTML
   Rendered departments/show.html.erb within layouts/application (0.7ms)
 Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.7ms)[0m  CREATE TABLE "courses" ("id" serial primary key, "course_number" character varying(255), "course_name" character varying(255), "department_id" integer) 
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "departments" ("id" serial primary key, "name" character varying(255), "role_department" character varying(255)) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (2.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141118191650')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141118164442')
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 09:51:41 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 1174ms (Views: 1158.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (2.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 4.1ms | ActiveRecord: 2.5ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/5
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/5" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCourse Load (1.8ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 5]]
+  Rendered departments/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 77ms (Views: 7.6ms | ActiveRecord: 3.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/7
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/7" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 7]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+Started GET "/departments/9" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mDepartment Load (0.7ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 9]]
+  Rendered departments/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 11]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 11]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/11" for 127.0.0.1 at 2014-11-19 09:51:42 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35mCourse Load (2.7ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 11]]
+  Rendered departments/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 2.9ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:01:33 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 42ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 2.8ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/17
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/17" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 17]]
+  [1m[36mCourse Load (1.2ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 17]]
+  Rendered departments/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 29ms (Views: 6.6ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/19
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/departments/19" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 19]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 19]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.7ms)
+Started GET "/departments/21" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 21]]
+  Rendered departments/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 23]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 23]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/23" for 127.0.0.1 at 2014-11-19 10:01:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 23]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 27ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 2.3ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/29
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/29" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"29"}
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 29]]
+  [1m[36mCourse Load (1.1ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 29]]
+  Rendered departments/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 28ms (Views: 6.0ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/31
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/31" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 31]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 31]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+Started GET "/departments/33" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"33"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 33]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 33]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 35]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 35]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/35" for 127.0.0.1 at 2014-11-19 10:02:34 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 35]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 35]]
+  Rendered departments/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 29ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 10ms (Views: 2.3ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/41
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/41" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 41]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 41]]
+  Rendered departments/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 28ms (Views: 6.8ms | ActiveRecord: 1.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/43
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/43" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"43"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 43]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 43]]
+  Rendered departments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+Started GET "/departments/45" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"45"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 45]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 45]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 47]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 47]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/47" for 127.0.0.1 at 2014-11-19 10:08:45 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"47"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 47]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 47]]
+  Rendered departments/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 41ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 2.9ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/53
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/53" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"53"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 53]]
+  [1m[36mCourse Load (1.0ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 53]]
+  Rendered departments/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 32ms (Views: 8.7ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/55
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/departments/55" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"55"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 55]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 55]]
+  Rendered departments/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+Started GET "/departments/57" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"57"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 57]]
+  Rendered departments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.7ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 59]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 59]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/59" for 127.0.0.1 at 2014-11-19 10:11:07 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"59"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 59]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 59]]
+  Rendered departments/show.html.erb within layouts/application (32.8ms)
+Completed 500 Internal Server Error in 35ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 30ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.9ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 10ms (Views: 3.0ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/65
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/65" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"65"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 65]]
+  [1m[36mCourse Load (1.1ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 65]]
+  Rendered departments/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 28ms (Views: 7.0ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/67
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/67" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"67"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 67]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 67]]
+  Rendered departments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.7ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+Started GET "/departments/69" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"69"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 69]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 69]]
+  Rendered departments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 71]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 71]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/71" for 127.0.0.1 at 2014-11-19 10:12:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"71"}
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 71]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 71]]
+  Rendered departments/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 29ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 11ms (Views: 2.3ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/77
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/77" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"77"}
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 77]]
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 77]]
+  Rendered departments/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 23ms (Views: 5.4ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/79
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/79" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"79"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 79]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 79]]
+  Rendered departments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+Started GET "/departments/81" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"81"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 81]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 81]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 83]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 83]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.5ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/83" for 127.0.0.1 at 2014-11-19 10:13:10 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"83"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 83]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 83]]
+  Rendered departments/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (1.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+Started GET "/departments/85" for 127.0.0.1 at 2014-11-19 10:18:10 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"85"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 85]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 85]]
+  Rendered departments/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 50ms (Views: 20.6ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 32ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 10ms (Views: 2.5ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/91
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/91" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"91"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 91]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 91]]
+  Rendered departments/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 27ms (Views: 5.8ms | ActiveRecord: 1.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/93
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/93" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 93]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 93]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+Started GET "/departments/95" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"95"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 95]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 95]]
+  Rendered departments/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 97]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 97]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/97" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"97"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 97]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 97]]
+  Rendered departments/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+Started GET "/departments/99" for 127.0.0.1 at 2014-11-19 10:18:49 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"99"}
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 99]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 99]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 26ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/105
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/departments/105" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"105"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 105]]
+  [1m[36mCourse Load (0.6ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 105]]
+  Rendered departments/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 26ms (Views: 7.2ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/107
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/107" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"107"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 107]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 107]]
+  Rendered departments/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.5ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.7ms)
+Started GET "/departments/109" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"109"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 109]]
+  [1m[35mCourse Load (0.4ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 109]]
+  Rendered departments/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 111]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 111]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/111" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"111"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 111]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 111]]
+  Rendered departments/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.5ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+Started GET "/departments/113" for 127.0.0.1 at 2014-11-19 10:20:14 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"113"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 113]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 113]]
+  Rendered departments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 23ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.5ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 3.5ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/119
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/119" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"119"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 119]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 119]]
+  Rendered departments/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 25ms (Views: 5.5ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/121
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/121" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"121"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 121]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 121]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.6ms)
+Started GET "/departments/123" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"123"}
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 123]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 123]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 125]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 125]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/125" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"125"}
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 125]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 125]]
+  Rendered departments/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+Started GET "/departments/127" for 127.0.0.1 at 2014-11-19 10:22:38 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"127"}
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 127]]
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 127]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 127]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 127]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 10ms (Views: 3.1ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/133
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/133" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"133"}
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 133]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 133]]
+  Rendered departments/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 25ms (Views: 5.8ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/135
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/135" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"135"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 135]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 135]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.6ms)
+Started GET "/departments/137" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"137"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 137]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 137]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 139]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 139]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/139" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"139"}
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 139]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 139]]
+  Rendered departments/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 141]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 141]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.6ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/141" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"141"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 141]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 141]]
+  Rendered departments/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.6ms)
+Started GET "/courses/25" for 127.0.0.1 at 2014-11-19 10:24:12 -0500
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 39ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 12ms (Views: 2.8ms | ActiveRecord: 1.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/147
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/147" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"147"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 147]]
+  [1m[36mCourse Load (0.5ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 147]]
+  Rendered departments/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 30ms (Views: 6.6ms | ActiveRecord: 1.8ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/149
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/149" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"149"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 149]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 149]]
+  Rendered departments/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 0.8ms)
+Started GET "/departments/151" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"151"}
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 151]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 151]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.5ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 153]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 153]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/153" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"153"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 153]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 153]]
+  Rendered departments/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 155]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 155]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/155" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"155"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 155]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 155]]
+  Rendered departments/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+Started GET "/courses/29" for 127.0.0.1 at 2014-11-19 10:26:02 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"29"}
+Completed 500 Internal Server Error in 4ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:39 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 40ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:39 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 2.5ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:39 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/161
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/161" for 127.0.0.1 at 2014-11-19 10:26:39 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"161"}
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 161]]
+  [1m[36mCourse Load (1.2ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 161]]
+  Rendered departments/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 32ms (Views: 7.7ms | ActiveRecord: 2.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/163
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/163" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"163"}
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 163]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 163]]
+  Rendered departments/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+Started GET "/departments/165" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"165"}
+  [1m[36mDepartment Load (0.4ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 165]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 165]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 167]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 167]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/167" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"167"}
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 167]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 167]]
+  Rendered departments/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 169]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 169]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.4ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/169" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"169"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 169]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 169]]
+  Rendered departments/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+Started GET "/courses/33" for 127.0.0.1 at 2014-11-19 10:26:40 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"33"}
+  Rendered courses/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 25ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (1.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 2.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+Redirected to http://www.example.com/departments/175
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/175" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"175"}
+  [1m[35mDepartment Load (0.5ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1  [["id", 175]]
+  [1m[36mCourse Load (0.6ms)[0m  [1mSELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1[0m  [["department_id", 175]]
+  Rendered departments/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 25ms (Views: 6.9ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by HomeController#index as HTML
+  Rendered home/no_access.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by HomeController#index as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1
+Redirected to http://www.example.com/departments/177
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started GET "/departments/177" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"177"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 177]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 177]]
+  Rendered departments/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by HomeController#index as HTML
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_MECHE Mechanical Engineering' LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."role_department" = 'D_NUCENG Nuclear Science and Engineering' LIMIT 1
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+Started GET "/departments/179" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"179"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 179]]
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 179]]
+  Rendered departments/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 181]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 181]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/181" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"181"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 181]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 181]]
+  Rendered departments/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"  [["name", "Mechanical Engineering"], ["role_department", "D_MECHE Mechanical Engineering"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "departments" ("name", "role_department") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Nuclear Engineering"], ["role_department", "D_NUCENG Nuclear Science and Engineering"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["course_name", "Mechanical Engineering"], ["course_number", "2"], ["department_id", 183]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_name", "course_number", "department_id") VALUES ($1, $2, $3) RETURNING "id"  [["course_name", "MechE Flexible"], ["course_number", "2A"], ["department_id", 183]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."name" = 'Mechanical Engineering' LIMIT 1
+Started GET "/departments/183" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"183"}
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = $1 LIMIT 1[0m  [["id", 183]]
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"  WHERE "courses"."department_id" = $1  [["department_id", 183]]
+  Rendered departments/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+Started GET "/courses/37" for 127.0.0.1 at 2014-11-19 10:26:59 -0500
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"37"}
+  Rendered courses/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m

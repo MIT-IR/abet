@@ -1,0 +1,9 @@
+Feature: Interstital Page
+When a course has no outcomes associated with it
+When a user goes to view the outcomes
+Then they are taken to a page to set up default or custom outcomes
+
+Scenario: User sees interstitial page
+	  Given a course has no outcomes associated with it
+	  When a user goes to view the outcomes
+	  Then user is taken to an interstitial page

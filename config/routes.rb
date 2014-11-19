@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/home/' => 'home#index'
 
   resources :departments, :only => [:show]
+  resources :courses, :only => [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

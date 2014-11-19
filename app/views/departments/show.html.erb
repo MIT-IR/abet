@@ -2,13 +2,11 @@
 	<tr>
 		<th>Course Number</th>
 		<th>Course Name</th>
-		<th>Outcomes</th>
 	</tr>
 	<% @courses.each do |course| %>
 	<tr>
 		<td><%=course.course_number %></td>
-		<td><%=course.course_name %></td>
-		<td>&nbsp;</td>
+		<td><%=link_to course.course_name, course%></td>
 	</tr>
 	<% end %>
 </table>

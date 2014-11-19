@@ -1,0 +1,62 @@
+[ 2014-05-18 09:35:35.3571 41706/0x7fff7b469310 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'jondaries', 'cleanup_pidfiles' => 'L3Zhci9mb2xkZXJzL2gwLzlkNTNydm1uMHpkNTVsNzc3Y2s4YzdnbTAwMDBnbi9UL3Bhc3Nlbmdlci1zdGFuZGFsb25lLmlxa3JsYS90ZW1wX2Rpcl90b3VjaGVyLnBpZA==', 'default_group' => 'staff', 'default_python' => 'python', 'default_ruby' => '/Users/jondaries/.rbenv/versions/2.1.1/bin/ruby', 'default_user' => 'jondaries', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/var/folders/h0/9d53rvmn0zd55l777ck8c7gm0000gn/T/passenger-standalone.iqkrla/locations.ini', 'passenger_version' => '4.0.41', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.41', 'web_server_pid' => '41705', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-05-18 09:35:35.3758 41708/0x7fff7b469310 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.41705/generation-0/request
+[ 2014-05-18 09:35:35.3825 41710/0x7fff7b469310 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.41705/generation-0/logging
+[ 2014-05-18 09:35:35.3827 41706/0x7fff7b469310 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 41723 stdout: 
+App 41723 stdout: 
+[ 2014-05-18 09:35:38.1047 41708/0x102bf8000 Pool2/Implementation.cpp:883 ]: Could not spawn process for group /Users/jondaries/Sites/ABET#default: An error occured while starting up the preloader.
+     in 'void Passenger::ApplicationPool2::SmartSpawner::handleErrorResponse(Passenger::ApplicationPool2::SmartSpawner::StartupDetails &)' (SmartSpawner.h:455)
+     in 'string Passenger::ApplicationPool2::SmartSpawner::negotiatePreloaderStartup(Passenger::ApplicationPool2::SmartSpawner::StartupDetails &)' (SmartSpawner.h:566)
+     in 'void Passenger::ApplicationPool2::SmartSpawner::startPreloader()' (SmartSpawner.h:206)
+     in 'virtual ProcessPtr Passenger::ApplicationPool2::SmartSpawner::spawn(const Passenger::ApplicationPool2::Options &)' (SmartSpawner.h:752)
+     in 'void Passenger::ApplicationPool2::Group::spawnThreadRealMain(const SpawnerPtr &, const Passenger::ApplicationPool2::Options &, unsigned int)' (Implementation.cpp:804)
+
+[ 2014-05-18 09:35:38.1057 41708/0x102b72000 agents/HelperAgent/RequestHandler.h:2210 ]: [Client 21] Cannot checkout session.
+Error page:
+<p>It looks like Bundler could not find a gem. Maybe you didn't install all the gems that this application needs. To install your gems, please run:</p>
+
+  <pre class="commands">bundle install</pre>
+
+<p>If that didn't work, then the problem is probably caused by your application being run under a different environment than it's supposed to. Please check the following:</p>
+
+<ol>
+  <li>Is this app supposed to be run as the <code>jondaries</code> user?</li>
+  <li>Is this app being run on the correct Ruby interpreter? Below you will
+      see which Ruby interpreter Phusion Passenger attempted to use.</li>
+</ol>
+
+<p>-------- The exception is as follows: -------</p>
+Could not find passenger-4.0.42 in any of the sources (Bundler::GemNotFound)
+<pre>  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/spec_set.rb:92:in `block in materialize&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/spec_set.rb:85:in `map!&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/spec_set.rb:85:in `materialize&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/definition.rb:133:in `specs&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/definition.rb:178:in `specs_for&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/definition.rb:167:in `requested_specs&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/environment.rb:18:in `requested_specs&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/runtime.rb:13:in `setup&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler.rb:120:in `setup&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/gems/2.1.0/gems/bundler-1.6.2/lib/bundler/setup.rb:17:in `&lt;top (required)&gt;&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:135:in `require&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:135:in `rescue in require&#39;
+  /Users/jondaries/.rbenv/versions/2.1.1/lib/ruby/2.1.0/rubygems/core_ext/kernel_require.rb:144:in `require&#39;
+  /usr/local/Cellar/passenger/4.0.41/libexec/lib/phusion_passenger/loader_shared_helpers.rb:245:in `block in run_load_path_setup_code&#39;
+  /usr/local/Cellar/passenger/4.0.41/libexec/lib/phusion_passenger/loader_shared_helpers.rb:348:in `running_bundler&#39;
+  /usr/local/Cellar/passenger/4.0.41/libexec/lib/phusion_passenger/loader_shared_helpers.rb:243:in `run_load_path_setup_code&#39;
+  /usr/local/Cellar/passenger/4.0.41/libexec/helper-scripts/rack-preloader.rb:100:in `preload_app&#39;
+  /usr/local/Cellar/passenger/4.0.41/libexec/helper-scripts/rack-preloader.rb:158:in `&lt;module:App&gt;&#39;
+  /usr/local/Cellar/passenger/4.0.41/libexec/helper-scripts/rack-preloader.rb:29:in `&lt;module:PhusionPassenger&gt;&#39;
+  /usr/local/Cellar/passenger/4.0.41/libexec/helper-scripts/rack-preloader.rb:28:in `&lt;main&gt;&#39;</pre>
+
+[ 2014-05-18 09:37:35.5511 41900/0x7fff7b469310 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'jondaries', 'cleanup_pidfiles' => 'L3Zhci9mb2xkZXJzL2gwLzlkNTNydm1uMHpkNTVsNzc3Y2s4YzdnbTAwMDBnbi9UL3Bhc3Nlbmdlci1zdGFuZGFsb25lLjExdTlueHgvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'staff', 'default_python' => 'python', 'default_ruby' => '/Users/jondaries/.rbenv/versions/2.1.1/bin/ruby', 'default_user' => 'jondaries', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/var/folders/h0/9d53rvmn0zd55l777ck8c7gm0000gn/T/passenger-standalone.11u9nxx/locations.ini', 'passenger_version' => '4.0.41', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMAA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.41', 'web_server_pid' => '41899', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+PassengerWatchdog(41903,0x7fff7b469310) malloc: *** mach_vm_map(size=1048576) failed (error code=268435459)
+PassengerWatchdog(41903,0x7fff7b469310) malloc: *** error: can't allocate region securely
+PassengerWatchdog(41903,0x7fff7b469310) malloc: *** set a breakpoint in malloc_error_break to debug
+[ 2014-05-18 09:37:35.5731 41902/0x7fff7b469310 agents/HelperAgent/Main.cpp:643 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.41899/generation-0/request
+[ 2014-05-18 09:37:35.5820 41904/0x7fff7b469310 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.41899/generation-0/logging
+[ 2014-05-18 09:37:35.5822 41900/0x7fff7b469310 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 41917 stdout: 
+[ 2014-05-18 09:37:39.4314 41902/0x110598000 Pool2/SmartSpawner.h:301 ]: Preloader for /Users/jondaries/Sites/ABET started on PID 41917, listening on unix:/tmp/passenger.1.0.41899/generation-0/backends/preloader.41917
+App 42002 stdout: 
+App 42007 stdout: 
+App 42010 stdout: 
