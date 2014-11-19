@@ -2,11 +2,13 @@
 	<th>
 		<td>Name</td>
 		<td>Description</td>
+		<td>&nbsp;</td>
 	</th>
 	<% @outcomes.each do |outcome| %>
-		<tr>
+		<tr id="outcome-<%=outcome.id %>">
 			<td><%= outcome.name%></td>
 			<td><%= outcome.description%></td>
+			<td><%= link_to "Add new assessment", new_assessment_path(outcome)%></td>
 		</tr>
 	<% end %>
 </table>

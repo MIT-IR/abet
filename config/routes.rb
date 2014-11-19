@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'interstitial'
     end
   end
+  resources :assessments
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
