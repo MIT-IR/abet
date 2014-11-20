@@ -1,5 +1,14 @@
+#Test access is defined in config/test-roles.yaml
 Given /^a user with no access$/ do
-  TestOnlyAccess.access = TestOnlyAccess::NO_ACCESS
+  ENV['eppn'] = "noone@mit.edu"
+end
+
+Given /^a user with access to a single department$/ do
+  ENV['eppn'] = "jexample@mit.edu"
+end
+
+Given /^a user with access to multiple departments$/ do
+  ENV['eppn'] = "daries@mit.edu"
 end
 
 When /^they visit the application$/ do
@@ -10,17 +19,9 @@ Then /^they are sent to the no access page$/ do
   expect(page).to have_content "We're sorry, but you do not have access to this application"
 end
 
-Given /^a user with access to multiple departments$/ do
-  TestOnlyAccess.access = TestOnlyAccess::MULTIPLE_DEPARTMENTS
-end
-
 Then /^they see the department chooser page$/ do
   expect(page).to have_content "Mechanical Engineering"
   expect(page).to have_content "Nuclear Engineering"
-end
-
-Given(/^a user with access to a single department$/) do
-  TestOnlyAccess.access = TestOnlyAccess::SINGLE_DEPARTMENT
 end
 
 Then(/^they see that department's landing page$/) do

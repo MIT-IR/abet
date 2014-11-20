@@ -1,0 +1,29 @@
+---
+- account:
+    authorization_id: '12345'
+    category: 'ABET'
+    effective_date: '2004-08-15'
+    expiration_date: '2099-12-31'
+    function: 'CAN EDIT ABET'
+    is_active_now: 'Y'
+    name: 'jexample'
+    account_has_access_to: 'D_MECHE Mechanical Engineering'
+- account:
+    authorization_id: '12345'
+    category: 'ABET'
+    effective_date: '2004-08-15'
+    expiration_date: '2099-12-31'
+    function: 'CAN EDIT ABET'
+    is_active_now: 'Y'
+    name: 'daries'
+    account_has_access_to: 'D_MECHE Mechanical Engineering'
+- account:
+    authorization_id: '12345'
+    category: 'ABET'
+    effective_date: '2004-08-15'
+    expiration_date: '2099-12-31'
+    function: 'CAN EDIT ABET'
+    is_active_now: 'Y'
+    name: 'daries'
+    account_has_access_to: 'D_NUCENG Nuclear Science and Engineering'
+

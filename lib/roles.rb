@@ -1,11 +1,8 @@
 class Roles
-  @@strategy = nil
-  
   def self.for(creds)
-  	unless @@strategy
-  	  klass = Rails.configuration.roles_strategy.constantize
-  	  @@strategy = klass.new
+    krb_name = creds.split('@').first
+    RolesDb.client.accounts_for(krb_name).map do |act|
+      act.account_has_access_to
     end
-    @@strategy.for(creds)
   end
 end
