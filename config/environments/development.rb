@@ -38,7 +38,7 @@ Rails.application.configure do
 end
 
 RolesDb.configure do |config|
-  config.strategy_class = 'RolesDb::LocalRoles'
+  config.strategy_class = 'RolesDb::Roles'
   config.mocked_account_list_file = Rails.root.join('config', 'dev-roles.yaml')
 end
 

@@ -7,7 +7,7 @@
     function: 'CAN EDIT ABET'
     is_active_now: 'Y'
     name: 'daries'
-    account_has_access_to: 'D_MECHE Mechanical Engineering'
+    account_has_access_to: 'D_MECHE'
 - account:
     authorization_id: '12345'
     category: 'ABET'
@@ -16,7 +16,7 @@
     function: 'CAN EDIT ABET'
     is_active_now: 'Y'
     name: 'daries'
-    account_has_access_to: 'D_NUCENG Nuclear Science and Engineering'
+    account_has_access_to: 'D_NUCENG'
 - account:
     authorization_id: '12345'
     category: 'ABET'
@@ -25,7 +25,7 @@
     function: 'CAN EDIT ABET'
     is_active_now: 'Y'
     name: 'daries'
-    account_has_access_to: 'D_CHEME Chemical Engineering'
+    account_has_access_to: 'D_CHEME'
 - account:
     authorization_id: '12345'
     category: 'ABET'
@@ -34,7 +34,7 @@
     function: 'CAN EDIT ABET'
     is_active_now: 'Y'
     name: 'daries'
-    account_has_access_to: 'D_DMSE Dept Material Science and Engineering'
+    account_has_access_to: 'D_DMSE'
 - account:
     authorization_id: '12345'
     category: 'ABET'
@@ -43,7 +43,7 @@
     function: 'CAN EDIT ABET'
     is_active_now: 'Y'
     name: 'daries'
-    account_has_access_to: 'D_CEE Civil & Environmental Engineering'
+    account_has_access_to: 'D_CEE'
 - account:
     authorization_id: '12345'
     category: 'ABET'
@@ -52,7 +52,7 @@
     function: 'CAN EDIT ABET'
     is_active_now: 'Y'
     name: 'daries'
-    account_has_access_to: 'D_EECS Electrical Engineering & Computer Science'
+    account_has_access_to: 'D_EECS'
 - account:
     authorization_id: '12345'
     category: 'ABET'
@@ -61,5 +61,5 @@
     function: 'CAN EDIT ABET'
     is_active_now: 'Y'
     name: 'daries'
-    account_has_access_to: 'D_AEROASTRO Aeronautics and Astronautics'
+    account_has_access_to: 'D_AEROASTRO'
 

@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ActiveRecord::Base.transaction do
-	Department.find_or_create_by(name: "Civil and Environmental Engineering", role_department: "D_CEE Civil & Environmental Engineering")
-	Department.find_or_create_by(name: "Mechanical Engineering", role_department: "D_MECHE Mechanical Engineering")
-	Department.find_or_create_by(name: "DMSE", role_department: "D_DMSE Dept Material Science and Engineering")
-	Department.find_or_create_by(name: "EECS", role_department: "D_EECS Electrical Engineering & Computer Science")
-	Department.find_or_create_by(name: "Chemical Engineering", role_department: "D_CHEME Chemical Engineering")
-	Department.find_or_create_by(name: "Aero Astro", role_department: "D_AEROASTRO Aeronautics and Astronautics")
-	Department.find_or_create_by(name: "Nuclear Science and Engineering", role_department: "D_NUCENG Nuclear Science and Engineering")
+	Department.find_or_create_by(name: "Civil and Environmental Engineering", role_department: "D_CEE")
+	Department.find_or_create_by(name: "Mechanical Engineering", role_department: "D_MECHE")
+	Department.find_or_create_by(name: "DMSE", role_department: "D_DMSE")
+	Department.find_or_create_by(name: "EECS", role_department: "D_EECS")
+	Department.find_or_create_by(name: "Chemical Engineering", role_department: "D_CHEME")
+	Department.find_or_create_by(name: "Aero Astro", role_department: "D_AEROASTRO")
+	Department.find_or_create_by(name: "Nuclear Science and Engineering", role_department: "D_NUCENG")
 	courses = [["1-C", "Civil Engineering", "Civil and Environmental Engineering"],
 	["1-E", "Environmental Engineering", "Civil and Environmental Engineering"],
 	["1-ENG", "CEE Flexible", "Civil and Environmental Engineering"],
