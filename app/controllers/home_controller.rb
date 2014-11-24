@@ -11,6 +11,8 @@ class HomeController < ApplicationController
     @departments = roles.map do |dept|
       Department.find_by_role_department(dept)
     end
+    @departments.compact!
+    @departments.uniq!
     redirect_to department_path(@departments.first) if @departments.count == 1
   end
 end

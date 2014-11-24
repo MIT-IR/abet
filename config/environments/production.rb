@@ -82,4 +82,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.roles_strategy = 'RolesDbAccess'
+
+  #added for Foundation Zurb
+  config.assets.precompile += %w( vendor/modernizr.js )
 end
