@@ -18,7 +18,7 @@ Then(/^a user is given types of assessment to choose from$/) do
 end
 
 When(/^a user chooses a direct\-type assessment$/) do
-  click_link "Grade from an assignment, quiz, or exam."
+  click_link "Grade from an assignment, quiz, or exam"
 end
 
 Then(/^a user sees the form for direct\-type assessments$/) do
@@ -33,7 +33,7 @@ Then(/^a user sees the form for direct\-type assessments$/) do
 end
 
 When(/^a user chooses a survey assessment$/) do
-  click_link "2) Survey results."
+  click_link "Survey results"
 end
 
 Then(/^a user sees the form for survey assessments$/) do
@@ -46,7 +46,7 @@ Then(/^a user sees the form for survey assessments$/) do
 end
 
 When(/^a user chooses a participation assessment$/) do
-  click_link "3) Participation in program."
+  click_link "Participation in program"
 end
 
 Then(/^a user sees the form for participation assessments$/) do
@@ -58,7 +58,7 @@ Then(/^a user sees the form for participation assessments$/) do
 end
 
 When(/^a user chooses an other assessment$/) do
-  click_link "4) Other."
+  click_link "Other"
 end
 
 Then(/^a user sees the form for other assessments$/) do
