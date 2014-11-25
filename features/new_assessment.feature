@@ -33,7 +33,8 @@ Scenario: User chooses to create a new Other (indirect-type) assessment
 	Then a user sees the form for other assessments
 
 Scenario: User submits data to the direct-type assessment form
-	Given a user chooses a direct-type assessment
+	Given a user is given types of assessment to choose from
+	And a user chooses a direct-type assessment
 	And a user sees the form for direct-type assessments
 	When fills out the form with the following items:
 	|direct_assessment_subject_number				|18.02					|

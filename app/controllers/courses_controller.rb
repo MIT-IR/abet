@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
 		defaults.each do |outcome|
 			Outcome.create(name: outcome.name, 
 				description: outcome.description, 
-				course: @course)
+				course: @course, standard_outcome_id: outcome.id)
 		end
 
 		redirect_to action: 'show'

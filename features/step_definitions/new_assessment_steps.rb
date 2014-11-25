@@ -81,5 +81,6 @@ When(/^user clicks the submit button$/) do
 end
 
 Then(/^user sees the list of assessments$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content "18.02"
+  expect(page).to have_content "Multivariable Calculus"
 end

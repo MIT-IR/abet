@@ -1,0 +1,25 @@
+<%=@outcome.name%>:&nbsp;<%=@outcome.description %>
+<table id="direct_assessments">	
+	<th>
+		<td>Subject Number</td>
+		<td>Subject Description</td>
+		<td>Semester</td>
+		<td>Assignment Name</td>
+		<td>Assignment Description</td>
+		<td>Minimum Grade</td>
+		<td>Target Percentage</td>
+		<td>Actual Percentage</td>
+	</th>
+	<% @direct_assessments.each do |assessment| %>
+		<tr id="direct_assessment-<%=assessment.id %>">
+			<td><%= assessment.subject_number%></td>
+			<td><%= assessment.subject_description%></td>
+			<td><%= assessment.semester%></td>
+			<td><%= assessment.assignment_name%></td>
+			<td><%= assessment.assignment_description%></td>
+			<td><%= assessment.minimum_grade%></td>
+			<td><%= assessment.target_percentage%></td>
+			<td><%= assessment.actual_percentage%></td>
+		</tr>
+	<% end %>
+</table>
