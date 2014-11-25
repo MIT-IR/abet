@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141119194101) do
     t.string  "minimum_grade"
     t.integer "target_percentage"
     t.integer "actual_percentage"
+    t.integer "outcome_id"
   end
 
   create_table "indirect_assessments", force: true do |t|
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20141119194101) do
     t.string  "minimum_category"
     t.integer "target_percentage"
     t.integer "actual_percentage"
+    t.integer "outcome_id"
   end
 
   create_table "outcomes", force: true do |t|

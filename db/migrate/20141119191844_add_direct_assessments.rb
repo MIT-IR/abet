@@ -9,6 +9,7 @@ class AddDirectAssessments < ActiveRecord::Migration
   		t.string :minimum_grade
   		t.integer :target_percentage
   		t.integer :actual_percentage
+      t.integer :outcome_id
   	end
   end
 end

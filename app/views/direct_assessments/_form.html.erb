@@ -1,4 +1,4 @@
-<%=form_for(@assessment) do |f| %>
+<%=form_for [@outcome, @assessment] do |f| %>
 	Subject Number: <%=f.text_field :subject_number %>
 	Subject Description: <%=f.text_field :subject_description %>
 	Semester: <%=f.select :semester, @available_semesters  %>

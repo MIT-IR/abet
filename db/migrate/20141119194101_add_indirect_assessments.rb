@@ -7,6 +7,7 @@ class AddIndirectAssessments < ActiveRecord::Migration
   		t.string :minimum_category
   		t.integer :target_percentage
   		t.integer :actual_percentage
+      t.integer :outcome_id
   	end
   end
 end

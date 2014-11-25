@@ -1,7 +1,7 @@
 Choose type of assessment:<br>
 <ul>
-<li><%=link_to "Grade from an assignment, quiz, or exam", new_direct_assessment_path(@outcome)%></li>
-<li><%=link_to "Survey results", new_indirect_assessment_path(@outcome, indirect_type: 'survey')%></li>
-<li><%=link_to "Participation in program", new_indirect_assessment_path(@outcome, indirect_type: 'participation')%></li>
-<li><%=link_to "Other", new_indirect_assessment_path(@outcome, indirect_type: 'other')%></li>
+<li><%=link_to "Grade from an assignment, quiz, or exam", new_outcome_direct_assessment_path(@outcome)%></li>
+<li><%=link_to "Survey results", new_outcome_indirect_assessment_path(@outcome, indirect_type: 'survey')%></li>
+<li><%=link_to "Participation in program", new_outcome_indirect_assessment_path(@outcome, indirect_type: 'participation')%></li>
+<li><%=link_to "Other", new_outcome_indirect_assessment_path(@outcome, indirect_type: 'other')%></li>
 </ul>

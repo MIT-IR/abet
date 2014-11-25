@@ -1,5 +1,6 @@
 class DirectAssessmentsController < ApplicationController
 	def new
+		@outcome = Outcome.find(params[:outcome_id])
 		@assessment = DirectAssessment.new
 		@available_semesters = ['2015FA', '2015JA', '2015SP']
 	end

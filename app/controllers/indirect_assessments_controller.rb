@@ -1,5 +1,6 @@
 class IndirectAssessmentsController < ApplicationController
 	def new
+		@outcome = Outcome.find(params[:outcome_id])
 		@assessment = IndirectAssessment.new
 		@available_years = ['2014', '2015', '2016']
 		@indirect_type = params[:indirect_type]

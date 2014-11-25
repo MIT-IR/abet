@@ -14,10 +14,11 @@ Rails.application.routes.draw do
       get 'interstitial'
     end
   end
-  resources :assessments
-  resources :direct_assessments
-  resources :indirect_assessments
-  resources :outcomes, :only => [:show]
+  resources :outcomes do
+    resources :assessments
+    resources :direct_assessments
+    resources :indirect_assessments
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

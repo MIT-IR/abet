@@ -8,7 +8,7 @@
 		<tr id="outcome-<%=outcome.id %>">
 			<td><%= outcome.name%></td>
 			<td><%= outcome.description%></td>
-			<td><%= link_to "Add new assessment", new_assessment_path(outcome)%></td>
+			<td><%= link_to "Add new assessment", new_outcome_assessment_path(outcome)%></td>
 		</tr>
 	<% end %>
 </table>
