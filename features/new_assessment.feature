@@ -31,3 +31,17 @@ Scenario: User chooses to create a new Participation (indirect-type) assessment
 Scenario: User chooses to create a new Other (indirect-type) assessment
 	When a user chooses an other assessment
 	Then a user sees the form for other assessments
+
+Scenario: User submits data to the direct-type assessment form
+	Given a user chooses a direct-type assessment
+	And a user sees the form for direct-type assessments
+	When fills out the form with the following items:
+	|direct_assessment_subject_number				|18.02					|
+	|direct_assessment_subject_description			|Multivariable Calculus	|
+	|direct_assessment_assignment_name				|Pset 1 				|
+	|direct_assessment_assignment_description		|Integration by parts	|
+	|direct_assessment_minimum_grade				|7 out of 10			|
+	|direct_assessment_target_percentage			|80						|
+	|direct_assessment_actual_percentage			|94						|
+	And user clicks the submit button
+	Then user sees the list of assessments

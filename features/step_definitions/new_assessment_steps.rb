@@ -68,3 +68,18 @@ Then(/^a user sees the form for other assessments$/) do
   expect(page).to have_content "Target Percentage"
   expect(page).to have_content "Actual Percentage"
 end
+
+When(/^fills out the form with the following items:$/) do |table|
+  table.rows_hash.each do |field, value|
+    fill_in field, :with => value
+  end
+  select "2015FA", :from => :direct_assessment_semester
+end
+
+When(/^user clicks the submit button$/) do
+  click_button "Submit"
+end
+
+Then(/^user sees the list of assessments$/) do
+  pending # express the regexp above with the code you wish you had
+end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :assessments
   resources :direct_assessments
   resources :indirect_assessments
+  resources :outcomes, :only => [:show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
