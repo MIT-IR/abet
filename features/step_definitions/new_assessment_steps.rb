@@ -25,9 +25,9 @@ Then(/^a user sees the form for direct\-type assessments$/) do
   expect(page).to have_content "Subject number"
   expect(page).to have_content "Subject description"
   expect(page).to have_content "Semester"
-  expect(page).to have_content "Assignment Name"
-  expect(page).to have_content "Assignment Description"
-  expect(page).to have_content "Minimum Satisfactory Grade"
+  expect(page).to have_content "Assignment name"
+  expect(page).to have_content "Assignment description"
+  expect(page).to have_content "Minimum satisfactory grade"
   expect(page).to have_content "Target percentage"
   expect(page).to have_content "Actual percentage"
 end
