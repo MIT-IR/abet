@@ -1,11 +1,63 @@
+<div class="row">
+	<div class="five columns centered">
+		<h4>Add a new assessment for outcome "<%=@outcome.name%>. <%=@outcome.description%>"</h4>
+	</div>
+</div>
+
 <%=form_for [@outcome, @assessment] do |f| %>
-	Subject Number: <%=f.text_field :subject_number %>
-	Subject Description: <%=f.text_field :subject_description %>
-	Semester: <%=f.select :semester, @available_semesters  %>
+	<div class="row">
+		<div class="small-10 large-12">
+			<div class="row">
+				<div class="small-1 columns">
+					<%=f.label "Semester", class: "right inline"%>
+				</div>
+				<div class="small-2 columns">
+					<%=f.select :semester, @available_semesters, :class => "f-dropdown"  %>
+				</div>
+
+				<div class="small-2 columns">
+					<%= f.label "Subject Number", class: "right inline" %>
+				</div>
+				<div class="small-1 columns">
+					<%=f.text_field :subject_number, :placeholder => "'18.01'"%>
+				</div>
+				<div class="small-2 columns">
+					<%=f.label "Subject Description", class: "right inline"%>
+				</div>
+				<div class="small-4 columns">
+					<%=f.text_field :subject_description, :placeholder => "e.g. 'Calculus'"%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
 	Assignment Name: <%=f.text_field :assignment_name %>
+	</div>
+	<div class="row">
 	Assignment Description: <%=f.text_field :assignment_description %>
+	</div>
+	<div class="row">
 	Minimum Satisfactory Grade: <%=f.text_field :minimum_grade %>
-	Target Percentage: <%=f.text_field	:target_percentage %>
-	Actual Percentage: <%=f.text_field :actual_percentage %>
+	</div>
+	<div class="row">
+		<div class="small-10">
+			<div class="row">
+				<div class="small-2 columns">
+					<%= f.label "Target Percentage", class: "right inline"%>
+				</div>
+				<div class="small-4 columns">
+					<%=f.text_field	:target_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
+				</div>
+				<div class="small-2 columns">
+					<%= f.label "Actual Percentage", class: "right inline"%>
+				</div>
+				<div class="small-4 columns"> 
+					<%=f.text_field :actual_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
 	<%= button_tag "Submit"%>
+	</div>
 <% end %>

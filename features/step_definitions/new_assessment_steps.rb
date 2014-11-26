@@ -22,14 +22,14 @@ When(/^a user chooses a direct\-type assessment$/) do
 end
 
 Then(/^a user sees the form for direct\-type assessments$/) do
-  expect(page).to have_content "Subject Number"
-  expect(page).to have_content "Subject Description"
+  expect(page).to have_content "Subject number"
+  expect(page).to have_content "Subject description"
   expect(page).to have_content "Semester"
   expect(page).to have_content "Assignment Name"
   expect(page).to have_content "Assignment Description"
   expect(page).to have_content "Minimum Satisfactory Grade"
-  expect(page).to have_content "Target Percentage"
-  expect(page).to have_content "Actual Percentage"
+  expect(page).to have_content "Target percentage"
+  expect(page).to have_content "Actual percentage"
 end
 
 When(/^a user chooses a survey assessment$/) do

@@ -1,5 +1,7 @@
+<div class="row">
 <ul>
 <% @departments.each do |department| %>
-  <li><%=link_to department.name, department_path(department) %></li>
+  <div class="four columns centered"><li><%=link_to department.name, department_path(department) %></li></div>
 <% end %>
 </ul>
+</div>
