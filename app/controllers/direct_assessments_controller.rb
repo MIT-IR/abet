@@ -6,7 +6,7 @@ class DirectAssessmentsController < ApplicationController
 	end
 	def create
 		@outcome = Outcome.find(params[:outcome_id])
-    @direct_assessment = @outcome.direct_assessments.build(direct_assessment_params)
+    	@direct_assessment = @outcome.direct_assessments.build(direct_assessment_params)
 		if @direct_assessment.save
 			redirect_to outcome_path(@outcome)
 		else
@@ -17,7 +17,6 @@ class DirectAssessmentsController < ApplicationController
 	private
 
 	def direct_assessment_params
-
 		params.require(:direct_assessment).permit(:subject_number, 
 			:subject_description,
 			:semester, :assignment_name, :assignment_description, :minimum_grade, 
