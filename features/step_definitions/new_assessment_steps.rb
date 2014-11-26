@@ -37,12 +37,12 @@ When(/^a user chooses a survey assessment$/) do
 end
 
 Then(/^a user sees the form for survey assessments$/) do
-  expect(page).to have_content "Survey Name"
-  expect(page).to have_content "Survey Description"
+  expect(page).to have_content "Survey name"
+  expect(page).to have_content "Survey description"
   expect(page).to have_content "Year"
-  expect(page).to have_content "Minimum Category"
-  expect(page).to have_content "Target Percentage"
-  expect(page).to have_content "Actual Percentage"
+  expect(page).to have_content "Minimum category"
+  expect(page).to have_content "Target percentage"
+  expect(page).to have_content "Actual percentage"
 end
 
 When(/^a user chooses a participation assessment$/) do
@@ -50,11 +50,11 @@ When(/^a user chooses a participation assessment$/) do
 end
 
 Then(/^a user sees the form for participation assessments$/) do
-  expect(page).to have_content "Program Name"
-  expect(page).to have_content "Program Description"
+  expect(page).to have_content "Program name"
+  expect(page).to have_content "Program description"
   expect(page).to have_content "Year"
-  expect(page).to have_content "Target Participation Percentage"
-  expect(page).to have_content "Actual Participation Percentage"
+  expect(page).to have_content "Target participation percentage"
+  expect(page).to have_content "Actual participation percentage"
 end
 
 When(/^a user chooses an other assessment$/) do
@@ -62,11 +62,11 @@ When(/^a user chooses an other assessment$/) do
 end
 
 Then(/^a user sees the form for other assessments$/) do
-  expect(page).to have_content "Assessment Name"
-  expect(page).to have_content "Assessment Description"
+  expect(page).to have_content "Assessment name"
+  expect(page).to have_content "Assessment description"
   expect(page).to have_content "Year"
-  expect(page).to have_content "Target Percentage"
-  expect(page).to have_content "Actual Percentage"
+  expect(page).to have_content "Target percentage"
+  expect(page).to have_content "Actual percentage"
 end
 
 When(/^fills out the form with the following items:$/) do |table|
