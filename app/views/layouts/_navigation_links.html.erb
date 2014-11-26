@@ -1,2 +1,21 @@
 <%# add navigation links to this file %>
-<li><%= link_to 'Departments', root_path %></li>
+<li><%= link_to 'Home', root_path %></li>
+<% if not @department.nil?%>
+<li><%=link_to @department.name, department_path(@department) %></li>
+<% elsif not @course.nil?%>
+<li><%=link_to @course.department.name, department_path(@course.department) %></li>
+<li><%=link_to course_path(@course) do %>
+Course <%=@course.course_number%>
+<% end %>
+</li>
+<% elsif not @outcome.nil? %>
+<li><%= link_to @outcome.course.department.name, department_path(@outcome.course.department)%></li>
+<li><%= link_to course_path(@outcome.course) do%>
+ Course <%=@outcome.course.course_number %>
+<% end %>
+</li>
+<li><%= link_to outcome_path(@outcome) do %>
+	Outcome: <%=@outcome.name%>
+<%end%>
+</li>
+<% end %>
