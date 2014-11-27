@@ -76,11 +76,23 @@ When(/^fills out the form with the following items:$/) do |table|
   select "2015FA", :from => :direct_assessment_semester
 end
 
+When(/^fills out the survey form with the following items:$/) do |table|
+  table.rows_hash.each do |field, value|
+    fill_in field, :with => value
+  end
+  select "2015", :from => :indirect_assessment_year
+end
+
 When(/^user clicks the submit button$/) do
   click_button "Submit"
 end
 
-Then(/^user sees the list of assessments$/) do
+Then(/^user sees the list of direct assessments$/) do
   expect(page).to have_content "18.02"
   expect(page).to have_content "Multivariable Calculus"
+end
+
+Then(/^user sees the list of indirect assessments$/) do
+  expect(page).to have_content "Senior Survey"
+  expect(page).to have_content "Somewhat or very satisfied"
 end

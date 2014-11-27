@@ -1,12 +1,15 @@
-<table id="courses">
+<div class="row">&nbsp;</div>
+<div class="row">
+	<table id="courses">
 	<tr>
-		<th>Course Number</th>
-		<th>Course Name</th>
+		<th class="small-6 columns">Course Number</th>
+		<th class="small-6 columns	">Course Name</th>
 	</tr>
 	<% @courses.each do |course| %>
 	<tr>
-		<td><%=course.course_number %></td>
-		<td><%=link_to course.course_name, course%></td>
+		<td class="small-6 columns"><%=course.course_number %></td>
+		<td class="small-6 columns"><%=link_to course.course_name, course%></td>
 	</tr>
 	<% end %>
 </table>
+</div>

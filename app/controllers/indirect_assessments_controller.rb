@@ -49,4 +49,21 @@ class IndirectAssessmentsController < ApplicationController
 		}
 		end
 	end
+
+	def create
+		@outcome = Outcome.find(params[:outcome_id])
+    	@indirect_assessment = @outcome.indirect_assessments.build(indirect_assessment_params)
+		if @indirect_assessment.save
+			redirect_to outcome_path(@outcome)
+		end
+	end
+
+	private
+
+	def indirect_assessment_params
+		params.require(:indirect_assessment).permit(:assessment_name, 
+			:assessment_description,
+			:year, :minimum_category, 
+			:target_percentage,	:actual_percentage)
+	end
 end

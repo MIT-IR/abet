@@ -23,3 +23,23 @@
 		</tr>
 	<% end %>
 </table>
+<table id="indirect_assessments">	
+	<th>
+		<td>Name</td>
+		<td>Description</td>
+		<td>Year</td>
+		<td>Minimum Category</td>
+		<td>Target Percentage</td>
+		<td>Actual Percentage</td>
+	</th>
+	<% @indirect_assessments.each do |assessment| %>
+		<tr id="indirect_assessment-<%=assessment.id %>">
+			<td><%= assessment.assessment_name%></td>
+			<td><%= assessment.assessment_description%></td>
+			<td><%= assessment.year%></td>
+			<td><%= assessment.minimum_category%></td>
+			<td><%= assessment.target_percentage%></td>
+			<td><%= assessment.actual_percentage%></td>
+		</tr>
+	<% end %>
+</table>

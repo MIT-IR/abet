@@ -45,4 +45,17 @@ Scenario: User submits data to the direct-type assessment form
 	|direct_assessment_target_percentage			|80						|
 	|direct_assessment_actual_percentage			|94						|
 	And user clicks the submit button
-	Then user sees the list of assessments
+	Then user sees the list of direct assessments
+
+Scenario: User submits data to an indirect-type assessment form
+	Given a user is given types of assessment to choose from
+	And a user chooses a survey assessment
+	And a user sees the form for survey assessments
+	When fills out the survey form with the following items:
+	|indirect_assessment_assessment_name					|Senior Survey				|
+	|indirect_assessment_assessment_description				|Survey for seniors			|
+	|indirect_assessment_minimum_category		|Somewhat or very satisfied	|
+	|indirect_assessment_target_percentage		|80							|
+	|indirect_assessment_actual_percentage		|94							|
+	And user clicks the submit button
+	Then user sees the list of indirect assessments

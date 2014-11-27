@@ -9,8 +9,6 @@ class DirectAssessmentsController < ApplicationController
     	@direct_assessment = @outcome.direct_assessments.build(direct_assessment_params)
 		if @direct_assessment.save
 			redirect_to outcome_path(@outcome)
-		else
-			puts "DIDNT WORK"
 		end
 	end
 
