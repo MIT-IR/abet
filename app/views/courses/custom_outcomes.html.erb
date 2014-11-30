@@ -1,0 +1,28 @@
+<div class = "row">
+	<h3>Create Custom Student Learning Outcomes</h3>
+</div>
+<%= form_for @outcome do |f| %>
+<div class="row">
+		<div class="small-10 large-12">
+			<div class="row">
+				<div class="small-2 columns">
+					<%=f.label "Outcome ID", class: "left inline"%>
+				</div>
+				<div class="small-2 columns end">
+					<%=f.text_field :name, :placeholder => "e.g. '1.A'"%>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-2 columns">
+					<%= f.label "Outcome Description", class: "left inline" %>
+				</div>
+				<div class="small-6 columns end">
+					<%=f.text_field :description, :placeholder => "e.g. 'The ability to apply engineering principles in a project context'"%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+	<%= button_tag "Submit"%>
+	</div>
+<% end %>

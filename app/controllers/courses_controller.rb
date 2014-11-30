@@ -18,4 +18,9 @@ class CoursesController < ApplicationController
 
 		redirect_to action: 'show'
 	end
+	def custom_outcomes
+		@course = Course.find(params[:id])
+		@defaults = StandardOutcome.retrieve_defaults || []
+		@outcome = Outcome.new
+	end
 end

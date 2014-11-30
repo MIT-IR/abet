@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       get 'adopt_default'
       get 'interstitial'
+      get 'custom_outcomes'
     end
   end
   resources :outcomes do
