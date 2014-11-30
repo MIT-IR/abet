@@ -6,7 +6,6 @@ Given(/^An outcome has the following assessments associated with it$/) do
   		semester: "2015FA", assignment_name: "Exam 1", assignment_description: "Covers steady-state equations",
       	problem_description: "First-order differential equation solving", minimum_grade: "6 out of 7",
   		target_percentage: "80", actual_percentage: "90")
-  	@dassessment.outcome = @outcome
   	if @dassessment.save 
   		puts "saved"
   	end
