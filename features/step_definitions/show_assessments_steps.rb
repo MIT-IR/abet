@@ -2,7 +2,7 @@ Given(/^An outcome has the following assessments associated with it$/) do
 	@course = Course.find_by_course_number("2")
 	@outcomes = @course.outcomes
 	@outcome = @outcomes.first
-  	@dassessment = @outcome.direct_assessments.build(subject_number: "18.03", subject_description: "Diff Eq",
+  	@dassessment = @outcome.direct_assessments.build (subject_number: "18.03", subject_description: "Diff Eq",
   		semester: "2015FA", assignment_name: "Exam 1", assignment_description: "Covers steady-state equations",
       	problem_description: "First-order differential equation solving", minimum_grade: "6 out of 7",
   		target_percentage: "80", actual_percentage: "90")
