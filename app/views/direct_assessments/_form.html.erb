@@ -44,7 +44,15 @@
 					<%= f.label "Assignment Description", class: "left inline"%>
 				</div>
 				<div class="small-6 columns end">
-					<%=f.text_field :assignment_description, :placeholder => "e.g. 'Integration by parts'" %>
+					<%=f.text_field :assignment_description, :placeholder => "e.g. 'Integration'" %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-2 columns">
+					<%= f.label "Problem description", class: "left inline"%>
+				</div>
+				<div class="small-6 columns end">
+					<%=f.text_field :problem_description, :placeholder => "e.g. 'Question 3, Integration by parts'" %>
 				</div>
 			</div>
 			<div class="row">

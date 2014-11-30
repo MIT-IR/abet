@@ -16,9 +16,9 @@ class DirectAssessmentsController < ApplicationController
 
 	def direct_assessment_params
 		params.require(:direct_assessment).permit(:subject_number, 
-			:subject_description,
-			:semester, :assignment_name, :assignment_description, :minimum_grade, 
-			:target_percentage,	:actual_percentage)
+			:subject_description, :semester, :assignment_name, 
+			:assignment_description, :problem_description,
+			:minimum_grade, :target_percentage,	:actual_percentage)
 	end
 end
 

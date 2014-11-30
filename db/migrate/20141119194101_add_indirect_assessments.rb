@@ -3,6 +3,7 @@ class AddIndirectAssessments < ActiveRecord::Migration
   	create_table "indirect_assessments" do |t|
   		t.string :assessment_name
   		t.string :assessment_description
+      t.string :survey_question
   		t.integer :year
   		t.string :minimum_category
   		t.integer :target_percentage

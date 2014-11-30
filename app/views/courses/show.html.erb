@@ -1,7 +1,8 @@
 <table>	
 	<th>
-		<td>Name</td>
+		<td>&nbsp;</td>
 		<td>Description</td>
+		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 	</th>
 	<% @outcomes.each do |outcome| %>
@@ -9,6 +10,11 @@
 			<td><%= outcome.name%></td>
 			<td><%= outcome.description%></td>
 			<td><%= link_to "Add new assessment", new_outcome_assessment_path(outcome)%></td>
+			<% if outcome.direct_assessments.count > 0 or outcome.indirect_assessments.count > 0 %>
+				<td><%= link_to "Show assessments", outcome_path(outcome)%></td>
+			<% else %>
+				<td>&nbsp;Nothing</td>
+			<% end %>
 		</tr>
 	<% end %>
 </table>

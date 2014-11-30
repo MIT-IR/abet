@@ -9,6 +9,7 @@ class IndirectAssessmentsController < ApplicationController
 			@labels = {
 				:assessment_name_name => "Survey Name",
 				:assessment_description_name => "Survey Description",
+				:survey_question_name => "Survey Question",
 				:year_name => "Year",
 				:minimum_category_name => "Minimum Category",
 				:target_percentage_name => "Target Percentage",
@@ -62,7 +63,7 @@ class IndirectAssessmentsController < ApplicationController
 
 	def indirect_assessment_params
 		params.require(:indirect_assessment).permit(:assessment_name, 
-			:assessment_description,
+			:assessment_description, :survey_question,
 			:year, :minimum_category, 
 			:target_percentage,	:actual_percentage)
 	end

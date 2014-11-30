@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20141119194101) do
     t.string  "semester"
     t.string  "assignment_name"
     t.string  "assignment_description"
+    t.string  "problem_description"
     t.string  "minimum_grade"
     t.integer "target_percentage"
     t.integer "actual_percentage"
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20141119194101) do
   create_table "indirect_assessments", force: true do |t|
     t.string  "assessment_name"
     t.string  "assessment_description"
+    t.string  "survey_question"
     t.integer "year"
     t.string  "minimum_category"
     t.integer "target_percentage"

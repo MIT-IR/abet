@@ -24,6 +24,16 @@
 					<%=f.text_field :assessment_description, :placeholder => @placeholders[:assessment_description_ph] %>
 				</div>
 			</div>
+			<% if @indirect_type == 'survey'%>
+				<div class="row">
+					<div class="small-2 columns">
+						<%= f.label @labels[:survey_question_name], class: "left inline"  %>
+					</div>
+					<div class="small-6 columns end"> 
+						<%=f.text_field :survey_question, :placeholder => "e.g. 'How satisfied are you with advising in your major?'" %>
+					</div>
+				</div>
+			<% end %>
 			<div class="row">
 				<div class="small-2 columns">
 					<%=f.label @labels[:year_name], class: "left inline" %>
