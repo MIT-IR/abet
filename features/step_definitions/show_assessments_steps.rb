@@ -1,18 +1,20 @@
-Given(/^An outcome has the following assessments associated with it$/) do
-	@course = Course.find_by_course_number("2")
-	@outcomes = @course.outcomes
-	@outcome = @outcomes.first
-  	@dassessment = @outcome.direct_assessments.build (subject_number: "18.03", subject_description: "Diff Eq",
-  		semester: "2015FA", assignment_name: "Exam 1", assignment_description: "Covers steady-state equations",
-      	problem_description: "First-order differential equation solving", minimum_grade: "6 out of 7",
-  		target_percentage: "80", actual_percentage: "90")
-  	if @dassessment.save 
-  		puts "saved"
+Given(/^An outcome has the following direct assessment associated with it:$/) do |table|
+	meche2 = Course.find_by_course_number("2")
+	outcome_a = meche2.outcomes.first
+	@rows = table.hashes
+  	table.hashes.each do |row|
+  		DirectAssessment.create(outcome: outcome_a,
+  			subject_number: row["Subject Number"],
+  			subject_description: row["Subject Name"],
+  			semester: row["Semester"],
+  			assignment_name: row["Assignment Name"],
+  			assignment_description: row["Assignment Description"],
+      		problem_description: row["Problem Description"],
+  			minimum_grade: row["Minimum Grade"],
+  			target_percentage: row["Target Pct"],
+  			actual_percentage: row["Actual Pct"]
+  			)
   	end
-  	@outcome.indirect_assessments.create!(assessment_name: "Enrolled Student Survey", 
-  		assessment_description: "Survey for all students", survey_question: "Ability to work in teams",
-  		year: "2015", minimum_category: "Quite a bit or a Great deal", target_percentage: "80",
-  		actual_percentage: "75")
 end
 
 Then(/^The user sees the link to existing assessments$/) do
