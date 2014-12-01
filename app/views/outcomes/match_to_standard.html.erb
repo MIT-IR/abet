@@ -1,0 +1,29 @@
+<div class="row">
+	<h3>Match outcome to ABET default outcomes</h3>
+</div>
+<div class="row">
+	<h4><%=@outcome.name%>.&nbsp;<%=@outcome.description%></h4>
+</div>
+<div class="row">
+	<div class="small-10">
+		<% @std_outcomes.each do |t| %>
+			<div class="row">
+				<div class="small-2 columns">
+					<%=select_tag t.name, options_for_select(@align_levels)%>
+				</div>
+				<div class="small-1 columns">
+					<%= t.name %>.
+				</div>
+				<div class="small-8 columns end">
+					<%= t.description %>
+				</div>
+			</div>
+		<% end %>
+		<div class="row">
+			<div class="small-2 columns end">
+				<%= submit_tag %>
+			</div>
+		</div>
+	</div>
+</div>
+

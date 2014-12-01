@@ -19,6 +19,17 @@ Scenario: User chooses to set up custom outcomes
 	  And user chooses to set up custom outcomes
 	  Then user sees the custom outcomes interface
 
+Scenario: User adds a custom outcome
+	Given a course has no outcomes associated with it
+	When a user goes to view the outcomes
+	And user is taken to an interstitial page
+	And user chooses to set up custom outcomes
+	And user sees the custom outcomes interface
+	And user fills out custom outcome form with the following items:
+	|outcome_name				|A.1.a.								|
+	|outcome_description		|Ability to solve complex problems	|
+	And user clicks the submit button
+	Then user is directed to enter correspondence between new outcome and standard outcomes
 
 
 

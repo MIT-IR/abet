@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     end
   end
   resources :outcomes do
+    member do
+      get 'match_to_standard'
+    end
     resources :assessments
     resources :direct_assessments
     resources :indirect_assessments
