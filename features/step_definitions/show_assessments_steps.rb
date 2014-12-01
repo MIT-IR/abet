@@ -17,6 +17,10 @@ Given(/^An outcome has the following direct assessment associated with it:$/) do
   	end
 end
 
+Given(/^a user refreshes the default outcomes page$/) do
+  visit current_path
+end
+
 Then(/^The user sees the link to existing assessments$/) do
   expect(page).to have_content("Show assessments")
 end
@@ -27,5 +31,4 @@ end
 
 Then(/^The user sees the existing assessments$/) do
   expect(page).to have_content("18.03")
-  expect(page).to have_content("Enrolled Student Survey")
 end
