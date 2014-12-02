@@ -14,12 +14,8 @@ class OutcomesController < ApplicationController
 	def match_to_standard
 		@outcome = Outcome.find(params[:id])
 		@defaults = StandardOutcome.all
-		@defaults.each do |d|
-			unless @outcome.standard_outcomes.include?(d)
-				@outcome.standard_outcomes << d
-			end
-		end
-		@std_outcomes = @outcome.standard_outcomes
+		@defaults.count.times { @outcome.outcome_alignments.build }
+		@std_outcome_alignments = @outcome.outcome_alignments
 		@align_levels = ['No alignment','Low alignment','Moderate alignment','High alignment']
 	end
 
@@ -28,4 +24,5 @@ class OutcomesController < ApplicationController
 	def outcome_params
 		params.require(:outcome).permit(:name,:description)
 	end
+	
 end

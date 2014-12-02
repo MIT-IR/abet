@@ -51,17 +51,17 @@ ActiveRecord::Schema.define(version: 20141201164607) do
     t.integer "outcome_id"
   end
 
+  create_table "outcome_alignments", id: false, force: true do |t|
+    t.integer "outcome_id"
+    t.integer "standard_outcome_id"
+    t.string  "alignment_level"
+  end
+
   create_table "outcomes", force: true do |t|
     t.string  "name"
     t.string  "description"
     t.integer "course_id"
     t.integer "standard_outcome_id"
-  end
-
-  create_table "outcomes_alignment", id: false, force: true do |t|
-    t.integer "outcome_id"
-    t.integer "standard_outcome_id"
-    t.string  "alignment_level"
   end
 
   create_table "standard_outcomes", force: true do |t|

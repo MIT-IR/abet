@@ -6,23 +6,25 @@
 </div>
 <div class="row">
 	<div class="small-10">
-		<% @std_outcomes.each do |t| %>
-			<div class="row">
-				<div class="small-2 columns">
-					<%=select_tag t.name, options_for_select(@align_levels)%>
+		<% form_for @outcome do |f| %>
+			<% @std_outcome_alignments.each do |std_outcome_alignment| %>
+				<div class="row">
+					<div class="small-1 columns">
+						<%std_outcome_alignment.standard_outcome.name%>
+					</div>
+					<div class="small-1 columns">
+						<%std_outcome_alignment.standard_outcome.description%>
+					</div>
 				</div>
-				<div class="small-1 columns">
-					<%= t.name %>.
+				<%= f.fields_for :outcome_alignments do |align_form| %>
+				<div class="row">
+					<div class="small-2 columns">
+						<%=align_form.select :alignment_level, options_for_select(@align_levels)%>
+					</div>
 				</div>
-				<div class="small-8 columns end">
-					<%= t.description %>
-				</div>
-			</div>
+				<% end %>
+			<% end %>
 		<% end %>
-		<div class="row">
-			<div class="small-2 columns end">
-				<%= submit_tag %>
-			</div>
 		</div>
 	</div>
 </div>

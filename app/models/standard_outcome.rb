@@ -1,5 +1,6 @@
 class StandardOutcome < ActiveRecord::Base
-	has_and_belongs_to_many :outcomes, :join_table => :outcomes_alignment
+	has_many :outcome_alignments
+	accepts_nested_attributes_for :outcome_alignments
 	def self.retrieve_defaults
 		self.all
 	end
