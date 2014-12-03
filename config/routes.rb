@@ -14,11 +14,9 @@ Rails.application.routes.draw do
       get 'interstitial'
       get 'custom_outcomes'
     end
+    resources :outcomes
   end
   resources :outcomes do
-    member do
-      get 'match_to_standard'
-    end
     resources :assessments
     resources :direct_assessments
     resources :indirect_assessments

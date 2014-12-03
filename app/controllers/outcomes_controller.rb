@@ -4,19 +4,31 @@ class OutcomesController < ApplicationController
 		@direct_assessments = @outcome.direct_assessments
 		@indirect_assessments = @outcome.indirect_assessments
 	end
+
+  def new
+		@course = Course.find(params[:course_id])
+		@defaults = StandardOutcome.retrieve_defaults || []
+		@outcome = Outcome.new
+		@defaults = StandardOutcome.all
+		@align_levels = StandardOutcome.alignment_levels
+  end
+
 	def create
 		@course = Course.find(params[:outcome][:course_id])
+    @course.adopt_custom_outcomes!
 		@outcome = @course.outcomes.build(outcome_params)
 		if @outcome.save
-			redirect_to match_to_standard_outcome_path(@outcome)
+      default_params = params["default"]
+      default_params.each_key do |outcome_id|
+        next if default_params[outcome_id] == StandardOutcome::NO_ALIGNMENT
+        std = StandardOutcome.find(outcome_id)
+        OutcomeAlignment.create!(
+          :outcome => @outcome,
+          :standard_outcome => std,
+          :alignment_level => default_params[outcome_id])
+      end
+			redirect_to course_path(@course)
 		end
-	end
-	def match_to_standard
-		@outcome = Outcome.find(params[:id])
-		@defaults = StandardOutcome.all
-		@defaults.count.times { @outcome.outcome_alignments.build }
-		@std_outcome_alignments = @outcome.outcome_alignments
-		@align_levels = ['No alignment','Low alignment','Moderate alignment','High alignment']
 	end
 
 	private

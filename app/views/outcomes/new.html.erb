@@ -21,9 +21,21 @@
 					<%=f.text_field :description, :placeholder => "e.g. 'The ability to apply engineering principles in a project context'"%>
 				</div>
 			</div>
+      <h3>Select the Alignment levels</h3>
+      <% @defaults.each do |default_outcome| %>
+        <div class="row">
+          <div class="small-2 columns">
+            <%= label_tag "default[#{default_outcome.id}]", default_outcome.name, class: "left inline" %>
+          </div>
+          <div class="small-6 columns end">
+            <%=select_tag "default[#{default_outcome.id}]", options_for_select(@align_levels) %>
+          </div>
+        </div>
+      <% end %>
 		</div>
 	</div>
 	<div class="row">
 	<%= button_tag "Submit"%>
 	</div>
 <% end %>
+

@@ -28,8 +28,25 @@ Scenario: User adds a custom outcome
 	And user fills out custom outcome form with the following items:
 	|outcome_name				|A.1.a.								|
 	|outcome_description		|Ability to solve complex problems	|
+  And the user selects the following outcome associations:
+    |outcome|level|
+    |a|High alignment|
 	And user clicks the submit button
-	Then user is directed to enter correspondence between new outcome and standard outcomes
+  Then the user should see the custom outcome listed
+  And the user should not see the associated outcomes in the warning list
 
-
+Scenario: User sees which standard outcomes have not been associated
+  Given a course has no outcomes associated with it
+  When a user goes to view the outcomes
+  And user is taken to an interstitial page
+  And user chooses to set up custom outcomes
+  And user sees the custom outcomes interface
+  And user fills out custom outcome form with the following items:
+  |outcome_name				|A.1.a.								|
+  |outcome_description		|Ability to solve complex problems	|
+  And the user selects the following outcome associations:
+    |outcome|level|
+    |a|High alignment|
+  And user clicks the submit button
+  Then the user should see the non-associated outcomes in the warning list
 

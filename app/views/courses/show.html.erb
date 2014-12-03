@@ -17,4 +17,14 @@
 			<% end %>
 		</tr>
 	<% end %>
+  <% if @course.has_custom_outcomes? %>
+    <div id="unassociated-outcomes">
+      <h4>The Following Standard Outcomes have not been associated to any custom outcomes</h4>
+      <ul>
+        <% @unassociated_outcomes.each do |outcome| %>
+          <li><%=outcome.name %>: <%=outcome.description %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </table>
