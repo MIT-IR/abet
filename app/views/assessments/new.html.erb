@@ -1,3 +1,5 @@
+<h4><%= "#{@outcome.name} - #{@outcome.description}" %></h4>
+
 Choose type of assessment:<br>
 <ul>
 <li><%=link_to "Grade from an assignment, quiz, or exam", new_outcome_direct_assessment_path(@outcome)%></li>

@@ -22,15 +22,16 @@ end
 group :test do
   gem "capybara"
   gem "cucumber-rails", :require => false
-  gem "selenium-webdriver"
   gem "database_cleaner"
   gem "launchy"
+  gem "selenium-webdriver"
 end
 
 group :development, :test do
   gem "awesome_print"
   gem "bundler-audit", require: false
   gem "byebug"
-  gem "rspec-rails"
+  gem "factory_girl_rails"
   gem "pry-rails"
+  gem "rspec-rails"
 end
