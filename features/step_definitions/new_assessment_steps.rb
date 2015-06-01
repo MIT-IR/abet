@@ -5,10 +5,10 @@ Given(/^a user is on the default outcomes page for a course$/) do
 end
 
 When(/^a user chooses to add an assessment for an outcome$/) do
-	id = Outcome.first.id
-	within("tr#outcome-#{id}") do
-  		click_link "Add new assessment"
-	end
+  id = Outcome.first.id
+  within("tr#outcome-#{id}") do
+      click_link "Add new assessment"
+  end
 end
 
 Then(/^a user is given types of assessment to choose from$/) do

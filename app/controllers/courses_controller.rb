@@ -1,20 +1,20 @@
 class CoursesController < ApplicationController
-	def show
-		@course = Course.find(params[:id])
-		@outcomes = @course.outcomes
+  def show
+    @course = Course.find(params[:id])
+    @outcomes = @course.outcomes
     @unassociated_outcomes = retrieve_unassociated_outcomes
-		redirect_to action: 'interstitial' if @outcomes.empty?
-	end
+    redirect_to action: 'interstitial' if @outcomes.empty?
+  end
 
-	def interstitial
-		@course = Course.find(params[:id])
-	end
+  def interstitial
+    @course = Course.find(params[:id])
+  end
 
-	def adopt_default
-		@course = Course.find(params[:id])
+  def adopt_default
+    @course = Course.find(params[:id])
     @course.adopt_default_outcomes!
-		redirect_to action: 'show'
-	end
+    redirect_to action: 'show'
+  end
 
   private
   def retrieve_unassociated_outcomes
