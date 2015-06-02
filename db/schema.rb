@@ -11,24 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203031355) do
+ActiveRecord::Schema.define(version: 20150602184917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "courses", force: true do |t|
+  create_table "courses", force: :cascade do |t|
     t.string  "course_number"
     t.string  "course_name"
     t.integer "department_id"
     t.boolean "has_custom_outcomes"
   end
 
-  create_table "departments", force: true do |t|
+  create_table "departments", force: :cascade do |t|
     t.string "name"
     t.string "role_department"
   end
 
-  create_table "direct_assessments", force: true do |t|
+  create_table "direct_assessments", force: :cascade do |t|
     t.string  "subject_number"
     t.string  "subject_description"
     t.string  "semester"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141203031355) do
     t.integer "outcome_id"
   end
 
-  create_table "indirect_assessments", force: true do |t|
+  create_table "indirect_assessments", force: :cascade do |t|
     t.string  "assessment_name"
     t.string  "assessment_description"
     t.string  "survey_question"
@@ -52,20 +52,20 @@ ActiveRecord::Schema.define(version: 20141203031355) do
     t.integer "outcome_id"
   end
 
-  create_table "outcome_alignments", id: false, force: true do |t|
+  create_table "outcome_alignments", force: :cascade do |t|
     t.integer "outcome_id"
     t.integer "standard_outcome_id"
     t.string  "alignment_level"
   end
 
-  create_table "outcomes", force: true do |t|
+  create_table "outcomes", force: :cascade do |t|
     t.string  "name"
     t.string  "description"
     t.integer "course_id"
     t.integer "standard_outcome_id"
   end
 
-  create_table "standard_outcomes", force: true do |t|
+  create_table "standard_outcomes", force: :cascade do |t|
     t.string "name"
     t.string "description"
   end
