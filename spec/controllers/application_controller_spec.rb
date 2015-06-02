@@ -10,7 +10,7 @@ describe ApplicationController do
   describe "#current_user" do
     it "creates a user if one does not exist" do
       email = "dprior@mit.edu"
-      request.env["eppn"] = email
+      sign_in(email)
 
       get :index
 
@@ -20,12 +20,18 @@ describe ApplicationController do
 
     it "uses existing user if one already exists" do
       user = create(:user)
-      request.env["eppn"] = user.email
+      sign_in(user)
 
       get :index
 
       expect(User.where(email: user.email).count).to eq 1
       expect(response.body).to eq user.email
+    end
+
+    it "errors if eppn is not set" do
+      create(:user)
+
+      expect { get :index }.to raise_error(RuntimeError)
     end
   end
 end

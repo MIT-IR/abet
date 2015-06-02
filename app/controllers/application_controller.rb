@@ -4,7 +4,14 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||=
-      User.first_or_create!(email: request.env["eppn"] || ENV["eppn"])
+    if eppn.present?
+      @current_user ||= User.first_or_create!(email: eppn)
+    else
+      raise "Expect all requests to have eppn available"
+    end
+  end
+
+  def eppn
+    request.env["eppn"] || ENV["eppn"]
   end
 end

@@ -37,8 +37,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-end
-RolesDb.configure do |config|
-  config.strategy_class = 'RolesDb::LocalRoles'
-  config.mocked_account_list_file = Rails.root.join('config', 'test-roles.yaml')
+  # Allow easy faked sign in in test
+  config.middleware.use TouchstoneBackDoor
 end

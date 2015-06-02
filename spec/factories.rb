@@ -6,7 +6,13 @@ FactoryGirl.define do
   end
 
   factory :department do
-    name "Chemical Engineering"
+    sequence :name do |n|
+      "Department #{n} Name"
+    end
+
+    sequence :role_department do |n|
+      "D_#{n}XX"
+    end
   end
 
   factory :direct_assessment do
