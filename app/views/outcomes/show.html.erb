@@ -1,45 +1,56 @@
 <%=@outcome.name%>:&nbsp;<%=@outcome.description %>
-<table id="direct_assessments">
-  <tr>
-    <th>Subject Number</th>
-    <th>Subject Description</th>
-    <th>Semester</th>
-    <th>Assignment Name</th>
-    <th>Assignment Description</th>
-    <th>Minimum Grade</th>
-    <th>Target Percentage</th>
-    <th>Actual Percentage</th>
-  </tr>
-  <% @direct_assessments.each do |assessment| %>
-    <tr id="direct_assessment-<%=assessment.id %>">
-      <td><%= assessment.subject_number%></td>
-      <td><%= assessment.subject_description%></td>
-      <td><%= assessment.semester%></td>
-      <td><%= assessment.assignment_name%></td>
-      <td><%= assessment.assignment_description%></td>
-      <td><%= assessment.minimum_grade%></td>
-      <td><%= assessment.target_percentage%></td>
-      <td><%= assessment.actual_percentage%></td>
+<h4>Direct Assessments</h4>
+<% if @direct_assessments.any? %>
+  <table id="direct_assessments">
+    <tr>
+      <th>Subject Number</th>
+      <th>Subject Description</th>
+      <th>Semester</th>
+      <th>Assignment Name</th>
+      <th>Assignment Description</th>
+      <th>Minimum Grade</th>
+      <th>Target Percentage</th>
+      <th>Actual Percentage</th>
     </tr>
-  <% end %>
-</table>
-<table id="indirect_assessments">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Year</th>
-    <th>Minimum Category</th>
-    <th>Target Percentage</th>
-    <th>Actual Percentage</th>
-  </tr>
-  <% @indirect_assessments.each do |assessment| %>
-    <tr id="indirect_assessment-<%=assessment.id %>">
-      <td><%= assessment.assessment_name%></td>
-      <td><%= assessment.assessment_description%></td>
-      <td><%= assessment.year%></td>
-      <td><%= assessment.minimum_category%></td>
-      <td><%= assessment.target_percentage%></td>
-      <td><%= assessment.actual_percentage%></td>
+    <% @direct_assessments.each do |assessment| %>
+      <tr id="direct_assessment-<%=assessment.id %>">
+        <td><%= assessment.subject_number%></td>
+        <td><%= assessment.subject_description%></td>
+        <td><%= assessment.semester%></td>
+        <td><%= assessment.assignment_name%></td>
+        <td><%= assessment.assignment_description%></td>
+        <td><%= assessment.minimum_grade%></td>
+        <td><%= assessment.target_percentage%></td>
+        <td><%= assessment.actual_percentage%></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p><em>No direct assessments</em></p>
+<% end %>
+
+<h4>Indirect Assessments</h4>
+<% if @indirect_assessments.any? %>
+  <table id="indirect_assessments">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Year</th>
+      <th>Minimum Category</th>
+      <th>Target Percentage</th>
+      <th>Actual Percentage</th>
     </tr>
-  <% end %>
-</table>
+    <% @indirect_assessments.each do |assessment| %>
+      <tr id="indirect_assessment-<%=assessment.id %>">
+        <td><%= assessment.assessment_name%></td>
+        <td><%= assessment.assessment_description%></td>
+        <td><%= assessment.year%></td>
+        <td><%= assessment.minimum_category%></td>
+        <td><%= assessment.target_percentage%></td>
+        <td><%= assessment.actual_percentage%></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p><em>No indirect assessments</em></p>
+<% end %>
