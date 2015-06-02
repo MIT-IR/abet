@@ -1,5 +1,12 @@
 /.bundle
-config/database.yml
+/config/database.yml
 /log/*.log
 /tmp
 tmp
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+.DS_Store
+
+
