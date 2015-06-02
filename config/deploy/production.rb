@@ -10,4 +10,5 @@ server "outcomes",
 set :rvm_type, :system
 set :rvm_ruby_version, "2.2.2"
 set :deploy_to, "/var/www/outcomes"
-set :linked_files, fetch(:linked_files, []).push('config/database.yml')
+set :linked_files, fetch(:linked_files, []).push("config/database.yml")
+set :linked_dirs, fetch(:linked_dirs, []).push("config/certs")
