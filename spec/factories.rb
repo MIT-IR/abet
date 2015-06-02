@@ -37,7 +37,14 @@ FactoryGirl.define do
     sequence :name do |i|
       ("a".."z").to_a[i - 1]
     end
-    description { "description for #{name}" }
+    description { "description for custom #{name}" }
     course
+  end
+
+  factory :standard_outcome do
+    sequence :name do |i|
+      ("a".."z").to_a[i - 1]
+    end
+    description { "description for default #{name}" }
   end
 end
