@@ -37,6 +37,7 @@ FactoryGirl.define do
     sequence :name do |i|
       ("a".."z").to_a[i - 1]
     end
+
     description { "description for custom #{name}" }
     course
   end
@@ -45,6 +46,13 @@ FactoryGirl.define do
     sequence :name do |i|
       ("a".."z").to_a[i - 1]
     end
+
     description { "description for default #{name}" }
+  end
+
+  factory :user do
+    sequence :email do |n|
+      "user-#{n}@example.com"
+    end
   end
 end
