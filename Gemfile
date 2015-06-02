@@ -16,6 +16,10 @@ gem "uglifier"
 gem "zurb-foundation"
 
 group :development do
+  gem "capistrano-rails"
+  gem "capistrano-rvm"
+  gem "gssapi", git: "git@github.com:derekprior/gssapi.git"
+  gem "net-ssh-krb"
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"
