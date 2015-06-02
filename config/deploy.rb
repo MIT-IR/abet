@@ -2,7 +2,7 @@
 lock "3.4.0"
 
 set :application, "outcomes"
-set :repo_url, "git@github.mit.edu:daries/ABET.git"
+set :repo_url, "git@github.com:MIT-IR/abet.git"
 set :log_level, :info
 
 after :deploy, "deploy:restart"
