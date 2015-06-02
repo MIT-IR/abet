@@ -331,3 +331,6 @@ DEPENDENCIES
   uglifier
   web-console
   zurb-foundation
+
+BUNDLED WITH
+   1.10.2
