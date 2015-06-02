@@ -1,47 +1,39 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rails', '4.1.1'
-gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'therubyracer'
+ruby "2.2.2"
 
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem "rails", "~> 4.2.0"
+gem "compass-rails"
+gem "coffee-rails"
+gem "jquery-rails"
+gem "pg"
+gem "sass-rails"
+gem "roles_db", "0.0.3", path: "vendor/gems/roles_db-0.0.3"
+gem "savon"
+gem "therubyracer"
+gem "turbolinks"
+gem "uglifier"
+gem "zurb-foundation"
 
-gem 'spring',        group: :development
-
-group :development, :test do
-  gem 'rspec-rails'
-  gem 'pry'
+group :development do
+  gem "spring"
+  gem "spring-commands-rspec"
+  gem "web-console"
 end
 
 group :test do
-  gem 'capybara'
-  gem 'cucumber-rails', :require => false
-  gem 'selenium-webdriver'
-  gem 'database_cleaner'
-  gem 'launchy'
+  gem "capybara"
+  gem "cucumber-rails", :require => false
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
 end
 
-gem 'roles_db', '0.0.3', :path => 'vendor/gems/roles_db-0.0.3'
-gem 'savon'
-
-# For Foundation Zurb
-gem 'compass-rails'
-gem 'zurb-foundation'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem "awesome_print"
+  gem "bundler-audit", require: false
+  gem "byebug"
+  gem "factory_girl_rails"
+  gem "pry-rails"
+  gem "rspec-rails"
+end

@@ -1,3 +1,3 @@
 class DirectAssessment < ActiveRecord::Base
-	belongs_to :outcome
+  belongs_to :outcome
 end

@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
-	belongs_to :department
-	has_many :outcomes
+  belongs_to :department
+  has_many :outcomes
 
   def has_custom_outcomes?
     self.has_custom_outcomes
