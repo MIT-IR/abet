@@ -10,4 +10,11 @@ tmp
 
 .DS_Store
 
+/config/certs/mit.pem
+/config/certs/outcomes-key.pem
+/config/certs/outcomes.cer
+/config/certs/outcomes.jks
+
+
+
 
