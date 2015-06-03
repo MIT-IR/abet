@@ -23,10 +23,10 @@ describe Permission do
 
   describe "#read?" do
     it "is true for the provided department if you have at least read" do
-      department = Department.new(role_department: "D_FOO")
+      department = Department.new(slug: "D_FOO")
 
       permission = Permission.new(
-        department.role_department,
+        department.slug,
         Permission::READ_ONLY
       )
 
@@ -34,7 +34,7 @@ describe Permission do
     end
 
     it "is false if the permission is not for the department" do
-      department = Department.new(role_department: "D_FOO")
+      department = Department.new(slug: "D_FOO")
 
       permission = Permission.new("D_BAR", Permission::READ_ONLY)
 

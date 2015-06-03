@@ -21,6 +21,6 @@ class Permission
   private
 
   def department_matches?(department)
-    department.role_department == department_slug
+    department.slug == department_slug
   end
 end

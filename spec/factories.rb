@@ -10,7 +10,7 @@ FactoryGirl.define do
       "Department #{n} Name"
     end
 
-    sequence :role_department do |n|
+    sequence :slug do |n|
       "D_#{n}XX"
     end
   end

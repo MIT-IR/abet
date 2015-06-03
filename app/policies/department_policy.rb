@@ -5,7 +5,7 @@ class DepartmentPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where(role_department: permissions.department_slugs).order(:name)
+      scope.where(slug: permissions.department_slugs).order(:name)
     end
   end
 end

@@ -1,7 +1,7 @@
 module PermissionsHelpers
   def grant_access(user, departments, access_level)
     permissions = Array(departments).map do |department|
-      Permission.new(department.role_department, access_level)
+      Permission.new(department.slug, access_level)
     end
 
     allow(PermissionSet).to receive(:for).
