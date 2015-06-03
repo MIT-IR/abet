@@ -1,27 +1,7 @@
-<table>	
-  <tr>
-    <th>&nbsp;</th>
-    <th>Description</th>
-    <th>&nbsp;</th>
-    <th>&nbsp;</th>
-  </tr>
-  <% @outcomes.each do |outcome| %>
-    <tr id="outcome-<%=outcome.id %>">
-      <td><%= outcome.name%></td>
-      <td><%= outcome.description%></td>
-      <td><%= link_to "Add new assessment", new_outcome_assessment_path(outcome)%></td>
-      <td><%= link_to "Details", outcome_path(outcome)%></td>
-    </tr>
-  <% end %>
-</table>
-<% if @course.has_custom_outcomes? %>
-  <div id="unassociated-outcomes">
-    <h4>The Following Standard Outcomes have not been associated to any custom outcomes:</h4>
-    <ul>
-      <% @unassociated_outcomes.each do |outcome| %>
-        <li><%=outcome.name %>: <%=outcome.description %></li>
-      <% end %>
-    </ul>
-  </div>
-  <%= link_to "New custom outcome", new_course_outcome_path(@course), class: "button" %>
+<% if @outcomes.present? %>
+  <%= render "outcomes",
+    course: @course,
+    unassociated_outcomes: @unassociated_outcomes %>
+<% else %>
+  <%= render "interstitial", course: @course %>
 <% end %>

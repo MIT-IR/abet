@@ -3,11 +3,6 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @outcomes = @course.outcomes
     @unassociated_outcomes = retrieve_unassociated_outcomes
-    redirect_to action: 'interstitial' if @outcomes.empty?
-  end
-
-  def interstitial
-    @course = Course.find(params[:id])
   end
 
   def adopt_default
@@ -17,6 +12,7 @@ class CoursesController < ApplicationController
   end
 
   private
+
   def retrieve_unassociated_outcomes
     return [] unless @course.has_custom_outcomes?
     standard_ids = @course.outcomes.map do |outcome|

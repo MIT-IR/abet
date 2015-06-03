@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :courses, only: [:show] do
     member do
       get 'adopt_default'
-      get 'interstitial'
-      get 'custom_outcomes'
     end
 
     resources :outcomes
