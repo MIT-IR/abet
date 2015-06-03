@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :course do
-    sequence(:course_number) { |i| i.to_s }
-    course_name { "Course #{course_number} Name" }
+    sequence(:number) { |i| i.to_s }
+    name { "Course #{number} Name" }
     department
   end
 

@@ -7,14 +7,14 @@
 <li><%=link_to @course.department.name, department_path(@course.department) %></li>
 <li class="divider"></li>
 <li><%=link_to course_path(@course) do %>
-Course <%=@course.course_number%>
+Course <%=@course.number%>
 <% end %>
 </li>
 <% elsif not @outcome.nil? %>
 <li><%= link_to @outcome.course.department.name, department_path(@outcome.course.department)%></li>
 <li class="divider"></li>
 <li><%= link_to course_path(@outcome.course) do%>
- Course <%=@outcome.course.course_number %>
+ Course <%=@outcome.course.number %>
 <% end %>
 </li>
 <li class="divider"></li>

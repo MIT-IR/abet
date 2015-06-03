@@ -1,5 +1,5 @@
 Given(/^An outcome has the following direct assessment associated with it:$/) do |table|
-  meche2 = Course.find_by_course_number("2")
+  meche2 = Course.find_by_number("2")
   outcome_a = meche2.outcomes.first
   @rows = table.hashes
     table.hashes.each do |row|

@@ -3,8 +3,8 @@ Given(/^a department has the following courses:$/) do |table|
   @rows = table.hashes
   table.hashes.each do |row|
     Course.create(department: meche,
-      course_number: row["Course Number"],
-      course_name: row["Course Name"])
+      number: row["Course Number"],
+      name: row["Course Name"])
   end
 end
 

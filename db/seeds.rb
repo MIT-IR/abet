@@ -32,8 +32,8 @@ ActiveRecord::Base.transaction do
   ["22", "Nuclear Engineering", "Nuclear Science and Engineering"]]
   courses.each do |course|
     dept = Department.find_by_name(course.last)
-    Course.find_or_create_by(course_number: course[0],
-      course_name: course[1],
+    Course.find_or_create_by(number: course[0],
+      name: course[1],
       department: dept)
   end
   standard_outcomes = [

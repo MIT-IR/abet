@@ -9,7 +9,7 @@ feature "User views department" do
 
     visit department_path(course.department, as: user)
 
-    expect(page).to have_content(course.course_name)
-    expect(page).not_to have_content(other_course.course_name)
+    expect(page).to have_content(course.name)
+    expect(page).not_to have_content(other_course.name)
   end
 end

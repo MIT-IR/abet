@@ -4,7 +4,7 @@ require 'rails_helper'
 describe CoursesController do
 
   let!(:dept) { Department.find_or_create_by(name: 'Mechanical Engineering') }
-  let(:course) { Course.find_or_create_by(course_number: '2A', course_name: 'MechE', department: dept) }
+  let(:course) { Course.find_or_create_by(number: '2A', name: 'MechE', department: dept) }
 
   context "setting up default outcomes" do
 
