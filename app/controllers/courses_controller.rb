@@ -1,8 +1,11 @@
 class CoursesController < ApplicationController
+  after_filter :verify_authorized, only: [:show]
+
   def show
     @course = Course.find(params[:id])
     @outcomes = @course.outcomes
     @unassociated_outcomes = retrieve_unassociated_outcomes
+    authorize(@course)
   end
 
   def adopt_default

@@ -5,8 +5,10 @@ feature "User visits outcome" do
     outcome = create(:outcome)
     direct_assessment = create(:direct_assessment, outcome: outcome)
     indirect_assessment = create(:indirect_assessment, outcome: outcome)
+    user = create(:user)
+    grant_access(user, outcome.course.department, Permission::ADMIN)
 
-    visit course_path(outcome.course)
+    visit course_path(outcome.course, as: user)
 
     within("#outcome-#{outcome.id}") do
       click_on "Details"

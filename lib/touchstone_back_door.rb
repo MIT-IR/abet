@@ -18,11 +18,13 @@ class TouchstoneBackDoor
   private
 
   def sign_in_through_the_back_door(env)
+    request = Rack::Request.new(env)
     params = Rack::Utils.parse_query(env["QUERY_STRING"])
-    user_id = params["as"]
+    user_id = params["as"] || request.session["as"]
 
     if user_id.present?
       user = User.find(user_id)
+      request.session["as"] = user.id
       env["eppn"] = user.email
     end
   end
