@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if eppn.present?
-      @current_user ||= User.first_or_create!(email: eppn)
+      @current_user ||= User.where(email: eppn).first_or_create!
     else
       raise "Expect all requests to have eppn available"
     end

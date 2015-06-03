@@ -22,7 +22,8 @@ class HomeController < ApplicationController
 
   def authorized_departments
     @authorized_departments ||= Department.
-      where(role_department: authorized_department_slugs)
+      where(role_department: authorized_department_slugs).
+      order(:name)
   end
 
   def authorized_department_slugs
