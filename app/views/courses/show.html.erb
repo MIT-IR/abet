@@ -10,21 +10,18 @@
       <td><%= outcome.name%></td>
       <td><%= outcome.description%></td>
       <td><%= link_to "Add new assessment", new_outcome_assessment_path(outcome)%></td>
-      <% if outcome.direct_assessments.count > 0 or outcome.indirect_assessments.count > 0 %>
-        <td><%= link_to "Show assessments", outcome_path(outcome)%></td>
-      <% else %>
-        <td>&nbsp;Nothing</td>
-      <% end %>
+      <td><%= link_to "Details", outcome_path(outcome)%></td>
     </tr>
   <% end %>
 </table>
 <% if @course.has_custom_outcomes? %>
   <div id="unassociated-outcomes">
-    <h4>The Following Standard Outcomes have not been associated to any custom outcomes</h4>
+    <h4>The Following Standard Outcomes have not been associated to any custom outcomes:</h4>
     <ul>
       <% @unassociated_outcomes.each do |outcome| %>
         <li><%=outcome.name %>: <%=outcome.description %></li>
       <% end %>
     </ul>
   </div>
+  <%= link_to "New custom outcome", new_course_outcome_path(@course), class: "button" %>
 <% end %>
