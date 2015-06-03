@@ -1,14 +1,15 @@
 GIT
+  remote: git@github.com:MIT-IR/roles_db.git
+  revision: 639757e290b2143b257d831f845e6197d322ca50
+  specs:
+    roles_db (0.1.0)
+
+GIT
   remote: git@github.com:derekprior/gssapi.git
   revision: da23de880937fab2a1ac96f95c64fc8a876241ae
   specs:
     gssapi (1.2.0)
       ffi (>= 1.0.1)
-
-PATH
-  remote: vendor/gems/roles_db-0.0.3
-  specs:
-    roles_db (0.0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -325,7 +326,7 @@ DEPENDENCIES
   pry-rails
   pundit
   rails (~> 4.2.0)
-  roles_db (= 0.0.3)!
+  roles_db!
   rspec-rails
   sass-rails
   savon
