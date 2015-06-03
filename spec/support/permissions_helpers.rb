@@ -4,9 +4,9 @@ module PermissionsHelpers
       Permission.new(department.role_department, access_level)
     end
 
-    allow(Permission).to receive(:for).
+    allow(PermissionSet).to receive(:for).
       with(user.username).
-      and_return(permissions)
+      and_return(PermissionSet.new(permissions))
   end
 
   RSpec.configure do |config|

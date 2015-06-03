@@ -1,32 +1,44 @@
 require "spec_helper"
 
 describe Permission do
-  describe ".for" do
-    it "creates permission objects from the roles db" do
-      username = "dprior"
-      accounts = [
-        fake_account("D_TEST1", "CAN EDIT ABET"),
-        fake_account("D_TEST2", "CAN VIEW ABET")
-      ]
-      allow(RolesDb.client).to receive(:accounts_for).
-        with(username).
-        and_return(accounts)
+  describe "#department_slug" do
+    it "is derived from account" do
+      account = double("Account", function: "foo", account_has_access_to: "bar")
 
-      permissions = Permission.for(username)
+      permission = Permission.from(account)
 
-      expect(permissions.size).to eq accounts.size
-      expect(permissions.first.department_slug).to eq "D_TEST1"
-      expect(permissions.first.access_level).to eq "CAN EDIT ABET"
-      expect(permissions.last.department_slug).to eq "D_TEST2"
-      expect(permissions.last.access_level).to eq "CAN VIEW ABET"
+      expect(permission.department_slug).to eq account.account_has_access_to
     end
   end
 
-  def fake_account(department_slug, access_level)
-    double(
-      "Account",
-      account_has_access_to: department_slug,
-      function: access_level
-    )
+  describe "#access_level" do
+    it "is derived from account" do
+      account = double("Account", function: "foo", account_has_access_to: "bar")
+
+      permission = Permission.from(account)
+
+      expect(permission.access_level).to eq account.function
+    end
+  end
+
+  describe "#read?" do
+    it "is true for the provided department if you have at least read" do
+      department = Department.new(role_department: "D_FOO")
+
+      permission = Permission.new(
+        department.role_department,
+        Permission::READ_ONLY
+      )
+
+      expect(permission.read?(department)).to eq true
+    end
+
+    it "is false if the permission is not for the department" do
+      department = Department.new(role_department: "D_FOO")
+
+      permission = Permission.new("D_BAR", Permission::READ_ONLY)
+
+      expect(permission.read?(department)).to eq false
+    end
   end
 end

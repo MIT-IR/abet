@@ -1,10 +1,11 @@
 module ControllerAuthHelpers
   def sign_in(user = "daries@mit.edu")
-    if user.respond_to?(:email)
-      request.env["eppn"] = user.email
-    else
-      request.env["eppn"] = user
+    unless user.respond_to?(:email)
+      user = User.new(email: user)
     end
+
+    request.env["eppn"] = user.email
+    user
   end
 end
 

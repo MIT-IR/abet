@@ -4,7 +4,7 @@ feature "User visits homepage" do
   scenario "sees department list if they have access to multiple departments" do
     user = create(:user)
     departments = create_pair(:department)
-    grant_access(user, departments, "CAN EDIT ABET")
+    grant_access(user, departments, Permission::ADMIN)
 
     visit root_path(as: user)
 

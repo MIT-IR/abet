@@ -3,9 +3,9 @@ require "rails_helper"
 describe HomeController do
   describe "#index" do
     it "renders a 401 if the user has access to no departments" do
-      sign_in
+      user = sign_in
+      grant_access(user, [], "")
       create(:department)
-      allow(Permission).to receive(:for).and_return([])
 
       get :index
 
@@ -13,10 +13,9 @@ describe HomeController do
     end
 
     it "redirects to department if user has access to only one department" do
-      sign_in
+      user = sign_in
       department = create(:department)
-      permission = Permission.new(department.role_department, "CAN EDIT ABET")
-      allow(Permission).to receive(:for).and_return([permission])
+      grant_access(user, department, Permission::ADMIN)
 
       get :index
 

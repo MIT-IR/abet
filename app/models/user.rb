@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   def username
     email.split("@").first
   end
+
+  def permissions
+    @permissions ||= PermissionSet.for(username)
+  end
 end

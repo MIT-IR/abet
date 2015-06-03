@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :ensure_user_can_access
   before_action :redirect_to_sole_department
+  after_action :verify_policy_scoped
 
   def index
     @departments = authorized_departments
@@ -21,14 +22,6 @@ class HomeController < ApplicationController
   end
 
   def authorized_departments
-    @authorized_departments ||= Department.
-      where(role_department: authorized_department_slugs).
-      order(:name)
-  end
-
-  def authorized_department_slugs
-    Permission.for(current_user.username).map do |permission|
-      permission.department_slug
-    end
+    @authorized_departments ||= policy_scope(Department)
   end
 end

@@ -5,6 +5,7 @@ feature "User views department" do
     user = create(:user)
     course = create(:course)
     other_course = create(:course)
+    grant_access(user, course.department, Permission::READ_ONLY)
 
     visit department_path(course.department, as: user)
 
