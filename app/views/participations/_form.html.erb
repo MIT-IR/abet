@@ -1,0 +1,49 @@
+<%= form_for [@outcome, @participation] do |f| %>
+  <div class="row">
+    <div class="small-10 large-12">
+      <div class="row">
+        <div class="small-2 columns">
+          <%=f.label "Program Name", class: "left inline" %>
+        </div>
+        <div class="small-6 columns end">
+          <%=f.text_field :assessment_name, placeholder: "e.g. 'UROP'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%=f.label "Program Description", class: "left inline"%>
+        </div>
+        <div class="small-6 columns end">
+          <%=f.text_field :assessment_description, placeholder: "e.g. 'Undergraduate Research Projects'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%=f.label "Year", class: "left inline" %>
+        </div>
+        <div class="small-2 columns end">
+          <%=f.select :year, @available_years  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Target Participation Percentage", class: "left inline" %>
+        </div>
+        <div class="small-4 columns end">
+          <%=f.text_field :target_percentage, placeholder: "Whole number, e.g. '80' for '80%'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%=f.label "Actual Participation Percentage", class: "left inline" %>
+        </div>
+        <div class="small-4 columns end">
+          <%=f.text_field :actual_percentage, placeholder:  "Whole number, e.g. '80' for '80%'" %>
+        </div>
+      </div>
+      <div class="row">
+        <%= button_tag "Submit"%>
+      </div>
+    </div>
+  </div>
+<% end %>

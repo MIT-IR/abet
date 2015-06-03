@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :assessments
     resources :direct_assessments
     resources :indirect_assessments
+    resources :surveys
+    resources :participations
+    resources :other_assessments
     resources :outcome_alignments
   end
 end

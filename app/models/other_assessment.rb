@@ -1,0 +1,2 @@
+class OtherAssessment < IndirectAssessment
+end

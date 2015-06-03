@@ -1,0 +1,2 @@
+class Participation < IndirectAssessment
+end

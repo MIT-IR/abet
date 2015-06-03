@@ -36,6 +36,7 @@ FactoryGirl.define do
     outcome
     survey_question "How satisfied are you with advising in your major?"
     target_percentage 80
+    type "Survey"
     year 2014
   end
 
