@@ -4,11 +4,31 @@ class DirectAssessmentsController < ApplicationController
     @assessment = DirectAssessment.new
     @available_semesters = ['2015FA', '2015JA', '2015SP']
   end
+
   def create
     @outcome = Outcome.find(params[:outcome_id])
       @direct_assessment = @outcome.direct_assessments.build(direct_assessment_params)
     if @direct_assessment.save
       redirect_to outcome_path(@outcome)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @outcome = Outcome.find(params[:outcome_id])
+    @assessment = DirectAssessment.find(params[:id])
+    @available_semesters = ['2015FA', '2015JA', '2015SP']
+  end
+
+  def update
+    @outcome = Outcome.find(params[:outcome_id])
+    @assessment = DirectAssessment.find(params[:id])
+    @assessment.assign_attributes(direct_assessment_params)
+    if @assessment.save
+      redirect_to outcome_path(@outcome)
+    else
+      render :edit
     end
   end
 

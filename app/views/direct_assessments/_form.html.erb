@@ -1,87 +1,87 @@
 <div class="row">
-	<div class="five columns centered">
-		<h4>Add a <i>new direct assessment</i> for outcome "<%=@outcome.name%>. <%=@outcome.description%>"</h4>
-	</div>
+<div class="five columns centered">
+  <h4>Add a <i>new direct assessment</i> for outcome "<%=@outcome.name%>. <%=@outcome.description%>"</h4>
+</div>
 </div>
 
 <%=form_for [@outcome, @assessment] do |f| %>
-	<div class="row">
-		<div class="small-10 large-12">
-			<div class="row">
-				<div class="small-2 columns">
-					<%=f.label "Semester", class: "left inline"%>
-				</div>
-				<div class="small-2 columns end">
-					<%=f.select :semester, options_for_select(@available_semesters)%>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%= f.label "Subject Number", class: "left inline" %>
-				</div>
-				<div class="small-2 columns end">
-					<%=f.text_field :subject_number, :placeholder => "'18.01'"%>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%=f.label "Subject Description", class: "left inline"%>
-				</div>
-				<div class="small-6 columns end">
-					<%=f.text_field :subject_description, :placeholder => "e.g. 'Calculus'"%>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%= f.label "Assignment Name", class: "left inline"%>
-				</div>
-				<div class="small-6 columns end">
-					<%=f.text_field :assignment_name, :placeholder => "e.g. Problem Set 1" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%= f.label "Assignment Description", class: "left inline"%>
-				</div>
-				<div class="small-6 columns end">
-					<%=f.text_field :assignment_description, :placeholder => "e.g. 'Integration'" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%= f.label "Problem description", class: "left inline"%>
-				</div>
-				<div class="small-6 columns end">
-					<%=f.text_field :problem_description, :placeholder => "e.g. 'Question 3, Integration by parts'" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%= f.label "Minimum Satisfactory Grade", class: "left inline"%>
-				</div>
-				<div class="small-4 columns end"> 
-					<%=f.text_field :minimum_grade, :placeholder => "e.g. '7 points out of 10'" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%= f.label "Target Percentage", class: "left inline"%>
-				</div>
-				<div class="small-4 columns end">
-					<%=f.text_field	:target_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-2 columns">
-					<%= f.label "Actual Percentage", class: "left inline"%>
-				</div>
-				<div class="small-4 columns end"> 
-					<%=f.text_field :actual_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-	<%= button_tag "Submit"%>
-	</div>
+  <div class="row">
+    <div class="small-10 large-12">
+      <div class="row">
+        <div class="small-2 columns">
+          <%=f.label "Semester", class: "left inline"%>
+        </div>
+        <div class="small-2 columns end">
+          <%=f.select :semester, options_for_select(@available_semesters)%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Subject Number", class: "left inline" %>
+        </div>
+        <div class="small-2 columns end">
+          <%=f.text_field :subject_number, :placeholder => "'18.01'"%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%=f.label "Subject Description", class: "left inline"%>
+        </div>
+        <div class="small-6 columns end">
+          <%=f.text_field :subject_description, :placeholder => "e.g. 'Calculus'"%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Assignment Name", class: "left inline"%>
+        </div>
+        <div class="small-6 columns end">
+          <%=f.text_field :assignment_name, :placeholder => "e.g. Problem Set 1" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Assignment Description", class: "left inline"%>
+        </div>
+        <div class="small-6 columns end">
+          <%=f.text_field :assignment_description, :placeholder => "e.g. 'Integration'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Problem description", class: "left inline"%>
+        </div>
+        <div class="small-6 columns end">
+          <%=f.text_field :problem_description, :placeholder => "e.g. 'Question 3, Integration by parts'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Minimum Satisfactory Grade", class: "left inline"%>
+        </div>
+        <div class="small-4 columns end"> 
+          <%=f.text_field :minimum_grade, :placeholder => "e.g. '7 points out of 10'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Target Percentage", class: "left inline"%>
+        </div>
+        <div class="small-4 columns end">
+          <%=f.text_field	:target_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <%= f.label "Actual Percentage", class: "left inline"%>
+        </div>
+        <div class="small-4 columns end"> 
+          <%=f.text_field :actual_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= button_tag "Submit"%>
+  </div>
 <% end %>
