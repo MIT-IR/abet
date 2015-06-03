@@ -1,0 +1,17 @@
+.outcomes {
+  .label {
+    width: 5%;
+  }
+
+  .description {
+    width: 80%;
+  }
+
+  .actions {
+    width: 15%;
+  }
+}
+
+.actions a:not(:first-child) {
+  padding-left: 20px;
+}

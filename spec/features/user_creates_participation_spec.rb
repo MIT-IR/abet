@@ -6,8 +6,8 @@ feature "User creates a participation assessment" do
     user = user_with_admin_access_to(outcome.course.department)
 
     visit course_path(outcome.course, as: user)
-    within("#outcome-#{outcome.id}") do
-      click_on "Add new assessment"
+    within("#outcome_#{outcome.id}") do
+      click_on "Assess"
     end
 
     click_on "Participation in program"

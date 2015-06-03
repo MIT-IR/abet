@@ -7,7 +7,7 @@ describe "courses/outcomes" do
 
     render "courses/outcomes", course: outcome.course
 
-    expect(page).to have_link("Add new assessment")
+    expect(page).to have_link("Assess")
   end
 
   it "does not show the add assessment link if unauthorized" do
@@ -16,7 +16,7 @@ describe "courses/outcomes" do
 
     render "courses/outcomes", course: outcome.course
 
-    expect(page).not_to have_link("Add new assessment")
+    expect(page).not_to have_link("Assess")
   end
 
   it "shows the create_custom outcomes link if authorized" do

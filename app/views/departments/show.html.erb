@@ -1,15 +1,13 @@
-<div class="row">&nbsp;</div>
-<div class="row">
-  <table id="courses">
-  <tr>
-    <th class="small-6 columns">Course Number</th>
-    <th class="small-6 columns  ">Course Name</th>
-  </tr>
-  <% @courses.each do |course| %>
-  <tr>
-    <td class="small-6 columns"><%=course.number %></td>
-    <td class="small-6 columns"><%=link_to course.name, course%></td>
-  </tr>
-  <% end %>
+<h1><%= @department.name %></h1>
+
+<table id="courses">
+  <thead>
+    <tr>
+      <th><%= t(".course_number") %></th>
+      <th><%= t(".course_name") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @courses %>
+  </tbody>
 </table>
-</div>

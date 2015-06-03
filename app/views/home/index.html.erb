@@ -1,7 +1,5 @@
-<div class="row">
-<ul>
-<% @departments.each do |department| %>
-  <div class="four columns centered"><li><%=link_to department.name, department_path(department) %></li></div>
-<% end %>
+<h1><%= t(".heading") %></h1>
+
+<ul class="departments">
+  <%= render @departments %>
 </ul>
-</div>

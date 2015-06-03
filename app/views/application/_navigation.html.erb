@@ -1,0 +1,19 @@
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <%= link_to root_path, class: "logo" do %>
+      <%= image_tag "logo.gif", alt: "MIT" %>
+    <% end %>
+
+    <a href="javascript:void(0)"
+      class="navigation-menu-button"
+      id="js-mobile-menu"><%= t(".menu") %></a>
+
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><%= link_to t(".home"), root_path %></li>
+        <li class="nav-link"><a href="javascript:void(0)"><%= t(".about") %></a></li>
+        <li class="nav-link"><a href="javascript:void(0)"><%= t(".contact") %></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

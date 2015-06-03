@@ -9,7 +9,7 @@ feature "User visits outcome" do
 
     visit course_path(outcome.course, as: user)
 
-    within("#outcome-#{outcome.id}") do
+    within("#outcome_#{outcome.id}") do
       click_on "Details"
     end
 

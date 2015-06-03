@@ -1,0 +1,11 @@
+<%= content_tag_for(:tr, outcome) do %>
+  <td><%= outcome.name%></td>
+  <td><%= outcome.description%></td>
+  <td class="actions">
+    <% if policy(outcome).create_assessments? %>
+      <%= link_to t(".assess"), new_outcome_assessment_path(outcome) %>
+    <% end %>
+
+    <%= link_to t(".details"), outcome_path(outcome)%>
+  </td>
+<% end %>
