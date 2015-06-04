@@ -16,6 +16,24 @@ class SurveysController < ApplicationController
     end
   end
 
+  def edit
+    @outcome = Outcome.find(params[:outcome_id])
+    @survey = Survey.find(params[:id])
+    @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
+  end
+
+  def update
+    @outcome = Outcome.find(params[:outcome_id])
+    @survey = Survey.find(params[:id])
+    @survey.assign_attributes(survey_params)
+
+    if @survey.save
+      redirect_to outcome_path(@outcome)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def survey_params

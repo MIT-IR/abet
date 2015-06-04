@@ -4,7 +4,7 @@ feature "User visits outcome" do
   scenario "and sees existing assessments" do
     outcome = create(:outcome)
     direct_assessment = create(:direct_assessment, outcome: outcome)
-    indirect_assessment = create(:indirect_assessment, outcome: outcome)
+    indirect_assessment = create(:survey, outcome: outcome)
     user = create(:user)
     grant_access(user, outcome.course.department, Permission::ADMIN)
 

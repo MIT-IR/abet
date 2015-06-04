@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User edits an assessment" do
+feature "User updates a direct assessment" do
   scenario "a direct assessment is successfully updated" do
     assessment = create(:direct_assessment, subject_description: "Calculus")
     outcome = assessment.outcome

@@ -59,6 +59,7 @@
       <th>Target Percentage</th>
       <th>Actual Percentage</th>
       <th>Type</th>
+      <th></th>
     </tr>
     <% @indirect_assessments.each do |assessment| %>
       <tr id="indirect_assessment-<%=assessment.id %>">
@@ -69,6 +70,7 @@
         <td><%= assessment.target_percentage%></td>
         <td><%= assessment.actual_percentage%></td>
         <td><%= assessment_type(assessment) %></td>
+        <td><%= link_to "Edit", url_for([:edit, @outcome, assessment]) %></td>
       </tr>
     <% end %>
   </table>

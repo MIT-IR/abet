@@ -28,15 +28,13 @@ FactoryGirl.define do
     target_percentage 80
   end
 
-  factory :indirect_assessment do
+  factory :other_assessment do
     actual_percentage 78
-    assessment_description "Biennial survey administered to graduating seniors"
-    assessment_name "Senior Survey"
-    minimum_category "Somewhat satisfied"
+    assessment_description "Senior Thesis Completion"
+    assessment_name "Percent of students who complete a senior thesis"
     outcome
-    survey_question "How satisfied are you with advising in your major?"
     target_percentage 80
-    type "Survey"
+    type "OtherAssessment"
     year 2014
   end
 
@@ -49,12 +47,34 @@ FactoryGirl.define do
     course
   end
 
+  factory :participation do
+    actual_percentage 78
+    assessment_description "Undergraduation Research Project"
+    assessment_name "UROP"
+    outcome
+    target_percentage 80
+    type "Participation"
+    year 2014
+  end
+
   factory :standard_outcome do
     sequence :name do |i|
       ("a".."z").to_a[i - 1]
     end
 
     description { "description for default #{name}" }
+  end
+
+  factory :survey do
+    actual_percentage 78
+    assessment_description "Biennial survey administered to graduating seniors"
+    assessment_name "Senior Survey"
+    minimum_category "Somewhat satisfied"
+    outcome
+    survey_question "How satisfied are you with advising in your major?"
+    target_percentage 80
+    type "Survey"
+    year 2014
   end
 
   factory :user do

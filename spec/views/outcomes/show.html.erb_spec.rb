@@ -4,7 +4,7 @@ describe "outcomes/show.html.erb" do
   it "shows table headers when assessments are present" do
     assign(:outcome, build_stubbed(:outcome))
     assign(:direct_assessments, [build_stubbed(:direct_assessment)])
-    assign(:indirect_assessments, [build_stubbed(:indirect_assessment)])
+    assign(:indirect_assessments, [build_stubbed(:survey)])
 
     render
 

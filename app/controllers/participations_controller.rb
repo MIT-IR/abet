@@ -16,6 +16,24 @@ class ParticipationsController < ApplicationController
     end
   end
 
+  def edit
+    @outcome = Outcome.find(params[:outcome_id])
+    @participation = Participation.find(params[:id])
+    @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
+  end
+
+  def update
+    @outcome = Outcome.find(params[:outcome_id])
+    @participation = Participation.find(params[:id])
+    @participation.assign_attributes(participation_params)
+
+    if @participation.save
+      redirect_to outcome_path(@outcome)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def participation_params
