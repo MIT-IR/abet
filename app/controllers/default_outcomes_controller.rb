@@ -1,6 +1,4 @@
 class DefaultOutcomesController < ApplicationController
-  after_filter :verify_authorized
-
   def create
     course = Course.find(params[:course_id])
     authorize(course, :create_outcomes?)

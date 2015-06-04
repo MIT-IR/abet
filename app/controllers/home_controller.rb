@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   before_action :ensure_user_can_access
   before_action :redirect_to_sole_department
-  after_action :verify_policy_scoped
 
   def index
     @departments = authorized_departments

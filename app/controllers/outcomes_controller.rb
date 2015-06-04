@@ -1,6 +1,4 @@
 class OutcomesController < ApplicationController
-  after_filter :verify_authorized
-
   def show
     @outcome = Outcome.find(params[:id])
     @direct_assessments = @outcome.direct_assessments

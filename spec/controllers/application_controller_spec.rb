@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe ApplicationController do
   controller do
+    skip_after_action :verify_policy_scoped
+
     def index
       render text: current_user.email
     end
