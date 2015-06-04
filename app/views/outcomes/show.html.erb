@@ -29,6 +29,7 @@
       <th>Target Percentage</th>
       <th>Actual Percentage</th>
       <th></th>
+      <th></th>
     </tr>
     <% @direct_assessments.each do |assessment| %>
       <tr id="direct_assessment-<%=assessment.id %>">
@@ -41,6 +42,7 @@
         <td><%= assessment.target_percentage%></td>
         <td><%= assessment.actual_percentage%></td>
         <td><%= link_to "Edit", edit_outcome_direct_assessment_path(@outcome, assessment) %>
+        <td><%= link_to "Clone", new_outcome_direct_assessment_path(@outcome, assessment_id: assessment.id) %>
       </tr>
     <% end %>
   </table>
