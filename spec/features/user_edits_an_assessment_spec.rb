@@ -4,8 +4,9 @@ feature "User edits an assessment" do
   scenario "a direct assessment is successfully updated" do
     assessment = create(:direct_assessment, subject_description: "Calculus")
     outcome = assessment.outcome
+    user = user_with_admin_access_to(outcome.course.department)
 
-    visit outcome_path(outcome)
+    visit outcome_path(outcome, as: user)
 
     within("#direct_assessment-#{assessment.id}") do
       click_on "Edit"

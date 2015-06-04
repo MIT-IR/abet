@@ -18,6 +18,10 @@ class Permission
     department_matches?(department) && ALL.include?(access_level)
   end
 
+  def admin?(department)
+    department_matches?(department) && access_level == ADMIN
+  end
+
   private
 
   def department_matches?(department)

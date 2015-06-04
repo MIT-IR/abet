@@ -41,4 +41,30 @@ describe Permission do
       expect(permission.read?(department)).to eq false
     end
   end
+
+  describe "#admin?" do
+    it "is true for the provided department if user is an admin" do
+      department = Department.new(slug: "D_BAR")
+
+      permission = Permission.new(department.slug, Permission::ADMIN)
+
+      expect(permission.admin?(department)).to eq true
+    end
+
+    it "is false if the user is an admin for a different department" do
+      department = Department.new(slug: "D_BAR")
+
+      permission = Permission.new("D_BAZ", Permission::ADMIN)
+
+      expect(permission.admin?(department)).to eq false
+    end
+
+    it "is false if the user has non-admin access to the department" do
+      department = Department.new(slug: "D_BAR")
+
+      permission = Permission.new(department.slug, Permission::READ_ONLY)
+
+      expect(permission.admin?(department)).to eq false
+    end
+  end
 end

@@ -39,7 +39,7 @@ describe PermissionSet do
     end
   end
 
-  describe "#read" do
+  describe "#read?" do
     it "is true if delegating to any of the permissions returns true" do
       department = instance_double(Department)
       permission = instance_double(Permission, read?: true)
@@ -56,6 +56,26 @@ describe PermissionSet do
       permissions = PermissionSet.new([permission])
 
       expect(permissions.read?(department)).to eq false
+    end
+  end
+
+  describe "#admin?" do
+    it "is true if delegating to any of the permissions returns true" do
+      department = instance_double(Department)
+      permission = instance_double(Permission, admin?: true)
+
+      permissions = PermissionSet.new([permission])
+
+      expect(permissions.admin?(department)).to eq true
+    end
+
+    it "is false otherwise" do
+      department = instance_double(Department)
+      permission = instance_double(Permission, admin?: false)
+
+      permissions = PermissionSet.new([permission])
+
+      expect(permissions.admin?(department)).to eq false
     end
   end
 

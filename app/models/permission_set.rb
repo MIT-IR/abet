@@ -29,4 +29,10 @@ class PermissionSet
       permission.read?(department)
     end
   end
+
+  def admin?(department)
+    any? do |permission|
+      permission.admin?(department)
+    end
+  end
 end
