@@ -17,6 +17,7 @@ feature "User creates a participation assessment" do
 
     within("#indirect_assessments") do
       expect(page).to have_content("UROP")
+      expect(page).to have_content("Program Participation")
     end
   end
 

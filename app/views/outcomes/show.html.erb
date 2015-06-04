@@ -58,6 +58,7 @@
       <th>Minimum Category</th>
       <th>Target Percentage</th>
       <th>Actual Percentage</th>
+      <th>Type</th>
     </tr>
     <% @indirect_assessments.each do |assessment| %>
       <tr id="indirect_assessment-<%=assessment.id %>">
@@ -67,6 +68,7 @@
         <td><%= assessment.minimum_category%></td>
         <td><%= assessment.target_percentage%></td>
         <td><%= assessment.actual_percentage%></td>
+        <td><%= assessment_type(assessment) %></td>
       </tr>
     <% end %>
   </table>
