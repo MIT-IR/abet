@@ -4,10 +4,7 @@ Rails.application.routes.draw do
   resources :departments, only: [:show]
 
   resources :courses, only: [:show] do
-    member do
-      get 'adopt_default'
-    end
-
+    resource :default_outcomes, only: [:create]
     resources :outcomes
   end
 

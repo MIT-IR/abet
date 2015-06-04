@@ -8,12 +8,6 @@ class CoursesController < ApplicationController
     authorize(@course)
   end
 
-  def adopt_default
-    @course = Course.find(params[:id])
-    @course.adopt_default_outcomes!
-    redirect_to action: 'show'
-  end
-
   private
 
   def retrieve_unassociated_outcomes

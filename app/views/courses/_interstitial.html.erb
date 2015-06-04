@@ -2,7 +2,9 @@
   <h3>To set up outcomes</h3>
 </div>
 <div class="row">
-  <%=link_to "Adopt Default Outcomes", adopt_default_course_path(course) %>
+  <%=link_to "Adopt Default Outcomes",
+    course_default_outcomes_path(course),
+    method: :post %>
 </div>
 <div class="row">
   <%=link_to "Create Custom Outcomes", new_course_outcome_path(course) %>
