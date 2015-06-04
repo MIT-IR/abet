@@ -5,8 +5,7 @@ feature "User visits outcome" do
     outcome = create(:outcome)
     direct_assessment = create(:direct_assessment, outcome: outcome)
     indirect_assessment = create(:survey, outcome: outcome)
-    user = create(:user)
-    grant_access(user, outcome.course.department, Permission::ADMIN)
+    user = user_with_admin_access_to(outcome.course.department)
 
     visit course_path(outcome.course, as: user)
 

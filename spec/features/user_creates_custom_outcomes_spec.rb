@@ -4,8 +4,7 @@ feature "User creates custom outcomes" do
   scenario "adds first custom outcome" do
     course = create(:course)
     associated_outcome, unassociated_outcome = create_pair(:standard_outcome)
-    user = create(:user)
-    grant_access(user, course.department, Permission::ADMIN)
+    user = user_with_admin_access_to(course.department)
 
     visit course_path(course, as: user)
     click_on "Create Custom Outcomes"
@@ -36,8 +35,7 @@ feature "User creates custom outcomes" do
     standard_outcome = create(:standard_outcome)
     course = create(:course, has_custom_outcomes: true)
     custom_outcome = create(:outcome, course: course)
-    user = create(:user)
-    grant_access(user, course.department, Permission::ADMIN)
+    user = user_with_admin_access_to(course.department)
 
     visit course_path(course, as: user)
 

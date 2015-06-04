@@ -2,10 +2,9 @@ require "rails_helper"
 
 feature "User views department" do
   scenario "sees courses for that department" do
-    user = create(:user)
     course = create(:course)
     other_course = create(:course)
-    grant_access(user, course.department, Permission::READ_ONLY)
+    user = user_with_read_access_to(course.department)
 
     visit department_path(course.department, as: user)
 

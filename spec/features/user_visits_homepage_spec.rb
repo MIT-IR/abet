@@ -2,9 +2,8 @@ require "rails_helper"
 
 feature "User visits homepage" do
   scenario "sees department list if they have access to multiple departments" do
-    user = create(:user)
     departments = create_pair(:department)
-    grant_access(user, departments, Permission::ADMIN)
+    user = user_with_read_access_to(departments)
 
     visit root_path(as: user)
 

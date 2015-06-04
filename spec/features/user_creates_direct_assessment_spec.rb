@@ -3,8 +3,7 @@ require "rails_helper"
 feature "User creates an assessment" do
   scenario "the outcome description is displayed on the new assessment page" do
     outcome = create(:outcome)
-    user = create(:user)
-    grant_access(user, outcome.course.department, Permission::ADMIN)
+    user = user_with_admin_access_to(outcome.course.department)
 
     visit course_path(outcome.course, as: user)
     within("#outcome-#{outcome.id}") do
@@ -17,8 +16,7 @@ feature "User creates an assessment" do
 
   scenario "a new assessment is created" do
     outcome = create(:outcome)
-    user = create(:user)
-    grant_access(user, outcome.course.department, Permission::ADMIN)
+    user = user_with_admin_access_to(outcome.course.department)
 
     visit course_path(outcome.course, as: user)
     within("#outcome-#{outcome.id}") do
