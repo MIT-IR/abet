@@ -1,13 +1,17 @@
 class ParticipationsController < ApplicationController
+  include AssessmentAuthorization
+
   def new
     @outcome = Outcome.find(params[:outcome_id])
-    @participation = Participation.new
+    @participation = @outcome.participations.build
     @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
+    authorize(@participation)
   end
 
   def create
     @outcome = Outcome.find(params[:outcome_id])
     @participation = @outcome.participations.build(participation_params)
+    authorize(@participation)
 
     if @participation.save
       redirect_to outcome_path(@outcome)
@@ -20,12 +24,14 @@ class ParticipationsController < ApplicationController
     @outcome = Outcome.find(params[:outcome_id])
     @participation = Participation.find(params[:id])
     @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
+    authorize(@participation)
   end
 
   def update
     @outcome = Outcome.find(params[:outcome_id])
     @participation = Participation.find(params[:id])
     @participation.assign_attributes(participation_params)
+    authorize(@participation)
 
     if @participation.save
       redirect_to outcome_path(@outcome)

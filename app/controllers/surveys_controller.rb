@@ -1,13 +1,17 @@
 class SurveysController < ApplicationController
+  include AssessmentAuthorization
+
   def new
     @outcome = Outcome.find(params[:outcome_id])
-    @survey = Survey.new
+    @survey = @outcome.surveys.build
     @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
+    authorize(@survey)
   end
 
   def create
     @outcome = Outcome.find(params[:outcome_id])
     @survey = @outcome.surveys.build(survey_params)
+    authorize(@survey)
 
     if @survey.save
       redirect_to outcome_path(@outcome)
@@ -20,12 +24,14 @@ class SurveysController < ApplicationController
     @outcome = Outcome.find(params[:outcome_id])
     @survey = Survey.find(params[:id])
     @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
+    authorize(@survey)
   end
 
   def update
     @outcome = Outcome.find(params[:outcome_id])
     @survey = Survey.find(params[:id])
     @survey.assign_attributes(survey_params)
+    authorize(@survey)
 
     if @survey.save
       redirect_to outcome_path(@outcome)
