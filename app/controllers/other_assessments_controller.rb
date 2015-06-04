@@ -1,9 +1,10 @@
 class OtherAssessmentsController < ApplicationController
   include AssessmentAuthorization
+  include AssessmentCloning
 
   def new
     @outcome = Outcome.find(params[:outcome_id])
-    @other_assessment = @outcome.other_assessments.build
+    @other_assessment = @outcome.other_assessments.build(new_assessment_attributes)
     @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
     authorize(@other_assessment)
   end
