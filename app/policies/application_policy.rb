@@ -49,11 +49,5 @@ class ApplicationPolicy
     def resolve
       scope
     end
-
-    private
-
-    def permissions
-      user.permissions
-    end
   end
 end

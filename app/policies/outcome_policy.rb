@@ -1,10 +1,10 @@
 class OutcomePolicy < ApplicationPolicy
   def show?
-    user.permissions.read?(record.course.department)
+    user.read?(record.department)
   end
 
   def create?
-    user.permissions.admin?(record.course.department)
+    user.admin?(record.department)
   end
 
   def create_assessments?

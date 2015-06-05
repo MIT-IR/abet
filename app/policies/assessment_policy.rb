@@ -1,6 +1,6 @@
 class AssessmentPolicy < ApplicationPolicy
   def create?
-    user.permissions.admin?(record.outcome.course.department)
+    user.admin?(record.department)
   end
 
   def update?
