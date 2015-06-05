@@ -9,7 +9,12 @@
     <tr id="outcome-<%=outcome.id %>">
       <td><%= outcome.name%></td>
       <td><%= outcome.description%></td>
-      <td><%= link_to "Add new assessment", new_outcome_assessment_path(outcome)%></td>
+      <td>
+        <% if policy(outcome).create_assessments? %>
+          <%= link_to "Add new assessment",
+            new_outcome_assessment_path(outcome) %>
+        <% end %>
+      </td>
       <td><%= link_to "Details", outcome_path(outcome)%></td>
     </tr>
   <% end %>
@@ -23,5 +28,8 @@
       <% end %>
     </ul>
   </div>
-  <%= link_to "New custom outcome", new_course_outcome_path(course), class: "button" %>
+
+  <% if policy(course).create_outcomes? %>
+    <%= link_to "New custom outcome", new_course_outcome_path(course), class: "button" %>
+  <% end %>
 <% end %>
