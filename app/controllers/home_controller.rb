@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
   def ensure_user_can_access
     if authorized_departments.empty?
-      render file: "public/401.html", status: :unauthorized
+      user_not_authorized
     end
   end
 

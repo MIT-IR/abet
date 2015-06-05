@@ -2,12 +2,13 @@ require "rails_helper"
 
 describe DepartmentsController do
   describe "#show" do
-    it "raises an error if not authorized" do
+    it "renders a 401 if not authorized" do
       sign_in
       department = create(:department)
 
-      expect { get :show, id: department }.
-        to raise_error(Pundit::NotAuthorizedError)
+      get :show, id: department
+
+      expect(response.status).to eq 401
     end
   end
 end
