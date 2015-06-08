@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603203256) do
+ActiveRecord::Schema.define(version: 20150608190453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,21 @@ ActiveRecord::Schema.define(version: 20150603203256) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "assessment_id",          null: false
+    t.string   "assessment_type",        null: false
+    t.string   "assessment_name",        null: false
+    t.string   "assessment_description", null: false
+    t.string   "problem_description"
+    t.integer  "percentage",             null: false
+    t.integer  "year",                   null: false
+    t.string   "semester"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "results", ["assessment_id", "assessment_type", "year", "semester"], name: "index_results_on_assessment_and_year_and_semester", unique: true, using: :btree
 
   create_table "standard_outcomes", force: :cascade do |t|
     t.string   "name"

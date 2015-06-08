@@ -1,10 +1,4 @@
-<div class="row">
-<div class="five columns centered">
-  <h4>Add a <i>new direct assessment</i> for outcome "<%=@outcome.name%>. <%=@outcome.description%>"</h4>
-</div>
-</div>
-
-<%=form_for [@outcome, @assessment] do |f| %>
+<%= form_for [@outcome, @assessment] do |f| %>
   <div class="row">
     <div class="small-10 large-12">
       <div class="row">

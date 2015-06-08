@@ -21,23 +21,26 @@ class DirectAssessmentsController < ApplicationController
   end
 
   def edit
-    @outcome = Outcome.find(params[:outcome_id])
     @assessment = DirectAssessment.find(params[:id])
     @available_semesters = ['2015FA', '2015JA', '2015SP']
     authorize(@assessment)
   end
 
   def update
-    @outcome = Outcome.find(params[:outcome_id])
     @assessment = DirectAssessment.find(params[:id])
     authorize(@assessment)
 
     @assessment.assign_attributes(direct_assessment_params)
     if @assessment.save
-      redirect_to outcome_path(@outcome)
+      redirect_to outcome_path(@assessment.outcome)
     else
       render :edit
     end
+  end
+
+  def show
+    @assessment = DirectAssessment.find(params[:id])
+    authorize(@assessment)
   end
 
   private

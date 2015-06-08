@@ -6,4 +6,8 @@ class AssessmentPolicy < ApplicationPolicy
   def update?
     create?
   end
+
+  def show?
+    user.read?(record.department)
+  end
 end

@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Problem Description</th>
+    <th>Year</th>
+    <th>Semester</th>
+    <th>Percentage</th>
+  </tr>
+  <% @assessment.results.each do |result| %>
+    <tr>
+      <td><%= result.assessment_name %></td>
+      <td><%= result.assessment_description %></td>
+      <td><%= result.problem_description %></td>
+      <td><%= result.year %></td>
+      <td><%= result.semester %></td>
+      <td><%= result.percentage %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Add result", new_direct_assessment_result_path(@assessment) %>

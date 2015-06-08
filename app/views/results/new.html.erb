@@ -1,0 +1,23 @@
+<h3>Add a new result for <%= @assessment.assignment_name %></h3>
+
+<%= form_for [@assessment, @result] do |f| %>
+  <%= f.label "Year" %>
+  <%= f.select :year, options_for_select(Result::YEARS) %>
+
+  <%= f.label "Semester" %>
+  <%= f.select :semester, options_for_select(Result::SEMESTERS) %>
+
+  <%= f.label "Name" %>
+  <%= f.text_field :assessment_name %>
+
+  <%= f.label "Description" %>
+  <%= f.text_field :assessment_description %>
+
+  <%= f.label "Problem Description" %>
+  <%= f.text_field :problem_description %>
+
+  <%= f.label "Percentage" %>
+  <%= f.text_field :percentage %>
+
+  <%= button_tag "Submit" %>
+<% end %>
