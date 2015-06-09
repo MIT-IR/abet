@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608190453) do
+ActiveRecord::Schema.define(version: 20150609170601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 20150608190453) do
   add_index "departments", ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
 
   create_table "direct_assessments", force: :cascade do |t|
-    t.string   "subject_number"
-    t.string   "subject_description"
     t.string   "semester"
     t.string   "assignment_name"
     t.string   "assignment_description"
@@ -49,7 +47,10 @@ ActiveRecord::Schema.define(version: 20150608190453) do
     t.integer  "outcome_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "subject_id",             null: false
   end
+
+  add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
 
   create_table "indirect_assessments", force: :cascade do |t|
     t.string   "assessment_name"
@@ -104,6 +105,11 @@ ActiveRecord::Schema.define(version: 20150608190453) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "subjects", force: :cascade do |t|
+    t.string "number", null: false
+    t.string "title",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",      null: false
     t.datetime "created_at", null: false
@@ -113,4 +119,5 @@ ActiveRecord::Schema.define(version: 20150608190453) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "courses", "departments", on_delete: :restrict
+  add_foreign_key "direct_assessments", "subjects"
 end

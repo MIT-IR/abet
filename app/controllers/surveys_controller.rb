@@ -1,10 +1,9 @@
 class SurveysController < ApplicationController
   include AssessmentAuthorization
-  include AssessmentCloning
 
   def new
     @outcome = Outcome.find(params[:outcome_id])
-    @survey = @outcome.surveys.build(new_assessment_attributes)
+    @survey = @outcome.surveys.build
     @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
     authorize(@survey)
   end

@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 ActiveRecord::Base.transaction do
   Department.find_or_create_by(name: "Civil and Environmental Engineering", slug: "D_CEE")
   Department.find_or_create_by(name: "Mechanical Engineering", slug: "D_MECHE")
@@ -14,6 +6,7 @@ ActiveRecord::Base.transaction do
   Department.find_or_create_by(name: "Chemical Engineering", slug: "D_CHEME")
   Department.find_or_create_by(name: "Aero Astro", slug: "D_AEROASTRO")
   Department.find_or_create_by(name: "Nuclear Science and Engineering", slug: "D_NUCENG")
+
   courses = [["1-C", "Civil Engineering", "Civil and Environmental Engineering"],
   ["1-E", "Environmental Engineering", "Civil and Environmental Engineering"],
   ["1-ENG", "CEE Flexible", "Civil and Environmental Engineering"],
@@ -30,12 +23,14 @@ ActiveRecord::Base.transaction do
   ["16", "Aerospace Engineering", "Aero Astro"],
   ["16-ENG", "Aerospace Flexible", "Aero Astro"],
   ["22", "Nuclear Engineering", "Nuclear Science and Engineering"]]
+
   courses.each do |course|
     dept = Department.find_by_name(course.last)
     Course.find_or_create_by(number: course[0],
       name: course[1],
       department: dept)
   end
+
   standard_outcomes = [
     ["a", "an ability to apply knowledge of mathematics, science, and engineering"],
     ["b", "an ability to design and conduct experiments, as well as to analyze and interpret data"],
@@ -49,9 +44,12 @@ ActiveRecord::Base.transaction do
     ["j", "a knowledge of contemporary issues"],
     ["k", "an ability to use the techniques, skills, and modern engineering tools necessary for engineering practice"]
   ]
+
   standard_outcomes.each do |outcome|
     StandardOutcome.find_or_create_by(name: outcome[0],
       description: outcome[1])
   end
-end
 
+  subject_csv = Rails.root.join("config", "subjects.csv")
+  SubjectImporter.new(subject_csv).run
+end

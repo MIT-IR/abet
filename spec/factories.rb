@@ -1,18 +1,20 @@
 FactoryGirl.define do
+  sequence(:label) { |n| ("a".."z").to_a[n - 1] }
+  sequence(:name) { |n| "The #{n.ordinalize} Name" }
+  sequence(:number) { |n| n.to_s }
+
   factory :course do
-    sequence(:number) { |i| i.to_s }
-    name { "Course #{number} Name" }
+    name
+    number
     department
   end
 
   factory :department do
-    sequence :name do |n|
-      "Department #{n} Name"
-    end
-
     sequence :slug do |n|
       "D_#{n}XX"
     end
+
+    name
   end
 
   factory :direct_assessment do
@@ -23,8 +25,7 @@ FactoryGirl.define do
     outcome
     problem_description "Question 3, Integration by parts"
     semester "2015FA"
-    subject_description "Calculus"
-    subject_number "18.01"
+    subject
     target_percentage 80
   end
 
@@ -39,10 +40,7 @@ FactoryGirl.define do
   end
 
   factory :outcome do
-    sequence :name do |i|
-      ("a".."z").to_a[i - 1]
-    end
-
+    name { generate(:label) }
     description { "description for custom #{name}" }
     course
   end
@@ -58,11 +56,13 @@ FactoryGirl.define do
   end
 
   factory :standard_outcome do
-    sequence :name do |i|
-      ("a".."z").to_a[i - 1]
-    end
-
+    name { generate(:label) }
     description { "description for default #{name}" }
+  end
+
+  factory :subject do
+    number
+    title { generate(:name) }
   end
 
   factory :survey do

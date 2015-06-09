@@ -11,18 +11,11 @@
       </div>
       <div class="row">
         <div class="small-2 columns">
-          <%= f.label "Subject Number", class: "left inline" %>
+          <%= f.label :subject_id, class: "left inline" %>
         </div>
         <div class="small-2 columns end">
-          <%=f.text_field :subject_number, :placeholder => "'18.01'"%>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%=f.label "Subject Description", class: "left inline"%>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :subject_description, :placeholder => "e.g. 'Calculus'"%>
+          <%= f.select :subject_id,
+            options_from_collection_for_select(Subject.all, :id, :to_s) %>
         </div>
       </div>
       <div class="row">
@@ -53,7 +46,7 @@
         <div class="small-2 columns">
           <%= f.label "Minimum Satisfactory Grade", class: "left inline"%>
         </div>
-        <div class="small-4 columns end"> 
+        <div class="small-4 columns end">
           <%=f.text_field :minimum_grade, :placeholder => "e.g. '7 points out of 10'" %>
         </div>
       </div>
@@ -69,7 +62,7 @@
         <div class="small-2 columns">
           <%= f.label "Actual Percentage", class: "left inline"%>
         </div>
-        <div class="small-4 columns end"> 
+        <div class="small-4 columns end">
           <%=f.text_field :actual_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
         </div>
       </div>

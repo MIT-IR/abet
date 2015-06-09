@@ -3,7 +3,7 @@ class DirectAssessmentsController < ApplicationController
 
   def new
     @outcome = Outcome.find(params[:outcome_id])
-    @assessment = @outcome.direct_assessments.build(new_assessment_attributes)
+    @assessment = @outcome.direct_assessments.build
     @available_semesters = ['2015FA', '2015JA', '2015SP']
     authorize(@assessment)
   end
@@ -45,23 +45,16 @@ class DirectAssessmentsController < ApplicationController
 
   private
 
-  def new_assessment_attributes
-    if params[:assessment_id]
-      cloned_assessment = DirectAssessment.find(params[:assessment_id])
-      cloned_assessment.attributes.except!(*non_cloned_attributes)
-    else
-      {}
-    end
-  end
-
-  def non_cloned_attributes
-    ["id", "created_at", "updated_at", "actual_percentage"]
-  end
-
   def direct_assessment_params
-    params.require(:direct_assessment).permit(:subject_number,
-      :subject_description, :semester, :assignment_name,
-      :assignment_description, :problem_description,
-      :minimum_grade, :target_percentage, :actual_percentage)
+    params.require(:direct_assessment).permit(
+      :actual_percentage,
+      :assignment_description,
+      :assignment_name,
+      :minimum_grade,
+      :problem_description,
+      :semester,
+      :subject_id,
+      :target_percentage
+    )
   end
 end

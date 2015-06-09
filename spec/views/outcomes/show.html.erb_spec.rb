@@ -8,7 +8,7 @@ describe "outcomes/show.html.erb" do
 
     render
 
-    expect(page).to have_selector("th", text: "Subject Number")
+    expect(page).to have_selector("th", text: "Subject")
     expect(page).to have_selector("th", text: "Minimum Category")
   end
 
@@ -20,7 +20,7 @@ describe "outcomes/show.html.erb" do
     render
 
     expect(page).to have_content("No direct assessments")
-    expect(page).not_to have_selector("th", text: "Subject Number")
+    expect(page).not_to have_selector("th", text: "Subject")
 
     expect(page).to have_content("No indirect assessments")
     expect(page).not_to have_selector("th", text: "Minimum Category")

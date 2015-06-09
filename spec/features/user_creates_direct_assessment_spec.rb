@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "User creates an assessment" do
   scenario "the outcome description is displayed on the new assessment page" do
+    create(:subject)
     outcome = create(:outcome)
     user = user_with_admin_access_to(outcome.course.department)
 
@@ -15,6 +16,7 @@ feature "User creates an assessment" do
   end
 
   scenario "a new assessment is created" do
+    subject_title = create(:subject).title
     outcome = create(:outcome)
     user = user_with_admin_access_to(outcome.course.department)
 
@@ -28,13 +30,12 @@ feature "User creates an assessment" do
     fill_and_submit_form
 
     within("#direct_assessments") do
-      expect(page).to have_content("Calculus")
+      expect(page).to have_content(subject_title)
     end
   end
 
   def fill_and_submit_form
-    fill_in "direct_assessment_subject_number", with: "18.01"
-    fill_in "direct_assessment_subject_description", with: "Calculus"
+    select first("#direct_assessment_subject_id option").text, from: "direct_assessment_subject_id"
     fill_in "direct_assessment_assignment_name", with: "Problem Set 1"
     fill_in "direct_assessment_assignment_description", with: "Integration"
     fill_in "direct_assessment_problem_description", with: "Integration by parts"

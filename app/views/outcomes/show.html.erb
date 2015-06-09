@@ -20,8 +20,7 @@
 <% if @direct_assessments.any? %>
   <table id="direct_assessments">
     <tr>
-      <th>Subject Number</th>
-      <th>Subject Description</th>
+      <th>Subject</th>
       <th>Semester</th>
       <th>Assignment Name</th>
       <th>Assignment Description</th>
@@ -29,12 +28,10 @@
       <th>Target Percentage</th>
       <th>Actual Percentage</th>
       <th></th>
-      <th></th>
     </tr>
     <% @direct_assessments.each do |assessment| %>
       <tr id="direct_assessment-<%=assessment.id %>">
-        <td><%= assessment.subject_number%></td>
-        <td><%= assessment.subject_description%></td>
+        <td><%= assessment.subject %></td>
         <td><%= assessment.semester%></td>
         <td><%= assessment.assignment_name%></td>
         <td><%= assessment.assignment_description%></td>
@@ -42,7 +39,6 @@
         <td><%= assessment.target_percentage%></td>
         <td><%= assessment.actual_percentage%></td>
         <td><%= link_to "Edit", edit_direct_assessment_path(assessment) %>
-        <td><%= link_to "Clone", new_outcome_direct_assessment_path(@outcome, assessment_id: assessment.id) %>
       </tr>
     <% end %>
   </table>
@@ -73,7 +69,6 @@
         <td><%= assessment.actual_percentage%></td>
         <td><%= assessment_type(assessment) %></td>
         <td><%= link_to "Edit", edit_polymorphic_path([@outcome, assessment]) %></td>
-        <td><%= link_to "Clone", new_polymorphic_path([@outcome, assessment], assessment_id: assessment.id) %>
       </tr>
     <% end %>
   </table>
