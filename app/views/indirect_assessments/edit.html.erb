@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="five columns centered">
+    <h4>Edit results for outcome "<%= @assessment.outcome.name %>. <%= @assessment.outcome.description %>"</h4>
+  </div>
+</div>
+
+<%= render "#{@assessment.to_partial_path}_form" %>

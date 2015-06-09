@@ -68,7 +68,7 @@
         <td><%= assessment.target_percentage%></td>
         <td><%= assessment.actual_percentage%></td>
         <td><%= assessment_type(assessment) %></td>
-        <td><%= link_to "Edit", edit_polymorphic_path([@outcome, assessment]) %></td>
+        <td><%= link_to "Edit", edit_indirect_assessment_path(assessment) %></td>
       </tr>
     <% end %>
   </table>

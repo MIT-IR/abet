@@ -1,20 +1,20 @@
-<%= form_for [@outcome, @participation] do |f| %>
+<%= form_for [@outcome, @assessment] do |f| %>
   <div class="row">
     <div class="small-10 large-12">
       <div class="row">
         <div class="small-2 columns">
-          <%=f.label "Program Name", class: "left inline" %>
+          <%=f.label "Assessment Name", class: "left inline" %>
         </div>
         <div class="small-6 columns end">
-          <%=f.text_field :assessment_name, placeholder: "e.g. 'UROP'" %>
+          <%=f.text_field :assessment_name, placeholder: "e.g. 'Senior Thesis Completion'" %>
         </div>
       </div>
       <div class="row">
         <div class="small-2 columns">
-          <%=f.label "Program Description", class: "left inline"%>
+          <%=f.label "Assessment Description", class: "left inline"%>
         </div>
         <div class="small-6 columns end">
-          <%=f.text_field :assessment_description, placeholder: "e.g. 'Undergraduate Research Projects'" %>
+          <%=f.text_field :assessment_description, placeholder: "e.g. 'Percent of students who complete a senior thesis'" %>
         </div>
       </div>
       <div class="row">
@@ -27,7 +27,7 @@
       </div>
       <div class="row">
         <div class="small-2 columns">
-          <%= f.label "Target Participation Percentage", class: "left inline" %>
+          <%= f.label "Target Percentage", class: "left inline" %>
         </div>
         <div class="small-4 columns end">
           <%=f.text_field :target_percentage, placeholder: "Whole number, e.g. '80' for '80%'" %>
@@ -35,11 +35,12 @@
       </div>
       <div class="row">
         <div class="small-2 columns">
-          <%=f.label "Actual Participation Percentage", class: "left inline" %>
+          <%=f.label "Actual  Percentage", class: "left inline" %>
         </div>
         <div class="small-4 columns end">
           <%=f.text_field :actual_percentage, placeholder:  "Whole number, e.g. '80' for '80%'" %>
         </div>
+        <%= f.hidden_field :type, value: "OtherAssessment" %>
       </div>
       <div class="row">
         <%= button_tag "Submit"%>

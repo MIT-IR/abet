@@ -12,7 +12,7 @@ feature "User updates a participation assessment" do
       click_on "Edit"
     end
 
-    fill_in "participation_assessment_name", with: "POUR"
+    fill_in "indirect_assessment_assessment_name", with: "POUR"
     click_on "Submit"
 
     within("#indirect_assessments") do

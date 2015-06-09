@@ -12,7 +12,7 @@ feature "User updates a survey assessment" do
       click_on "Edit"
     end
 
-    fill_in "survey_assessment_name", with: "Freshman Survey"
+    fill_in "indirect_assessment_assessment_name", with: "Freshman Survey"
     click_on "Submit"
 
     within("#indirect_assessments") do

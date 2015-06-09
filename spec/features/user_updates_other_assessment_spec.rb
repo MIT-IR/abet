@@ -12,7 +12,7 @@ feature "User updates other assessment" do
       click_on "Edit"
     end
 
-    fill_in "other_assessment_assessment_name", with: "Freshman Thesis"
+    fill_in "indirect_assessment_assessment_name", with: "Freshman Thesis"
     click_on "Submit"
 
     within("#indirect_assessments") do

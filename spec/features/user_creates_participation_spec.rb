@@ -21,10 +21,10 @@ feature "User creates a participation assessment" do
   end
 
   def fill_and_submit_form
-    fill_in "participation_assessment_name", with: "UROP"
-    fill_in "participation_assessment_description", with: "Undergraduate Resarch Projects"
-    fill_in "participation_target_percentage", with: 80
-    fill_in "participation_actual_percentage", with: 78
+    fill_in "indirect_assessment_assessment_name", with: "UROP"
+    fill_in "indirect_assessment_assessment_description", with: "Undergraduate Resarch Projects"
+    fill_in "indirect_assessment_target_percentage", with: 80
+    fill_in "indirect_assessment_actual_percentage", with: 78
     click_on "Submit"
   end
 end
