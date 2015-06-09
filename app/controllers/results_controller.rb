@@ -1,7 +1,7 @@
 class ResultsController < ApplicationController
   def new
     @assessment = find_assessment
-    @result = @assessment.results.build
+    @result = @assessment.results.build(assessment_attributes)
     authorize(@result)
   end
 
@@ -36,5 +36,13 @@ class ResultsController < ApplicationController
     else
       @assessment = IndirectAssessment.find(params[:indirect_assessment_id])
     end
+  end
+
+  def assessment_attributes
+    {
+      assessment_name: @assessment.name,
+      assessment_description: @assessment.description,
+      problem_description: @assessment.try(:problem_description)
+    }.compact
   end
 end
