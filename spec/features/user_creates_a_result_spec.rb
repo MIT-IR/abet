@@ -11,6 +11,9 @@ feature "User creates a result" do
       click_on "View and add results"
     end
 
+    expect(page).to have_content assessment.name
+    expect(page).to have_content assessment.description
+
     click_on "Add result"
 
     select "2015", from: "result_year"
@@ -54,6 +57,9 @@ feature "User creates a result" do
     within("#indirect_assessment-#{assessment.id}") do
       click_on "View and add results"
     end
+
+    expect(page).to have_content assessment.name
+    expect(page).to have_content assessment.description
 
     click_on "Add result"
 
