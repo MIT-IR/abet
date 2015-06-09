@@ -6,11 +6,15 @@ en:
       contact: Contact
       home: Home
       menu: MENU
+    tabs:
+      assessments: Create Assessments
+      data: Record Data
+      outcomes: Manage Outcomes
   courses:
     outcomes:
       actions: Actions
       description: Description
-      heading: "Outcomes for %{name}"
+      heading: Outcomes for %{name}
       label: Label
   departments:
     show:

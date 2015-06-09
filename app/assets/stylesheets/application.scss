@@ -8,11 +8,11 @@
 @import "refills/flashes";
 @import "refills/navigation";
 @import "refills/type_system";
+@import "refills/accordion_tabs_minimal";
 
 @import "home";
 @import "course";
 
 .main {
   @include outer-container;
-  margin-top: 0.6em;
 }

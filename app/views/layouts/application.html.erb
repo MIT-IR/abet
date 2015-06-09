@@ -18,7 +18,9 @@
 
   <body>
     <%= render "navigation" %>
-    <section class="main" role="main">
+    <%= render "tabs" %>
+
+    <section class="main tab-content" role="main">
       <%= yield %>
     </section>
   </body>
