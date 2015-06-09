@@ -21,12 +21,11 @@ feature "User creates a survey assessment" do
   end
 
   def fill_and_submit_form
-    fill_in "indirect_assessment_assessment_name", with: "Senior Survey"
-    fill_in "indirect_assessment_assessment_description", with: "Biennial indirect_assessment"
+    fill_in "indirect_assessment_name", with: "Senior Survey"
+    fill_in "indirect_assessment_description", with: "Biennial survey"
     fill_in "indirect_assessment_survey_question", with: "How satisfied are you?"
     fill_in "indirect_assessment_minimum_category", with: "Somewhat satisfied"
     fill_in "indirect_assessment_target_percentage", with: 80
-    fill_in "indirect_assessment_actual_percentage", with: 78
     click_on "Submit"
   end
 end

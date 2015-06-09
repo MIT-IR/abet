@@ -1,17 +1,17 @@
 class ResultsController < ApplicationController
   def new
-    @assessment = DirectAssessment.find(params[:direct_assessment_id])
+    @assessment = find_assessment
     @result = @assessment.results.build
     authorize(@result)
   end
 
   def create
-    @assessment = DirectAssessment.find(params[:direct_assessment_id])
+    @assessment = find_assessment
     @result = @assessment.results.build(result_params)
     authorize(@result)
 
     if @result.save
-      redirect_to direct_assessment_path(@assessment)
+      redirect_to url_for(@assessment)
     else
       render :new
     end
@@ -28,5 +28,13 @@ class ResultsController < ApplicationController
       :semester,
       :year
     )
+  end
+
+  def find_assessment
+    if params[:direct_assessment_id]
+      @assessment = DirectAssessment.find(params[:direct_assessment_id])
+    else
+      @assessment = IndirectAssessment.find(params[:indirect_assessment_id])
+    end
   end
 end

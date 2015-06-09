@@ -36,12 +36,11 @@ feature "User creates an assessment" do
 
   def fill_and_submit_form
     select first("#direct_assessment_subject_id option").text, from: "direct_assessment_subject_id"
-    fill_in "direct_assessment_assignment_name", with: "Problem Set 1"
-    fill_in "direct_assessment_assignment_description", with: "Integration"
+    fill_in "direct_assessment_name", with: "Problem Set 1"
+    fill_in "direct_assessment_description", with: "Integration"
     fill_in "direct_assessment_problem_description", with: "Integration by parts"
     fill_in "direct_assessment_minimum_grade", with: "7/10"
     fill_in "direct_assessment_target_percentage", with: 80
-    fill_in "direct_assessment_actual_percentage", with: 78
     click_on "Submit"
   end
 end

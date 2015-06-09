@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "User updates a participation assessment" do
   scenario "a participation assessment is successfully updated" do
-    assessment = create(:participation, assessment_name: "UROP")
+    assessment = create(:participation, name: "UROP")
     outcome = assessment.outcome
     user = user_with_admin_access_to(outcome.course.department)
 
@@ -12,7 +12,7 @@ feature "User updates a participation assessment" do
       click_on "Edit"
     end
 
-    fill_in "indirect_assessment_assessment_name", with: "POUR"
+    fill_in "indirect_assessment_name", with: "POUR"
     click_on "Submit"
 
     within("#indirect_assessments") do

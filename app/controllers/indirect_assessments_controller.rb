@@ -4,7 +4,6 @@ class IndirectAssessmentsController < ApplicationController
   def new
     @outcome = Outcome.find(params[:outcome_id])
     @assessment = @outcome.indirect_assessments.build(type: params[:type])
-    @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
     authorize(@assessment)
   end
 
@@ -22,7 +21,6 @@ class IndirectAssessmentsController < ApplicationController
 
   def edit
     @assessment = IndirectAssessment.find(params[:id])
-    @available_years = ['2014', '2015', '2016', '2017', '2018', '2019']
     authorize(@assessment)
   end
 
@@ -38,13 +36,18 @@ class IndirectAssessmentsController < ApplicationController
     end
   end
 
+  def show
+    @assessment = IndirectAssessment.find(params[:id])
+    authorize(@assessment)
+  end
+
   private
 
   def assessment_params
     params.require(:indirect_assessment).permit(
       :actual_percentage,
-      :assessment_description,
-      :assessment_name,
+      :description,
+      :name,
       :target_percentage,
       :type,
       :year

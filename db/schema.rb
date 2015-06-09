@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609170601) do
+ActiveRecord::Schema.define(version: 20150609194758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,33 +37,29 @@ ActiveRecord::Schema.define(version: 20150609170601) do
   add_index "departments", ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
 
   create_table "direct_assessments", force: :cascade do |t|
-    t.string   "semester"
-    t.string   "assignment_name"
-    t.string   "assignment_description"
+    t.string   "name"
+    t.string   "description"
     t.string   "problem_description"
     t.string   "minimum_grade"
     t.integer  "target_percentage"
-    t.integer  "actual_percentage"
     t.integer  "outcome_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "subject_id",             null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "subject_id",          null: false
   end
 
   add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
 
   create_table "indirect_assessments", force: :cascade do |t|
-    t.string   "assessment_name"
-    t.string   "assessment_description"
+    t.string   "name"
+    t.string   "description"
     t.string   "survey_question"
-    t.integer  "year"
     t.string   "minimum_category"
     t.integer  "target_percentage"
-    t.integer  "actual_percentage"
     t.integer  "outcome_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "type",                   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "type",              null: false
   end
 
   create_table "outcome_alignments", force: :cascade do |t|

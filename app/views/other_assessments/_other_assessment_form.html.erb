@@ -6,7 +6,7 @@
           <%=f.label "Assessment Name", class: "left inline" %>
         </div>
         <div class="small-6 columns end">
-          <%=f.text_field :assessment_name, placeholder: "e.g. 'Senior Thesis Completion'" %>
+          <%=f.text_field :name, placeholder: "e.g. 'Senior Thesis Completion'" %>
         </div>
       </div>
       <div class="row">
@@ -14,15 +14,7 @@
           <%=f.label "Assessment Description", class: "left inline"%>
         </div>
         <div class="small-6 columns end">
-          <%=f.text_field :assessment_description, placeholder: "e.g. 'Percent of students who complete a senior thesis'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%=f.label "Year", class: "left inline" %>
-        </div>
-        <div class="small-2 columns end">
-          <%=f.select :year, @available_years  %>
+          <%=f.text_field :description, placeholder: "e.g. 'Percent of students who complete a senior thesis'" %>
         </div>
       </div>
       <div class="row">
@@ -33,15 +25,7 @@
           <%=f.text_field :target_percentage, placeholder: "Whole number, e.g. '80' for '80%'" %>
         </div>
       </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%=f.label "Actual  Percentage", class: "left inline" %>
-        </div>
-        <div class="small-4 columns end">
-          <%=f.text_field :actual_percentage, placeholder:  "Whole number, e.g. '80' for '80%'" %>
-        </div>
-        <%= f.hidden_field :type, value: "OtherAssessment" %>
-      </div>
+      <%= f.hidden_field :type, value: "OtherAssessment" %>
       <div class="row">
         <%= button_tag "Submit"%>
       </div>

@@ -4,7 +4,6 @@ class DirectAssessmentsController < ApplicationController
   def new
     @outcome = Outcome.find(params[:outcome_id])
     @assessment = @outcome.direct_assessments.build
-    @available_semesters = ['2015FA', '2015JA', '2015SP']
     authorize(@assessment)
   end
 
@@ -22,7 +21,6 @@ class DirectAssessmentsController < ApplicationController
 
   def edit
     @assessment = DirectAssessment.find(params[:id])
-    @available_semesters = ['2015FA', '2015JA', '2015SP']
     authorize(@assessment)
   end
 
@@ -48,9 +46,9 @@ class DirectAssessmentsController < ApplicationController
   def direct_assessment_params
     params.require(:direct_assessment).permit(
       :actual_percentage,
-      :assignment_description,
-      :assignment_name,
+      :description,
       :minimum_grade,
+      :name,
       :problem_description,
       :semester,
       :subject_id,

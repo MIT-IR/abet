@@ -3,14 +3,6 @@
     <div class="small-10 large-12">
       <div class="row">
         <div class="small-2 columns">
-          <%=f.label "Semester", class: "left inline"%>
-        </div>
-        <div class="small-2 columns end">
-          <%=f.select :semester, options_for_select(@available_semesters)%>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
           <%= f.label :subject_id, class: "left inline" %>
         </div>
         <div class="small-2 columns end">
@@ -23,7 +15,7 @@
           <%= f.label "Assignment Name", class: "left inline"%>
         </div>
         <div class="small-6 columns end">
-          <%=f.text_field :assignment_name, :placeholder => "e.g. Problem Set 1" %>
+          <%=f.text_field :name, :placeholder => "e.g. Problem Set 1" %>
         </div>
       </div>
       <div class="row">
@@ -31,7 +23,7 @@
           <%= f.label "Assignment Description", class: "left inline"%>
         </div>
         <div class="small-6 columns end">
-          <%=f.text_field :assignment_description, :placeholder => "e.g. 'Integration'" %>
+          <%=f.text_field :description, :placeholder => "e.g. 'Integration'" %>
         </div>
       </div>
       <div class="row">
@@ -56,14 +48,6 @@
         </div>
         <div class="small-4 columns end">
           <%=f.text_field	:target_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Actual Percentage", class: "left inline"%>
-        </div>
-        <div class="small-4 columns end">
-          <%=f.text_field :actual_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
         </div>
       </div>
     </div>
