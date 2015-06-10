@@ -1,0 +1,9 @@
+.outcomes_dashboard {
+  .number {
+    width: 10%;
+  }
+
+  td a:not(:first-of-type) {
+    padding-left: 2em;
+  }
+}

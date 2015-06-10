@@ -1,5 +1,5 @@
 class Outcome < ActiveRecord::Base
-  belongs_to :course
+  belongs_to :course, counter_cache: true
   has_many :direct_assessments
   has_many :indirect_assessments
   has_many :surveys

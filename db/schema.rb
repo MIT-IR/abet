@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(version: 20150610184606) do
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
-    t.string   "number",              null: false
-    t.string   "name",                null: false
-    t.integer  "department_id",       null: false
+    t.string   "number",                          null: false
+    t.string   "name",                            null: false
+    t.integer  "department_id",                   null: false
     t.boolean  "has_custom_outcomes"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "outcomes_count",      default: 0, null: false
   end
 
   add_index "courses", ["number"], name: "index_courses_on_number", unique: true, using: :btree

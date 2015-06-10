@@ -23,3 +23,8 @@ td,
 th {
   vertical-align: middle;
 }
+
+caption {
+  margin: $small-spacing 0;
+  text-align: left;
+}

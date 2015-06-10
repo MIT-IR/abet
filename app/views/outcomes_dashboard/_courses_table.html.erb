@@ -1,0 +1,21 @@
+<table class="courses">
+  <caption><%= caption %></caption>
+  <thead>
+    <tr>
+      <th class="number"><%= t(".number") %></th>
+      <th class="name"><%= t(".name") %></th>
+      <th class="actions"><%= t(".actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% courses.each do |course| %>
+      <tr>
+        <td><%= course.number %></td>
+        <td><%= course.name %></td>
+        <td>
+          <%= render action_partial, course: course %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

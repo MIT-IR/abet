@@ -27,5 +27,27 @@ en:
     outcome:
       assess: Assess
       details: Details
+  outcomes_dashboard:
+    courses_table:
+      actions: Actions
+      name: Name
+      number: Number
+    show:
+      captions:
+        unaligned_outcomes_html: |
+          The following courses have custom outcomes that do not fully align
+          with the standard outcomes. You should add new outcomes or adjust the
+          alignment of existing outcomes.
+        without_outcomes_html: |
+          The following courses do not have any associated outcomes. You can
+          choose to adopt standard outcomes or you can create custom outcomes that
+          must be manually aligned with standard outcomes.
+      heading: Manage Outcomes for Your Courses
+    unaligned_outcomes_actions:
+      edit_outcomes: Edit Outcomes
+    without_outcomes_actions:
+      adopt_default: Adopt Default Outcomes
+      adopt_default_confirm: Are you sure?
+      create_custom: Create Custom Outcome
   titles:
     application: ABET Outcomes Assessment

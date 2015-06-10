@@ -6,4 +6,12 @@ class CoursePolicy < ApplicationPolicy
   def create_outcomes?
     user.admin?(record.department)
   end
+
+  class Scope < Scope
+    def resolve
+      Course.
+        joins(:department).
+        where(departments: { slug: user.department_slugs })
+    end
+  end
 end

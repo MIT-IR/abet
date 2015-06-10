@@ -1,0 +1,15 @@
+<h1><%= t(".heading") %></h1>
+
+<% if @outcomes_dashboard.courses_without_outcomes.present? %>
+  <%= render "courses_table",
+    courses: @outcomes_dashboard.courses_without_outcomes,
+    caption: t(".captions.without_outcomes_html"),
+    action_partial: "without_outcomes_actions" %>
+<% end %>
+
+<% if @outcomes_dashboard.unaligned_courses.present? %>
+  <%= render "courses_table",
+    courses: @outcomes_dashboard.unaligned_courses,
+    caption: t(".captions.unaligned_outcomes_html"),
+    action_partial: "unaligned_outcomes_actions" %>
+<% end %>

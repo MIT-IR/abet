@@ -1,0 +1,5 @@
+<%= link_to t(".adopt_default"),
+  course_default_outcomes_path(course),
+  method: :post,
+  data: { confirm: t(".adopt_default_confirm") } %>
+<%= link_to t(".create_custom"), new_course_outcome_path(course) %>

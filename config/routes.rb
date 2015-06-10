@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     resources :indirect_assessments, only: [:new, :create]
   end
 
+  resource :outcomes_dashboard, controller: "outcomes_dashboard", only: [:show]
+
   get "/pages/*id" => "pages#show", as: :page, format: false
   root "home#index"
 end

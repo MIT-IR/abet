@@ -7,6 +7,15 @@ FactoryGirl.define do
     name
     number
     department
+
+    trait :with_unaligned_outcome do
+      has_custom_outcomes true
+
+      after(:create) do |course|
+        create(:standard_outcome)
+        create(:outcome, course: course)
+      end
+    end
   end
 
   factory :department do
