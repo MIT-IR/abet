@@ -38,6 +38,6 @@ class OutcomesController < ApplicationController
   private
 
   def outcome_params
-    params.require(:outcome).permit(:name,:description)
+    params.require(:outcome).permit(:name, :course_id, :description)
   end
 end

@@ -47,7 +47,9 @@ class IndirectAssessmentsController < ApplicationController
     params.require(:indirect_assessment).permit(
       :actual_percentage,
       :description,
+      :minimum_category,
       :name,
+      :survey_question,
       :target_percentage,
       :type,
       :year

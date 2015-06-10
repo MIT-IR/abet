@@ -39,4 +39,7 @@ Rails.application.configure do
 
   # Allow easy faked sign in in test
   config.middleware.use TouchstoneBackDoor
+
+  # Raises on unpermitted params
+  config.action_controller.action_on_unpermitted_parameters = :raise
 end
