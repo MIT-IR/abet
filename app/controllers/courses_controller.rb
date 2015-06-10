@@ -10,12 +10,6 @@ class CoursesController < ApplicationController
 
   def retrieve_unassociated_outcomes
     return [] unless @course.has_custom_outcomes?
-    standard_ids = @course.outcomes.map do |outcome|
-      outcome.outcome_alignments.map do |alignment|
-        alignment.standard_outcome_id
-      end.flatten
-    end.flatten.uniq
-    return [] if standard_ids.count == 0
-    return StandardOutcome.where.not(id: standard_ids)
+    StandardOutcome.unaligned_with(@course)
   end
 end

@@ -41,6 +41,12 @@ FactoryGirl.define do
     course
   end
 
+  factory :outcome_alignment do
+    alignment_level "Moderate alignment"
+    outcome
+    standard_outcome
+  end
+
   factory :participation do
     description "Undergraduation Research Project"
     name "UROP"

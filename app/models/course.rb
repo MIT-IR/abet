@@ -2,10 +2,6 @@ class Course < ActiveRecord::Base
   belongs_to :department
   has_many :outcomes
 
-  def has_custom_outcomes?
-    self.has_custom_outcomes
-  end
-
   def adopt_default_outcomes!
     update_attribute(:has_custom_outcomes, false)
     defaults = StandardOutcome.retrieve_defaults || []
