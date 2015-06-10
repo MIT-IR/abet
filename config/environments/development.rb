@@ -38,11 +38,3 @@ Rails.application.configure do
   # Raises on unpermitted params
   config.action_controller.action_on_unpermitted_parameters = :raise
 end
-
-RolesDb.configure do |config|
-  config.strategy_class = 'RolesDb::Roles'
-  config.mocked_account_list_file = Rails.root.join('config', 'dev-roles.yaml')
-end
-
-ENV['eppn'] ||= "daries@mit.edu"
-
