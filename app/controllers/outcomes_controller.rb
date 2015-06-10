@@ -16,7 +16,7 @@ class OutcomesController < ApplicationController
   end
 
   def create
-    @course = Course.find(params[:outcome][:course_id])
+    @course = Course.find(params[:course_id])
     @outcome = @course.outcomes.build(outcome_params)
     authorize(@outcome)
 

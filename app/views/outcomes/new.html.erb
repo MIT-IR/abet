@@ -1,10 +1,9 @@
 <div class = "row">
 <h3>Create Custom Student Learning Outcomes</h3>
 </div>
-<%= form_for @outcome do |f| %>
+<%= form_for [@outcome.course, @outcome] do |f| %>
   <div class="row">
     <div class="small-10 large-12">
-      <%= f.hidden_field :course_id, :value => @course.id %>
       <div class="row">
         <div class="small-2 columns">
           <%=f.label "Outcome", class: "left inline"%>
