@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610164501) do
+ActiveRecord::Schema.define(version: 20150610184606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20150610164501) do
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "number",     null: false
   end
 
+  add_index "departments", ["number"], name: "index_departments_on_number", unique: true, using: :btree
   add_index "departments", ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
 
   create_table "direct_assessments", force: :cascade do |t|
@@ -102,9 +104,12 @@ ActiveRecord::Schema.define(version: 20150610164501) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "number", null: false
-    t.string "title",  null: false
+    t.string  "number",            null: false
+    t.string  "title",             null: false
+    t.integer "department_number", null: false
   end
+
+  add_index "subjects", ["department_number"], name: "index_subjects_on_department_number", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",      null: false

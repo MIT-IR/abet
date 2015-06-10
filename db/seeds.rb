@@ -1,11 +1,11 @@
 ActiveRecord::Base.transaction do
-  Department.find_or_create_by(name: "Civil and Environmental Engineering", slug: "D_CEE")
-  Department.find_or_create_by(name: "Mechanical Engineering", slug: "D_MECHE")
-  Department.find_or_create_by(name: "DMSE", slug: "D_DMSE")
-  Department.find_or_create_by(name: "EECS", slug: "D_EECS")
-  Department.find_or_create_by(name: "Chemical Engineering", slug: "D_CHEME")
-  Department.find_or_create_by(name: "Aero Astro", slug: "D_AEROASTRO")
-  Department.find_or_create_by(name: "Nuclear Science and Engineering", slug: "D_NUCENG")
+  Department.find_or_create_by(name: "Civil and Environmental Engineering", slug: "D_CEE", number: 1)
+  Department.find_or_create_by(name: "Mechanical Engineering", slug: "D_MECHE", number: 2)
+  Department.find_or_create_by(name: "DMSE", slug: "D_DMSE", number: 3)
+  Department.find_or_create_by(name: "EECS", slug: "D_EECS", number: 6)
+  Department.find_or_create_by(name: "Chemical Engineering", slug: "D_CHEME", number: 10)
+  Department.find_or_create_by(name: "Aero Astro", slug: "D_AEROASTRO", number: 16)
+  Department.find_or_create_by(name: "Nuclear Science and Engineering", slug: "D_NUCENG", number: 22)
 
   courses = [["1-C", "Civil Engineering", "Civil and Environmental Engineering"],
   ["1-E", "Environmental Engineering", "Civil and Environmental Engineering"],

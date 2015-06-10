@@ -7,9 +7,10 @@ class SubjectImporter
 
   def run
     CSV.foreach(path, headers: true).each do |row|
-      if targeted_department_numbers.include?(row["Course Number"].to_s)
+      if targeted_department_numbers.include?(row["Course Number"].to_i)
         Subject.where(number: row["Subject Id"]).first_or_create!(
-          title: row["Subject Title"]
+          title: row["Subject Title"],
+          department_number: row["Course Number"]
         )
       end
     end
@@ -20,8 +21,6 @@ class SubjectImporter
   attr_reader :path
 
   def targeted_department_numbers
-    @targeted_department_numbers ||= Course.pluck(:number).map do |number|
-      number.split("-").first
-    end.uniq
+    @targeted_department_numbers ||= Department.pluck(:number)
   end
 end

@@ -15,6 +15,7 @@ FactoryGirl.define do
     end
 
     name
+    number
   end
 
   factory :direct_assessment do
@@ -61,6 +62,7 @@ FactoryGirl.define do
   end
 
   factory :subject do
+    sequence(:department_number) { |n| n.to_s }
     number
     title { generate(:name) }
   end
