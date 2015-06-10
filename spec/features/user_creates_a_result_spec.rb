@@ -13,6 +13,7 @@ feature "User creates a result" do
 
     expect(page).to have_content assessment.name
     expect(page).to have_content assessment.description
+    expect(page).to have_content assessment.subject
 
     click_on "Add result"
 
