@@ -114,6 +114,7 @@ GEM
       activesupport (>= 4.1.0)
     gyoku (1.3.1)
       builder (>= 2.1.2)
+    high_voltage (2.3.0)
     hike (1.2.3)
     httpi (2.4.0)
       rack
@@ -290,6 +291,7 @@ DEPENDENCIES
   email_validator
   factory_girl_rails
   gssapi!
+  high_voltage
   jquery-rails
   launchy
   neat

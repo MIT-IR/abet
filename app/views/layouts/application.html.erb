@@ -18,7 +18,10 @@
 
   <body>
     <%= render "navigation" %>
-    <%= render "tabs" %>
+
+    <% unless @skip_tabs %>
+      <%= render "tabs" %>
+    <% end %>
 
     <section class="main tab-content" role="main">
       <%= yield %>

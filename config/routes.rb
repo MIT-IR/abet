@@ -21,4 +21,6 @@ Rails.application.routes.draw do
 
   resources :direct_assessments, only: [:show, :edit, :update], concerns: :assessments
   resources :indirect_assessments, only: [:show, :edit, :update], concerns: :assessments
+
+  get "/pages/*id" => "pages#show", as: :page, format: false
 end
