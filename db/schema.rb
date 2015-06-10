@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609194758) do
+ActiveRecord::Schema.define(version: 20150610164501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20150609194758) do
     t.string   "name"
     t.string   "description"
     t.string   "problem_description"
-    t.string   "minimum_grade"
+    t.string   "minimum_requirement"
     t.integer  "target_percentage"
     t.integer  "outcome_id"
     t.datetime "created_at",          null: false
@@ -54,12 +54,12 @@ ActiveRecord::Schema.define(version: 20150609194758) do
     t.string   "name"
     t.string   "description"
     t.string   "survey_question"
-    t.string   "minimum_category"
+    t.string   "minimum_requirement"
     t.integer  "target_percentage"
     t.integer  "outcome_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "type",              null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "type",                null: false
   end
 
   create_table "outcome_alignments", force: :cascade do |t|

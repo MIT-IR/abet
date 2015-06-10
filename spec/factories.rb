@@ -19,7 +19,7 @@ FactoryGirl.define do
 
   factory :direct_assessment do
     description "Integration"
-    minimum_grade "7 points out of 10"
+    minimum_requirement "7 points out of 10"
     name "Problem Set 1"
     outcome
     problem_description "Question 3, Integration by parts"
@@ -67,7 +67,7 @@ FactoryGirl.define do
 
   factory :survey do
     description "Biennial survey administered to graduating seniors"
-    minimum_category "Somewhat satisfied"
+    minimum_requirement "Somewhat satisfied"
     name "Senior Survey"
     outcome
     survey_question "How satisfied are you with advising in your major?"

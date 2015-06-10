@@ -1,4 +1,12 @@
-<h3>Add a new result for <%= @assessment.name %></h3>
+<h1>Add a new result for <%= @assessment.name %></h1>
+<h2><%= @assessment.description %></h2>
+<ul>
+  <li><%= @assessment.try(:subject) %></li>
+  <% if @assessment.minimum_requirement %>
+    <li>Minimum: <%= @assessment.minimum_requirement %></li>
+  <% end %>
+</ul>
+<br>
 
 <%= form_for [@assessment, @result] do |f| %>
   <%= f.label "Year" %>

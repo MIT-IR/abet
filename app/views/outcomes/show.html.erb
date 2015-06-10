@@ -33,7 +33,7 @@
         <td><%= assessment.subject %></td>
         <td><%= assessment.name %></td>
         <td><%= assessment.description %></td>
-        <td><%= assessment.minimum_grade %></td>
+        <td><%= assessment.minimum_requirement %></td>
         <td><%= assessment.target_percentage %></td>
         <td><%= link_to "Edit", edit_direct_assessment_path(assessment) %>
         <td><%= link_to "View and add results", direct_assessment_path(assessment) %>
@@ -60,7 +60,7 @@
       <tr id="indirect_assessment-<%=assessment.id %>">
         <td><%= assessment.name %></td>
         <td><%= assessment.description %></td>
-        <td><%= assessment.minimum_category %></td>
+        <td><%= assessment.minimum_requirement %></td>
         <td><%= assessment.target_percentage %></td>
         <td><%= assessment_type(assessment) %></td>
         <td><%= link_to "Edit", edit_indirect_assessment_path(assessment) %></td>

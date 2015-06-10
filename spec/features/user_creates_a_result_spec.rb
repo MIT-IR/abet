@@ -16,6 +16,9 @@ feature "User creates a result" do
 
     click_on "Add result"
 
+    expect(page).to have_content assessment.subject
+    expect(page).to have_content assessment.minimum_requirement
+
     select "2015", from: "result_year"
     select "JA", from: "result_semester"
     fill_in "result_assessment_name", with: "Problem Set 2"
@@ -62,6 +65,8 @@ feature "User creates a result" do
     expect(page).to have_content assessment.description
 
     click_on "Add result"
+
+    expect(page).to have_content assessment.minimum_requirement
 
     select "2015", from: "result_year"
     fill_in "result_assessment_name", with: "Senior Survey"

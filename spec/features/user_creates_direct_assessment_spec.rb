@@ -39,7 +39,7 @@ feature "User creates an assessment" do
     fill_in "direct_assessment_name", with: "Problem Set 1"
     fill_in "direct_assessment_description", with: "Integration"
     fill_in "direct_assessment_problem_description", with: "Integration by parts"
-    fill_in "direct_assessment_minimum_grade", with: "7/10"
+    fill_in "direct_assessment_minimum_requirement", with: "7/10"
     fill_in "direct_assessment_target_percentage", with: 80
     click_on "Submit"
   end

@@ -47,7 +47,7 @@ class DirectAssessmentsController < ApplicationController
     params.require(:direct_assessment).permit(
       :actual_percentage,
       :description,
-      :minimum_grade,
+      :minimum_requirement,
       :name,
       :problem_description,
       :semester,
