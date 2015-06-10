@@ -19,7 +19,7 @@
   <body class="<%= body_class %>">
     <%= render "navigation" %>
 
-    <% unless @skip_tabs %>
+    <% if @current_tab %>
       <%= render "tabs" %>
     <% end %>
 

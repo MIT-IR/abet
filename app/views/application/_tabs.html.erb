@@ -1,5 +1,17 @@
 <ul class="accordion-tabs-minimal" role="navigation">
-  <li><%= link_to t(".outcomes"), root_path, class: "is-active" %></li>
-  <li><%= link_to t(".assessments"), "javascript: void(0)" %></li>
-  <li><%= link_to t(".data"), "javascript: void(0)" %></li>
+  <li>
+    <%= link_to t(".outcomes"),
+      outcomes_dashboard_path,
+      class: tab_class(TabHelper::OUTCOMES) %>
+  </li>
+  <li>
+    <%= link_to t(".assessments"),
+      "javascript: void(0)",
+      class: tab_class(TabHelper::ASSESSMENTS) %>
+  </li>
+  <li>
+    <%= link_to t(".data"),
+      "javascript: void(0)",
+      class: tab_class(TabHelper::DATA_ENTRY) %>
+  </li>
 </ul>
