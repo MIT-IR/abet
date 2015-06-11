@@ -1,5 +1,7 @@
 # ABET Outcomes
 
+[![Circle CI](https://circleci.com/gh/MIT-IR/abet.svg?style=svg)](https://circleci.com/gh/MIT-IR/abet)
+
 Track ABET outcomes for various departments.
 
 ## Getting Started
