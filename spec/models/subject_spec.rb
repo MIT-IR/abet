@@ -17,6 +17,15 @@ describe Subject do
     end
   end
 
+  describe ".with_direct_assessments" do
+    it "returns subjects with associated direct assessments" do
+      subject_ = create(:direct_assessment).subject
+      create(:subject)
+
+      expect(Subject.with_direct_assessments).to eq [subject_]
+    end
+  end
+
   describe "#to_s" do
     it "combines number and title" do
       the_subject = Subject.new(number: 1.234, title: "Test")

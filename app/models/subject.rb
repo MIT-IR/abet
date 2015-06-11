@@ -5,6 +5,11 @@ class Subject < ActiveRecord::Base
     order(number: :asc).sort_by { |s| s.number.to_f }
   end
 
+  def self.with_direct_assessments
+    includes(:direct_assessments).
+      where.not(direct_assessments: { subject_id: nil })
+  end
+
   def to_s
     "#{number} - #{title}"
   end

@@ -5,7 +5,6 @@ feature "User creates a result" do
     assessment = create(:direct_assessment)
     department = assessment.department
     permitted_subject = assessment.subject
-    unpermitted_subject = create(:subject)
     user = user_with_admin_access_to(department)
 
     visit root_path(as: user)
@@ -13,9 +12,6 @@ feature "User creates a result" do
 
     expect(page).to have_content permitted_subject.number
     expect(page).to have_content permitted_subject.title
-
-    expect(page).not_to have_content unpermitted_subject.number
-    expect(page).not_to have_content unpermitted_subject.title
 
     click_on permitted_subject
 
