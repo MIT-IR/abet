@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  sequence(:label) { |n| ("a".."z").to_a[n - 1] }
+  sequence(:label) { |n| ("a".."zzz").to_a[n - 1] }
   sequence(:name) { |n| "The #{n.ordinalize} Name" }
   sequence(:number) { |n| n.to_s }
 
