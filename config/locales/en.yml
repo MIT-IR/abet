@@ -16,14 +16,29 @@ en:
       description: Description
       heading: Outcomes for %{name}
       label: Label
+  default_outcomes:
+    create:
+      success: Default outcomes successfully adopted.
   departments:
     show:
       course_name: Course Name
       course_number: Course Number
+  direct_assessments:
+    create:
+      success: Assessment created successfully.
+    update:
+      success: Assessment updated successfully.
   home:
     index:
       heading: Choose a Department
+  indirect_assessments:
+    create:
+      success: Assessment created successfully.
+    update:
+      success: Assessment updated successfully.
   outcomes:
+    create:
+      success: Outcome created successfully.
     form:
       alignments_legend: Alignment Levels
     new:
@@ -53,5 +68,7 @@ en:
       adopt_default: Adopt Default Outcomes
       adopt_default_confirm: Are you sure?
       create_custom: Create Custom Outcome
+  results:
+    create: Result created successfully.
   titles:
     application: ABET Outcomes Assessment

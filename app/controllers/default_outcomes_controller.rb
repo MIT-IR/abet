@@ -3,6 +3,6 @@ class DefaultOutcomesController < ApplicationController
     course = Course.find(params[:course_id])
     authorize(course, :create_outcomes?)
     course.adopt_default_outcomes!
-    redirect_to course
+    redirect_to course, success: t(".success")
   end
 end

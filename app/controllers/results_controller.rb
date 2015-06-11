@@ -11,7 +11,7 @@ class ResultsController < ApplicationController
     authorize(@result)
 
     if @result.save
-      redirect_to url_for(@assessment)
+      redirect_to url_for(@assessment), success: t(".success")
     else
       render :new
     end

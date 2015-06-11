@@ -20,7 +20,7 @@ class OutcomesController < ApplicationController
     @outcome = course.outcomes.build(outcome_params)
 
     if create_outcome(@outcome)
-      redirect_to course_path(course)
+      redirect_to course_path(course), success: t(".success")
     else
       render :new
     end
