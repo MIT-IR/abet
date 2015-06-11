@@ -24,6 +24,10 @@ en:
     index:
       heading: Choose a Department
   outcomes:
+    form:
+      alignments_legend: Alignment Levels
+    new:
+      heading: Create Custom Student Learning Outcome
     outcome:
       assess: Assess
       details: Details

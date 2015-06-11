@@ -1,0 +1,16 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+    placeholders:
+      outcome:
+        description: e.g. 'The ability to apply engineering principles in a project context'
+        name: e.g. '1.A'
+    prompts:
+      outcome_alignments:
+        alignment_level: No alignment

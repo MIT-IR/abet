@@ -9,11 +9,11 @@ feature "User creates custom outcomes" do
     visit course_path(course, as: user)
     click_on "Create Custom Outcomes"
 
-    fill_in "outcome_name", with: "A.1.a"
-    fill_in "outcome_description", with: "Ability to solve complex problems"
+    fill_in "Name", with: "A.1.a"
+    fill_in "Description", with: "Ability to solve complex problems"
 
-    select "High alignment", from: associated_outcome.description
-    click_on "Submit"
+    select "High alignment", from: associated_outcome.to_s
+    click_on "Create Outcome"
 
     expect(page).to have_content("A.1.a")
     expect(page).to have_content("Ability to solve complex problems")
@@ -48,7 +48,7 @@ feature "User creates custom outcomes" do
     fill_in "outcome_description", with: "Ability to solve simple problems"
 
     select "Moderate alignment", from: standard_outcome.description
-    click_on "Submit"
+    click_on "Create Outcome"
 
     expect(page).to have_content("A.1.b")
     expect(page).to have_content("Ability to solve simple problems")

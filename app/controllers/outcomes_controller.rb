@@ -7,37 +7,47 @@ class OutcomesController < ApplicationController
   end
 
   def new
-    @course = Course.find(params[:course_id])
-    @defaults = StandardOutcome.retrieve_defaults || []
-    @outcome = @course.outcomes.build
-    @defaults = StandardOutcome.all
-    @align_levels = StandardOutcome.alignment_levels
+    @outcome = course.outcomes.build
+
+    StandardOutcome.all.each do |default_outcome|
+      @outcome.outcome_alignments.build(standard_outcome: default_outcome)
+    end
+
     authorize(@outcome)
   end
 
   def create
-    @course = Course.find(params[:course_id])
-    @outcome = @course.outcomes.build(outcome_params)
-    authorize(@outcome)
+    @outcome = course.outcomes.build(outcome_params)
 
-    @course.adopt_custom_outcomes!
-    if @outcome.save
-      default_params = params["default"]
-      default_params.each_key do |outcome_id|
-        next if default_params[outcome_id] == StandardOutcome::NO_ALIGNMENT
-        std = StandardOutcome.find(outcome_id)
-        OutcomeAlignment.create!(
-          :outcome => @outcome,
-          :standard_outcome => std,
-          :alignment_level => default_params[outcome_id])
-      end
-      redirect_to course_path(@course)
+    if create_outcome(@outcome)
+      redirect_to course_path(course)
+    else
+      render :new
     end
   end
 
   private
 
+  def course
+    @course ||= Course.find(params[:course_id])
+  end
+
+  def create_outcome(outcome)
+    ActiveRecord::Base.transaction do
+      authorize(outcome)
+      outcome.course.adopt_custom_outcomes!
+      outcome.save!
+    end
+  end
+
   def outcome_params
-    params.require(:outcome).permit(:name, :course_id, :description)
+    params.require(:outcome).permit(
+      :name,
+      :description,
+      outcome_alignments_attributes: [
+        :standard_outcome_id,
+        :alignment_level
+      ]
+    )
   end
 end
