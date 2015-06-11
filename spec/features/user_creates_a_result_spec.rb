@@ -3,18 +3,27 @@ require "rails_helper"
 feature "User creates a result" do
   scenario "and it is associated with a direct assessment" do
     assessment = create(:direct_assessment)
-    user = user_with_admin_access_to(assessment.department)
+    department = assessment.department
+    permitted_subject = assessment.subject
+    unpermitted_subject = create(:subject)
+    user = user_with_admin_access_to(department)
 
-    visit outcome_path(assessment.outcome, as: user)
+    visit root_path(as: user)
+    click_on "Record Data"
 
-    within("#direct_assessment-#{assessment.id}") do
-      click_on "View and add results"
-    end
+    expect(page).to have_content permitted_subject.number
+    expect(page).to have_content permitted_subject.title
+
+    expect(page).not_to have_content unpermitted_subject.number
+    expect(page).not_to have_content unpermitted_subject.title
+
+    click_on permitted_subject
 
     expect(page).to have_content assessment.name
     expect(page).to have_content assessment.description
     expect(page).to have_content assessment.subject
 
+    click_on "View and add results"
     click_on "Add result"
 
     expect(page).to have_content assessment.subject

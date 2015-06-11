@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def permissions
     @permissions ||= PermissionSet.for(username)
   end
+
+  def departments
+    Department.where(slug: department_slugs)
+  end
 end

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 describe User do
   describe "#username" do
@@ -18,6 +18,21 @@ describe User do
         and_return(permissions)
 
       expect(user.permissions).to eq permissions
+    end
+  end
+
+  describe "#departments" do
+    it "returns the departments a user has permissions for" do
+      permitted_department = create(:department)
+      create(:department)
+
+      user = User.new(email: "mgilman@mit.edu")
+      permissions = double("Permissions", department_slugs: [permitted_department.slug])
+      allow(PermissionSet).to receive(:for).
+        with(user.username).
+        and_return(permissions)
+
+      expect(user.departments).to eq [permitted_department]
     end
   end
 end

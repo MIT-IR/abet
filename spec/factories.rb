@@ -33,8 +33,16 @@ FactoryGirl.define do
     name "Problem Set 1"
     outcome
     problem_description "Question 3, Integration by parts"
-    subject
     target_percentage 80
+
+    after(:build) do |assessment|
+      unless assessment.subject.present?
+        assessment.subject = build(
+          :subject,
+          department_number: assessment.department.number
+        )
+      end
+    end
   end
 
   factory :other_assessment do
@@ -71,7 +79,7 @@ FactoryGirl.define do
   end
 
   factory :subject do
-    sequence(:department_number) { |n| n.to_s }
+    department_number { generate(:number) }
     number
     title { generate(:name) }
   end

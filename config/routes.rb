@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   resource :outcomes_dashboard, controller: "outcomes_dashboard", only: [:show]
 
+  resources :subjects, only: [:index, :show]
+
   get "/pages/*id" => "pages#show", as: :page, format: false
   root "home#index"
 end
