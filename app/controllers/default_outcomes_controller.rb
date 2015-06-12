@@ -9,4 +9,10 @@ class DefaultOutcomesController < ApplicationController
       redirect_to course, error: t(".error")
     end
   end
+
+  def show
+    @outcomes = StandardOutcome.all
+    @course = Course.find(params[:course_id])
+    authorize(@course)
+  end
 end

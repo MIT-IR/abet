@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :courses, only: [:show] do
-    resource :default_outcomes, only: [:create]
+    resource :default_outcomes, only: [:show, :create]
     resources :outcomes, only: [:new, :create]
   end
 
