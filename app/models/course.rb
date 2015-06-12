@@ -7,16 +7,20 @@ class Course < ActiveRecord::Base
   end
 
   def adopt_default_outcomes!
-    update_attribute(:has_custom_outcomes, false)
-    defaults = StandardOutcome.retrieve_defaults || []
-    defaults.each do |outcome|
-      Outcome.create(name: outcome.name,
-        description: outcome.description,
-        course: self, standard_outcome_id: outcome.id)
+    self.class.transaction do
+      update_column(:has_custom_outcomes, false)
+
+      StandardOutcome.all.each do |standard_outcome|
+        outcomes.create!(
+          name: standard_outcome.name,
+          description: standard_outcome.description,
+          standard_outcome_id: standard_outcome.id
+        )
+      end
     end
   end
 
   def adopt_custom_outcomes!
-    update_attribute(:has_custom_outcomes, true)
+    update_column(:has_custom_outcomes, true)
   end
 end

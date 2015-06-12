@@ -1,10 +1,6 @@
 class StandardOutcome < ActiveRecord::Base
   has_many :alignments
 
-  def self.retrieve_defaults
-    self.all
-  end
-
   def self.aligned_with(course)
     joins(alignments: { outcome: :course }).where(courses: { id: course })
   end
