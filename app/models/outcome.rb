@@ -5,9 +5,9 @@ class Outcome < ActiveRecord::Base
   has_many :surveys
   has_many :participations
   has_many :other_assessments
-  has_many :outcome_alignments
-  accepts_nested_attributes_for :outcome_alignments,
-    reject_if: ->(attributes) { attributes[:alignment_level].blank? }
+  has_many :alignments
+  accepts_nested_attributes_for :alignments,
+    reject_if: ->(attributes) { attributes[:level].blank? }
 
   delegate :department, to: :course
 end

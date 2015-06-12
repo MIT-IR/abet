@@ -18,7 +18,7 @@ describe OutcomesDashboard do
       aligned_course = create(:course, has_custom_outcomes: true)
       create(:course, has_custom_outcomes: false)
       outcome = create(:outcome, course: aligned_course)
-      create(:outcome_alignment, outcome: outcome)
+      create(:alignment, outcome: outcome)
 
       dashboard = OutcomesDashboard.new(Course)
 

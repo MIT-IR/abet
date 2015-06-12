@@ -5,12 +5,12 @@
   <fieldset class="alignments">
     <legend><%= t(".alignments_legend") %></legend>
 
-    <%= f.simple_fields_for(:outcome_alignments) do |alignment_form| %>
+    <%= f.simple_fields_for(:alignments) do |alignment_form| %>
       <%= alignment_form.input :standard_outcome_id, as: :hidden %>
-      <%= alignment_form.input :alignment_level,
+      <%= alignment_form.input :level,
         label: alignment_form.object.standard_outcome,
         prompt: :translate,
-        collection: OutcomeAlignment::LEVELS %>
+        collection: Alignment::LEVELS %>
     <% end %>
   </fieldset>
 

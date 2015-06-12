@@ -25,7 +25,7 @@ feature "User creates custom outcomes" do
 
     click_on "Details"
 
-    within("#outcome_alignments") do
+    within("#alignments") do
       expect(page).to have_content(associated_outcome.description)
       expect(page).to have_content("High alignment")
     end

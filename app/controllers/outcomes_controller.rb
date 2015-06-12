@@ -10,7 +10,7 @@ class OutcomesController < ApplicationController
     @outcome = course.outcomes.build
 
     StandardOutcome.all.each do |default_outcome|
-      @outcome.outcome_alignments.build(standard_outcome: default_outcome)
+      @outcome.alignments.build(standard_outcome: default_outcome)
     end
 
     authorize(@outcome)
@@ -44,9 +44,9 @@ class OutcomesController < ApplicationController
     params.require(:outcome).permit(
       :name,
       :description,
-      outcome_alignments_attributes: [
+      alignments_attributes: [
         :standard_outcome_id,
-        :alignment_level
+        :level
       ]
     )
   end

@@ -59,8 +59,8 @@ FactoryGirl.define do
     course
   end
 
-  factory :outcome_alignment do
-    alignment_level "Moderate alignment"
+  factory :alignment do
+    level "Moderate alignment"
     outcome
     standard_outcome
   end

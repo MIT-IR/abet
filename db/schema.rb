@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610184606) do
+ActiveRecord::Schema.define(version: 20150612013100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alignments", force: :cascade do |t|
+    t.integer  "outcome_id",          null: false
+    t.integer  "standard_outcome_id", null: false
+    t.string   "level",               null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "alignments", ["outcome_id", "standard_outcome_id"], name: "index_alignments_on_outcome_id_and_standard_outcome_id", unique: true, using: :btree
+  add_index "alignments", ["standard_outcome_id"], name: "index_alignments_on_standard_outcome_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "number",                          null: false
@@ -65,14 +76,6 @@ ActiveRecord::Schema.define(version: 20150610184606) do
     t.string   "type",                null: false
   end
 
-  create_table "outcome_alignments", force: :cascade do |t|
-    t.integer  "outcome_id"
-    t.integer  "standard_outcome_id"
-    t.string   "alignment_level"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
   create_table "outcomes", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -120,6 +123,8 @@ ActiveRecord::Schema.define(version: 20150610184606) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "alignments", "outcomes"
+  add_foreign_key "alignments", "standard_outcomes"
   add_foreign_key "courses", "departments", on_delete: :restrict
   add_foreign_key "direct_assessments", "subjects"
 end

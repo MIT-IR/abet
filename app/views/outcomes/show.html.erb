@@ -1,17 +1,17 @@
 <h3><%= @outcome.name %>: <%= @outcome.description %></h3>
-<% if @outcome.outcome_alignments.any? %>
+<% if @outcome.alignments.any? %>
   <h4>Aligned ABET Outcomes</h4>
-  <table width="1000" id="outcome_alignments">
+  <table width="1000" id="alignments">
     <tr>
       <th>Name</th>
       <th>Description</th>
       <th width="150">Alignment Level</th>
     </tr>
-    <% @outcome.outcome_alignments.each do |alignment| %>
+    <% @outcome.alignments.each do |alignment| %>
       <tr>
         <td><%= alignment.standard_outcome.name %></td>
         <td><%= alignment.standard_outcome.description %></td>
-        <td><%= alignment.alignment_level %></td>
+        <td><%= alignment.level %></td>
       </tr>
     <% end %>
   </table>
