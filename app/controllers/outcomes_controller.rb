@@ -1,4 +1,13 @@
 class OutcomesController < ApplicationController
+  skip_after_action :verify_policy_scoped
+  after_action :verify_authorized
+
+  def index
+    @course = course
+    @outcomes = course.outcomes
+    authorize(@course, :show?)
+  end
+
   def show
     @outcome = Outcome.find(params[:id])
     @direct_assessments = @outcome.direct_assessments
@@ -20,7 +29,7 @@ class OutcomesController < ApplicationController
     @outcome = course.outcomes.build(outcome_params)
 
     if create_outcome(@outcome)
-      redirect_to course_path(course), success: t(".success")
+      redirect_to course_outcomes_path(course), success: t(".success")
     else
       render :new
     end

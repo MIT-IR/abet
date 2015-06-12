@@ -1,0 +1,7 @@
+<% tab(TabHelper::OUTCOMES) %>
+
+<h1><%= t(".heading", course: @course) %></h1>
+
+<% if @course.outcomes.present? %>
+  <%= render "outcomes", course: @course %>
+<% end %>

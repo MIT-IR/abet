@@ -10,4 +10,8 @@ class Outcome < ActiveRecord::Base
     reject_if: ->(attributes) { attributes[:level].blank? }
 
   delegate :department, to: :course
+
+  def to_s
+    "#{name} - #{description}"
+  end
 end

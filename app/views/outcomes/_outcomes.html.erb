@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= t(".outcome") %></th>
+      <th><%= t(".actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% course.outcomes.each do |outcome| %>
+      <tr>
+        <td><%= outcome %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if course.has_custom_outcomes? && policy(course).create_outcomes? %>
+  <%= link_to t(".add_outcome"), new_course_outcome_path(course) %>
+<% end %>

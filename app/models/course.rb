@@ -23,4 +23,8 @@ class Course < ActiveRecord::Base
   def adopt_custom_outcomes!
     update_column(:has_custom_outcomes, true)
   end
+
+  def to_s
+    "#{number}: #{name}"
+  end
 end
