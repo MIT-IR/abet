@@ -73,7 +73,6 @@ en:
       edit_outcomes: Edit Outcomes
     without_outcomes_actions:
       adopt_default: Adopt Default Outcomes
-      adopt_default_confirm: Are you sure?
       create_custom: Create Custom Outcome
   results:
     create: Result created successfully.
