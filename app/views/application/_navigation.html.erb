@@ -12,7 +12,7 @@
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><%= link_to t(".home"), root_path %></li>
         <li class="nav-link"><%= link_to t(".about"), page_path("about") %></li>
-        <li class="nav-link"><a href="javascript:void(0)"><%= t(".contact") %></a></li>
+        <li class="nav-link"><%= mail_to "daries@mit.edu", t(".contact") %></li>
       </ul>
     </nav>
   </div>
