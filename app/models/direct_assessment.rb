@@ -5,4 +5,6 @@ class DirectAssessment < ActiveRecord::Base
   belongs_to :department
   belongs_to :subject
   has_many :results, as: :assessment
+
+  validates :subject, presence: true
 end

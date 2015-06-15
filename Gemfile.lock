@@ -227,11 +227,14 @@ GEM
       nori (~> 2.4)
       uuid (~> 2.3.7)
       wasabi (~> 3.4)
+    selectize-rails (0.12.1)
     selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -314,7 +317,9 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   savon
+  selectize-rails
   selenium-webdriver
+  shoulda-matchers
   simple_form
   spring
   spring-commands-rspec

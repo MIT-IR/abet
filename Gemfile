@@ -17,6 +17,7 @@ gem "sass-rails"
 gem "simple_form"
 gem "roles_db", git: "git@github.com:MIT-IR/roles_db.git"
 gem "savon"
+gem "selectize-rails"
 gem "therubyracer"
 gem "title"
 gem "turbolinks"
@@ -37,6 +38,7 @@ group :test do
   gem "database_cleaner"
   gem "launchy"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
 
 group :development, :test do

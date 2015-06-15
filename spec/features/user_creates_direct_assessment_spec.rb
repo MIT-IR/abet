@@ -35,7 +35,7 @@ feature "User creates an assessment" do
   end
 
   def fill_and_submit_form
-    select first("#direct_assessment_subject_id option").text, from: "direct_assessment_subject_id"
+    select all("#direct_assessment_subject_id option").last.text, from: "direct_assessment_subject_id"
     fill_in "direct_assessment_name", with: "Problem Set 1"
     fill_in "direct_assessment_description", with: "Integration"
     fill_in "direct_assessment_problem_description", with: "Integration by parts"
