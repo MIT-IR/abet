@@ -4,15 +4,15 @@ class IndirectAssessmentsController < ApplicationController
   def new
     @outcome = Outcome.find(params[:outcome_id])
     @assessment = @outcome.indirect_assessments.build(type: params[:type])
-    authorize(@assessment)
+    authorize(@outcome)
   end
 
   def create
     @outcome = Outcome.find(params[:outcome_id])
-    @assessment = @outcome.indirect_assessments.build(assessment_params)
-    authorize(@assessment)
+    @assessment = @outcome.indirect_assessments.build(assessment_params.merge(department_id: @outcome.department.id))
+    authorize(@outcome)
 
-    if @assessment.save
+    if @outcome.save
       redirect_to outcome_path(@outcome), success: t(".success")
     else
       render :new
@@ -30,7 +30,7 @@ class IndirectAssessmentsController < ApplicationController
     authorize(@assessment)
 
     if @assessment.save
-      redirect_to outcome_path(@assessment.outcome), success: t(".success")
+      redirect_to outcome_path(@assessment.outcomes.first), success: t(".success")
     else
       render :edit
     end

@@ -3,7 +3,7 @@ require "rails_helper"
 feature "User updates a direct assessment" do
   scenario "a direct assessment is successfully updated" do
     assessment = create(:direct_assessment, target_percentage: 50)
-    outcome = assessment.outcome
+    outcome = assessment.outcomes.first
     user = user_with_admin_access_to(outcome.course.department)
 
     visit outcome_path(outcome, as: user)

@@ -1,6 +1,8 @@
 class IndirectAssessment < ActiveRecord::Base
-  belongs_to :outcome
+  has_many :outcome_assessments, as: :assessment
+  has_many :outcomes, through: :outcome_assessments
+
   has_many :results, as: :assessment
 
-  delegate :department, to: :outcome
+  belongs_to :department
 end

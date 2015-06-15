@@ -39,14 +39,16 @@ FactoryGirl.define do
   end
 
   factory :direct_assessment do
+    department
     description "Integration"
     minimum_requirement "7 points out of 10"
     name "Problem Set 1"
-    outcome
     problem_description "Question 3, Integration by parts"
     target_percentage 80
 
     after(:build) do |assessment|
+      course = build(:course, department: assessment.department)
+      assessment.outcomes << build(:outcome, course: course)
       unless assessment.subject.present?
         assessment.subject = build(
           :subject,
@@ -57,11 +59,16 @@ FactoryGirl.define do
   end
 
   factory :other_assessment do
+    department
     description "Senior Thesis Completion"
     name "Percent of students who complete a senior thesis"
-    outcome
     target_percentage 80
     type "OtherAssessment"
+
+    after(:build) do |assessment|
+      course = build(:course, department: assessment.department)
+      assessment.outcomes << build(:outcome, course: course)
+    end
   end
 
   factory :outcome do
@@ -77,11 +84,16 @@ FactoryGirl.define do
   end
 
   factory :participation do
+    department
     description "Undergraduation Research Project"
     name "UROP"
-    outcome
     target_percentage 80
     type "Participation"
+
+    after(:build) do |assessment|
+      course = build(:course, department: assessment.department)
+      assessment.outcomes << build(:outcome, course: course)
+    end
   end
 
   factory :standard_outcome do
@@ -96,13 +108,18 @@ FactoryGirl.define do
   end
 
   factory :survey do
+    department
     description "Biennial survey administered to graduating seniors"
     minimum_requirement "Somewhat satisfied"
     name "Senior Survey"
-    outcome
     survey_question "How satisfied are you with advising in your major?"
     target_percentage 80
     type "Survey"
+
+    after(:build) do |assessment|
+      course = build(:course, department: assessment.department)
+      assessment.outcomes << build(:outcome, course: course)
+    end
   end
 
   factory :user do

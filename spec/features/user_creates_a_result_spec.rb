@@ -44,7 +44,7 @@ feature "User creates a result" do
     assessment = create(:direct_assessment)
     user = user_with_admin_access_to(assessment.department)
 
-    visit outcome_path(assessment.outcome, as: user)
+    visit outcome_path(assessment.outcomes.first, as: user)
 
     within("#direct_assessment-#{assessment.id}") do
       click_on "View and add results"
@@ -61,7 +61,7 @@ feature "User creates a result" do
     assessment = create(:survey)
     user = user_with_admin_access_to(assessment.department)
 
-    visit outcome_path(assessment.outcome, as: user)
+    visit outcome_path(assessment.outcomes.first, as: user)
 
     within("#indirect_assessment-#{assessment.id}") do
       click_on "View and add results"
@@ -90,7 +90,7 @@ feature "User creates a result" do
     assessment = create(:participation)
     user = user_with_admin_access_to(assessment.department)
 
-    visit outcome_path(assessment.outcome, as: user)
+    visit outcome_path(assessment.outcomes.first, as: user)
 
     within("#indirect_assessment-#{assessment.id}") do
       click_on "View and add results"

@@ -1,7 +1,8 @@
 class DirectAssessment < ActiveRecord::Base
-  belongs_to :outcome
+  has_many :outcome_assessments, as: :assessment
+  has_many :outcomes, through: :outcome_assessments
+
+  belongs_to :department
   belongs_to :subject
   has_many :results, as: :assessment
-
-  delegate :department, to: :outcome
 end

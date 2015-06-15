@@ -4,15 +4,15 @@ class DirectAssessmentsController < ApplicationController
   def new
     @outcome = Outcome.find(params[:outcome_id])
     @assessment = @outcome.direct_assessments.build
-    authorize(@assessment)
+    authorize(@outcome)
   end
 
   def create
     @outcome = Outcome.find(params[:outcome_id])
-    @direct_assessment = @outcome.direct_assessments.build(direct_assessment_params)
-    authorize(@direct_assessment)
+    @assessment = @outcome.direct_assessments.build(direct_assessment_params.merge(department_id: @outcome.department.id))
+    authorize(@outcome)
 
-    if @direct_assessment.save
+    if @outcome.save
       redirect_to outcome_path(@outcome), success: t(".success")
     else
       render :new
@@ -30,7 +30,7 @@ class DirectAssessmentsController < ApplicationController
 
     @assessment.assign_attributes(direct_assessment_params)
     if @assessment.save
-      redirect_to outcome_path(@assessment.outcome)
+      redirect_to outcome_path(@assessment.outcomes.first), success: t(".success")
     else
       render :edit, success: t(".success")
     end
@@ -46,6 +46,7 @@ class DirectAssessmentsController < ApplicationController
   def direct_assessment_params
     params.require(:direct_assessment).permit(
       :actual_percentage,
+      :department_id,
       :description,
       :minimum_requirement,
       :name,

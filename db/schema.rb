@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615155716) do
+ActiveRecord::Schema.define(version: 20150615190415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,13 @@ ActiveRecord::Schema.define(version: 20150615155716) do
     t.string   "problem_description"
     t.string   "minimum_requirement"
     t.integer  "target_percentage"
-    t.integer  "outcome_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "subject_id",          null: false
+    t.integer  "department_id",       null: false
   end
 
+  add_index "direct_assessments", ["department_id"], name: "index_direct_assessments_on_department_id", using: :btree
   add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
 
   create_table "indirect_assessments", force: :cascade do |t|
@@ -70,11 +71,24 @@ ActiveRecord::Schema.define(version: 20150615155716) do
     t.string   "survey_question"
     t.string   "minimum_requirement"
     t.integer  "target_percentage"
-    t.integer  "outcome_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "type",                null: false
+    t.integer  "department_id",       null: false
   end
+
+  add_index "indirect_assessments", ["department_id"], name: "index_indirect_assessments_on_department_id", using: :btree
+
+  create_table "outcome_assessments", force: :cascade do |t|
+    t.integer  "outcome_id",      null: false
+    t.integer  "assessment_id",   null: false
+    t.string   "assessment_type", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "outcome_assessments", ["assessment_type", "assessment_id"], name: "index_outcome_assessments_on_assessment_type_and_assessment_id", using: :btree
+  add_index "outcome_assessments", ["outcome_id"], name: "index_outcome_assessments_on_outcome_id", using: :btree
 
   create_table "outcomes", force: :cascade do |t|
     t.string   "name"
