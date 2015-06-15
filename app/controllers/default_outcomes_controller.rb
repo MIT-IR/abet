@@ -1,11 +1,13 @@
 class DefaultOutcomesController < ApplicationController
-  before_action :ensure_adoptable
-
   def create
     course = Course.find(params[:course_id])
     authorize(course, :create_outcomes?)
-    course.adopt_default_outcomes!
-    redirect_to outcomes_dashboard_path, success: t(".success")
+
+    Adoption.process(adoptable_outcomes, course: course)
+    redirect_to redirect_path, success: t(
+      ".success",
+      count: adoptable_outcomes.size
+    )
   end
 
   def index
@@ -19,9 +21,15 @@ class DefaultOutcomesController < ApplicationController
     @_course ||= Course.find(params[:course_id])
   end
 
-  def ensure_adoptable
-    if course.outcomes_count > 0
-      redirect_to outcomes_dashboard_path, error: t(".error")
+  def adoptable_outcomes
+    @_adoptable_outcomes ||= StandardOutcome.where(id: params[:ids])
+  end
+
+  def redirect_path
+    if adoptable_outcomes.size > 1
+      outcomes_dashboard_path
+    else
+      course_outcomes_path(course)
     end
   end
 end

@@ -5,3 +5,9 @@
 <% if @course.outcomes.present? %>
   <%= render "outcomes", course: @course %>
 <% end %>
+
+<% if @unaligned_standard_outcomes.present? %>
+  <%= render "unaligned_standard_outcomes",
+    course: @course,
+    outcomes: @unaligned_standard_outcomes %>
+<% end %>

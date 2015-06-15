@@ -10,13 +10,6 @@ class Course < ActiveRecord::Base
     where.not(outcomes_count: 0)
   end
 
-  def adopt_default_outcomes!
-    self.class.transaction do
-      update_column(:has_custom_outcomes, false)
-      Adoption.process(StandardOutcome.all, course: self)
-    end
-  end
-
   def adopt_custom_outcomes!
     update_column(:has_custom_outcomes, true)
   end

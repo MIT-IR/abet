@@ -19,7 +19,9 @@ en:
   default_outcomes:
     create:
       error: Course already has associated outcomes.
-      success: Default outcomes successfully adopted.
+      success:
+        one: Standard outcome successfully adopted.
+        other: Standard outcomes successfully adopted.
     index:
       adopt_all: Adopt All Custom Outcomes For %{course}
       description: Description
@@ -57,6 +59,13 @@ en:
       actions: Actions
       add_outcome: Add A Custom Outcome
       outcome: Outcome
+    unaligned_standard_outcomes:
+      actions: Actions
+      adopt: Adopt
+      caption: There are no outcomes for this course that align with the following
+        standard outcomes.
+      heading: Unaligned Standard Outcomes
+      standard_outcome: Standard Outcome
   outcomes_dashboard:
     aligned_outcomes_actions:
       edit_assessments: Edit Assessments

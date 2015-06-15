@@ -1,0 +1,24 @@
+<section class="unaligned-outcomes">
+  <h2><%= t(".heading") %></h2>
+
+  <table>
+    <caption><%= t(".caption") %></caption>
+    <thead>
+      <tr>
+        <th><%= t(".standard_outcome") %></th>
+        <th><%= t(".actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% outcomes.each do |standard_outcome| %>
+        <tr>
+          <td><%= standard_outcome %>
+          <td>
+            <%= button_to t(".adopt"),
+              course_default_outcomes_path(course, ids: standard_outcome.id) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

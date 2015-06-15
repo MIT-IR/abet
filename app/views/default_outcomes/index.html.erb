@@ -16,4 +16,4 @@
 </table>
 
 <%= button_to t(".adopt_all", course: @course),
-  course_default_outcomes_path(@course) %>
+  course_default_outcomes_path(@course, ids: @outcomes.pluck(:id)) %>

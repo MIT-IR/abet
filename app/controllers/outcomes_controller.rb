@@ -4,7 +4,7 @@ class OutcomesController < ApplicationController
 
   def index
     @course = course
-    @outcomes = course.outcomes
+    @unaligned_standard_outcomes = StandardOutcome.unaligned_with(course)
     authorize(@course, :show?)
   end
 
@@ -53,6 +53,7 @@ class OutcomesController < ApplicationController
     params.require(:outcome).permit(
       :name,
       :description,
+      :standard_outcome_id,
       alignments_attributes: [
         :standard_outcome_id,
         :level

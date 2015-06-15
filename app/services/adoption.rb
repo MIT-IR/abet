@@ -9,18 +9,20 @@ class Adoption
   end
 
   def process
-    adoptable_outcomes.each do |adoptable_outcome|
-      outcome = course.outcomes.build(
-        name: adoptable_outcome.name,
-        description: adoptable_outcome.description
-      )
+    ActiveRecord::Base.transaction do
+      adoptable_outcomes.each do |adoptable_outcome|
+        outcome = course.outcomes.build(
+          name: adoptable_outcome.name,
+          description: adoptable_outcome.description
+        )
 
-      outcome.alignments.build(
-        level: Alignment::HIGH,
-        standard_outcome_id: adoptable_outcome.id
-      )
+        outcome.alignments.build(
+          level: Alignment::HIGH,
+          standard_outcome_id: adoptable_outcome.id
+        )
 
-      outcome.save!
+        outcome.save!
+      end
     end
   end
 
