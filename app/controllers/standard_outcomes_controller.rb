@@ -1,4 +1,4 @@
-class DefaultOutcomesController < ApplicationController
+class StandardOutcomesController < ApplicationController
   def create
     course = Course.find(params[:course_id])
     authorize(course, :create_outcomes?)

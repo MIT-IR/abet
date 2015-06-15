@@ -7,7 +7,7 @@ describe "courses/_interstitial.html.erb" do
 
     render "courses/interstitial", course: course
 
-    expect(page).to have_link "Adopt Default Outcomes"
+    expect(page).to have_link "Adopt Standard Outcomes"
   end
 
   it "does not show outcome creation links if unauthorized" do
@@ -16,6 +16,6 @@ describe "courses/_interstitial.html.erb" do
 
     render "courses/interstitial", course: course
 
-    expect(page).not_to have_link "Adopt Default Outcomes"
+    expect(page).not_to have_link "Adopt Standard Outcomes"
   end
 end

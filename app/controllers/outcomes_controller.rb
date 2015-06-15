@@ -18,8 +18,8 @@ class OutcomesController < ApplicationController
   def new
     @outcome = course.outcomes.build
 
-    StandardOutcome.all.each do |default_outcome|
-      @outcome.alignments.build(standard_outcome: default_outcome)
+    StandardOutcome.all.each do |standard_outcome|
+      @outcome.alignments.build(standard_outcome: standard_outcome)
     end
 
     authorize(@outcome)

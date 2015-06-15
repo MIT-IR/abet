@@ -98,7 +98,7 @@ FactoryGirl.define do
 
   factory :standard_outcome do
     name { generate(:label) }
-    description { "description for default #{name}" }
+    description { "description for standard #{name}" }
   end
 
   factory :subject do

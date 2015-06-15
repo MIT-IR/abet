@@ -16,7 +16,7 @@ en:
       description: Description
       heading: Outcomes for %{name}
       label: Label
-  default_outcomes:
+  standard_outcomes:
     create:
       error: Course already has associated outcomes.
       success:
@@ -25,7 +25,7 @@ en:
     index:
       adopt_all: Adopt All Custom Outcomes For %{course}
       description: Description
-      heading: Default Outcomes
+      heading: Standard Outcomes
   departments:
     show:
       course_name: Course Name
@@ -90,7 +90,7 @@ en:
     unaligned_outcomes_actions:
       edit_outcomes: Edit Outcomes
     without_outcomes_actions:
-      adopt_default: Adopt Default Outcomes
+      adopt_standard: Adopt Standard Outcomes
       create_custom: Create Custom Outcome
   results:
     create: Result created successfully.

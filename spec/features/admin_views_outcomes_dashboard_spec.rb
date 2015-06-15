@@ -9,7 +9,7 @@ feature "Admin views outcomes dashboard" do
 
     expect(page).to have_content "do not have any associated outcomes"
     expect(page).to have_content course.name
-    expect(page).to have_link "Adopt Default Outcomes"
+    expect(page).to have_link "Adopt Standard Outcomes"
   end
 
   scenario "sees list of courses with unaligned outcomes" do

@@ -7,7 +7,7 @@ feature "Admin adopts standard outcomes for a course" do
     user = user_with_admin_access_to(course.department)
 
     visit outcomes_dashboard_path(course, as: user)
-    click_on "Adopt Default Outcomes"
+    click_on "Adopt Standard Outcomes"
 
     expect(page).to have_content(standard_outcomes.first)
     expect(page).to have_content(standard_outcomes.last)
