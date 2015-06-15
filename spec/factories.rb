@@ -16,6 +16,17 @@ FactoryGirl.define do
         create(:outcome, course: course)
       end
     end
+
+    trait :fully_aligned do
+      after(:create) do |course|
+        outcome = create(:outcome, course: course)
+        standard_outcomes = StandardOutcome.all.presence || [create(:standard_outcome)]
+
+        standard_outcomes.each do |standard_outcome|
+          create(:alignment, outcome: outcome, standard_outcome: standard_outcome)
+        end
+      end
+    end
   end
 
   factory :department do

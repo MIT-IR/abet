@@ -3,8 +3,8 @@ require "rails_helper"
 describe OutcomesDashboard do
   describe "#courses_without_outcomes" do
     it "returns courses without any outcomes" do
-      course = create(:course)
-      create(:outcome)
+      course = double("Course")
+      allow(Course).to receive(:without_outcomes).and_return([course])
 
       dashboard = OutcomesDashboard.new(Course)
 
@@ -13,12 +13,10 @@ describe OutcomesDashboard do
   end
 
   describe "#unaligned_courses" do
-    it "returns courses that are not fully aligned" do
-      unaligned_course = create(:course, has_custom_outcomes: true)
-      aligned_course = create(:course, has_custom_outcomes: true)
-      create(:course, has_custom_outcomes: false)
-      outcome = create(:outcome, course: aligned_course)
-      create(:alignment, outcome: outcome)
+    it "returns courses with outcomes and that are not fully aligned" do
+      unaligned_course = create(:course, :with_unaligned_outcome)
+      create(:course, :fully_aligned)
+      create(:course)
 
       dashboard = OutcomesDashboard.new(Course)
 

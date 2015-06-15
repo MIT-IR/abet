@@ -4,11 +4,11 @@ class OutcomesDashboard
   end
 
   def courses_without_outcomes
-    courses.where(outcomes_count: 0)
+    courses.without_outcomes
   end
 
   def unaligned_courses
-    @unaligned_courses ||= courses.with_custom_outcomes.select do |course|
+    @unaligned_courses ||= courses.with_outcomes.select do |course|
       StandardOutcome.unaligned_with(course).any?
     end
   end
