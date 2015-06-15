@@ -1,0 +1,19 @@
+<h1><%= t(".heading") %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t(".description") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @outcomes.each do |outcome| %>
+      <tr>
+        <td><%= outcome %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_to t(".adopt_all", course: @course),
+  course_default_outcomes_path(@course) %>

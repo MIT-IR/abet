@@ -15,7 +15,6 @@ feature "Admin adopts standard outcomes for a course" do
     click_on "Adopt"
 
     expect(page).to have_content "Default outcomes successfully adopted."
-    expect(page).to have_content(standard_outcome.name)
-    expect(page).to have_content(standard_outcome.description)
+    expect(find(".fully-aligned")).to have_content(course.name)
   end
 end

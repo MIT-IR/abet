@@ -6,6 +6,7 @@
   <%= render "courses_table",
     courses: @outcomes_dashboard.courses_without_outcomes,
     caption: t(".captions.without_outcomes_html"),
+    table_class: "without-outcomes",
     action_partial: "without_outcomes_actions" %>
 <% end %>
 
@@ -13,5 +14,14 @@
   <%= render "courses_table",
     courses: @outcomes_dashboard.unaligned_courses,
     caption: t(".captions.unaligned_outcomes_html"),
+    table_class: "unaligned",
     action_partial: "unaligned_outcomes_actions" %>
+<% end %>
+
+<% if @outcomes_dashboard.aligned_courses.present? %>
+  <%= render "courses_table",
+    courses: @outcomes_dashboard.aligned_courses,
+    caption: t(".captions.aligned_outcomes_html"),
+    table_class: "fully-aligned",
+    action_partial: "aligned_outcomes_actions" %>
 <% end %>

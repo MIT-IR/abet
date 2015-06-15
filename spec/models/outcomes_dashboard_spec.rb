@@ -23,4 +23,16 @@ describe OutcomesDashboard do
       expect(dashboard.unaligned_courses).to eq [unaligned_course]
     end
   end
+
+  describe "#aligned_courses" do
+    it "returns courses with outcomes fully aligned to standard outcomes" do
+      create(:course)
+      create(:course, :with_unaligned_outcome)
+      aligned_course = create(:course, :fully_aligned)
+
+      dashboard = OutcomesDashboard.new(Course)
+
+      expect(dashboard.aligned_courses).to eq [aligned_course]
+    end
+  end
 end

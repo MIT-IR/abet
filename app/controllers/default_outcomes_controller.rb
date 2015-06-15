@@ -1,18 +1,27 @@
 class DefaultOutcomesController < ApplicationController
+  before_action :ensure_adoptable
+
   def create
     course = Course.find(params[:course_id])
     authorize(course, :create_outcomes?)
-    if course.outcomes.empty?
-      course.adopt_default_outcomes!
-      redirect_to course, success: t(".success")
-    else
-      redirect_to course, error: t(".error")
-    end
+    course.adopt_default_outcomes!
+    redirect_to outcomes_dashboard_path, success: t(".success")
   end
 
-  def show
-    @outcomes = StandardOutcome.all
-    @course = Course.find(params[:course_id])
-    authorize(@course)
+  def index
+    @outcomes = policy_scope(StandardOutcome)
+    @course = course
+  end
+
+  private
+
+  def course
+    @_course ||= Course.find(params[:course_id])
+  end
+
+  def ensure_adoptable
+    if course.outcomes_count > 0
+      redirect_to outcomes_dashboard_path, error: t(".error")
+    end
   end
 end
