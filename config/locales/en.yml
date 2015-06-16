@@ -100,7 +100,7 @@ en:
         one: Standard outcome successfully adopted.
         other: Standard outcomes successfully adopted.
     index:
-      adopt_all: Adopt All Custom Outcomes For %{course}
+      adopt_all: Adopt All Standard Outcomes For %{course}
       description: Description
       heading: Standard Outcomes
   titles:
