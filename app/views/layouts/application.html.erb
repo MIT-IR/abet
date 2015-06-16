@@ -17,6 +17,7 @@
   </head>
 
   <body class="<%= body_class %>">
+    <%= render "flashes" %>
     <%= render "navigation" %>
 
     <% if @current_tab %>
@@ -24,7 +25,6 @@
     <% end %>
 
     <section class="main tab-content" role="main">
-      <%= render "flashes" %>
       <%= yield %>
     </section>
   </body>

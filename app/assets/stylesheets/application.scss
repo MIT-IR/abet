@@ -12,6 +12,7 @@
 @import "selectize";
 @import "selectize.default";
 
+@import "layout";
 @import "course";
 @import "direct_assessment";
 @import "outcome";
@@ -19,17 +20,8 @@
 @import "outcomes_dashboard";
 @import "results";
 @import "assessments";
-
-.main {
-  @include outer-container;
-}
-
-ul.errors {
-  @extend %default-ul;
-  @include flash($error-color);
-
-  li {
-    text-align: left;
-    margin-left: 2em;
-  }
-}
+@import "steps";
+@import "assessments";
+@import "extends";
+@import "animations";
+@import "cards";

@@ -1,9 +1,12 @@
-<h4><%= "#{@outcome.name} - #{@outcome.description}" %></h4>
+<%= render "assessment_details" %>
 
-Choose type of assessment:<br>
-<ul>
-<li><%=link_to "Grade from an assignment, quiz, or exam", new_outcome_direct_assessment_path(@outcome)%></li>
-<li><%=link_to "Survey results", new_outcome_indirect_assessment_path(@outcome, type: "Survey")%></li>
-<li><%=link_to "Participation in program", new_outcome_indirect_assessment_path(@outcome, type: "Participation")%></li>
-<li><%=link_to "Other", new_outcome_indirect_assessment_path(@outcome, type: "OtherAssessment")%></li>
-</ul>
+<%= render "steps" %>
+
+<div class="assessment-form-container card">
+  <h6>Type of assessment</h6>
+  <ul class="assessment-form-types">
+    <li><%=link_to "Survey results", new_outcome_indirect_assessment_path(@outcome, type: "Survey")%></li>
+    <li><%=link_to "Participation in program", new_outcome_indirect_assessment_path(@outcome, type: "Participation")%></li>
+    <li><%=link_to "Other", new_outcome_indirect_assessment_path(@outcome, type: "OtherAssessment")%></li>
+  </ul>
+</div>

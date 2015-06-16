@@ -1,0 +1,82 @@
+.steps {
+  @include display(flex);
+  @include justify-content(space-between);
+  text-align: center;
+}
+
+.step {
+  @include border-bottom-radius(0);
+  @include flex(1 0 auto);
+  background-color: $breadcrumb-background;
+  border: $breadcrumb-border;
+  border-left: 0;
+  color: $breadcrumb-color;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: $breadcrumb-height;
+  padding: 0 ($breadcrumb-height);
+  position: relative;
+  text-decoration: none;
+
+  &:after,
+  &:before {
+    @include position(absolute, 0 auto 0 100%);
+    border-bottom: ($breadcrumb-height / 2) solid transparent;
+    border-left: ($breadcrumb-height / 4) solid transparent;
+    border-top: ($breadcrumb-height / 2) solid transparent;
+    content: "";
+    display: block;
+    margin: auto;
+    z-index: 2;
+  }
+
+  &:after {
+    border-left-color: $breadcrumb-background;
+  }
+
+  &:before {
+    border-left-color: $breadcrumb-arrow-color;
+    margin-left: 1px;
+    z-index: 1;
+  }
+
+
+  &:first-child {
+    border-left: $breadcrumb-border;
+    border-top-left-radius: $base-border-radius;
+    padding-left: $breadcrumb-height / 2;
+  }
+
+  &:last-child {
+    background-color: $breadcrumb-background;
+    border-top-right-radius: $base-border-radius;
+    color: $breadcrumb-color-active;
+    padding-right: $breadcrumb-height / 2;
+
+    &:after,
+    &:before {
+      border: none;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $breadcrumb-inactive-hover-color;
+    color: $breadcrumb-color-hover;
+  }
+
+  @include media($medium-screen) {
+    font-size: 1em;
+  }
+
+  &.active,
+  &.complete {
+    background-color: $action-color;
+    color: $white;
+    font-weight: $bold;
+
+    &:after {
+      border-left-color: $action-color;
+    }
+  }
+}
