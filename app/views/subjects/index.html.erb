@@ -1,11 +1,16 @@
-<h1>Subjects</h1>
+<% tab(TabHelper::DATA_ENTRY) %>
+
+<h1><%= t(".heading") %></h1>
+
+<% if policy(:generic).create_assessments? %>
+  <p><%= t(".description.can_create_assessments_html",
+    add_assessment_link: link_to(t(".add_assessment"), "#")) %></p>
+<% else %>
+  <p><%= t(".description.cannot_create_assessments_html") %></p>
+<% end %>
+
 <ul>
   <% @subjects.each do |subject| %>
     <li><%= link_to subject, subject_path(subject) %></li>
   <% end %>
 </ul>
-<p>[IF ACCESS TO CREATE ASSESSMENTS]: If you do not see your subject listed,
-  then you need to [LINK] add an assessment for that subject. </p>
-<p>[IF NO ACCESS TO CREATE ASSESSMENTS]: If you do not see your subject listed,
-then you will need to ask your departmental ABET Administrator to create an
-assessment for your subject.</p>

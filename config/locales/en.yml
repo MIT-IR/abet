@@ -103,5 +103,19 @@ en:
       adopt_all: Adopt All Standard Outcomes For %{course}
       description: Description
       heading: Standard Outcomes
+  subjects:
+    index:
+      add_assessment: add an assessment
+      description:
+        can_create_assessments_html: |
+          You have access to record assessment data for the following subjects.
+          If you do not see your subject listed then you need to
+          %{add_assessment_link} for that subject.
+        cannot_create_assessments_html: |
+          You have access to record assessment data for the following subjects.
+          If you do not see your subject listed then you will need to ask your
+          departmental ABET administrator to create an assessment for your
+          subject.
+      heading: Record Assessment Data For Your Subjects
   titles:
     application: ABET Outcomes Assessment
