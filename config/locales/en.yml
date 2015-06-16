@@ -1,5 +1,9 @@
 ---
 en:
+  activerecord:
+    attributes:
+      alignment:
+        _destroy: Remove
   application:
     navigation:
       about: About
@@ -16,16 +20,6 @@ en:
       description: Description
       heading: Outcomes for %{name}
       label: Label
-  standard_outcomes:
-    create:
-      error: Course already has associated outcomes.
-      success:
-        one: Standard outcome successfully adopted.
-        other: Standard outcomes successfully adopted.
-    index:
-      adopt_all: Adopt All Custom Outcomes For %{course}
-      description: Description
-      heading: Standard Outcomes
   departments:
     show:
       course_name: Course Name
@@ -46,6 +40,8 @@ en:
   outcomes:
     create:
       success: Outcome created successfully.
+    edit:
+      heading: Edit Outcome
     form:
       alignments_legend: Alignment Levels
     index:
@@ -58,6 +54,7 @@ en:
     outcomes:
       actions: Actions
       add_outcome: Add A Custom Outcome
+      edit_outcome: Edit Outcome
       outcome: Outcome
     unaligned_standard_outcomes:
       actions: Actions
@@ -66,6 +63,8 @@ en:
         standard outcomes.
       heading: Unaligned Standard Outcomes
       standard_outcome: Standard Outcome
+    update:
+      success: Outcome updated successfully.
   outcomes_dashboard:
     aligned_outcomes_actions:
       edit_assessments: Edit Assessments
@@ -94,5 +93,15 @@ en:
       create_custom: Create Custom Outcome
   results:
     create: Result created successfully.
+  standard_outcomes:
+    create:
+      error: Course already has associated outcomes.
+      success:
+        one: Standard outcome successfully adopted.
+        other: Standard outcomes successfully adopted.
+    index:
+      adopt_all: Adopt All Custom Outcomes For %{course}
+      description: Description
+      heading: Standard Outcomes
   titles:
     application: ABET Outcomes Assessment

@@ -7,6 +7,10 @@ class OutcomePolicy < ApplicationPolicy
     user.admin?(record.department)
   end
 
+  def update?
+    user.admin?(record.department)
+  end
+
   def create_assessments?
     create?
   end

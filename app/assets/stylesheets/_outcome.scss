@@ -1,19 +1,12 @@
-fieldset.alignments {
-  .input.select {
-    @include row();
+fieldset.alignment {
+  @include row();
 
-    &:not(:last-child) {
-      border-bottom: 1px solid $light-gray;
-      margin-bottom: $base-spacing;
-    }
+  label.outcome {
+   @include span_columns(10);
+  }
 
-    label {
-      @include span_columns(10);
-    }
-
-    select {
-      @include span_columns(2);
-      @include omega();
-    }
+  .controls {
+    @include span_columns(2);
+    @include omega();
   }
 }

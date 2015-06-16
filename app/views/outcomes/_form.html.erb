@@ -1,4 +1,4 @@
-<%= simple_form_for [outcome.course, outcome] do |f| %>
+<%= simple_form_for [course, outcome] do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
 
@@ -6,11 +6,7 @@
     <legend><%= t(".alignments_legend") %></legend>
 
     <%= f.simple_fields_for(:alignments) do |alignment_form| %>
-      <%= alignment_form.input :standard_outcome_id, as: :hidden %>
-      <%= alignment_form.input :level,
-        label: alignment_form.object.standard_outcome,
-        prompt: :translate,
-        collection: Alignment::LEVELS %>
+      <%= render "alignment_fields", f: alignment_form %>
     <% end %>
   </fieldset>
 

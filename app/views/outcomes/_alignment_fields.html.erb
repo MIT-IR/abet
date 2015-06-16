@@ -1,0 +1,14 @@
+<fieldset class="alignment" data-order="<%= f.object.standard_outcome.name %>">
+  <%= f.input :standard_outcome_id, as: :hidden %>
+  <%= f.label :level, f.object.standard_outcome.to_s, class: "outcome" %>
+
+  <div class = "controls">
+    <%= f.input :level,
+      label: false,
+      prompt: :translate,
+      collection: Alignment::LEVELS %>
+    <% if f.object.persisted? %>
+      <%= f.input :_destroy, as: :boolean %>
+    <% end %>
+  </div>
+</fieldset>

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     only: [:show, :edit, :update],
     concerns: :assessments
 
-  resources :outcomes, only: [:show] do
+  resources :outcomes, only: [:show, :edit, :update] do
     resources :assessments, only: [:new]
     resources :direct_assessments, only: [:new, :create]
     resources :indirect_assessments, only: [:new, :create]

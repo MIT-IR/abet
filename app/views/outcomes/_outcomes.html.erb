@@ -9,7 +9,7 @@
     <% course.outcomes.each do |outcome| %>
       <tr>
         <td><%= outcome %></td>
-        <td></td>
+        <td><%= link_to t(".edit_outcome"), edit_outcome_path(outcome) %></td>
       </tr>
     <% end %>
   </tbody>
