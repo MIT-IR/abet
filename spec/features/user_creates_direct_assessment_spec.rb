@@ -7,6 +7,8 @@ feature "User creates an assessment" do
     user = user_with_admin_access_to(outcome.department)
 
     visit assessments_dashboard_path(as: user)
+    click_on "By Course"
+
     within("#outcome_#{outcome.id}") do
       click_on "Assess"
     end

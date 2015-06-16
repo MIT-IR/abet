@@ -1,21 +1,4 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
-<% @courses.each do |course| %>
-  <h2><%= course %></h2>
-  <% if course.outcomes.any? %>
-    <table class="outcomes">
-      <thead>
-        <tr>
-          <th class="label"><%= t(".label") %></th>
-          <th class="description"><%= t(".description") %></th>
-          <th class="actions"><%= t(".actions") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render course.outcomes %>
-      </tbody>
-    </table>
-  <% else %>
-    <p><em>No outcomes</em></p>
-  <% end %>
-<% end %>
+<%= link_to "By Subject", "#", class: "button" %>
+<%= link_to "By Course", assessments_courses_path, class: "button" %>

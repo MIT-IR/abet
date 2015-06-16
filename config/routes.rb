@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     resources :results, only: [:new, :create]
   end
 
+  namespace :assessments do
+    resources :courses, only: [:index]
+  end
+
   resource :assessments_dashboard, controller: "assessments_dashboard", only: [:show]
 
   resources :courses, only: [] do
