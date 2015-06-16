@@ -3,9 +3,9 @@ require "rails_helper"
 feature "User creates other assessment" do
   scenario "a new assessment is created" do
     outcome = create(:outcome)
-    user = user_with_admin_access_to(outcome.course.department)
+    user = user_with_admin_access_to(outcome.department)
 
-    visit course_path(outcome.course, as: user)
+    visit assessments_dashboard_path(as: user)
     within("#outcome_#{outcome.id}") do
       click_on "Assess"
     end

@@ -14,6 +14,14 @@ en:
       assessments: Create Assessments
       data: Record Data
       outcomes: Manage Outcomes
+  assessments_dashboard:
+    show:
+      actions: Actions
+      assess: Assess
+      description: Description
+      details: Details
+      heading: Outcomes for %{name}
+      label: Label
   courses:
     outcomes:
       actions: Actions

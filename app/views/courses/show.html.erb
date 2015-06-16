@@ -1,9 +1,0 @@
-<% tab(TabHelper::OUTCOMES) %>
-
-<% if @outcomes.present? %>
-  <%= render "outcomes",
-    course: @course,
-    unassociated_outcomes: @unassociated_outcomes %>
-<% else %>
-  <%= render "interstitial", course: @course %>
-<% end %>

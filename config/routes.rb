@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resources :results, only: [:new, :create]
   end
 
-  resources :courses, only: [:show] do
+  resource :assessments_dashboard, controller: "assessments_dashboard", only: [:show]
+
+  resources :courses, only: [] do
     resources :standard_outcomes, only: [:index, :create]
     resources :outcomes, only: [:new, :create, :index]
   end
