@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     resources :outcomes, only: [:new, :create, :index]
   end
 
-  resources :departments, only: [:show]
-
   resources :direct_assessments,
     only: [:show, :edit, :update],
     concerns: :assessments
@@ -29,5 +27,5 @@ Rails.application.routes.draw do
   resources :subjects, only: [:index, :show]
 
   get "/pages/*id" => "pages#show", as: :page, format: false
-  root "home#index"
+  root "outcomes_dashboard#show"
 end
