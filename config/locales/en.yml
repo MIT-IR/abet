@@ -51,18 +51,13 @@ en:
       description: Description
       heading: Outcomes for %{name}
       label: Label
-  departments:
-    show:
-      course_name: Course Name
-      course_number: Course Number
   direct_assessments:
     create:
       success: Assessment created successfully.
     update:
       success: Assessment updated successfully.
-  home:
-    index:
-      heading: Choose a Department
+  helpers:
+    cancel_button: Cancel
   indirect_assessments:
     create:
       success: Assessment created successfully.
@@ -128,7 +123,6 @@ en:
       success: Result created successfully.
     form:
       assessment_background: Background
-      cancel: Cancel
       period: Period
     new:
       heading: Add A New Result
