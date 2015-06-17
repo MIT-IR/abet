@@ -75,6 +75,7 @@ en:
       heading: Edit Outcome
     form:
       alignments_legend: Alignment Levels
+      cancel: Cancel
     index:
       heading: Outcomes for %{course}
     new:
@@ -139,6 +140,7 @@ en:
         other: Standard outcomes successfully adopted.
     index:
       adopt_all: Adopt All Standard Outcomes For %{course}
+      cancel: Cancel
       description: Description
       heading: Standard Outcomes
   subjects:

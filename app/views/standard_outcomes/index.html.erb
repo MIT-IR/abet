@@ -15,5 +15,11 @@
   </tbody>
 </table>
 
-<%= button_to t(".adopt_all", course: @course),
-  course_standard_outcomes_path(@course, ids: @outcomes.pluck(:id)) %>
+<div class="actions">
+  <%= button_to t(".adopt_all", course: @course),
+    course_standard_outcomes_path(@course, ids: @outcomes.pluck(:id)) %>
+
+  <%= link_to t(".cancel"),
+    outcomes_dashboard_path,
+    class: "button button-cancel" %>
+</div>
