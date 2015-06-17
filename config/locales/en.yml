@@ -5,8 +5,8 @@ en:
       alignment:
         _destroy: Remove
       result:
-        assessment_name: Name
         assessment_description: Description
+        assessment_name: Name
         percentage: Actual Percentage
     errors:
       models:
@@ -41,6 +41,10 @@ en:
         details: Details
   assessments_dashboard:
     show:
+      by: by
+      course: Course
+      get_started: Get started
+      subject: Subject
   courses:
     outcomes:
       actions: Actions

@@ -1,4 +1,22 @@
 <% tab(TabHelper::ASSESSMENTS) %>
+<div class="assessments-dashboard-options">
+  <div class="assessments-dashboard-option">
+    <h6><%= t(".by") %></h6>
+    <h1><%= t(".subject") %></h1>
+    <%= link_to t(".get_started"),
+      assessments_courses_path,
+      class: "button",
+      data: { role: "start-direct-assessment" }
+    %>
+  </div>
 
-<%= link_to "By Subject", "#", class: "button" %>
-<%= link_to "By Course", assessments_courses_path, class: "button" %>
+  <div class="assessments-dashboard-option">
+    <h6><%= t(".by") %></h6>
+    <h1><%= t(".course") %></h1>
+    <%= link_to t(".get_started"),
+      assessments_courses_path,
+      class: "button",
+      data: { role: "start-indirect-assessment" }
+    %>
+  </div>
+</div>

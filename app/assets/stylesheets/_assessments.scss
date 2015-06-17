@@ -1,0 +1,99 @@
+.assessment-form-end-cta,
+.assessment-details {
+  &.card {
+    border: 0;
+    margin: ($large-spacing - 1.5em) 0 $large-spacing;
+
+    p {
+      margin-bottom: $small-spacing;
+    }
+
+    p:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+.assessment-details {
+  background-color: tint($light-gray, 75%);
+  padding: $large-spacing 0;
+}
+
+.assessment-subtitle {
+  color: $medium-gray;
+  margin-bottom: $smallest-spacing;
+}
+
+.assessment-title {
+  font-size: em(20);
+  font-weight: $bold;
+  margin-bottom: $small-spacing;
+}
+
+.assessment-form-container {
+  &.card {
+    border-top: 0;
+    margin-top: 0;
+    padding: $largest-spacing;
+  }
+
+  button {
+    padding: 1.2rem;
+    width: 100%;
+  }
+
+  input {
+    line-height: 2;
+    margin-bottom: $base-spacing * 1.5;
+    padding-left: $small-spacing;
+  }
+
+  label {
+    color: shade($light-blue, 65%);
+  }
+}
+
+.assessment-form-types {
+  font-size: $large-font-size;
+}
+
+.assessment-form-end-cta {
+  @include align-items(flex-end);
+  @include display(flex);
+  @include flex-basis($large-screen);
+  @include justify-content(space-between);
+  background-color: $light-blue;
+
+  .button {
+    @include flex(1 0 auto);
+    margin-left: $largest-spacing;
+    text-align: center;
+  }
+}
+
+.assessments-dashboard-options {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(center);
+
+  @include media($medium-screen-up) {
+    @include flex-direction(row);
+  }
+
+  .button {
+    width: 75%;
+  }
+}
+
+.assessments-dashboard-option {
+  @include flex(1);
+  margin-top: $large-spacing;
+  padding: $large-spacing;
+  text-align: center;
+
+  @include media($medium-screen-up) {
+    &:first-of-type {
+      border-right: $base-border;
+    }
+  }
+}
