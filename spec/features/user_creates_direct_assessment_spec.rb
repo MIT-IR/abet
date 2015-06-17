@@ -1,24 +1,22 @@
 require "rails_helper"
 
-feature "User creates an assessment" do
+feature "User creates a direct assessment" do
   scenario "a new assessment is created" do
-    subject_title = create(:subject).title
-    outcome = create(:outcome)
-    user = user_with_admin_access_to(outcome.department)
+    subject_ = create(:subject)
+    course = create(:course)
+    outcomes = create_pair(:outcome, course: course)
+    user = user_with_admin_access_to(course.department)
 
     visit assessments_dashboard_path(as: user)
     find("[data-role='start-direct-assessment']").click
 
-    within("#outcome_#{outcome.id}") do
-      click_on "Assess"
-    end
-
-    click_on "Grade from an assignment, quiz, or exam"
+    outcomes.each { |outcome| check(outcome.to_s) }
     fill_and_submit_form
 
-    within("#direct_assessments") do
-      expect(page).to have_content(subject_title)
-    end
+    expect(page).to have_content subject_
+    expect(page).to have_content outcomes.first
+    expect(page).to have_content outcomes.last
+    expect(page).to have_content "Integration by parts"
   end
 
   def fill_and_submit_form

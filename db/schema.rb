@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618031252) do
+ActiveRecord::Schema.define(version: 20150618135029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,10 +59,8 @@ ActiveRecord::Schema.define(version: 20150618031252) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "subject_id",          null: false
-    t.integer  "department_id",       null: false
   end
 
-  add_index "direct_assessments", ["department_id"], name: "index_direct_assessments_on_department_id", using: :btree
   add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
 
   create_table "indirect_assessments", force: :cascade do |t|
@@ -74,10 +72,7 @@ ActiveRecord::Schema.define(version: 20150618031252) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "type",                null: false
-    t.integer  "department_id",       null: false
   end
-
-  add_index "indirect_assessments", ["department_id"], name: "index_indirect_assessments_on_department_id", using: :btree
 
   create_table "outcome_assessments", force: :cascade do |t|
     t.integer  "outcome_id",      null: false

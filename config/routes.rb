@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :direct_assessments,
-    only: [:show, :edit, :update],
+    only: [:show, :new, :create, :edit, :update],
     concerns: :assessments
 
   resources :indirect_assessments,
@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   resources :outcomes, only: [:show, :edit, :update] do
     resources :assessments, only: [:new]
-    resources :direct_assessments, only: [:new, :create]
     resources :indirect_assessments, only: [:new, :create]
   end
 

@@ -10,4 +10,5 @@ RSpec.configure do |config|
   end
 
   config.order = :random
+  config.example_status_persistence_file_path = "tmp/spec_examples.txt"
 end

@@ -1,10 +1,6 @@
 class DirectAssessmentPolicy < ApplicationPolicy
-  def new?
-    GenericPolicy.new(user, record).create_assessments?
-  end
-
   def create?
-    user.manage_assessments?(record.department)
+    GenericPolicy.new(user, record).create_assessments?
   end
 
   def update?

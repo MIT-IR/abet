@@ -1,36 +1,39 @@
 class DirectAssessmentsController < ApplicationController
   def new
-    @outcome = Outcome.find(params[:outcome_id])
-    @assessment = @outcome.direct_assessments.build
-    authorize(@outcome)
+    @assessment = DirectAssessment.new
+    @courses = scoped_courses
+    authorize(@assessment)
   end
 
   def create
-    @outcome = Outcome.find(params[:outcome_id])
-    @assessment = @outcome.direct_assessments.build(direct_assessment_params.merge(department_id: @outcome.department.id))
-    authorize(@outcome)
+    @assessment = DirectAssessment.new(direct_assessment_params)
+    @courses = scoped_courses
+    authorize(@assessment)
 
-    if @outcome.save
-      redirect_to outcome_path(@outcome), success: t(".success")
+    if @assessment.save
+      redirect_to direct_assessment_path(@assessment.id), success: t(".success")
     else
+      flash.now[:error] = @assessment.errors.full_messages.join("\n")
       render :new
     end
   end
 
   def edit
     @assessment = DirectAssessment.find(params[:id])
+    @courses = @assessment.department.courses.with_outcomes
     authorize(@assessment)
   end
 
   def update
     @assessment = DirectAssessment.find(params[:id])
+    @courses = @assessment.department.courses.with_outcomes
     authorize(@assessment)
 
-    @assessment.assign_attributes(direct_assessment_params)
-    if @assessment.save
-      redirect_to outcome_path(@assessment.outcomes.first), success: t(".success")
+    if @assessment.update(direct_assessment_params)
+      redirect_to direct_assessment_path(@assessment.id), success: t(".success")
     else
-      render :edit, success: t(".success")
+      flash.now[:error] = @assessment.errors.full_messages.join("\n")
+      render :edit
     end
   end
 
@@ -44,14 +47,18 @@ class DirectAssessmentsController < ApplicationController
   def direct_assessment_params
     params.require(:direct_assessment).permit(
       :actual_percentage,
-      :department_id,
       :description,
       :minimum_requirement,
       :name,
       :problem_description,
       :semester,
       :subject_id,
-      :target_percentage
+      :target_percentage,
+      outcome_ids: []
     )
+  end
+
+  def scoped_courses
+    policy_scope(Course).with_outcomes.includes(:outcomes)
   end
 end

@@ -7,7 +7,7 @@ class IndirectAssessmentsController < ApplicationController
 
   def create
     @outcome = Outcome.find(params[:outcome_id])
-    @assessment = @outcome.indirect_assessments.build(assessment_params.merge(department_id: @outcome.department.id))
+    @assessment = @outcome.indirect_assessments.build(assessment_params)
     authorize(@outcome)
 
     if @outcome.save

@@ -4,7 +4,9 @@ class IndirectAssessment < ActiveRecord::Base
 
   has_many :results, as: :assessment
 
-  belongs_to :department
+  def department
+    outcomes.first.department
+  end
 
   has_paper_trail
 

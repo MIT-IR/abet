@@ -16,6 +16,12 @@ en:
               taken: results have already been recorded for this period
             percentage:
               inclusion: must be between 0 and 100
+        direct_assessment:
+          attributes:
+            base:
+              single_department: |
+                Outcomes are required and must be associated with courses in the
+                same department.
   application:
     navigation:
       about: About
@@ -66,6 +72,9 @@ en:
       success: Assessment updated successfully.
   helpers:
     cancel_button: Cancel
+  home:
+    index:
+      heading: Choose a Department
   indirect_assessments:
     create:
       success: Assessment created successfully.

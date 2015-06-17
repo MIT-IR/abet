@@ -39,7 +39,6 @@ FactoryGirl.define do
   end
 
   factory :direct_assessment do
-    department
     description "Integration"
     minimum_requirement "7 points out of 10"
     name "Problem Set 1"
@@ -47,27 +46,25 @@ FactoryGirl.define do
     target_percentage 80
 
     after(:build) do |assessment|
-      course = build(:course, department: assessment.department)
-      assessment.outcomes << build(:outcome, course: course)
+      course = create(:course)
+      assessment.outcomes << create(:outcome, course: course)
       unless assessment.subject.present?
         assessment.subject = build(
           :subject,
-          department_number: assessment.department.number
+          department_number: course.department.number
         )
       end
     end
   end
 
   factory :other_assessment do
-    department
     description "Senior Thesis Completion"
     name "Percent of students who complete a senior thesis"
     target_percentage 80
     type "OtherAssessment"
 
     after(:build) do |assessment|
-      course = build(:course, department: assessment.department)
-      assessment.outcomes << build(:outcome, course: course)
+      assessment.outcomes << build(:outcome)
     end
   end
 
@@ -84,15 +81,13 @@ FactoryGirl.define do
   end
 
   factory :participation do
-    department
     description "Undergraduation Research Project"
     name "UROP"
     target_percentage 80
     type "Participation"
 
     after(:build) do |assessment|
-      course = build(:course, department: assessment.department)
-      assessment.outcomes << build(:outcome, course: course)
+      assessment.outcomes << build(:outcome)
     end
   end
 
@@ -108,7 +103,6 @@ FactoryGirl.define do
   end
 
   factory :survey do
-    department
     description "Biennial survey administered to graduating seniors"
     minimum_requirement "Somewhat satisfied"
     name "Senior Survey"
@@ -117,8 +111,7 @@ FactoryGirl.define do
     type "Survey"
 
     after(:build) do |assessment|
-      course = build(:course, department: assessment.department)
-      assessment.outcomes << build(:outcome, course: course)
+      assessment.outcomes << build(:outcome)
     end
   end
 
