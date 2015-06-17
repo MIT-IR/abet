@@ -1,17 +1,15 @@
 class ResultsController < ApplicationController
   def new
-    @assessment = find_assessment
-    @result = @assessment.results.build(assessment_attributes)
+    @result = find_assessment.results.build(assessment_attributes)
     authorize(@result)
   end
 
   def create
-    @assessment = find_assessment
-    @result = @assessment.results.build(result_params)
+    @result = find_assessment.results.build(result_params)
     authorize(@result)
 
     if @result.save
-      redirect_to url_for(@assessment), success: t(".success")
+      redirect_to @result.assessment, success: t(".success")
     else
       render :new
     end

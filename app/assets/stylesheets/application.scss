@@ -17,7 +17,18 @@
 @import "outcome";
 @import "outcomes";
 @import "outcomes_dashboard";
+@import "results";
 
 .main {
   @include outer-container;
+}
+
+ul.errors {
+  @extend %default-ul;
+  @include flash($error-color);
+
+  li {
+    text-align: left;
+    margin-left: 2em;
+  }
 }

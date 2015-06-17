@@ -5,4 +5,8 @@ class IndirectAssessment < ActiveRecord::Base
   has_many :results, as: :assessment
 
   belongs_to :department
+
+  def to_s
+    "#{name} - #{description}"
+  end
 end

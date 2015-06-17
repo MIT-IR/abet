@@ -1,31 +1,9 @@
-<h1>Add a new result for <%= @assessment.name %></h1>
-<h2><%= @assessment.description %></h2>
-<ul>
-  <li><%= @assessment.try(:subject) %></li>
-  <% if @assessment.minimum_requirement %>
-    <li>Minimum: <%= @assessment.minimum_requirement %></li>
-  <% end %>
-</ul>
-<br>
+<% tab(TabHelper::DATA_ENTRY) %>
 
-<%= form_for [@assessment, @result] do |f| %>
-  <%= f.label "Year" %>
-  <%= f.select :year, options_for_select(Result::YEARS) %>
+<h1><%= t(".heading") %></h1>
+<h2 class="assessment-title"><%= @result.assessment %></h2>
+<%= assessment_details(@result.assessment) %>
 
-  <%= f.label "Semester" %>
-  <%= f.select :semester, options_for_select(Result::SEMESTERS) %>
-
-  <%= f.label "Name" %>
-  <%= f.text_field :assessment_name %>
-
-  <%= f.label "Description" %>
-  <%= f.text_field :assessment_description %>
-
-  <%= f.label "Problem Description" %>
-  <%= f.text_field :problem_description %>
-
-  <%= f.label "Percentage" %>
-  <%= f.text_field :percentage %>
-
-  <%= button_tag "Submit" %>
+<%= simple_form_for [@result.assessment, @result] do |f| %>
+  <%= render "form", f: f %>
 <% end %>

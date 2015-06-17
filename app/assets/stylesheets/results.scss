@@ -1,0 +1,13 @@
+.assessment-title {
+  margin-bottom: $small-spacing/2;
+}
+
+ul.assessment-details {
+  @extend %default-ul;
+  margin-bottom: $base-spacing;
+}
+
+.period .input {
+  display: inline-block;
+  padding-right: 2em;
+}

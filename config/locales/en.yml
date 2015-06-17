@@ -4,6 +4,18 @@ en:
     attributes:
       alignment:
         _destroy: Remove
+      result:
+        assessment_name: Name
+        assessment_description: Description
+        percentage: Actual Percentage
+    errors:
+      models:
+        result:
+          attributes:
+            assessment_id:
+              taken: results have already been recorded for this period
+            percentage:
+              inclusion: must be between 0 and 100
   application:
     navigation:
       about: About
@@ -107,7 +119,14 @@ en:
       adopt_standard: Adopt Standard Outcomes
       create_custom: Create Custom Outcome
   results:
-    create: Result created successfully.
+    create:
+      success: Result created successfully.
+    form:
+      assessment_background: Background
+      cancel: Cancel
+      period: Period
+    new:
+      heading: Add A New Result
   standard_outcomes:
     create:
       error: Course already has associated outcomes.

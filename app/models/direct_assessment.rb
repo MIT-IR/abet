@@ -7,4 +7,8 @@ class DirectAssessment < ActiveRecord::Base
   has_many :results, as: :assessment
 
   validates :subject, presence: true
+
+  def to_s
+    "#{name} - #{description}"
+  end
 end

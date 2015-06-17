@@ -1,0 +1,27 @@
+<% if f.object.errors.any? %>
+  <ul class="errors">
+    <% f.object.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<fieldset class="period">
+  <legend><%= t(".period") %></legend>
+  <%= f.input :year, collection: Result::YEARS %>
+  <%= f.input :semester, collection: Result::SEMESTERS %>
+</fieldset>
+
+<fieldset class="background">
+  <legend><%= t(".assessment_background") %></legend>
+  <%= f.input :assessment_name %>
+  <%= f.input :assessment_description %>
+  <%= f.input :problem_description %>
+</fieldset>
+
+<%= f.input :percentage %>
+
+<div class="actions">
+  <%= f.submit %>
+  <%= link_to t(".cancel"), subjects_path, class: "button button-cancel" %>
+</div>

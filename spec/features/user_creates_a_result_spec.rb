@@ -9,10 +9,6 @@ feature "User creates a result" do
 
     visit root_path(as: user)
     click_on "Record Data"
-
-    expect(page).to have_content permitted_subject.number
-    expect(page).to have_content permitted_subject.title
-
     click_on permitted_subject
 
     expect(page).to have_content assessment.name
@@ -21,17 +17,13 @@ feature "User creates a result" do
 
     click_on "View and add results"
     click_on "Add result"
-
-    expect(page).to have_content assessment.subject
-    expect(page).to have_content assessment.minimum_requirement
-
     select "2015", from: "result_year"
     select "JA", from: "result_semester"
     fill_in "result_assessment_name", with: "Problem Set 2"
     fill_in "result_assessment_description", with: "Polynomial Equations"
     fill_in "result_problem_description", with: "Question 4"
     fill_in "result_percentage", with: "72"
-    click_on "Submit"
+    click_on "Create Result"
 
     expect(page).to have_content "2015"
     expect(page).to have_content "JA"
@@ -78,7 +70,7 @@ feature "User creates a result" do
     fill_in "result_assessment_name", with: "Senior Survey"
     fill_in "result_assessment_description", with: "Annual survey"
     fill_in "result_percentage", with: "92"
-    click_on "Submit"
+    click_on "Create Result"
 
     expect(page).to have_content "2015"
     expect(page).to have_content "Senior Survey"

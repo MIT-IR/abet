@@ -76,3 +76,17 @@ select {
   max-width: 100%;
   width: auto;
 }
+
+.actions {
+  form {
+    display: inline-block;
+  }
+
+  .button-cancel {
+    background-color: $medium-gray;
+
+    &:hover {
+      background-color: $dark-gray;
+    }
+  }
+}
