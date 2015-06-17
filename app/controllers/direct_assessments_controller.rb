@@ -1,6 +1,4 @@
 class DirectAssessmentsController < ApplicationController
-  include AssessmentAuthorization
-
   def new
     @outcome = Outcome.find(params[:outcome_id])
     @assessment = @outcome.direct_assessments.build

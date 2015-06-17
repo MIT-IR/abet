@@ -1,4 +1,4 @@
-class AssessmentPolicy < ApplicationPolicy
+class IndirectAssessmentPolicy < ApplicationPolicy
   def create?
     user.admin?(record.department)
   end

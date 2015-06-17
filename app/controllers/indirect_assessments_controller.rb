@@ -1,6 +1,4 @@
 class IndirectAssessmentsController < ApplicationController
-  include AssessmentAuthorization
-
   def new
     @outcome = Outcome.find(params[:outcome_id])
     @assessment = @outcome.indirect_assessments.build(type: params[:type])
