@@ -26,6 +26,7 @@ feature "User creates other assessment" do
     fill_in "indirect_assessment_name", with: "Senior Thesis Completion"
     fill_in "indirect_assessment_description", with: "Percent of students who complete"
     fill_in "indirect_assessment_target_percentage", with: 80
+    fill_in "indirect_assessment_minimum_requirement", with: "Pass"
     click_on "Submit"
   end
 end

@@ -16,6 +16,12 @@ en:
               single_department: |
                 Outcomes are required and must be associated with courses in the
                 same department.
+            target_percentage:
+              inclusion: must be between 0 and 100
+        indirect_assessment:
+          attributes:
+            target_percentage:
+              inclusion: must be between 0 and 100
         result:
           attributes:
             assessment_id:

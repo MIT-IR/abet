@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618135029) do
+ActiveRecord::Schema.define(version: 20150618174454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,12 @@ ActiveRecord::Schema.define(version: 20150618135029) do
     t.integer  "outcomes_count",      default: 0, null: false
   end
 
+  add_index "courses", ["department_id"], name: "index_courses_on_department_id", using: :btree
   add_index "courses", ["number"], name: "index_courses_on_number", unique: true, using: :btree
 
   create_table "departments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "slug"
+    t.string   "name",       null: false
+    t.string   "slug",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "number",     null: false
@@ -51,11 +52,11 @@ ActiveRecord::Schema.define(version: 20150618135029) do
   add_index "departments", ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
 
   create_table "direct_assessments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
+    t.string   "name",                null: false
+    t.string   "description",         null: false
     t.string   "problem_description"
-    t.string   "minimum_requirement"
-    t.integer  "target_percentage"
+    t.string   "minimum_requirement", null: false
+    t.integer  "target_percentage",   null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "subject_id",          null: false
@@ -64,11 +65,11 @@ ActiveRecord::Schema.define(version: 20150618135029) do
   add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
 
   create_table "indirect_assessments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
+    t.string   "name",                null: false
+    t.string   "description",         null: false
     t.string   "survey_question"
-    t.string   "minimum_requirement"
-    t.integer  "target_percentage"
+    t.string   "minimum_requirement", null: false
+    t.integer  "target_percentage",   null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "type",                null: false
@@ -111,8 +112,8 @@ ActiveRecord::Schema.define(version: 20150618135029) do
   add_index "results", ["assessment_id", "assessment_type", "year", "semester"], name: "index_results_on_assessment_and_year_and_semester", unique: true, using: :btree
 
   create_table "standard_outcomes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
+    t.string   "name",        null: false
+    t.string   "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -148,4 +149,5 @@ ActiveRecord::Schema.define(version: 20150618135029) do
   add_foreign_key "alignments", "standard_outcomes"
   add_foreign_key "courses", "departments", on_delete: :restrict
   add_foreign_key "direct_assessments", "subjects"
+  add_foreign_key "outcomes", "courses"
 end

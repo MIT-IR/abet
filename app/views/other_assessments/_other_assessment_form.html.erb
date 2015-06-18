@@ -19,6 +19,14 @@
       </div>
       <div class="row">
         <div class="small-2 columns">
+          <%= f.label "Minimum Requirement", class: "left inline"  %>
+        </div>
+        <div class="small-6 columns end">
+          <%=f.text_field :minimum_requirement, placeholder: "e.g. 'Somewhat or Very Satisfied'" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
           <%= f.label "Target Percentage", class: "left inline" %>
         </div>
         <div class="small-4 columns end">

@@ -26,6 +26,7 @@ feature "User creates a participation assessment" do
     fill_in "indirect_assessment_name", with: "UROP"
     fill_in "indirect_assessment_description", with: "Undergraduate Resarch Projects"
     fill_in "indirect_assessment_target_percentage", with: 80
+    fill_in "indirect_assessment_minimum_requirement", with: "Pass"
     click_on "Submit"
   end
 end

@@ -59,6 +59,7 @@ FactoryGirl.define do
 
   factory :other_assessment do
     description "Senior Thesis Completion"
+    minimum_requirement "Somewhat satisfied"
     name "Percent of students who complete a senior thesis"
     target_percentage 80
     type "OtherAssessment"
@@ -82,6 +83,7 @@ FactoryGirl.define do
 
   factory :participation do
     description "Undergraduation Research Project"
+    minimum_requirement "Somewhat satisfied"
     name "UROP"
     target_percentage 80
     type "Participation"

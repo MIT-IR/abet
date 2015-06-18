@@ -5,6 +5,10 @@ class DirectAssessment < ActiveRecord::Base
   belongs_to :subject
   has_many :results, as: :assessment
 
+  validates :description, presence: true
+  validates :minimum_requirement, presence: true
+  validates :name, presence: true
+  validates :target_percentage, presence: true, inclusion: { in: 0..100 }
   validates :subject, presence: true
   validate :ensure_single_department
 
