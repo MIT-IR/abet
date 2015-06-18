@@ -1,4 +1,6 @@
 <%= simple_form_for [course, outcome] do |f| %>
+  <%= render_errors(f) %>
+
   <%= f.input :name %>
   <%= f.input :description %>
 

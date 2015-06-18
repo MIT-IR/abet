@@ -28,6 +28,7 @@ class OutcomesController < ApplicationController
     if persist_outcome(@outcome)
       redirect_to course_outcomes_path(course), success: t(".success")
     else
+      prepare_alignments(@outcome)
       render :new
     end
   end
@@ -46,6 +47,7 @@ class OutcomesController < ApplicationController
     if persist_outcome(@outcome)
       redirect_to course_outcomes_path(@outcome.course), success: t(".success")
     else
+      prepare_alignments(@outcome)
       render :edit
     end
   end
@@ -65,10 +67,12 @@ class OutcomesController < ApplicationController
   end
 
   def persist_outcome(outcome)
-    ActiveRecord::Base.transaction do
-      authorize(outcome)
-      outcome.course.adopt_custom_outcomes!
-      outcome.save!
+    if outcome.valid?
+      ActiveRecord::Base.transaction do
+        authorize(outcome)
+        outcome.course.adopt_custom_outcomes!
+        outcome.save!
+      end
     end
   end
 

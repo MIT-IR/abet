@@ -14,6 +14,7 @@
 
 @import "course";
 @import "direct_assessment";
+@import "errors";
 @import "outcome";
 @import "outcomes";
 @import "outcomes_dashboard";
@@ -22,14 +23,4 @@
 
 .main {
   @include outer-container;
-}
-
-ul.errors {
-  @extend %default-ul;
-  @include flash($error-color);
-
-  li {
-    text-align: left;
-    margin-left: 2em;
-  }
 }

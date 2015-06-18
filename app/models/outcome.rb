@@ -11,6 +11,9 @@ class Outcome < ActiveRecord::Base
     reject_if: ->(attributes) { attributes[:level].blank? },
     allow_destroy: true
 
+  validates :name, presence: true, uniqueness: { scope: :course_id }
+  validates :description, presence: true
+
   delegate :department, to: :course
 
   def to_s

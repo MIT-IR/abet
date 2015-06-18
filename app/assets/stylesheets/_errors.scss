@@ -1,0 +1,19 @@
+ul.errors {
+  @extend %default-ul;
+  @include flash($error-color);
+
+  li {
+    text-align: left;
+    margin-left: 2em;
+  }
+}
+
+.field_with_errors input {
+  $error-border-color: darken($error-color, 60%);
+  border-color: $error-border-color;
+
+  &:hover,
+  &:focus, {
+    border-color: $error-border-color;
+  }
+}

@@ -1,10 +1,4 @@
-<% if f.object.errors.any? %>
-  <ul class="errors">
-    <% f.object.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render_errors(f) %>
 
 <fieldset class="period">
   <legend><%= t(".period") %></legend>
