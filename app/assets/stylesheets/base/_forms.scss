@@ -1,6 +1,7 @@
 fieldset {
   background-color: lighten($base-border-color, 10%);
   border: $base-border;
+  border-radius: $base-border-radius;
   margin: 0 0 $small-spacing;
   padding: $base-spacing;
 }
@@ -18,7 +19,9 @@ label {
   margin-bottom: $small-spacing / 2;
 
   &.required::after {
+    color: $required-color;
     content: "*";
+    margin-left: $smallest-spacing;
   }
 
   abbr {
@@ -89,4 +92,52 @@ select {
       background-color: $dark-gray;
     }
   }
+}
+
+.field_with_hint {
+  @include clearfix;
+
+  label,
+  input {
+    @include media($medium-screen-up) {
+      @include span-columns(8);
+    }
+  }
+}
+
+.simple_form {
+  .alignments,
+  .form-actions {
+    @include row;
+    @include span-columns(8);
+  }
+}
+
+.hint {
+  border-radius: $base-border-radius;
+  color: tint($base-font-color, 45%);
+  font-family: $sans-serif;
+  font-size: $small-font-size;
+  font-weight: normal;
+
+  @include media($medium-screen-up) {
+    @include reset-display;
+    @include span-columns(4);
+    padding-right: rem(20);
+    position: relative;
+  }
+
+  &:before {
+    color: $action-color;
+    content: "What's this?";
+    display: block;
+    font-size: rem(12);
+    font-weight: $bold;
+    margin-right: $smallest-spacing;
+    text-transform: uppercase;
+  }
+}
+
+.simple-form-chunk {
+  margin-bottom: $large-spacing;
 }

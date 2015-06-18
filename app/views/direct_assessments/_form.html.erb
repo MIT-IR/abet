@@ -6,7 +6,7 @@
   <h4>Outcomes</h4>
   <% @courses.each do |course| %>
     <fieldset>
-      <%= course %>
+      <legend><%= course %></legend
       <%= f.input :outcome_ids, collection: course.outcomes, label: false, label_method: :to_s, as: :check_boxes %>
     </fieldset>
   <% end %>

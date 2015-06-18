@@ -92,6 +92,9 @@ en:
     edit:
       heading: Edit Outcome
     form:
+      alignment_description: The level of alignment should reflect the extent to which
+        the custom outcome overlaps with the skills described in the corresponding
+        ABET default outcome.
       alignments_legend: Alignment Levels
       cancel: Cancel
     index:

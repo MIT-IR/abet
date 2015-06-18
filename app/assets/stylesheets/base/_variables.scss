@@ -1,6 +1,8 @@
 // Typography
 $base-font-family: "Open Sans", $helvetica;
 $heading-font-family: $base-font-family;
+$sans-serif: "Open Sans", sans-serif;
+$serif: "Roboto Slab", serif;
 
 // Font Sizes
 $base-font-size: 1em;
@@ -28,11 +30,13 @@ $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
 $white: #fff;
+$required-color: #f58122;
 
 // Font Colors
 $base-background-color: #fff;
 $base-font-color: $dark-gray;
 $action-color: $blue;
+$base-link-color: $action-color !default;
 
 // Font Weight
 $bold: 700;

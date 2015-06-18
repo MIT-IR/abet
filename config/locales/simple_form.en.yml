@@ -7,10 +7,34 @@ en:
       mark: '*'
     error_notification:
       default_message: "Please review the problems below:"
-    placeholders:
+    hints:
+      direct_assessment:
+        assignment_description: Brief description of the topic of this
+          assignment
+        assignment_name: For example, "Problem Set 1" or "Quiz 2"
+        minimum_requirement: The score on this problem that signifies the
+          student has learned the material. For example "5 points out of 6"
+        problem_description: Brief description of the specific problem. For
+          example, "Problem 2, Essay question on the ethics of alchemy"
+        target_percentage: The percent of students who should receive a
+          satisfactory grade on this problem if, in general, students have
+          learned the material. For example, 80 percent.
       outcome:
-        description: e.g. 'The ability to apply engineering principles in a project context'
-        name: e.g. '1.A'
+        description: The text of the student learning outcome. The skill or
+          ability that the students should have achieved by the time of
+          graduation.
+        name: The name or number of the outcome. Typically these are short and
+          indicative of a sequential numbering system, like '1.1, 1.2... or a,
+          b, c…'
+      result:
+        assessment_description: A brief description of the assignment, survey,
+          or program.
+        assessment_name: Name of the Assignment, Survey, or Program used for
+          assessment
+        problem_description: A brief description of the problem or survey
+          question you are entering data for.
+        percentage: The percent of students who meet the minimum criteria
+          for this item.
     prompts:
       alignments:
         level: No alignment

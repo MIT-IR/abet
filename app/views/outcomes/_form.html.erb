@@ -1,11 +1,14 @@
 <%= simple_form_for [course, outcome] do |f| %>
   <%= render_errors(f) %>
 
-  <%= f.input :name %>
-  <%= f.input :description %>
+  <div class="simple-form-chunk">
+    <%= f.input :name%>
+    <%= f.input :description %>
+  </div>
 
   <fieldset class="alignments">
     <legend><%= t(".alignments_legend") %></legend>
+    <p><%= t('.alignment_description') %></p>
 
     <%= f.simple_fields_for(:alignments) do |alignment_form| %>
       <%= render "alignment_fields", f: alignment_form %>

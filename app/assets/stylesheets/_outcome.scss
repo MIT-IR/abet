@@ -2,11 +2,12 @@ fieldset.alignment {
   @include row();
 
   label.outcome {
-   @include span_columns(10);
+   @include span_columns(8);
   }
 
   .controls {
-    @include span_columns(2);
+    @include shift(1);
+    @include span_columns(3);
     @include omega();
   }
 }

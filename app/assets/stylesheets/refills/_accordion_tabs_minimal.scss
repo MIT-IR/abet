@@ -52,6 +52,6 @@ $tab-mode: $medium-screen;
 
 .tab-content {
   border-top: $tab-border;
-  padding: $base-spacing $gutter;
+  padding: $large-spacing $gutter $base-spacing;
   width: 100%;
 }

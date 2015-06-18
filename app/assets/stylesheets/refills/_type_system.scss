@@ -1,15 +1,3 @@
-$base-border-radius: 3px !default;
-$base-line-height: 1.5em !default;
-$base-spacing: 1.5em !default;
-$action-color: #477DCA !default;
-$base-link-color: $action-color !default;
-$dark-gray: #333 !default;
-$light-gray: #DDD !default;
-$medium-screen: em(640) !default;
-$base-font-color: $dark-gray !default;
-$sans-serif: "Open Sans", sans-serif;
-$serif: "Roboto Slab", serif;
-
 body {
   color: $base-font-color;
   line-height: $base-line-height;
