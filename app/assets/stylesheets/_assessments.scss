@@ -80,6 +80,12 @@
     @include flex-direction(row);
   }
 
+  h6 {
+    @extend %small-caps;
+    color: $base-font-color;
+    font-family: $sans-serif-narrow;
+  }
+
   .button {
     width: 75%;
   }

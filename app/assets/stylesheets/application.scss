@@ -22,6 +22,7 @@
 @import "assessments";
 @import "subjects";
 @import "assessment_types";
+@import "extends";
 
 .main {
   @include outer-container;

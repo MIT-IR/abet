@@ -1,12 +1,7 @@
 body {
   color: $base-font-color;
   line-height: $base-line-height;
-  font-family: $serif;
-  font-weight: 300;
-}
-
-h1, h2, h3, p {
-  margin: 0;
+  font-family: $base-font-family;
 }
 
 hr {
@@ -23,10 +18,19 @@ a {
   text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $mit-red;
+  font-weight: 700;
+  font-family: $heading-font-family;
+}
+
 h1 {
-  font-family: $serif;
   font-size: 1.6em;
-  font-weight: 400;
   margin-bottom: 0.6em;
 
   @include media($medium-screen) {
@@ -35,9 +39,7 @@ h1 {
 }
 
 h2 {
-  font-family: $sans-serif;
   font-size: 1.1em;
-  font-weight: 400;
   line-height: 1.5em;
   margin-bottom: 1.2em;
 
@@ -47,9 +49,7 @@ h2 {
 }
 
 h3 {
-  font-family: $serif;
   font-size: 1em;
-  font-weight: 600;
   line-height: 1.4em;
   margin-bottom: 0.5em;
   text-transform: uppercase;
@@ -58,8 +58,7 @@ h3 {
 p {
   color: $base-font-color;
   line-height: $base-line-height;
-  font-family: $serif;
-  font-weight: 300;
+  font-family: $base-font-family;
   letter-spacing: 1;
   margin-bottom: 1.5em;
 
