@@ -9,7 +9,7 @@
   <p><%= t(".description.cannot_create_assessments_html") %></p>
 <% end %>
 
-<ul>
+<ul class="subjects">
   <% @subjects.each do |subject| %>
     <li><%= link_to subject, subject_path(subject) %></li>
   <% end %>
