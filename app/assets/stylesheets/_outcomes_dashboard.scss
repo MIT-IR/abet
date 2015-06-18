@@ -6,4 +6,8 @@
   td a:not(:first-of-type) {
     padding-left: 2em;
   }
+
+  table {
+    margin-bottom: $base_spacing;
+  }
 }

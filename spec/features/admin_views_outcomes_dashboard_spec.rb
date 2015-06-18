@@ -7,7 +7,7 @@ feature "Admin views outcomes dashboard" do
 
     visit outcomes_dashboard_path(as: user)
 
-    expect(page).to have_content "do not have any associated outcomes"
+    expect(page).to have_content "Courses without Outcomes"
     expect(page).to have_content course.name
     expect(page).to have_link "Adopt Standard Outcomes"
   end
@@ -20,6 +20,6 @@ feature "Admin views outcomes dashboard" do
 
     expect(page).to have_content course.name
     expect(page).to have_link "Edit Outcomes"
-    expect(page).to have_content "do not fully align"
+    expect(page).to have_content "Courses with Unaligned Outcomes"
   end
 end

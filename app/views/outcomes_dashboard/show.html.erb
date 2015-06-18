@@ -2,11 +2,14 @@
 
 <h1><%= t(".heading") %></h1>
 
+<p><%= t(".introduction") %></p>
+
 <% if @outcomes_dashboard.courses_without_outcomes.present? %>
   <%= render "courses_table",
     courses: @outcomes_dashboard.courses_without_outcomes,
     caption: t(".captions.without_outcomes_html"),
     table_class: "without-outcomes",
+    title: t(".titles.without_outcomes"),
     action_partial: "without_outcomes_actions" %>
 <% end %>
 
@@ -15,6 +18,7 @@
     courses: @outcomes_dashboard.unaligned_courses,
     caption: t(".captions.unaligned_outcomes_html"),
     table_class: "unaligned",
+    title: t(".titles.unaligned_outcomes"),
     action_partial: "unaligned_outcomes_actions" %>
 <% end %>
 
@@ -23,5 +27,6 @@
     courses: @outcomes_dashboard.aligned_courses,
     caption: t(".captions.aligned_outcomes_html"),
     table_class: "fully-aligned",
+    title: t(".titles.aligned_outcomes"),
     action_partial: "aligned_outcomes_actions" %>
 <% end %>

@@ -126,17 +126,34 @@ en:
     show:
       captions:
         aligned_outcomes_html: |
-          The following courses are fully aligned with standard outcomes. No
-          additional work on the outcomes is required.
+          <p>Congratulations! These courses have outcomes that fully align with
+          ABET outcomes. You are ready to create assessments.</p>
         unaligned_outcomes_html: |
-          The following courses have outcomes that do not fully align with the
-          standard outcomes. You should add new outcomes or adjust the
-          alignment of existing outcomes.
+          <p>No alignment is required for any particular custom outcome, but in
+          the final set of custom outcomes, each ABET outcome should be aligned
+          with at least one of the custom outcomes. The outcomes for these
+          courses do not align with all of the ABET outcomes.</p>
         without_outcomes_html: |
-          The following courses do not have any associated outcomes. You can
-          choose to adopt standard outcomes or you can create custom outcomes that
-          must be manually aligned with standard outcomes.
+          <p><em>Adopt Default Outcomes:</em> ABET establishes a set of default
+          outcomes that must be assessed.  Each program can choose to adopt
+          these default outcomes as their own.  Once you click the "Adopt
+          Default Outcomes" link, you will be shown a list of the ABET default
+          outcomes and given the opportunity to confirm that you want to adopt
+          the default outcomes as the student outcomes for your program.</p>
+
+          <p><em>Create Custom Outcomes:</em> If your department has
+          established their own student outcomes, then you can enter these
+          custom outcomes by following the link to "Create Custom Outcomes."
+          You will then be taken to a form to enter your first custom
+          outcome.</p>
       heading: Manage Outcomes for Your Courses
+      introduction: |-
+        Student Outcomes are the skills and abilities that a student of the
+        program should have by the time they graduate.
+      titles:
+        aligned_outcomes: Courses with Fully Aligned Outcomes
+        unaligned_outcomes: Courses with Unaligned Outcomes
+        without_outcomes: Courses without Outcomes
     unaligned_outcomes_actions:
       edit_outcomes: Edit Outcomes
     without_outcomes_actions:
