@@ -10,18 +10,18 @@ en:
         percentage: Actual Percentage
     errors:
       models:
-        result:
-          attributes:
-            assessment_id:
-              taken: results have already been recorded for this period
-            percentage:
-              inclusion: must be between 0 and 100
         direct_assessment:
           attributes:
             base:
               single_department: |
                 Outcomes are required and must be associated with courses in the
                 same department.
+        result:
+          attributes:
+            assessment_id:
+              taken: results have already been recorded for this period
+            percentage:
+              inclusion: must be between 0 and 100
   application:
     navigation:
       about: About
@@ -112,6 +112,7 @@ en:
   outcomes_dashboard:
     aligned_outcomes_actions:
       edit_assessments: Edit Assessments
+      edit_outcomes: Edit Outcomes
     courses_table:
       actions: Actions
       name: Name
