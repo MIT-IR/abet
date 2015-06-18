@@ -3,8 +3,13 @@
 <h1><%= t(".heading") %></h1>
 
 <% if policy(:generic).create_assessments? %>
-  <p><%= t(".description.can_create_assessments_html",
-    add_assessment_link: link_to(t(".add_assessment"), "#")) %></p>
+  <p><%= t(
+    ".description.can_create_assessments_html",
+    add_assessment_link: link_to(
+      t(".add_assessment"),
+      assessments_dashboard_path
+    )
+  ) %></p>
 <% else %>
   <p><%= t(".description.cannot_create_assessments_html") %></p>
 <% end %>
