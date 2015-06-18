@@ -6,6 +6,8 @@ class IndirectAssessment < ActiveRecord::Base
 
   belongs_to :department
 
+  has_paper_trail
+
   def to_s
     "#{name} - #{description}"
   end

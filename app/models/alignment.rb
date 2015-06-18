@@ -6,4 +6,6 @@ class Alignment < ActiveRecord::Base
 
   belongs_to :outcome
   belongs_to :standard_outcome
+
+  has_paper_trail
 end

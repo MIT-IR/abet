@@ -13,4 +13,6 @@ class Result < ActiveRecord::Base
   validates :year, presence: true, inclusion: { in: YEARS }
   validates :assessment_id,
     uniqueness: { scope: [:assessment_type, :semester, :year] }
+
+  has_paper_trail
 end

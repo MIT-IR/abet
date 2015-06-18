@@ -16,6 +16,8 @@ class Outcome < ActiveRecord::Base
 
   delegate :department, to: :course
 
+  has_paper_trail
+
   def to_s
     "#{name} - #{description}"
   end

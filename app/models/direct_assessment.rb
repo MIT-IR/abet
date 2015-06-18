@@ -8,6 +8,8 @@ class DirectAssessment < ActiveRecord::Base
 
   validates :subject, presence: true
 
+  has_paper_trail
+
   def to_s
     "#{name} - #{description}"
   end
