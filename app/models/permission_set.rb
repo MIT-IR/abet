@@ -39,4 +39,7 @@ class PermissionSet
   def admin?(department)
     any? { |permission| permission.admin?(department) }
   end
+
+  # temporary - this method is in a different PR I will merge first
+  alias_method :manage_results?, :admin?
 end
