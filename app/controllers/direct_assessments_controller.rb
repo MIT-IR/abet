@@ -59,6 +59,6 @@ class DirectAssessmentsController < ApplicationController
   end
 
   def scoped_courses
-    policy_scope(Course).with_outcomes.includes(:outcomes)
+    policy_scope(DirectAssessment).with_outcomes.includes(:outcomes)
   end
 end

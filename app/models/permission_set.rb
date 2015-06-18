@@ -16,9 +16,9 @@ class PermissionSet
     @permissions = Array(permissions)
   end
 
-  def department_slugs
+  def department_slugs(access_levels = Permission::ALL)
     each_with_object([]) do |permission, slugs|
-      if Permission::ALL.include?(permission.access_level)
+      if access_levels.include?(permission.access_level)
         slugs << permission.department_slug
       end
     end

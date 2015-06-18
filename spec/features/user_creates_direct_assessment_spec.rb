@@ -5,7 +5,7 @@ feature "User creates a direct assessment" do
     subject_ = create(:subject)
     course = create(:course)
     outcomes = create_pair(:outcome, course: course)
-    user = user_with_admin_access_to(course.department)
+    user = user_with_assessments_access_to(course.department)
 
     visit assessments_dashboard_path(as: user)
     find("[data-role='start-direct-assessment']").click

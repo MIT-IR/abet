@@ -37,6 +37,24 @@ describe PermissionSet do
 
       expect(permissions.department_slugs).to eq [permission.department_slug]
     end
+
+    it "optionally takes a permission level as an argument" do
+      permission = instance_double(
+        Permission,
+        department_slug: "D_CHM",
+        access_level: Permission::ASSESSMENTS
+      )
+      non_applicable_permission = instance_double(
+        Permission,
+        department_slug: "D_FOO",
+        access_level: Permission::READ_ONLY
+      )
+
+      permissions = PermissionSet.new([permission, non_applicable_permission])
+      department_slugs = permissions.department_slugs(Permission::MANAGE_ASSESSMENTS)
+
+      expect(department_slugs).to eq [permission.department_slug]
+    end
   end
 
   describe "#read?" do

@@ -15,6 +15,12 @@ module PermissionsHelpers
     end
   end
 
+  def user_with_assessments_access_to(department)
+    create(:user).tap do |user|
+      grant_access(user, department, Permission::ASSESSMENTS)
+    end
+  end
+
   def user_with_read_access_to(department)
     create(:user).tap do |user|
       grant_access(user, department, Permission::READ_ONLY)

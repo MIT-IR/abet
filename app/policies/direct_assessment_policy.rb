@@ -14,4 +14,16 @@ class DirectAssessmentPolicy < ApplicationPolicy
   def create_results?
     user.manage_results?(record.department)
   end
+
+  class Scope < Scope
+    def resolve
+      Course.
+        joins(:department).
+        where(
+          departments: {
+            slug: user.department_slugs(Permission::MANAGE_ASSESSMENTS)
+          }
+        )
+    end
+  end
 end
