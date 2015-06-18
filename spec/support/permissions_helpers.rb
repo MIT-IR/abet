@@ -21,6 +21,12 @@ module PermissionsHelpers
     end
   end
 
+  def user_with_results_access_to(department)
+    create(:user).tap do |user|
+      grant_access(user, department, Permission::RESULTS)
+    end
+  end
+
   RSpec.configure do |config|
     config.include PermissionsHelpers, type: :feature
     config.include PermissionsHelpers, type: :controller
