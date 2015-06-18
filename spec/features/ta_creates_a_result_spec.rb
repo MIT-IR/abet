@@ -1,11 +1,11 @@
 require "rails_helper"
 
-feature "User creates a result" do
-  scenario "and it is associated with a direct assessment" do
+feature "TA creates a result" do
+  scenario "for a direct assessment" do
     assessment = create(:direct_assessment)
     department = assessment.department
     permitted_subject = assessment.subject
-    user = user_with_admin_access_to(department)
+    user = user_with_results_access_to(department)
 
     visit root_path(as: user)
     click_on "Record Data"
@@ -17,6 +17,11 @@ feature "User creates a result" do
 
     click_on "View and Add Results"
     click_on "Add result"
+
+    expect(find_field("result_assessment_name").value).to eq assessment.name
+    expect(find_field("result_assessment_description").value).to eq assessment.description
+    expect(find_field("result_problem_description").value).to eq assessment.problem_description
+
     select "2015", from: "result_year"
     select "JA", from: "result_semester"
     fill_in "result_assessment_name", with: "Problem Set 2"
@@ -32,9 +37,9 @@ feature "User creates a result" do
     expect(page).to have_content "72"
   end
 
-  scenario "and it is associated with an indirect assessment" do
+  scenario "for an indirect assessment" do
     assessment = create(:survey)
-    user = user_with_admin_access_to(assessment.department)
+    user = user_with_results_access_to(assessment.department)
 
     visit outcome_path(assessment.outcomes.first, as: user)
 
@@ -48,6 +53,8 @@ feature "User creates a result" do
     click_on "Add result"
 
     expect(page).to have_content assessment.minimum_requirement
+    expect(find_field("result_assessment_name").value).to eq assessment.name
+    expect(find_field("result_assessment_description").value).to eq assessment.description
 
     select "2015", from: "result_year"
     fill_in "result_assessment_name", with: "Senior Survey"

@@ -1,25 +1,35 @@
-<h1><%= "#{@assessment.name} - #{@assessment.description}" %></h1>
+<% tab(TabHelper::DATA_ENTRY) %>
+
+<h1><%= @assessment %></h1>
 <h2><%= @assessment.subject %></h2>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Problem Description</th>
-    <th>Year</th>
-    <th>Semester</th>
-    <th>Percentage</th>
-  </tr>
-  <% @assessment.results.each do |result| %>
+  <thead>
     <tr>
-      <td><%= result.assessment_name %></td>
-      <td><%= result.assessment_description %></td>
-      <td><%= result.problem_description %></td>
-      <td><%= result.year %></td>
-      <td><%= result.semester %></td>
-      <td><%= result.percentage %></td>
+      <th><%= t(".name") %></th>
+      <th><%= t(".description") %></th>
+      <th><%= t(".problem_description") %></th>
+      <th><%= t(".year") %></th>
+      <th><%= t(".semester") %></th>
+      <th><%= t(".percentage") %></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @assessment.results.each do |result| %>
+      <tr>
+        <td><%= result.assessment_name %></td>
+        <td><%= result.assessment_description %></td>
+        <td><%= result.problem_description %></td>
+        <td><%= result.year %></td>
+        <td><%= result.semester %></td>
+        <td><%= result.percentage %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<%= link_to "Add result", new_direct_assessment_result_path(@assessment) %>
+<% if policy(@assessment).create_results? %>
+  <%= link_to t(".add_result"),
+    new_direct_assessment_result_path(@assessment),
+    class: "button" %>
+<% end %>

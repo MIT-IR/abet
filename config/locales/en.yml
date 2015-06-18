@@ -54,6 +54,14 @@ en:
   direct_assessments:
     create:
       success: Assessment created successfully.
+    show:
+      add_result: Add result
+      description: Description
+      name: Name
+      percentage: Percentage
+      problem_description: Problem Description
+      semester: Semester
+      year: Year
     update:
       success: Assessment updated successfully.
   helpers:
