@@ -1,4 +1,7 @@
 class DirectAssessmentsController < ApplicationController
+  around_action :authorize_assessment_management, only: [:create, :update]
+  skip_after_action :verify_authorized, only: [:create, :update]
+
   def new
     @assessment = DirectAssessment.new
     @courses = scoped_courses
@@ -8,7 +11,6 @@ class DirectAssessmentsController < ApplicationController
   def create
     @assessment = DirectAssessment.new(direct_assessment_params)
     @courses = scoped_courses
-    authorize(@assessment)
 
     if @assessment.save
       redirect_to direct_assessment_path(@assessment.id), success: t(".success")
@@ -27,7 +29,6 @@ class DirectAssessmentsController < ApplicationController
   def update
     @assessment = DirectAssessment.find(params[:id])
     @courses = @assessment.department.courses.with_outcomes
-    authorize(@assessment)
 
     if @assessment.update(direct_assessment_params)
       redirect_to direct_assessment_path(@assessment.id), success: t(".success")
@@ -44,14 +45,21 @@ class DirectAssessmentsController < ApplicationController
 
   private
 
+  def authorize_assessment_management
+    ActiveRecord::Base.transaction do
+      yield
+      unless DirectAssessmentPolicy.new(current_user, @assessment).create?
+        raise "Not authorized"
+      end
+    end
+  end
+
   def direct_assessment_params
     params.require(:direct_assessment).permit(
-      :actual_percentage,
       :description,
       :minimum_requirement,
       :name,
       :problem_description,
-      :semester,
       :subject_id,
       :target_percentage,
       outcome_ids: []
