@@ -12,7 +12,7 @@ feature "User creates a survey assessment" do
       click_on "Assess"
     end
 
-    click_on "Survey results"
+    click_on "Create Survey Assessment"
 
     fill_and_submit_form
 
@@ -28,6 +28,6 @@ feature "User creates a survey assessment" do
     fill_in "indirect_assessment_survey_question", with: "How satisfied are you?"
     fill_in "indirect_assessment_minimum_requirement", with: "Somewhat satisfied"
     fill_in "indirect_assessment_target_percentage", with: 80
-    click_on "Submit"
+    click_on "Create Indirect assessment"
   end
 end

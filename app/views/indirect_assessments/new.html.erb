@@ -1,7 +1,5 @@
-<div class="row">
-  <div class="five columns centered">
-    <h4>Add results for outcome "<%= @outcome.name %>. <%= @outcome.description %>"</h4>
-  </div>
-</div>
+<% tab(TabHelper::ASSESSMENTS) %>
 
-<%= render "#{@assessment.to_partial_path}_form" %>
+<%= render "#{@assessment.to_partial_path}_form",
+  assessment: @assessment,
+  outcome: @outcome %>

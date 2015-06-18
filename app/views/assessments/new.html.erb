@@ -1,8 +1,31 @@
-<h4><%= "#{@outcome.name} - #{@outcome.description}" %></h4>
+<% tab(TabHelper::ASSESSMENTS) %>
 
-Choose type of assessment:<br>
-<ul>
-  <li><%=link_to "Survey results", new_outcome_indirect_assessment_path(@outcome, type: "Survey")%></li>
-  <li><%=link_to "Participation in program", new_outcome_indirect_assessment_path(@outcome, type: "Participation")%></li>
-  <li><%=link_to "Other", new_outcome_indirect_assessment_path(@outcome, type: "OtherAssessment")%></li>
-</ul>
+<h1><%= t(".heading") %></h1>
+<%= outcome_details(@outcome) %>
+
+<section class="assessment-types">
+  <div class="assessment-type">
+    <h3><%= t(".survey_results") %></h3>
+    <p><%= t(".survey_results_description") %></p>
+    <%= link_to t(".survey_results_action"),
+      new_outcome_indirect_assessment_path(@outcome, type: "Survey"),
+      class: "button" %>
+  </div>
+
+
+  <div class="assessment-type">
+    <h3><%= t(".participation") %></h3>
+    <p><%= t(".participation_description") %></p>
+    <%= link_to t(".participation_action"),
+      new_outcome_indirect_assessment_path(@outcome, type: "Participation"),
+      class: "button" %>
+  </div>
+
+  <div class="assessment-type">
+    <h3><%= t(".other_assessment") %></h3>
+    <p><%= t(".other_assessment_description") %></p>
+    <%= link_to t(".other_assessment_action"),
+      new_outcome_indirect_assessment_path(@outcome, type: "OtherAssessment"),
+      class: "button" %>
+  </div>
+</div>

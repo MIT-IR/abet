@@ -1,42 +1,16 @@
-<%= form_for [@outcome, @assessment] do |f| %>
-  <div class="row">
-    <div class="small-10 large-12">
-      <div class="row">
-        <div class="small-2 columns">
-          <%=f.label "Program Name", class: "left inline" %>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :name, placeholder: "e.g. 'UROP'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%=f.label "Program Description", class: "left inline"%>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :description, placeholder: "e.g. 'Undergraduate Research Projects'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Minimum Requirement", class: "left inline"  %>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :minimum_requirement, placeholder: "e.g. 'Somewhat or Very Satisfied'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Target Participation Percentage", class: "left inline" %>
-        </div>
-        <div class="small-4 columns end">
-          <%=f.text_field :target_percentage, placeholder: "Whole number, e.g. '80' for '80%'" %>
-        </div>
-      </div>
-      <%= f.hidden_field :type, value: "Participation" %>
-      <div class="row">
-        <%= button_tag "Submit"%>
-      </div>
-    </div>
+<h1><%= t(".heading") %></h1>
+
+<%= outcome_details(outcome || assessment.outcomes.first) %>
+<%= simple_form_for [outcome, assessment] do |f| %>
+  <%= render_errors(f) %>
+  <%= f.input :type, as: :hidden, value: "Participation" %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :minimum_requirement %>
+  <%= f.input :target_percentage %>
+
+  <div class="form-actions">
+    <%= f.submit %>
+    <%= cancel_button %>
   </div>
 <% end %>

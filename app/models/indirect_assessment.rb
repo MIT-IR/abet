@@ -1,6 +1,7 @@
 class IndirectAssessment < ActiveRecord::Base
   has_many :outcome_assessments, as: :assessment
   has_many :outcomes, through: :outcome_assessments
+  has_many :courses, through: :outcomes
   has_many :results, as: :assessment
 
   validates :description, presence: true

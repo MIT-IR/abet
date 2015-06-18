@@ -13,7 +13,7 @@ feature "User updates a participation assessment" do
     end
 
     fill_in "indirect_assessment_name", with: "POUR"
-    click_on "Submit"
+    click_on "Update"
 
     within("#indirect_assessments") do
       expect(page).to have_content("POUR")
