@@ -12,6 +12,6 @@ class OutcomePolicy < ApplicationPolicy
   end
 
   def create_assessments?
-    create?
+    user.manage_assessments?(record.department)
   end
 end

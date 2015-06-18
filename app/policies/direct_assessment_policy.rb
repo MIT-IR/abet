@@ -4,7 +4,7 @@ class DirectAssessmentPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?(record.department)
+    user.manage_assessments?(record.department)
   end
 
   def update?

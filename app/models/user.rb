@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   validates :email, presence: true, email: true
 
-  delegate :admin?, :read?, :department_slugs, to: :permissions
+  delegate :admin?, :read?, :manage_results?, :manage_assessments?,
+    :department_slugs, to: :permissions
 
   def username
     email.split("@").first

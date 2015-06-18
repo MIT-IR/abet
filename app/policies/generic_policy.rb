@@ -6,7 +6,7 @@ class GenericPolicy
   end
 
   def create_assessments?
-    user.admin?(AnyDepartment.new)
+    user.manage_assessments?(AnyDepartment.new)
   end
 
   class AnyDepartment

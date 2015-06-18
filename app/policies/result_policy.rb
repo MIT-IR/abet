@@ -1,5 +1,5 @@
 class ResultPolicy < ApplicationPolicy
   def create?
-    user.admin?(record.department)
+    user.manage_results?(record.department)
   end
 end

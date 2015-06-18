@@ -67,4 +67,59 @@ describe Permission do
       expect(permission.admin?(department)).to eq false
     end
   end
+
+  describe "#manage_results?" do
+    it "is true for the provided department if user has permission" do
+      department = Department.new(slug: "D_BAR")
+
+      admin_permission = Permission.new(department.slug, Permission::ADMIN)
+      assessment_permission = Permission.new(
+        department.slug,
+        Permission::ASSESSMENTS
+      )
+      result_permission = Permission.new(
+        department.slug,
+        Permission::RESULTS
+      )
+
+      expect(admin_permission.manage_results?(department)).to eq true
+      expect(assessment_permission.manage_results?(department)).to eq true
+      expect(result_permission.manage_results?(department)).to eq true
+    end
+
+    it "is false if the user does not have permission" do
+      department = Department.new(slug: "D_BAR")
+
+      other_permission = Permission.new("D_BAZ", Permission::ADMIN)
+      no_permission = Permission.new(department.slug, Permission::READ_ONLY)
+
+      expect(other_permission.admin?(department)).to eq false
+      expect(no_permission.admin?(department)).to eq false
+    end
+  end
+
+  describe "#manage_assessments?" do
+    it "is true for the provided department if user has permission" do
+      department = Department.new(slug: "D_BAR")
+
+      admin_permission = Permission.new(department.slug, Permission::ADMIN)
+      assessment_permission = Permission.new(
+        department.slug,
+        Permission::ASSESSMENTS
+      )
+
+      expect(admin_permission.manage_results?(department)).to eq true
+      expect(assessment_permission.manage_results?(department)).to eq true
+    end
+
+    it "is false if the user does not have permission" do
+      department = Department.new(slug: "D_BAR")
+
+      other_permission = Permission.new("D_BAZ", Permission::ADMIN)
+      no_permission = Permission.new(department.slug, Permission::RESULTS)
+
+      expect(other_permission.admin?(department)).to eq false
+      expect(no_permission.admin?(department)).to eq false
+    end
+  end
 end

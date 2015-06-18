@@ -1,6 +1,6 @@
 class IndirectAssessmentPolicy < ApplicationPolicy
   def create?
-    user.admin?(record.department)
+    user.manage_assessments?(record.department)
   end
 
   def update?

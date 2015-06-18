@@ -1,7 +1,12 @@
 class Permission
   ADMIN = "CAN EDIT ABET"
+  ASSESSMENTS = "CAN EDIT ASSESSMENTS"
+  RESULTS = "CAN EDIT ACTUAL FIELDS"
   READ_ONLY = "CAN VIEW ABET"
-  ALL = [ADMIN, READ_ONLY]
+
+  MANAGE_ASSESSMENTS = [ADMIN, ASSESSMENTS]
+  MANAGE_RESULTS = [ADMIN, ASSESSMENTS, RESULTS]
+  ALL = [ADMIN, ASSESSMENTS, RESULTS, READ_ONLY]
 
   attr_reader :department_slug, :access_level
 
@@ -16,6 +21,14 @@ class Permission
 
   def read?(department)
     department_matches?(department) && ALL.include?(access_level)
+  end
+
+  def manage_results?(department)
+    department_matches?(department) && MANAGE_RESULTS.include?(access_level)
+  end
+
+  def manage_assessments?(department)
+    department_matches?(department) && MANAGE_ASSESSMENTS.include?(access_level)
   end
 
   def admin?(department)

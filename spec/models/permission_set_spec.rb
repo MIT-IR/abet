@@ -79,6 +79,46 @@ describe PermissionSet do
     end
   end
 
+  describe "#manage_results?" do
+    it "is true if delegating to any of the permissions returns true" do
+      department = instance_double(Department)
+      permission = instance_double(Permission, manage_results?: true)
+
+      permissions = PermissionSet.new([permission])
+
+      expect(permissions.manage_results?(department)).to eq true
+    end
+
+    it "is false otherwise" do
+      department = instance_double(Department)
+      permission = instance_double(Permission, manage_results?: false)
+
+      permissions = PermissionSet.new([permission])
+
+      expect(permissions.manage_results?(department)).to eq false
+    end
+  end
+
+  describe "#manage_assessments?" do
+    it "is true if delegating to any of the permissions returns true" do
+      department = instance_double(Department)
+      permission = instance_double(Permission, manage_assessments?: true)
+
+      permissions = PermissionSet.new([permission])
+
+      expect(permissions.manage_assessments?(department)).to eq true
+    end
+
+    it "is false otherwise" do
+      department = instance_double(Department)
+      permission = instance_double(Permission, manage_assessments?: false)
+
+      permissions = PermissionSet.new([permission])
+
+      expect(permissions.manage_assessments?(department)).to eq false
+    end
+  end
+
   def fake_account(department_slug, access_level)
     double(
       "Account",

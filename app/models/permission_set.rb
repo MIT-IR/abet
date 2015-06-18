@@ -25,14 +25,18 @@ class PermissionSet
   end
 
   def read?(department)
-    any? do |permission|
-      permission.read?(department)
-    end
+    any? { |permission| permission.read?(department) }
+  end
+
+  def manage_results?(department)
+    any? { |permission| permission.manage_results?(department) }
+  end
+
+  def manage_assessments?(department)
+    any? { |permission| permission.manage_assessments?(department) }
   end
 
   def admin?(department)
-    any? do |permission|
-      permission.admin?(department)
-    end
+    any? { |permission| permission.admin?(department) }
   end
 end
