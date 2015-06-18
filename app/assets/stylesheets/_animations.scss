@@ -1,0 +1,21 @@
+%animation-alert-slider {
+  @include animation(slideInAndOut 3s);
+}
+
+@include keyframes(slideInAndOut) {
+  0% {
+    @include transform(translate3d(0, (-$header-height), 0));
+  }
+
+  5% {
+    @include transform(translate3d(0, $header-height, 0));
+  }
+
+  90% {
+    @include transform(translate3d(0, $header-height, 0));
+  }
+
+  100% {
+    @include transform(translate3d(0, (-$header-height), 0));
+  }
+}

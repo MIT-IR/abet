@@ -1,50 +1,20 @@
 <%= form_for [@outcome, @assessment] do |f| %>
-  <div class="row">
-    <div class="small-10 large-12">
-      <div class="row">
-        <div class="small-2 columns">
-          <%=f.label "Survey Name", class: "left inline" %>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :name, placeholder: "e.g. 'Senior Survey'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%=f.label "Survey Description", class: "left inline"%>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :description, placeholder: "e.g. 'Biennial survey administered to graduating seniors'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Survey Question", class: "left inline"  %>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :survey_question, :placeholder => "e.g. 'How satisfied are you with advising in your major?'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Minimum Category", class: "left inline"  %>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :minimum_requirement, placeholder: "e.g. 'Somewhat or Very Satisfied'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Target Percentage", class: "left inline" %>
-        </div>
-        <div class="small-4 columns end">
-          <%=f.text_field :target_percentage, placeholder: "Whole number, e.g. '80' for '80%'" %>
-        </div>
-      </div>
-      <%= f.hidden_field :type, value: "Survey" %>
-      <div class="row">
-        <%= button_tag "Submit"%>
-      </div>
-    </div>
-  </div>
+
+  <%=f.label "Survey Name" %>
+  <%=f.text_field :name, placeholder: "e.g. 'Senior Survey'" %>
+
+  <%=f.label "Survey Description"%>
+  <%=f.text_field :description, placeholder: "e.g. 'Biennial survey administered to graduating seniors'" %>
+
+  <%= f.label "Survey Question"  %>
+  <%=f.text_field :survey_question, :placeholder => "e.g. 'How satisfied are you with advising in your major?'" %>
+
+  <%= f.label "Minimum Category"  %>
+  <%=f.text_field :minimum_requirement, placeholder: "e.g. 'Somewhat or Very Satisfied'" %>
+
+  <%= f.label "Target Percentage" %>
+  <%=f.text_field :target_percentage, placeholder: "Whole number, e.g. '80' for '80%'" %>
+
+  <%= f.hidden_field :type, value: "Survey" %>
+  <%= button_tag "Submit"%>
 <% end %>

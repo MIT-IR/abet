@@ -1,58 +1,22 @@
 <%= form_for [@outcome, @assessment] do |f| %>
-  <div class="row">
-    <div class="small-10 large-12">
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label :subject_id, class: "left inline" %>
-        </div>
-        <div class="small-2 columns end">
-          <%= f.select :subject_id,
-            options_from_collection_for_select(Subject.sorted_by_number, :id, :to_s), prompt: "Select a subject" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Assignment Name", class: "left inline"%>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :name, :placeholder => "e.g. Problem Set 1" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Assignment Description", class: "left inline"%>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :description, :placeholder => "e.g. 'Integration'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Problem description", class: "left inline"%>
-        </div>
-        <div class="small-6 columns end">
-          <%=f.text_field :problem_description, :placeholder => "e.g. 'Question 3, Integration by parts'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Minimum Satisfactory Grade", class: "left inline"%>
-        </div>
-        <div class="small-4 columns end">
-          <%=f.text_field :minimum_requirement, :placeholder => "e.g. '7 points out of 10'" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label "Target Percentage", class: "left inline"%>
-        </div>
-        <div class="small-4 columns end">
-          <%=f.text_field	:target_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <%= button_tag "Submit"%>
-  </div>
+  <%= f.label :subject_id %>
+  <%= f.select :subject_id,
+    options_from_collection_for_select(Subject.sorted_by_number, :id, :to_s), prompt: "Select a subject" %>
+
+  <%= f.label "Assignment Name"%>
+  <%=f.text_field :name, :placeholder => "e.g. Problem Set 1" %>
+
+  <%= f.label "Assignment Description"%>
+  <%=f.text_field :description, :placeholder => "e.g. 'Integration'" %>
+
+  <%= f.label "Problem description"%>
+  <%=f.text_field :problem_description, :placeholder => "e.g. 'Question 3, Integration by parts'" %>
+
+  <%= f.label "Minimum Satisfactory Grade"%>
+  <%=f.text_field :minimum_requirement, :placeholder => "e.g. '7 points out of 10'" %>
+
+  <%= f.label "Target Percentage"%>
+  <%=f.text_field	:target_percentage, :placeholder => "Whole number, e.g. '80' for '80%'" %>
+
+  <%= button_tag "Submit"%>
 <% end %>
