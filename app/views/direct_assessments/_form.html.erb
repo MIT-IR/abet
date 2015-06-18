@@ -1,23 +1,20 @@
-<%= simple_form_for @assessment do |f| %>
+<%= simple_form_for assessment do |f| %>
   <%= f.input :subject_id, collection: Subject.sorted_by_number, label_method: :to_s, prompt: "Select a subject" %>
 
-  <br>
-
-  <h4>Outcomes</h4>
-  <% @courses.each do |course| %>
-    <fieldset>
+  <%= f.label :outcome_ids %>
+  <% courses.each do |course| %>
+    <fieldset class="course-outcomes">
       <legend><%= course %></legend
       <%= f.input :outcome_ids, collection: course.outcomes, label: false, label_method: :to_s, as: :check_boxes %>
     </fieldset>
   <% end %>
-
-  <br>
 
   <%= f.input :name, label: "Assignment name", placeholder: "e.g. Problem Set 1" %>
   <%= f.input :description, label: "Assignment description", placeholder: "e.g. 'Integration'" %>
   <%= f.input :problem_description, placeholder: "e.g. 'Question 3, Integration by parts'" %>
   <%= f.input :minimum_requirement, label: "Minimum grade", placeholder: "e.g. '7 points out of 10'" %>
   <%= f.input :target_percentage, placeholder: "Whole number, e.g. '80' for '80%'" %>
+
   <div class="form-actions">
     <%= f.submit "Submit" %>
     <%= cancel_button %>

@@ -1,3 +1,7 @@
 .selectize-input.not-full > input {
   width: 100% !important;
 }
+
+.selectize-control {
+  margin-bottom: $base-spacing;
+}
