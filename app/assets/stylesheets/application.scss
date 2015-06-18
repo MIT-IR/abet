@@ -25,3 +25,7 @@
 .main {
   @include outer-container;
 }
+
+.no-records {
+  @include flash($notice-color);
+}

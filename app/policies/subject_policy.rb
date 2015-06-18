@@ -1,5 +1,5 @@
 class SubjectPolicy < ApplicationPolicy
-  def show
+  def show?
     user.read?(record.department)
   end
 

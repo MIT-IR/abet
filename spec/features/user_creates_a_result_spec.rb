@@ -15,7 +15,7 @@ feature "User creates a result" do
     expect(page).to have_content assessment.description
     expect(page).to have_content assessment.subject
 
-    click_on "View and add results"
+    click_on "View and Add Results"
     click_on "Add result"
     select "2015", from: "result_year"
     select "JA", from: "result_semester"
@@ -30,23 +30,6 @@ feature "User creates a result" do
     expect(page).to have_content "Problem Set 2"
     expect(page).to have_content "Polynomial Equations"
     expect(page).to have_content "72"
-  end
-
-  scenario "and it defaults to the same name, description, problem description as the assessment" do
-    assessment = create(:direct_assessment)
-    user = user_with_admin_access_to(assessment.department)
-
-    visit outcome_path(assessment.outcomes.first, as: user)
-
-    within("#direct_assessment-#{assessment.id}") do
-      click_on "View and add results"
-    end
-
-    click_on "Add result"
-
-    expect(find_field("result_assessment_name").value).to eq assessment.name
-    expect(find_field("result_assessment_description").value).to eq assessment.description
-    expect(find_field("result_problem_description").value).to eq assessment.problem_description
   end
 
   scenario "and it is associated with an indirect assessment" do
@@ -76,21 +59,5 @@ feature "User creates a result" do
     expect(page).to have_content "Senior Survey"
     expect(page).to have_content "Annual survey"
     expect(page).to have_content "92"
-  end
-
-  scenario "and it defaults to the same name, description as the assessment" do
-    assessment = create(:participation)
-    user = user_with_admin_access_to(assessment.department)
-
-    visit outcome_path(assessment.outcomes.first, as: user)
-
-    within("#indirect_assessment-#{assessment.id}") do
-      click_on "View and add results"
-    end
-
-    click_on "Add result"
-
-    expect(find_field("result_assessment_name").value).to eq assessment.name
-    expect(find_field("result_assessment_description").value).to eq assessment.description
   end
 end

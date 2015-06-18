@@ -151,5 +151,12 @@ en:
           departmental ABET administrator to create an assessment for your
           subject.
       heading: Record Assessment Data For Your Subjects
+    show:
+      actions: Actions
+      assessment: Assessment
+      minimum_grade: Minimum Grade
+      no_assessments: No direct assessments
+      results: View and Add Results
+      target_percentage: Target Percentage
   titles:
     application: ABET Outcomes Assessment
