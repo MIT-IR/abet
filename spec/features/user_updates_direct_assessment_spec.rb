@@ -2,14 +2,19 @@ require "rails_helper"
 
 feature "User updates a direct assessment" do
   scenario "a direct assessment is successfully updated" do
+    course = create(:course, :fully_aligned)
+    outcome, other_outcome = create_pair(:outcome, course: course)
     assessment = create(:direct_assessment, target_percentage: 50)
-    outcome = assessment.outcomes.first
-    other_outcome = create(:outcome, course: outcome.course)
-    user = user_with_admin_access_to(outcome.department)
+    assessment.outcomes << outcome
+    user = user_with_admin_access_to(course.department)
 
-    visit outcome_path(outcome, as: user)
+    visit outcomes_dashboard_path(as: user)
 
-    within("#direct_assessment-#{assessment.id}") do
+    within("table.fully-aligned") do
+      click_on "Edit Assessments"
+    end
+
+    within("#direct_assessment_#{assessment.id}") do
       click_on "Edit"
     end
 

@@ -12,11 +12,11 @@ class DirectAssessment < ActiveRecord::Base
   validates :subject, presence: true
   validate :ensure_single_department
 
+  has_paper_trail
+
   def department
     outcomes.first.department
   end
-
-  has_paper_trail
 
   def to_s
     "#{name} - #{description}"

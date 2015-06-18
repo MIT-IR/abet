@@ -1,0 +1,20 @@
+<% tab(TabHelper::ASSESSMENTS) %>
+
+<h1><%= t(".heading", name: @course) %></h1>
+<%= link_to t(".add_assessment"), assessments_dashboard_path, class: "button" %>
+<br>
+
+<% @outcomes.each do |outcome| %>
+  <% if outcome.direct_assessments.any? || outcome.indirect_assessments.any? %>
+    <h2>Outcome <%= outcome %></h2>
+    <% if outcome.direct_assessments.any? %>
+      <%= render "direct_assessments", outcome: outcome %>
+    <% end %>
+
+    <br>
+
+    <% if outcome.indirect_assessments.any? %>
+      <%= render "indirect_assessments", outcome: outcome %>
+    <% end %>
+  <% end %>
+<% end %>

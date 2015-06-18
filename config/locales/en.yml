@@ -51,6 +51,21 @@ en:
         details: Details
         heading: Outcomes for %{name}
         label: Label
+    direct_assessments:
+      description: Assignment Description
+      minimum: Minimum Grade
+      name: Assignment Name
+      subject: Subject
+      target: Target Percentage
+    index:
+      add_assessment: Add new assessment
+      heading: Assessments for %{name}
+    indirect_assessments:
+      description: Description
+      minimum: Minimum Category
+      name: Name
+      target: Target Percentage
+      type: Type
     new:
       heading: Choose an Indirect Assessment Type
       other_assessment: Other Assessment

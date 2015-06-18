@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :courses, only: [] do
     resources :standard_outcomes, only: [:index, :create]
     resources :outcomes, only: [:new, :create, :index]
+    resources :assessments, only: [:index]
   end
 
   resources :direct_assessments,

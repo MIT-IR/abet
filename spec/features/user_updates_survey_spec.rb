@@ -2,13 +2,19 @@ require "rails_helper"
 
 feature "User updates a survey assessment" do
   scenario "a survey assessment is successfully updated" do
+    course = create(:course, :fully_aligned)
+    outcome = create(:outcome, course: course)
     assessment = create(:survey, name: "Senior Survey")
-    outcome = assessment.outcomes.first
-    user = user_with_admin_access_to(outcome.course.department)
+    assessment.outcomes << outcome
+    user = user_with_admin_access_to(course.department)
 
-    visit outcome_path(outcome, as: user)
+    visit outcomes_dashboard_path(as: user)
 
-    within("#indirect_assessment-#{assessment.id}") do
+    within("table.fully-aligned") do
+      click_on "Edit Assessments"
+    end
+
+    within("#indirect_assessment_#{assessment.id}") do
       click_on "Edit"
     end
 
