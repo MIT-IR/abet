@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     resources :indirect_assessments, only: [:new, :create]
   end
 
+  resources :results, only: [:edit, :update]
+
   resources :subjects, only: [:index, :show]
 
   get "/pages/*id" => "pages#show", as: :page, format: false

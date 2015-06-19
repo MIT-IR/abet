@@ -45,7 +45,7 @@ en:
       home: Home
       menu: MENU
     tabs:
-      assessments: Create Assessments
+      assessments: Manage Assessments
       data: Record Data
       outcomes: Manage Outcomes
   assessments:
@@ -114,6 +114,7 @@ en:
       heading: Outcomes Covered by This Assessment
     results:
       description: Description
+      edit: Edit
       name: Name
       percentage: Percentage
       problem_description: Problem Description
@@ -133,6 +134,17 @@ en:
       success: Assessment created successfully.
     edit:
       heading: Edit Assessment
+    outcomes:
+      heading: Outcomes Covered by This Assessment
+    results:
+      description: Description
+      edit: Edit
+      name: Name
+      percentage: Percentage
+      semester: Semester
+      year: Year
+    show:
+      add_result: Add result
     update:
       success: Assessment updated successfully.
   other_assessments:
@@ -144,6 +156,8 @@ en:
   results:
     create:
       success: Result created successfully.
+    edit:
+      heading: Edit Result
     form:
       assessment_background: Background
       period: Period

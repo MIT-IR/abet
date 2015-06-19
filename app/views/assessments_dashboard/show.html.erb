@@ -1,4 +1,5 @@
 <% tab(TabHelper::ASSESSMENTS) %>
+<h2>Create New Assessment</h2>
 <div class="assessments-dashboard-options">
   <div class="assessments-dashboard-option">
     <h6><%= t(".by") %></h6>
@@ -19,4 +20,13 @@
       data: { role: "start-indirect-assessment" }
     %>
   </div>
+</div>
+
+<h2>Manage Existing Assessments</h2>
+<div>
+  <ul>
+    <% @courses.each do |course| %>
+      <li><%= link_to course, course_assessments_path(course) %></li>
+    <% end %>
+  </ul>
 </div>

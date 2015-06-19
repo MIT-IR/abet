@@ -3,6 +3,12 @@ FactoryGirl.define do
   sequence(:name) { |n| "The #{n.ordinalize} Name" }
   sequence(:number) { |n| n.to_s }
 
+  factory :alignment do
+    level "Moderate alignment"
+    outcome
+    standard_outcome
+  end
+
   factory :course do
     name
     number
@@ -75,12 +81,6 @@ FactoryGirl.define do
     course
   end
 
-  factory :alignment do
-    level "Moderate alignment"
-    outcome
-    standard_outcome
-  end
-
   factory :participation do
     description "Undergraduation Research Project"
     minimum_requirement "Somewhat satisfied"
@@ -91,6 +91,14 @@ FactoryGirl.define do
     after(:build) do |assessment|
       assessment.outcomes << build(:outcome)
     end
+  end
+
+  factory :result do
+    association :assessment, factory: :direct_assessment
+    assessment_name "Problem Set 2"
+    assessment_description "Multiplication"
+    percentage 80
+    year 2015
   end
 
   factory :standard_outcome do

@@ -1,23 +1,19 @@
-<h1><%= "#{@assessment.name} - #{@assessment.description}" %></h1>
+<% tab(TabHelper::DATA_ENTRY) %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Problem Description</th>
-    <th>Year</th>
-    <th>Semester</th>
-    <th>Percentage</th>
-  </tr>
-  <% @assessment.results.each do |result| %>
-    <tr>
-      <td><%= result.assessment_name %></td>
-      <td><%= result.assessment_description %></td>
-      <td><%= result.year %></td>
-      <td><%= result.semester %></td>
-      <td><%= result.percentage %></td>
-    </tr>
+<h1><%= @assessment %></h1>
+<%= assessment_details(@assessment) %>
+
+<section class="results">
+  <h2>Results</h2>
+  <%= render "results", results: @assessment.results %>
+
+  <% if policy(@assessment).create_results? %>
+    <%= link_to t(".add_result"),
+      new_indirect_assessment_result_path(@assessment),
+      class: "button" %>
   <% end %>
-</table>
+</section>
 
-<%= link_to "Add result", new_indirect_assessment_result_path(@assessment) %>
+<section class="outcomes">
+  <%= render "outcomes", outcomes: @assessment.outcomes %>
+</section>
