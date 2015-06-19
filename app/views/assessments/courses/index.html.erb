@@ -1,8 +1,8 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
 <% @courses.each do |course| %>
-  <h2><%= course %></h2>
   <% if course.outcomes.any? %>
+    <h2><%= course %></h2>
     <table class="outcomes">
       <thead>
         <tr>
@@ -15,7 +15,5 @@
         <%= render course.outcomes %>
       </tbody>
     </table>
-  <% else %>
-    <p><em>No outcomes</em></p>
   <% end %>
 <% end %>
