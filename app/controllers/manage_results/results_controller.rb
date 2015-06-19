@@ -1,4 +1,4 @@
-class ResultsController < ApplicationController
+class ManageResults::ResultsController < ApplicationController
   def new
     @assessment = find_assessment
     @result = @assessment.results.build(assessment_attributes)
@@ -11,7 +11,7 @@ class ResultsController < ApplicationController
     authorize(@result)
 
     if @result.save
-      redirect_to @result.assessment, success: t(".success")
+      redirect_to [:manage_results, @result.assessment], success: t(".success")
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ResultsController < ApplicationController
     authorize(@result)
 
     if @result.update(result_params)
-      redirect_to @result.assessment, success: t(".success")
+      redirect_to [:manage_results, @result.assessment], success: t(".success")
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class ResultsController < ApplicationController
     authorize(result)
 
     result.destroy!
-    redirect_to result.assessment, success: t(".success")
+    redirect_to [:manage_results, result.assessment], success: t(".success")
   end
 
   private

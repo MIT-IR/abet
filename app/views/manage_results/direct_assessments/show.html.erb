@@ -9,7 +9,7 @@
 
   <% if policy(@assessment).create_results? %>
     <%= link_to t(".add_result"),
-      new_direct_assessment_result_path(@assessment),
+      new_manage_results_direct_assessment_result_path(@assessment),
       class: "button" %>
   <% end %>
 </section>

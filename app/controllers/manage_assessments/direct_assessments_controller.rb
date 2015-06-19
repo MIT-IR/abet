@@ -13,7 +13,8 @@ class ManageAssessments::DirectAssessmentsController < ApplicationController
     @courses = scoped_courses
 
     if @assessment.save
-      redirect_to direct_assessment_path(@assessment.id), success: t(".success")
+      redirect_to manage_results_direct_assessment_path(@assessment.id),
+        success: t(".success")
     else
       flash.now[:error] = @assessment.errors.full_messages.join("\n")
       render :new
@@ -31,7 +32,8 @@ class ManageAssessments::DirectAssessmentsController < ApplicationController
     @courses = @assessment.department.courses.with_outcomes
 
     if @assessment.update(direct_assessment_params)
-      redirect_to direct_assessment_path(@assessment.id), success: t(".success")
+      redirect_to manage_results_direct_assessment_path(@assessment.id),
+        success: t(".success")
     else
       flash.now[:error] = @assessment.errors.full_messages.join("\n")
       render :edit

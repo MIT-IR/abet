@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  concern :assessments do
+  concern :resultable do
     resources :results, only: [:new, :create]
   end
 
@@ -29,10 +29,12 @@ Rails.application.routes.draw do
     root "dashboard#show"
   end
 
-  resources :direct_assessments, only: [:show], concerns: :assessments
-  resources :indirect_assessments, only: [:show], concerns: :assessments
-  resources :results, only: [:edit, :update, :destroy]
-  resources :subjects, only: [:index, :show]
+  namespace :manage_results do
+    resources :direct_assessments, only: [:show], concerns: :resultable
+    resources :indirect_assessments, only: [:show], concerns: :resultable
+    resources :results, only: [:edit, :update, :destroy]
+    resources :subjects, only: [:index, :show]
+  end
 
   get "/pages/*id" => "pages#show", as: :page, format: false
   root "manage_outcomes/dashboard#show"

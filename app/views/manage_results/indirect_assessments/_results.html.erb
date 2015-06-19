@@ -4,7 +4,6 @@
       <tr>
         <th><%= t(".name") %></th>
         <th><%= t(".description") %></th>
-        <th><%= t(".problem_description") %></th>
         <th><%= t(".year") %></th>
         <th><%= t(".semester") %></th>
         <th><%= t(".percentage") %></th>
@@ -13,24 +12,23 @@
       </tr>
     </thead>
     <tbody>
-      <% results.each do |result| %>
+      <% @assessment.results.each do |result| %>
         <%= content_tag_for :tr, result do %>
           <td><%= result.assessment_name %></td>
           <td><%= result.assessment_description %></td>
-          <td><%= result.problem_description %></td>
           <td><%= result.year %></td>
           <td><%= result.semester %></td>
           <td><%= "#{result.percentage}%" %></td>
           <td>
             <% if policy(result).update? %>
-              <%= link_to t(".edit"), edit_result_path(result) %>
+              <%= link_to t(".edit"), edit_manage_results_result_path(result) %>
             <% end %>
           </td>
 
           <td>
             <% if policy(result).destroy? %>
               <%= link_to t(".delete"),
-                result_path(result),
+                manage_results_result_path(result),
                 method: :delete,
                 data: { confirm: t(".confirm") } %>
             <% end %>
@@ -39,4 +37,4 @@
       <% end %>
     </tbody>
   </table>
-<% end %>
+<% end%>

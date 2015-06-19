@@ -16,6 +16,6 @@
 
 <ul class="subjects">
   <% @subjects.each do |subject| %>
-    <li><%= link_to subject, subject_path(subject) %></li>
+    <li><%= link_to subject, manage_results_subject_path(subject) %></li>
   <% end %>
 </ul>

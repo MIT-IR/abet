@@ -1,4 +1,4 @@
-class SubjectsController < ApplicationController
+class ManageResults::SubjectsController < ApplicationController
   def index
     @subjects = policy_scope(Subject).sorted_by_number
   end

@@ -18,7 +18,7 @@
           <td><%= assessment %></td>
           <td><%= assessment.minimum_requirement %></td>
           <td><%= assessment.target_percentage %></td>
-          <td><%= link_to t(".results"), direct_assessment_path(assessment) %>
+          <td><%= link_to t(".results"), manage_results_direct_assessment_path(assessment) %>
         </tr>
       <% end %>
     </tbody>
