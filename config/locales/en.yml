@@ -48,26 +48,6 @@ en:
       assessments: Manage Assessments
       data: Record Data
       outcomes: Manage Outcomes
-  assessments:
-    direct_assessments:
-      description: Assignment Description
-      minimum: Minimum Grade
-      name: Assignment Name
-      subject: Subject
-      target: Target Percentage
-    index:
-      add_assessment: Add new assessment
-      heading: Assessments for %{name}
-    indirect_assessments:
-      description: Description
-      minimum: Minimum Category
-      name: Name
-      target: Target Percentage
-      type: Type
-    outcomes:
-      outcome:
-        assess: New Assessment
-        details: Details
   courses:
     outcomes:
       actions: Actions

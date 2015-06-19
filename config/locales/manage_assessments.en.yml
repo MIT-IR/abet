@@ -16,6 +16,25 @@ en:
         survey_results_action: Create Survey Assessment
         survey_results_description: The outcome will be assessed based on the results
           from a student survey
+      direct_assessments:
+        description: Assignment Description
+        minimum: Minimum Grade
+        name: Assignment Name
+        subject: Subject
+        target: Target Percentage
+      index:
+        add_assessment: Add new assessment
+        heading: Assessments for %{name}
+      indirect_assessments:
+        description: Description
+        minimum: Minimum Category
+        name: Name
+        target: Target Percentage
+        type: Type
+      outcomes:
+        outcome:
+          assess: New Assessment
+          details: Details
     dashboard:
       show:
         by: by

@@ -41,7 +41,7 @@ feature "TA creates a result" do
     assessment = create(:survey)
     user = user_with_results_access_to(assessment.department)
 
-    visit course_assessments_path(assessment.outcomes.first.course, as: user)
+    visit manage_assessments_course_assessments_path(assessment.outcomes.first.course, as: user)
     click_on "View and add results"
 
     expect(page).to have_content assessment.name

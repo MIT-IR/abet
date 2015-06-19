@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   namespace :manage_assessments do
     root "dashboard#show"
 
-    resources :courses, only: [:index]
+    resources :courses, only: [:index] do
+      resources :assessments, only: [:index]
+    end
+
     resources :direct_assessments, only: [:new, :create, :edit, :update]
     resources :indirect_assessments, only: [:edit, :update]
 
@@ -24,10 +27,6 @@ Rails.application.routes.draw do
 
     resources :outcomes, only: [:edit, :update]
     root "dashboard#show"
-  end
-
-  resources :courses, only: [] do
-    resources :assessments, only: [:index]
   end
 
   resources :direct_assessments, only: [:show], concerns: :assessments
