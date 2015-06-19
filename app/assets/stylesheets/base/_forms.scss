@@ -154,3 +154,13 @@ select {
 .simple-form-chunk {
   margin-bottom: $large-spacing;
 }
+
+.checkbox label {
+  display: inline-block;
+  max-width: 95%;
+}
+
+.checkbox input {
+  margin-top: $small-spacing/2;
+  vertical-align: top;
+}
