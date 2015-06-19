@@ -30,7 +30,7 @@ feature "User updates result" do
     click_on "Manage Assessments"
     click_on course
     within("#indirect_assessment_#{assessment.id}") do
-      click_on "View and add results"
+      click_on "View and Add Results"
     end
     within("#result_#{result.id}") do
       click_on "Edit"

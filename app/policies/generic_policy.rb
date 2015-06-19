@@ -9,6 +9,10 @@ class GenericPolicy
     user.manage_assessments?(AnyDepartment.new)
   end
 
+  def view_assessments?
+    true
+  end
+
   class AnyDepartment
     def slug
       self

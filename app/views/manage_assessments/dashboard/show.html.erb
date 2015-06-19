@@ -1,26 +1,28 @@
 <% tab(TabHelper::ASSESSMENTS) %>
-<h2>Create New Assessment</h2>
-<div class="assessments-dashboard-options">
-  <div class="assessments-dashboard-option">
-    <h6><%= t(".by") %></h6>
-    <h1><%= t(".subject") %></h1>
-    <%= link_to t(".get_started"),
-      new_manage_assessments_direct_assessment_path,
-      class: "button",
-      data: { role: "start-direct-assessment" }
-    %>
-  </div>
+<% if policy(:generic).create_assessments? %>
+  <h2>Create New Assessment</h2>
+  <div class="assessments-dashboard-options">
+    <div class="assessments-dashboard-option">
+      <h6><%= t(".by") %></h6>
+      <h1><%= t(".subject") %></h1>
+      <%= link_to t(".get_started"),
+        new_manage_assessments_direct_assessment_path,
+        class: "button",
+        data: { role: "start-direct-assessment" }
+      %>
+    </div>
 
-  <div class="assessments-dashboard-option">
-    <h6><%= t(".by") %></h6>
-    <h1><%= t(".course") %></h1>
-    <%= link_to t(".get_started"),
-      manage_assessments_courses_path,
-      class: "button",
-      data: { role: "start-indirect-assessment" }
-    %>
+    <div class="assessments-dashboard-option">
+      <h6><%= t(".by") %></h6>
+      <h1><%= t(".course") %></h1>
+      <%= link_to t(".get_started"),
+        manage_assessments_courses_path,
+        class: "button",
+        data: { role: "start-indirect-assessment" }
+      %>
+    </div>
   </div>
-</div>
+<% end %>
 
 <h2>Manage Existing Assessments</h2>
 <div>

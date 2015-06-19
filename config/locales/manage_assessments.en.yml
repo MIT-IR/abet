@@ -18,19 +18,23 @@ en:
           from a student survey
       direct_assessments:
         description: Assignment Description
+        edit: Edit
         minimum: Minimum Grade
         name: Assignment Name
         subject: Subject
         target: Target Percentage
+        view_results: View and Add Results
       index:
         add_assessment: Add new assessment
         heading: Assessments for %{name}
       indirect_assessments:
         description: Description
+        edit: Edit
         minimum: Minimum Category
         name: Name
         target: Target Percentage
         type: Type
+        view_results: View and Add Results
       outcomes:
         outcome:
           assess: New Assessment

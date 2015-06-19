@@ -42,7 +42,7 @@ feature "TA creates a result" do
     user = user_with_results_access_to(assessment.department)
 
     visit manage_assessments_course_assessments_path(assessment.outcomes.first.course, as: user)
-    click_on "View and add results"
+    click_on "View and Add Results"
 
     expect(page).to have_content assessment.name
     expect(page).to have_content assessment.description
