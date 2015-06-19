@@ -32,6 +32,12 @@ en:
               taken: results have already been recorded for this period
             percentage:
               inclusion: must be between 0 and 100
+    models:
+      direct_assessment: Direct Assessment
+      indirect_assessment: Indirect Assessment
+      other_assessment: Other Assessment
+      participation: Program Participation
+      survey: Survey
   application:
     navigation:
       about: About
@@ -104,14 +110,17 @@ en:
       heading: Edit Direct Assessment
     new:
       heading: Add a new direct assessment
-    show:
-      add_result: Add result
+    outcomes:
+      heading: Outcomes Covered by This Assessment
+    results:
       description: Description
       name: Name
       percentage: Percentage
       problem_description: Problem Description
       semester: Semester
       year: Year
+    show:
+      add_result: Add result
     update:
       success: Assessment updated successfully.
   helpers:

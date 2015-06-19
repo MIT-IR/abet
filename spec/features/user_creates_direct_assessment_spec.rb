@@ -16,7 +16,7 @@ feature "User creates a direct assessment" do
     expect(page).to have_content subject_
     expect(page).to have_content outcomes.first
     expect(page).to have_content outcomes.last
-    expect(page).to have_content "Integration by parts"
+    expect(page).to have_content "Problem Set 1"
   end
 
   def fill_and_submit_form

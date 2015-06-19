@@ -1,0 +1,8 @@
+<h2><%= t(".heading") %></h2>
+<ul>
+  <% outcomes.each do |outcome| %>
+    <li>
+      <%= outcome.course %> - <%= link_to outcome, outcome_path(outcome) %>
+    </li>
+  <% end %>
+</ul>

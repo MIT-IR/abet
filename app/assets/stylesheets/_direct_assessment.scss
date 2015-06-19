@@ -5,3 +5,13 @@
 .selectize-control {
   margin-bottom: $base-spacing;
 }
+
+.direct_assessments-show {
+  .outcomes {
+    margin-top: $base-spacing;
+
+    ul {
+      @extend %default-ul;
+    }
+  }
+}

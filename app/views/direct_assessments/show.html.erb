@@ -1,51 +1,19 @@
 <% tab(TabHelper::DATA_ENTRY) %>
 
 <h1><%= @assessment %></h1>
-<h2><%= @assessment.subject %></h2>
-<ul>
-  <li>Problem description: <%= @assessment.problem_description %></li>
-  <li>Minimum grade: <%= @assessment.minimum_requirement %></li>
-  <li>Target percentage: <%= @assessment.target_percentage %></li>
-</ul>
+<%= assessment_details(@assessment) %>
 
-<% if @assessment.results.present? %>
-  <table>
-    <thead>
-      <tr>
-        <th><%= t(".name") %></th>
-        <th><%= t(".description") %></th>
-        <th><%= t(".problem_description") %></th>
-        <th><%= t(".year") %></th>
-        <th><%= t(".semester") %></th>
-        <th><%= t(".percentage") %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @assessment.results.each do |result| %>
-        <tr>
-          <td><%= result.assessment_name %></td>
-          <td><%= result.assessment_description %></td>
-          <td><%= result.problem_description %></td>
-          <td><%= result.year %></td>
-          <td><%= result.semester %></td>
-          <td><%= result.percentage %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+<section class="results">
+  <h2>Results</h2>
+  <%= render "results", results: @assessment.results %>
 
-<% if policy(@assessment).create_results? %>
-  <%= link_to t(".add_result"),
-    new_direct_assessment_result_path(@assessment),
-    class: "button" %>
-<% end %>
-
-<br>
-
-<h2>Outcomes</h2>
-<ul>
-  <% @assessment.outcomes.each do |outcome| %>
-    <li><%= outcome.course %> - <%= link_to outcome, outcome_path(outcome) %></li>
+  <% if policy(@assessment).create_results? %>
+    <%= link_to t(".add_result"),
+      new_direct_assessment_result_path(@assessment),
+      class: "button" %>
   <% end %>
-</ul>
+</section>
+
+<section class="outcomes">
+  <%= render "outcomes", outcomes: @assessment.outcomes %>
+</section>
