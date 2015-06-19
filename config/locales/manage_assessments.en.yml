@@ -27,6 +27,9 @@ en:
       index:
         add_assessment: Add new assessment
         heading: Assessments for %{name}
+        assessments_count:
+          one: 1 assessment
+          other: "%{count} assessments"
       indirect_assessments:
         description: Description
         edit: Edit

@@ -66,6 +66,7 @@ en:
       outcomes:
         actions: Actions
         add_outcome: Add A Custom Outcome
+        assessments_count: Number of Assessments
         edit_outcome: Edit Outcome
         outcome: Outcome
       unaligned_standard_outcomes:

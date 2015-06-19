@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th><%= t(".outcome") %></th>
+      <th><%= t(".assessments_count") %></th>
       <th><%= t(".actions") %></th>
     </tr>
   </thead>
@@ -9,6 +10,7 @@
     <% course.outcomes.each do |outcome| %>
       <tr>
         <td><%= outcome %></td>
+        <td><%= outcome.assessments_count %></td>
         <td><%= link_to t(".edit_outcome"), edit_manage_outcomes_outcome_path(outcome) %></td>
       </tr>
     <% end %>

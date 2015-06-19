@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618174454) do
+ActiveRecord::Schema.define(version: 20150619205350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,11 +87,12 @@ ActiveRecord::Schema.define(version: 20150618174454) do
   add_index "outcome_assessments", ["outcome_id"], name: "index_outcome_assessments_on_outcome_id", using: :btree
 
   create_table "outcomes", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "description", null: false
-    t.integer  "course_id",   null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",                          null: false
+    t.string   "description",                   null: false
+    t.integer  "course_id",                     null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "assessments_count", default: 0, null: false
   end
 
   add_index "outcomes", ["course_id", "name"], name: "index_outcomes_on_course_id_and_name", unique: true, using: :btree
