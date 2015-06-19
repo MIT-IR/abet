@@ -17,7 +17,11 @@
 
 <div class="form-actions">
   <%= button_to t(".adopt_all", course: @course),
-    course_standard_outcomes_path(@course, ids: @outcomes.pluck(:id)) %>
+    manage_outcomes_course_standard_outcomes_path(
+      @course, ids:
+      @outcomes.pluck(:id)
+    )
+  %>
 
   <%= cancel_button %>
 </div>

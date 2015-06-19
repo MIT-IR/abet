@@ -7,7 +7,7 @@ feature "Admin creates custom outcomes" do
     user = user_with_admin_access_to(course.department)
     description = "Can read good"
 
-    visit outcomes_dashboard_path(as: user)
+    visit manage_outcomes_root_path(as: user)
     click_link "Create Custom Outcome"
     fill_in "Name", with: "X"
     fill_in "Description", with: description

@@ -5,7 +5,7 @@ feature "Admin views outcomes dashboard" do
     course = create(:course)
     user = user_with_admin_access_to(course.department)
 
-    visit outcomes_dashboard_path(as: user)
+    visit manage_outcomes_root_path(as: user)
 
     expect(page).to have_content "Courses without Outcomes"
     expect(page).to have_content course.name
@@ -16,7 +16,7 @@ feature "Admin views outcomes dashboard" do
     course = create(:course, :with_unaligned_outcome)
     user = user_with_admin_access_to(course.department)
 
-    visit outcomes_dashboard_path(as: user)
+    visit manage_outcomes_root_path(as: user)
 
     expect(page).to have_content course.name
     expect(page).to have_link "Edit Outcomes"

@@ -9,12 +9,12 @@
     <% course.outcomes.each do |outcome| %>
       <tr>
         <td><%= outcome %></td>
-        <td><%= link_to t(".edit_outcome"), edit_outcome_path(outcome) %></td>
+        <td><%= link_to t(".edit_outcome"), edit_manage_outcomes_outcome_path(outcome) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <% if course.has_custom_outcomes? && policy(course).create_outcomes? %>
-  <%= link_to t(".add_outcome"), new_course_outcome_path(course), class: "button" %>
+  <%= link_to t(".add_outcome"), new_manage_outcomes_course_outcome_path(course), class: "button" %>
 <% end %>

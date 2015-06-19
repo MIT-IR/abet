@@ -6,7 +6,7 @@ feature "Admin edits outcome" do
     standard_outcome = create(:standard_outcome)
     user = user_with_admin_access_to(outcome.department)
 
-    visit edit_outcome_path(outcome, as: user)
+    visit edit_manage_outcomes_outcome_path(outcome, as: user)
     select Alignment::MODERATE, from: standard_outcome
     click_button "Update Outcome"
 
@@ -18,7 +18,7 @@ feature "Admin edits outcome" do
     alignment = create(:alignment)
     user = user_with_admin_access_to(alignment.outcome.department)
 
-    visit edit_outcome_path(alignment.outcome, as: user)
+    visit edit_manage_outcomes_outcome_path(alignment.outcome, as: user)
     check "Remove"
     click_button "Update Outcome"
 

@@ -1,4 +1,4 @@
-class StandardOutcomesController < ApplicationController
+class ManageOutcomes::StandardOutcomesController < ApplicationController
   def create
     course = Course.find(params[:course_id])
     authorize(course, :create_outcomes?)
@@ -27,9 +27,9 @@ class StandardOutcomesController < ApplicationController
 
   def redirect_path
     if adoptable_outcomes.size > 1
-      outcomes_dashboard_path
+      manage_outcomes_root_path
     else
-      course_outcomes_path(course)
+      manage_outcomes_course_outcomes_path(course)
     end
   end
 end

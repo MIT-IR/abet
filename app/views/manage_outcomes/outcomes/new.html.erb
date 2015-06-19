@@ -1,0 +1,7 @@
+<% tab(TabHelper::OUTCOMES) %>
+
+<h1><%= t(".heading") %></h1>
+
+<%= simple_form_for @outcome, url: manage_outcomes_course_outcomes_path(@outcome.course, @outcome) do |f| %>
+  <%= render "form", f: f %>
+<% end %>

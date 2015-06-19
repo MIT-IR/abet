@@ -15,7 +15,11 @@
           <td><%= standard_outcome %>
           <td>
             <%= button_to t(".adopt"),
-              course_standard_outcomes_path(course, ids: standard_outcome.id) %>
+              manage_outcomes_course_standard_outcomes_path(
+                course,
+                ids: standard_outcome.id
+              )
+            %>
           </td>
         </tr>
       <% end %>

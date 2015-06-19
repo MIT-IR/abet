@@ -8,7 +8,7 @@ feature "User updates a direct assessment" do
     assessment.outcomes << outcome
     user = user_with_admin_access_to(course.department)
 
-    visit outcomes_dashboard_path(as: user)
+    visit manage_outcomes_root_path(as: user)
 
     within("table.fully-aligned") do
       click_on "Edit Assessments"

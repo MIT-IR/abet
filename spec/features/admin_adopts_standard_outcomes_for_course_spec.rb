@@ -6,7 +6,7 @@ feature "Admin adopts standard outcomes for a course" do
     standard_outcomes = create_pair(:standard_outcome)
     user = user_with_admin_access_to(course.department)
 
-    visit outcomes_dashboard_path(course, as: user)
+    visit manage_outcomes_root_path(course, as: user)
     click_on "Adopt Standard Outcomes"
 
     expect(page).to have_content(standard_outcomes.first)
@@ -23,7 +23,7 @@ feature "Admin adopts standard outcomes for a course" do
     standard_outcome = create(:standard_outcome)
     user = user_with_admin_access_to(course.department)
 
-    visit course_outcomes_path(course, as: user)
+    visit manage_outcomes_course_outcomes_path(course, as: user)
 
     expect(find(".unaligned-outcomes")).to have_content standard_outcome
 

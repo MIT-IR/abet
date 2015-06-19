@@ -7,11 +7,20 @@ Rails.application.routes.draw do
     resources :courses, only: [:index]
   end
 
+  namespace :manage_outcomes do
+    root "dashboard#show"
+
+    resources :courses, only: [] do
+      resources :standard_outcomes, only: [:index, :create]
+      resources :outcomes, only: [:index, :new, :create]
+    end
+
+    resources :outcomes, only: [:edit, :update]
+  end
+
   resource :assessments_dashboard, controller: "assessments_dashboard", only: [:show]
 
   resources :courses, only: [] do
-    resources :standard_outcomes, only: [:index, :create]
-    resources :outcomes, only: [:new, :create, :index]
     resources :assessments, only: [:index]
   end
 
@@ -23,15 +32,13 @@ Rails.application.routes.draw do
     only: [:show, :edit, :update],
     concerns: :assessments
 
-  resources :outcomes, only: [:show, :edit, :update] do
+  resources :outcomes, only: [:show] do
     resources :assessments, only: [:new]
     resources :indirect_assessments, only: [:new, :create]
   end
 
-  resource :outcomes_dashboard, controller: "outcomes_dashboard", only: [:show]
-
   resources :subjects, only: [:index, :show]
 
   get "/pages/*id" => "pages#show", as: :page, format: false
-  root "outcomes_dashboard#show"
+  root "manage_outcomes/dashboard#show"
 end
