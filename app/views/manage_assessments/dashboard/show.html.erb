@@ -5,7 +5,7 @@
     <h6><%= t(".by") %></h6>
     <h1><%= t(".subject") %></h1>
     <%= link_to t(".get_started"),
-      new_direct_assessment_path,
+      new_manage_assessments_direct_assessment_path,
       class: "button",
       data: { role: "start-direct-assessment" }
     %>
@@ -15,7 +15,7 @@
     <h6><%= t(".by") %></h6>
     <h1><%= t(".course") %></h1>
     <%= link_to t(".get_started"),
-      assessments_courses_path,
+      manage_assessments_courses_path,
       class: "button",
       data: { role: "start-indirect-assessment" }
     %>

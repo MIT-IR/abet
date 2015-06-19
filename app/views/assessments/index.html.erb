@@ -1,7 +1,7 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
 <h1><%= t(".heading", name: @course) %></h1>
-<%= link_to t(".add_assessment"), assessments_dashboard_path, class: "button" %>
+<%= link_to t(".add_assessment"), manage_assessments_root_path, class: "button" %>
 <br>
 
 <% @outcomes.each do |outcome| %>

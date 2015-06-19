@@ -1,0 +1,31 @@
+<% tab(TabHelper::ASSESSMENTS) %>
+
+<% @courses.each do |course| %>
+  <% if course.outcomes.any? %>
+    <h2><%= course %></h2>
+    <table class="outcomes">
+      <thead>
+        <tr>
+          <th class="label"><%= t(".label") %></th>
+          <th class="description"><%= t(".description") %></th>
+          <th class="actions"><%= t(".actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% course.outcomes.each do |outcome| %>
+          <%= content_tag_for(:tr, outcome) do %>
+            <td><%= outcome.name%></td>
+            <td><%= outcome.description%></td>
+            <td class="actions">
+              <% if policy(outcome).create_assessments? %>
+                <%= link_to t(".assess"), new_manage_assessments_outcome_assessment_path(outcome) %>
+              <% end %>
+
+              <%= link_to t(".details"), outcome_path(outcome)%>
+            </td>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>

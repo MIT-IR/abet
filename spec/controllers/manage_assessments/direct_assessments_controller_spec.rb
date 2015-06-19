@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe DirectAssessmentsController do
+describe ManageAssessments::DirectAssessmentsController do
   describe "POST :create" do
     it "does not allow a user to create an assessment without permission" do
       outcome = create(:outcome)

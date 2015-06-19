@@ -7,7 +7,7 @@ feature "User creates a direct assessment" do
     outcomes = create_pair(:outcome, course: course)
     user = user_with_assessments_access_to(course.department)
 
-    visit assessments_dashboard_path(as: user)
+    visit manage_assessments_root_path(as: user)
     find("[data-role='start-direct-assessment']").click
 
     outcomes.each { |outcome| check(outcome.to_s) }

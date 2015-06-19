@@ -5,7 +5,7 @@ feature "User creates a participation assessment" do
     outcome = create(:outcome)
     user = user_with_admin_access_to(outcome.department)
 
-    visit assessments_dashboard_path(as: user)
+    visit manage_assessments_root_path(as: user)
     find("[data-role='start-indirect-assessment']").click
 
     within("#outcome_#{outcome.id}") do

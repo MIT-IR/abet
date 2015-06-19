@@ -8,7 +8,7 @@
     <h3><%= t(".survey_results") %></h3>
     <p><%= t(".survey_results_description") %></p>
     <%= link_to t(".survey_results_action"),
-      new_outcome_indirect_assessment_path(@outcome, type: "Survey"),
+      new_manage_assessments_outcome_indirect_assessment_path(@outcome, type: "Survey"),
       class: "button" %>
   </div>
 
@@ -17,7 +17,7 @@
     <h3><%= t(".participation") %></h3>
     <p><%= t(".participation_description") %></p>
     <%= link_to t(".participation_action"),
-      new_outcome_indirect_assessment_path(@outcome, type: "Participation"),
+      new_manage_assessments_outcome_indirect_assessment_path(@outcome, type: "Participation"),
       class: "button" %>
   </div>
 
@@ -25,7 +25,7 @@
     <h3><%= t(".other_assessment") %></h3>
     <p><%= t(".other_assessment_description") %></p>
     <%= link_to t(".other_assessment_action"),
-      new_outcome_indirect_assessment_path(@outcome, type: "OtherAssessment"),
+      new_manage_assessments_outcome_indirect_assessment_path(@outcome, type: "OtherAssessment"),
       class: "button" %>
   </div>
 </div>

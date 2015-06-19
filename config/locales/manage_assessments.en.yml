@@ -1,0 +1,53 @@
+---
+en:
+  manage_assessments:
+    assessments:
+      new:
+        heading: Choose an Indirect Assessment Type
+        other_assessment: Other Assessment
+        other_assessment_action: Create Other Assessment
+        other_assessment_description: The outcome assessment I would like to perform
+          is not covered above
+        participation: Participation in Program
+        participation_action: Create Participation Assessment
+        participation_description: The outcome will be assessed based on a
+          measurement of student participation in their program
+        survey_results: Survey Results
+        survey_results_action: Create Survey Assessment
+        survey_results_description: The outcome will be assessed based on the results
+          from a student survey
+    dashboard:
+      show:
+        by: by
+        course: Course
+        get_started: Get started
+        subject: Subject
+    courses:
+      index:
+        actions: Actions
+        assess: Add Assessment
+        description: Description
+        details: Details
+        heading: Outcomes for %{name}
+        label: Label
+    direct_assessments:
+      create:
+        success: Assessment created successfully.
+      edit:
+        heading: Edit Direct Assessment
+      new:
+        heading: Add a new direct assessment
+      update:
+        success: Assessment updated successfully.
+    indirect_assessments:
+      create:
+        success: Assessment created successfully.
+      edit:
+        heading: Edit Indirect Assessment
+      new:
+        heading:
+          otherassessment: New Other Assessment
+          participation: New Program Participation Assessment
+          survey: New Survey Assessment
+      update:
+        success: Assessment updated successfully.

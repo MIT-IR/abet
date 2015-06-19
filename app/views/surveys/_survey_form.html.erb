@@ -1,17 +1,13 @@
-<h1><%= t(".heading") %></h1>
+<%= render_errors(f) %>
 
-<%= outcome_details(outcome || assessment.outcomes.first) %>
-<%= simple_form_for [outcome, assessment] do |f| %>
-  <%= render_errors(f) %>
-  <%= f.input :type, as: :hidden, value: "Survey" %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :survey_question %>
-  <%= f.input :minimum_requirement %>
-  <%= f.input :target_percentage %>
+<%= f.input :type, as: :hidden, value: "Survey" %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= f.input :survey_question %>
+<%= f.input :minimum_requirement %>
+<%= f.input :target_percentage %>
 
-  <div class="form-actions">
-    <%= f.submit %>
-    <%= cancel_button %>
-  </div>
-<% end %>
+<div class="form-actions">
+  <%= f.submit %>
+  <%= cancel_button %>
+</div>

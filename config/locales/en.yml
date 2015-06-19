@@ -49,14 +49,6 @@ en:
       data: Record Data
       outcomes: Manage Outcomes
   assessments:
-    courses:
-      index:
-        actions: Actions
-        assess: Assess
-        description: Description
-        details: Details
-        heading: Outcomes for %{name}
-        label: Label
     direct_assessments:
       description: Assignment Description
       minimum: Minimum Grade
@@ -72,31 +64,10 @@ en:
       name: Name
       target: Target Percentage
       type: Type
-    new:
-      heading: Choose an Indirect Assessment Type
-      other_assessment: Other Assessment
-      other_assessment_action: Create Other Assessment
-      other_assessment_description: The outcome assessment I would like to perform
-        is not covered above
-      participation: Participation in Program
-      participation_action: Create Participation Assessment
-      participation_description: |-
-        The outcome will be assessed base on a measurement of student participation\
-            in their program
-      survey_results: Survey Results
-      survey_results_action: Create Survey Assessment
-      survey_results_description: The outcome will be assessed based on the results
-        from a student survey
     outcomes:
       outcome:
         assess: New Assessment
         details: Details
-  assessments_dashboard:
-    show:
-      by: by
-      course: Course
-      get_started: Get started
-      subject: Subject
   courses:
     outcomes:
       actions: Actions
@@ -104,12 +75,6 @@ en:
       heading: Outcomes for %{name}
       label: Label
   direct_assessments:
-    create:
-      success: Assessment created successfully.
-    edit:
-      heading: Edit Direct Assessment
-    new:
-      heading: Add a new direct assessment
     outcomes:
       heading: Outcomes Covered by This Assessment
     results:
@@ -124,18 +89,12 @@ en:
       year: Year
     show:
       add_result: Add result
-    update:
-      success: Assessment updated successfully.
   helpers:
     cancel_button: Cancel
   home:
     index:
       heading: Choose a Department
   indirect_assessments:
-    create:
-      success: Assessment created successfully.
-    edit:
-      heading: Edit Assessment
     outcomes:
       heading: Outcomes Covered by This Assessment
     results:
@@ -149,14 +108,6 @@ en:
       year: Year
     show:
       add_result: Add result
-    update:
-      success: Assessment updated successfully.
-  other_assessments:
-    other_assessment_form:
-      heading: Create Other Indirect Assessment
-  participations:
-    participation_form:
-      heading: Create a Participation Assessment
   results:
     create:
       success: Result created successfully.
@@ -190,8 +141,5 @@ en:
       no_assessments: No direct assessments
       results: View and Add Results
       target_percentage: Target Percentage
-  surveys:
-    survey_form:
-      heading: Create a Survey Assessment
   titles:
     application: ABET Outcomes Assessment
