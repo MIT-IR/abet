@@ -2,7 +2,9 @@
 <ul>
   <% outcomes.each do |outcome| %>
     <li>
-      <%= outcome.course %> - <%= link_to outcome, outcome_path(outcome) %>
+      <%= link_to_if policy(outcome.course).show?,
+        "#{outcome.course} - #{outcome}",
+        manage_outcomes_course_outcomes_path(outcome.course) %>
     </li>
   <% end %>
 </ul>

@@ -16,10 +16,9 @@ feature "User creates a participation assessment" do
 
     fill_and_submit_form
 
-    within("#indirect_assessments") do
-      expect(page).to have_content("UROP")
-      expect(page).to have_content("Program Participation")
-    end
+    expect(page).to have_content("Assessment created successfully.")
+    expect(page).to have_content("UROP")
+    expect(page).to have_content("Program Participation")
   end
 
   def fill_and_submit_form

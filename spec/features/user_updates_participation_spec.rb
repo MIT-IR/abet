@@ -21,8 +21,7 @@ feature "User updates a participation assessment" do
     fill_in "indirect_assessment_name", with: "POUR"
     click_on "Update"
 
-    within("#indirect_assessments") do
-      expect(page).to have_content("POUR")
-    end
+    expect(page).to have_content("Assessment updated successfully.")
+    expect(page).to have_content("POUR")
   end
 end

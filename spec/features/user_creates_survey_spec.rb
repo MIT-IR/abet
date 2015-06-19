@@ -16,10 +16,9 @@ feature "User creates a survey assessment" do
 
     fill_and_submit_form
 
-    within("#indirect_assessments") do
-      expect(page).to have_content("Senior Survey")
-      expect(page).to have_content("Survey")
-    end
+    expect(page).to have_content("Assessment created successfully.")
+    expect(page).to have_content("Senior Survey")
+    expect(page).to have_content("Survey")
   end
 
   def fill_and_submit_form

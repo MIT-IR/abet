@@ -1,7 +1,11 @@
 module AssessmentsHelper
   def assessment_details(assessment)
     content_tag :ul, class: "assessment-details" do
-      concat content_tag(:li, "Type: #{assessment.model_name.human}")
+      if assessment.respond_to?(:type)
+        concat content_tag(:li, "Type: #{assessment_type(assessment)}")
+      else
+        concat content_tag(:li, "Type: #{assessment.model_name.human}")
+      end
 
       if assessment.respond_to?(:subject)
         concat content_tag(:li, "Subject: #{assessment.subject}")

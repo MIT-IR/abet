@@ -16,10 +16,8 @@ feature "User creates other assessment" do
 
     fill_and_submit_form
 
-    within("#indirect_assessments") do
-      expect(page).to have_content("Senior Thesis Completion")
-      expect(page).to have_content("Other")
-    end
+    expect(page).to have_content("Assessment created successfully.")
+    expect(page).to have_content("Senior Thesis Completion")
   end
 
   def fill_and_submit_form

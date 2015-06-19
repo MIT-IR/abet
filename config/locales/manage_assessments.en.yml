@@ -27,7 +27,6 @@ en:
         actions: Actions
         assess: Add Assessment
         description: Description
-        details: Details
         heading: Outcomes for %{name}
         label: Label
     direct_assessments:

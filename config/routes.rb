@@ -32,7 +32,6 @@ Rails.application.routes.draw do
 
   resources :direct_assessments, only: [:show], concerns: :assessments
   resources :indirect_assessments, only: [:show], concerns: :assessments
-  resources :outcomes, only: [:show]
   resources :results, only: [:edit, :update, :destroy]
   resources :subjects, only: [:index, :show]
 

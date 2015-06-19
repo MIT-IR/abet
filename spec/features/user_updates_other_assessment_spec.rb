@@ -21,8 +21,7 @@ feature "User updates other assessment" do
     fill_in "indirect_assessment_name", with: "Freshman Thesis"
     click_on "Update"
 
-    within("#indirect_assessments") do
-      expect(page).to have_content("Freshman Thesis")
-    end
+    expect(page).to have_content("Assessment updated successfully.")
+    expect(page).to have_content("Freshman Thesis")
   end
 end

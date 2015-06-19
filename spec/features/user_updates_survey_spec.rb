@@ -21,8 +21,7 @@ feature "User updates a survey assessment" do
     fill_in "indirect_assessment_name", with: "Freshman Survey"
     click_on "Update"
 
-    within("#indirect_assessments") do
-      expect(page).to have_content("Freshman Survey")
-    end
+    expect(page).to have_content("Assessment updated successfully.")
+    expect(page).to have_content("Freshman Survey")
   end
 end

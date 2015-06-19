@@ -11,7 +11,7 @@ class ManageAssessments::IndirectAssessmentsController < ApplicationController
     authorize(@outcome)
 
     if @outcome.save
-      redirect_to outcome_path(@outcome), success: t(".success")
+      redirect_to indirect_assessment_path(@assessment), success: t(".success")
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ManageAssessments::IndirectAssessmentsController < ApplicationController
     authorize(@assessment)
 
     if @assessment.save
-      redirect_to outcome_path(@assessment.outcomes.first), success: t(".success")
+      redirect_to indirect_assessment_path(@assessment), success: t(".success")
     else
       render :edit
     end
