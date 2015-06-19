@@ -9,7 +9,7 @@ $success-color: #e6efc2 !default;
   color: darken($color, 60%);
   display: block;
   font-weight: 600;
-  margin-bottom: $base-spacing / 2;
+  margin-bottom: $large-spacing;
   padding: $base-spacing / 2;
   text-align: center;
 
@@ -37,5 +37,5 @@ $success-color: #e6efc2 !default;
 }
 
 .flash-success {
-  @include flash($success-color);
+  @include flash($notice-color);
 }
