@@ -33,6 +33,14 @@ class ResultsController < ApplicationController
     end
   end
 
+  def destroy
+    result = Result.find(params[:id])
+    authorize(result)
+
+    result.destroy!
+    redirect_to result.assessment, success: t(".success")
+  end
+
   private
 
   def result_params

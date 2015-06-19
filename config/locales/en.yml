@@ -113,6 +113,8 @@ en:
     outcomes:
       heading: Outcomes Covered by This Assessment
     results:
+      confirm: Are you sure you want to delete this result?
+      delete: Delete
       description: Description
       edit: Edit
       name: Name
@@ -137,6 +139,8 @@ en:
     outcomes:
       heading: Outcomes Covered by This Assessment
     results:
+      confirm: Are you sure you want to delete this result?
+      delete: Delete
       description: Description
       edit: Edit
       name: Name
@@ -156,6 +160,8 @@ en:
   results:
     create:
       success: Result created successfully.
+    destroy:
+      success: Result deleted.
     edit:
       heading: Edit Result
     form:

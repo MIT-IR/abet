@@ -19,8 +19,20 @@
           <td><%= result.year %></td>
           <td><%= result.semester %></td>
           <td><%= "#{result.percentage}%" %></td>
-          <td><%= link_to t(".edit"), edit_result_path(result) %></td>
-          <td>delete</td>
+          <td>
+            <% if policy(result).update? %>
+              <%= link_to t(".edit"), edit_result_path(result) %>
+            <% end %>
+          </td>
+
+          <td>
+            <% if policy(result).destroy? %>
+              <%= link_to t(".delete"),
+                result_path(result),
+                method: :delete,
+                data: { confirm: t(".confirm") } %>
+            <% end %>
+          </td>
         <% end %>
       <% end %>
     </tbody>

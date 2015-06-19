@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :indirect_assessments, only: [:new, :create]
   end
 
-  resources :results, only: [:edit, :update]
+  resources :results, only: [:edit, :update, :destroy]
 
   resources :subjects, only: [:index, :show]
 
