@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <% outcomes.each do |standard_outcome| %>
+      <% outcomes.order(:name).each do |standard_outcome| %>
         <tr>
           <td><%= standard_outcome %>
           <td>
