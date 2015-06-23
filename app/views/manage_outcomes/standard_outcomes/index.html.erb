@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @outcomes.each do |outcome| %>
+    <% @outcomes.order(:name).each do |outcome| %>
       <tr>
         <td><%= outcome %></td>
       </tr>

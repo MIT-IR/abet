@@ -1,6 +1,6 @@
 <h2><%= t(".heading") %></h2>
 <ul>
-  <% outcomes.each do |outcome| %>
+  <% outcomes.order(:name).each do |outcome| %>
     <li>
       <%= link_to_if policy(outcome.course).show?,
         "#{outcome.course} - #{outcome}",
