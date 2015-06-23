@@ -10,7 +10,7 @@
     <legend><%= course %></legend
 
     <%= f.input :outcome_ids,
-      collection: course.outcomes.sorted_by_name,
+      collection: course.outcomes.order(:name),
       label: false,
       label_method: :to_s,
       as: :check_boxes %>
