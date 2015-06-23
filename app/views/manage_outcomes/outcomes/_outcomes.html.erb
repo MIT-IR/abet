@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <% course.outcomes.each do |outcome| %>
+    <% course.outcomes.order(:name).each do |outcome| %>
       <tr>
         <td><%= outcome %></td>
         <td><%= outcome.assessments_count %></td>
