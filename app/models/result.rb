@@ -1,6 +1,6 @@
 class Result < ActiveRecord::Base
   SEMESTERS = ["FA", "JA", "SP"]
-  YEARS = (2014..2019).to_a
+  YEARS = (2012..2019).to_a
 
   belongs_to :assessment, polymorphic: true
   delegate :department, to: :assessment
