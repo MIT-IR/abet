@@ -3,6 +3,7 @@
   <tr>
     <th><%= t(".name") %></th>
     <th><%= t(".description") %></th>
+    <th><%= t(".survey_question") %></th>
     <th><%= t(".minimum") %></th>
     <th><%= t(".target") %></th>
     <th><%= t(".type") %></th>
@@ -13,6 +14,7 @@
     <%= content_tag_for :tr, assessment do %>
       <td><%= assessment.name %></td>
       <td><%= assessment.description %></td>
+      <td><%= assessment.survey_question %></td>
       <td><%= assessment.minimum_requirement %></td>
       <td><%= assessment.target_percentage %></td>
       <td><%= assessment_type(assessment) %></td>
