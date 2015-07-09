@@ -5,7 +5,7 @@
 
 <%= f.label :outcome_ids %>
 
-<% courses.each do |course| %>
+<% courses.order(:id).each do |course| %>
   <fieldset class="course-outcomes">
     <legend><%= course %></legend
 
