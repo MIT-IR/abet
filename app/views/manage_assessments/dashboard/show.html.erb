@@ -27,7 +27,7 @@
 <h2>Manage Existing Assessments</h2>
 <div>
   <ul>
-    <% @courses.each do |course| %>
+    <% @courses.order(:id).each do |course| %>
       <li><%= link_to course, manage_assessments_course_assessments_path(course) %></li>
     <% end %>
   </ul>
