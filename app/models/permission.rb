@@ -38,6 +38,6 @@ class Permission
   private
 
   def department_matches?(department)
-    department.slug == department_slug
+    department.slug == department_slug if department
   end
 end

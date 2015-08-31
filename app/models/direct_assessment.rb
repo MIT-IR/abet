@@ -15,7 +15,9 @@ class DirectAssessment < ActiveRecord::Base
   has_paper_trail
 
   def department
-    outcomes.first.department
+    if outcomes.length > 0
+      outcomes.first.department
+    end
   end
 
   def to_s

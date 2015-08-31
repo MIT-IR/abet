@@ -45,6 +45,7 @@ class ManageAssessments::DirectAssessmentsController < ApplicationController
   def authorize_assessment_management
     ActiveRecord::Base.transaction do
       yield
+      return if !@assessment.errors.blank?
       unless DirectAssessmentPolicy.new(current_user, @assessment).create?
         raise "Not authorized"
       end
