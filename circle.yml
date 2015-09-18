@@ -1,3 +1,0 @@
-dependencies:
-  pre:
-    - "rake db:migrate RAILS_ENV=test"
