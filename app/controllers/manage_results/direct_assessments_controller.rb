@@ -3,4 +3,9 @@ class ManageResults::DirectAssessmentsController < ApplicationController
     @assessment = DirectAssessment.find(params[:id])
     authorize(@assessment)
   end
+
+  def edit
+    @assessment = DirectAssessment.find(params[:id])
+    authorize(@assessment)
+  end
 end
