@@ -1,4 +1,6 @@
 class DirectAssessment < ActiveRecord::Base
+  default_scope { where("archived = false") }
+
   has_many :outcome_assessments, as: :assessment, dependent: :destroy
   has_many :outcomes, through: :outcome_assessments
 
@@ -22,6 +24,10 @@ class DirectAssessment < ActiveRecord::Base
 
   def to_s
     "#{name} - #{description}"
+  end
+
+  def archive
+    update_attribute!(:archived, true)
   end
 
   private
