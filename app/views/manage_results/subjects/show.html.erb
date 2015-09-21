@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @subject.direct_assessments.each do |assessment| %>
+      <% @subject.direct_assessments.sorted_by_name.each do |assessment| %>
         <tr id="direct_assessment-<%=assessment.id %>">
           <td><%= assessment %></td>
           <td><%= assessment.minimum_requirement %></td>
