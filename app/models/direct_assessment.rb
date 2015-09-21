@@ -26,10 +26,6 @@ class DirectAssessment < ActiveRecord::Base
     "#{name} - #{description}"
   end
 
-  def archive
-    update_attribute!(:archived, true)
-  end
-
   private
 
   def department_ids
