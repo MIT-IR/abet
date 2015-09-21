@@ -6,6 +6,6 @@ class ManageResults::SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
     authorize(@subject)
-    @assessments = @subject.direct_assessments.sorted_by_id
+    @assessments = @subject.direct_assessments(:order => 'name ASC')
   end
 end
