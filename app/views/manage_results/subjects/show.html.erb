@@ -25,8 +25,8 @@
           </td>
           <td><%= link_to t(".results"), manage_results_direct_assessment_path(assessment) %></td>
           <td><% if policy(:generic).create_assessments? %>
-              <%= link_to t(".archive"), manage_results_direct_assessment_path(assessment,
-              :method => :update, data: { confirm: t(".confirm") })%>
+              <%= link_to t(".archive"), manage_results_direct_assessment_path(assessment),
+              :method => :update, data: { confirm: t(".confirm") }%>
               <% end %> </td>
         </tr>
       <% end %>
