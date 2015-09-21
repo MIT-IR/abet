@@ -12,6 +12,6 @@ class ManageResults::DirectAssessmentsController < ApplicationController
   def update
     @assessment = DirectAssessment.find(params[:id])
     authorize(@assessment)
-    @subject = Subjects.find_by_direct_assessment(params[:id])
+    @subject = Subject.find_by_direct_assessment(params[:id])
   end
 end
