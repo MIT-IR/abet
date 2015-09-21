@@ -12,6 +12,8 @@ class ManageResults::DirectAssessmentsController < ApplicationController
   def update
     @assessment = DirectAssessment.find(params[:id])
     authorize(@assessment)
+    @assessment.archived = 'true'
+    @assessment.save
     @subject = @assessment.subject
   end
 end
