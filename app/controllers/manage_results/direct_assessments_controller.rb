@@ -15,5 +15,6 @@ class ManageResults::DirectAssessmentsController < ApplicationController
     @assessment.archived = 'true'
     @assessment.save
     @subject = @assessment.subject
+    redirect_to manage_results_subject_path(@subject)
   end
 end
