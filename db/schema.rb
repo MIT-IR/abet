@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619205350) do
+ActiveRecord::Schema.define(version: 20150917171020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,14 +52,15 @@ ActiveRecord::Schema.define(version: 20150619205350) do
   add_index "departments", ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
 
   create_table "direct_assessments", force: :cascade do |t|
-    t.string   "name",                null: false
-    t.string   "description",         null: false
+    t.string   "name",                                null: false
+    t.string   "description",                         null: false
     t.string   "problem_description"
-    t.string   "minimum_requirement", null: false
-    t.integer  "target_percentage",   null: false
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "subject_id",          null: false
+    t.string   "minimum_requirement",                 null: false
+    t.integer  "target_percentage",                   null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "subject_id",                          null: false
+    t.boolean  "archived",            default: false
   end
 
   add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
