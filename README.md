@@ -23,10 +23,10 @@ After setting up, you can run the application using rails server:
 ## Deployment
 
 Deployment uses Capistrano and requires a couple pre-requisites. First, add the
-following to `~/.ssh/config` (yes, the double `..` is intentional):
+following to `~/.ssh/config`:
 
     Host outcomes
-      HostName outcomes..mit.edu
+      HostName outcomes.mit.edu
       User root
       GSSAPIAuthentication yes
       GSSAPIKeyExchange no
