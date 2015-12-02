@@ -4,6 +4,7 @@
 <%= f.input :description %>
 <%= f.input :minimum_requirement %>
 <%= f.input :target_percentage %>
+<%= f.input :archived, as: :select, include_blank: false %>
 
 <div class="form-actions">
   <%= f.submit %>

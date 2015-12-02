@@ -114,7 +114,8 @@ select {
   @include clearfix;
 
   label,
-  input {
+  input,
+  select {
     @include media($medium-screen-up) {
       @include span-columns(8);
     }

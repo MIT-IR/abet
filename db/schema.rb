@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150917171020) do
+ActiveRecord::Schema.define(version: 20151202181542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,18 +63,22 @@ ActiveRecord::Schema.define(version: 20150917171020) do
     t.boolean  "archived",            default: false
   end
 
+  add_index "direct_assessments", ["archived"], name: "index_direct_assessments_on_archived", using: :btree
   add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
 
   create_table "indirect_assessments", force: :cascade do |t|
-    t.string   "name",                null: false
-    t.string   "description",         null: false
+    t.string   "name",                                null: false
+    t.string   "description",                         null: false
     t.string   "survey_question"
-    t.string   "minimum_requirement", null: false
-    t.integer  "target_percentage",   null: false
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "type",                null: false
+    t.string   "minimum_requirement",                 null: false
+    t.integer  "target_percentage",                   null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "type",                                null: false
+    t.boolean  "archived",            default: false
   end
+
+  add_index "indirect_assessments", ["archived"], name: "index_indirect_assessments_on_archived", using: :btree
 
   create_table "outcome_assessments", force: :cascade do |t|
     t.integer  "outcome_id",      null: false
