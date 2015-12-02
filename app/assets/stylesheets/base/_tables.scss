@@ -21,6 +21,10 @@ th {
 
 td {
   border-bottom: $base-border;
+
+  a {
+    display: block;
+  }
 }
 
 tr,

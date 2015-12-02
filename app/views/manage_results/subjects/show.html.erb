@@ -9,7 +9,7 @@
         <th><%= t(".assessment") %></th>
         <th><%= t(".minimum_grade") %></th>
         <th><%= t(".target_percentage") %></th>
-        <th colspan="3"><%= t(".actions") %></th>
+        <th class="actions"><%= t(".actions") %></th>
       </tr>
     </thead>
     <tbody>
@@ -22,12 +22,17 @@
             <% if policy(:generic).create_assessments? %>
               <%= link_to t(".edit"), edit_manage_assessments_direct_assessment_path(assessment) %>
             <% end %>
+
+            <% if policy(@subject).manage_assessments? %>
+              <%= link_to t(".archive"),
+                manage_assessments_direct_assessment_archive_path(direct_assessment_id: assessment),
+                method: "post",
+                data: { confirm: t(".archive_confirm") }%>
+            <% end %>
+
+            <%= link_to t(".results"),
+              manage_results_direct_assessment_path(assessment) %>
           </td>
-          <td><%= link_to t(".results"), manage_results_direct_assessment_path(assessment) %></td>
-          <td><% if policy(:generic).create_assessments? %>
-              <%= link_to t(".archive"), manage_results_direct_assessment_path(assessment),
-              :method => :put, data: { confirm: t(".confirm") }%>
-              <% end %> </td>
         </tr>
       <% end %>
     </tbody>

@@ -41,6 +41,7 @@ class ManageAssessments::IndirectAssessmentsController < ApplicationController
   def assessment_params
     params.require(:indirect_assessment).permit(
       :actual_percentage,
+      :archived,
       :description,
       :minimum_requirement,
       :name,

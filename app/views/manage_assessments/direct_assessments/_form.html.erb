@@ -35,6 +35,10 @@
 <%= f.input :target_percentage,
   placeholder: "Whole number, e.g. '80' for '80%'" %>
 
+<%= f.input :archived,
+  as: :select,
+  include_blank: false %>
+
 <div class="form-actions">
   <%= f.submit "Submit" %>
   <%= cancel_button %>

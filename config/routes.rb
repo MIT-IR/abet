@@ -10,7 +10,10 @@ Rails.application.routes.draw do
       resources :assessments, only: [:index]
     end
 
-    resources :direct_assessments, only: [:new, :create, :edit, :update]
+    resources :direct_assessments, only: [:new, :create, :edit, :update] do
+      resource :archive, only: [:create]
+    end
+
     resources :indirect_assessments, only: [:edit, :update]
 
     resources :outcomes, only: [] do
@@ -30,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manage_results do
-    resources :direct_assessments, only: [:show, :update], concerns: :resultable
+    resources :direct_assessments, only: [:show], concerns: :resultable
     resources :indirect_assessments, only: [:show], concerns: :resultable
     resources :results, only: [:edit, :update, :destroy]
     resources :subjects, only: [:index, :show]
