@@ -3,6 +3,10 @@ class SubjectPolicy < ApplicationPolicy
     user.read?(record.department)
   end
 
+  def manage_assessments?
+    user.manage_assessments?(record.department)
+  end
+
   class Scope < Scope
     def resolve
       Subject.

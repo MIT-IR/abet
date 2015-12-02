@@ -1,6 +1,9 @@
 ---
 en:
   manage_assessments:
+    archives:
+      create:
+        success: Assessment has been archived successfully.
     assessments:
       new:
         heading: Choose an Indirect Assessment Type

@@ -63,6 +63,8 @@ en:
         no_assessments: No direct assessments
         edit: Edit
         archive: Archive
-        confirm: Are you sure you want to archive this assessment?
+        archive_confirm: Are you sure you want to archive this assessment? You
+          should archive this assessment only if you no longer wish to collect
+          data for it.
         results: View and Add Results
         target_percentage: Target Percentage
