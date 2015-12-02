@@ -29,15 +29,28 @@ following to `~/.ssh/config` (yes, the double `..` is intentional):
       HostName outcomes..mit.edu
       User root
       GSSAPIAuthentication yes
-      GSSAPIKeyExchange yes
+      GSSAPIKeyExchange no
       GSSAPIDelegateCredentials yes
       GSSAPITrustDNS yes
 
 Additionally, deployment requires an existing kerberos ticket:
 
-    % kinit <username>@athena.mit.edu
+    % kinit <username>@ATHENA.MIT.EDU
 
-With that in place, you can deploy with:
+If the above fails with a message that the athena realm cannot be found, you may
+need the following kerberos configuration in `etc/krb5.conf`:
+
+    [libdefaults]
+        default_realm = ATHENA.MIT.EDU
+
+    [realms]
+        ATHENA.MIT.EDU = {
+            kdc = kerberos.mit.edu
+            kdc = kerberos-1.mit.edu
+            admin_server = kerberos.mit.edu
+        }
+
+Once you have a kerberos ticket, you can deploy with:
 
     % cap production deploy
 
