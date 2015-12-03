@@ -22,6 +22,7 @@ class DirectAssessmentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       Course.
+        order(:id).
         joins(:department).
         where(
           departments: {

@@ -25,6 +25,7 @@ gem "turbolinks"
 gem "uglifier"
 
 group :development do
+  gem "bullet"
   gem "capistrano-rails"
   gem "capistrano-rvm"
   gem "gssapi", git: "git@github.com:derekprior/gssapi.git"

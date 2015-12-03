@@ -3,6 +3,6 @@ class ManageAssessments::CoursesController < ApplicationController
   after_action :verify_policy_scoped
 
   def index
-    @courses = policy_scope(Course)
+    @courses = policy_scope(Course).includes(outcomes: :department)
   end
 end

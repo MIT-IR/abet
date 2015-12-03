@@ -1,5 +1,7 @@
 class Subject < ActiveRecord::Base
-  has_many :direct_assessments, -> { merge(DirectAssessment.unarchived) }
+  has_many :direct_assessments, -> {
+    merge(DirectAssessment.unarchived).order(:name)
+  }
 
   def self.sorted_by_number
     order(number: :asc).sort_by { |s| s.number.to_f }

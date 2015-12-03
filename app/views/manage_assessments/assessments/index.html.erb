@@ -6,7 +6,7 @@
 <% end %>
 <br>
 
-<% @outcomes.order(:name).each do |outcome| %>
+<% @outcomes.each do |outcome| %>
   <% if outcome.direct_assessments.any? || outcome.indirect_assessments.any? %>
     <h2>Outcome <%= outcome %> (<%= t(".assessments_count", count: outcome.assessments_count) %>)</h2>
     <% if outcome.direct_assessments.any? %>

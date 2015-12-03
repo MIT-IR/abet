@@ -1,7 +1,9 @@
 class ManageAssessments::AssessmentsController < ApplicationController
   def index
     @course = Course.find(params[:course_id])
-    @outcomes = policy_scope(@course.outcomes)
+    @outcomes = policy_scope(@course.outcomes).
+      includes(direct_assessments: :subject).
+      includes(:indirect_assessments)
   end
 
   def new

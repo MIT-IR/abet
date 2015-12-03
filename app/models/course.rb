@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
   belongs_to :department
-  has_many :outcomes
+  has_many :outcomes, -> { order(:name) }
 
   def self.without_outcomes
     where(outcomes_count: 0)
