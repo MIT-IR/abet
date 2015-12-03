@@ -4,7 +4,9 @@ class ManageOutcomes::OutcomesController < ApplicationController
 
   def index
     @course = course
-    @unaligned_standard_outcomes = StandardOutcome.unaligned_with(course)
+    @unaligned_standard_outcomes = StandardOutcome.
+      unaligned_with(course).
+      order(:name)
     authorize(@course, :show?)
   end
 

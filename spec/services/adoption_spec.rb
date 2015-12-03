@@ -11,6 +11,7 @@ describe Adoption do
       level: Alignment::HIGH
     )
 
+    course.reload
     expect(course.outcomes.size).to eq 1
     expect(course.outcomes.first.to_s).to eq standard_outcome.to_s
     expect(alignment).to be_present

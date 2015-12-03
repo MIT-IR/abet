@@ -23,7 +23,7 @@ class ManageAssessments::DirectAssessmentsController < ApplicationController
 
   def edit
     @assessment = DirectAssessment.find(params[:id])
-    @courses = @assessment.department.courses.with_outcomes
+    @courses = @assessment.department.courses.with_outcomes.includes(:outcomes)
     authorize(@assessment)
   end
 

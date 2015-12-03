@@ -6,6 +6,7 @@ class Outcome < ActiveRecord::Base
   has_many :indirect_assessments, through: :outcome_assessments, source: :assessment, source_type: "IndirectAssessment"
   has_many :alignments
   has_many :standard_outcomes, through: :alignments
+  has_one :department, through: :course
 
   accepts_nested_attributes_for :alignments,
     reject_if: ->(attributes) { attributes[:level].blank? },
@@ -13,8 +14,6 @@ class Outcome < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { scope: :course_id }
   validates :description, presence: true
-
-  delegate :department, to: :course
 
   has_paper_trail
 

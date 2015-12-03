@@ -10,6 +10,7 @@ class CoursePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       Course.
+        order(:id).
         joins(:department).
         where(departments: { slug: user.department_slugs })
     end

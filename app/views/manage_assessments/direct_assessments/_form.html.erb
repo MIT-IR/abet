@@ -5,12 +5,12 @@
 
 <%= f.label :outcome_ids %>
 
-<% courses.order(:id).each do |course| %>
+<% courses.each do |course| %>
   <fieldset class="course-outcomes">
     <legend><%= course %></legend
 
     <%= f.input :outcome_ids,
-      collection: course.outcomes.order(:name),
+      collection: course.outcomes,
       label: false,
       label_method: :to_s,
       as: :check_boxes %>

@@ -1,6 +1,6 @@
 class DirectAssessment < ActiveRecord::Base
   has_many :outcome_assessments, as: :assessment, dependent: :destroy
-  has_many :outcomes, through: :outcome_assessments
+  has_many :outcomes, -> { order(:name) }, through: :outcome_assessments
 
   belongs_to :subject
   has_many :results, as: :assessment
