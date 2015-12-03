@@ -18,8 +18,9 @@ describe Subject do
   end
 
   describe ".with_direct_assessments" do
-    it "returns subjects with associated direct assessments" do
+    it "returns subjects with associated unarchived direct assessments" do
       subject_ = create(:direct_assessment).subject
+      create(:direct_assessment, archived: true)
       create(:subject)
 
       expect(Subject.with_direct_assessments).to eq [subject_]
@@ -40,6 +41,16 @@ describe Subject do
       the_subject = create(:subject, department_number: department.number)
 
       expect(the_subject.department).to eq department
+    end
+  end
+
+  describe "#direct_assessments" do
+    it "includes only unarchived direct assessments" do
+      subject_ = create(:subject)
+      unarchived_assessment = create(:direct_assessment, subject: subject_)
+      create(:direct_assessment, subject: subject_, archived: true)
+
+      expect(subject_.direct_assessments).to eq [unarchived_assessment]
     end
   end
 end
