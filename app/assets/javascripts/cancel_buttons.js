@@ -1,3 +1,3 @@
 $(function() {
-  $("a[data-role='cancel-button'").show();
+  $("a[data-role='cancel-button']").show();
 });
