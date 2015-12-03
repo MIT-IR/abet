@@ -1,6 +1,4 @@
 class DirectAssessment < ActiveRecord::Base
-  default_scope { where("archived = false") }
-
   has_many :outcome_assessments, as: :assessment, dependent: :destroy
   has_many :outcomes, through: :outcome_assessments
 
@@ -15,6 +13,10 @@ class DirectAssessment < ActiveRecord::Base
   validate :ensure_single_department
 
   has_paper_trail
+
+  def self.unarchived
+    where(archived: false)
+  end
 
   def department
     if outcomes.length > 0
