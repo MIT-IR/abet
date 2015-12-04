@@ -11,8 +11,10 @@ class ManageAssessments::IndirectAssessmentsController < ApplicationController
     authorize(@outcome)
 
     if @outcome.save
-      redirect_to manage_results_indirect_assessment_path(@assessment),
+      redirect_to(
+        manage_assessments_course_assessments_path(@assessment.courses.first),
         success: t(".success")
+      )
     else
       render :new
     end
@@ -29,8 +31,10 @@ class ManageAssessments::IndirectAssessmentsController < ApplicationController
     authorize(@assessment)
 
     if @assessment.save
-      redirect_to manage_results_indirect_assessment_path(@assessment),
+      redirect_to(
+        manage_assessments_course_assessments_path(@assessment.courses.first),
         success: t(".success")
+      )
     else
       render :edit
     end

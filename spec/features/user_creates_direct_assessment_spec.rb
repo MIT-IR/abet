@@ -12,6 +12,7 @@ feature "User creates a direct assessment" do
 
     outcomes.each { |outcome| check(outcome.to_s) }
     fill_and_submit_form
+    click_link course.name
 
     expect(page).to have_content subject_
     expect(page).to have_content outcomes.first
