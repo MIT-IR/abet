@@ -61,7 +61,7 @@ en:
         label: Label
     direct_assessments:
       create:
-        success: Assessment created successfully.
+        success: Assessment created successfully. View assessments for %{links}.
       edit:
         heading: Edit Direct Assessment
       new:

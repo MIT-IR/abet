@@ -1,7 +1,13 @@
-<% if flash.any? %>
+<% if user_facing_flashes.any? %>
   <div class="flashes">
-    <% flash.each do |key, value| -%>
-      <div class="flash-<%= key %>"><%= value %></div>
+    <% user_facing_flashes.each do |key, value| -%>
+      <div class="flash-<%= key %>">
+        <% if flash[:html_safe].present? %>
+          <%= raw value %>
+        <% else %>
+          <%= value %>
+        <% end %>
+      </div>
     <% end -%>
   </div>
 <% end %>
