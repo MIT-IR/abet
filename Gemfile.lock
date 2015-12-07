@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:MIT-IR/roles_db.git
-  revision: 639757e290b2143b257d831f845e6197d322ca50
+  revision: 405923166d376a3c13620293b42c823ea4c2f001
   specs:
     roles_db (0.1.0)
 
