@@ -3,7 +3,6 @@ source "https://rubygems.org"
 ruby "2.2.2"
 
 gem "rails", "~> 4.2.0"
-gem "coffee-rails"
 gem "email_validator"
 gem "flutie"
 gem "high_voltage"
