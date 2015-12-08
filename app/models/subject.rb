@@ -1,4 +1,6 @@
 class Subject < ActiveRecord::Base
+  belongs_to :department, foreign_key: :department_number, primary_key: :number
+
   has_many :direct_assessments, -> {
     merge(DirectAssessment.unarchived).order(:name)
   }
@@ -13,9 +15,5 @@ class Subject < ActiveRecord::Base
 
   def to_s
     "#{number} - #{title}"
-  end
-
-  def department
-    Department.find_by(number: department_number)
   end
 end
