@@ -11,7 +11,7 @@ feature "User updates a survey assessment" do
     visit manage_outcomes_root_path(as: user)
 
     within("table.fully-aligned") do
-      click_on "Edit Assessments"
+      click_on "View Assessments"
     end
 
     within("#indirect_assessment_#{assessment.id}") do

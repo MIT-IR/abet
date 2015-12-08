@@ -19,7 +19,7 @@ feature "Admin views outcomes dashboard" do
     visit manage_outcomes_root_path(as: user)
 
     expect(page).to have_content course.name
-    expect(page).to have_link "Edit Outcomes"
+    expect(page).to have_link "View Outcomes"
     expect(page).to have_content "Courses with Unaligned Outcomes"
   end
 end
