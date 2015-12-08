@@ -1,8 +1,9 @@
 GIT
   remote: git@github.com:MIT-IR/roles_db.git
-  revision: 405923166d376a3c13620293b42c823ea4c2f001
+  revision: 5a3375687aecde4691af2294f84cc7e4bf1be733
   specs:
     roles_db (0.1.0)
+      savon
 
 GIT
   remote: git@github.com:derekprior/gssapi.git
@@ -305,7 +306,6 @@ DEPENDENCIES
   roles_db!
   rspec-rails
   sass-rails
-  savon
   selectize-rails
   shoulda-matchers
   simple_form

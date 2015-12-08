@@ -18,4 +18,8 @@ RolesDb.configure do |config|
     config.mocked_account_list_file = Rails.root.join("config", "test-roles.yaml")
     config.strategy_class = "RolesDb::LocalRoles"
   end
+
+  if Rails.env.production?
+    config.endpoint = "https://rolesws.mit.edu/rolesws/services/roles"
+  end
 end
