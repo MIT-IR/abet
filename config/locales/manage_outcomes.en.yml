@@ -3,8 +3,8 @@ en:
   manage_outcomes:
     dashboard:
       aligned_outcomes_actions:
-        edit_assessments: Edit Assessments
-        edit_outcomes: Edit Outcomes
+        view_assessments: View Assessments
+        view_outcomes: View Outcomes
       courses_table:
         actions: Actions
         name: Name
@@ -41,7 +41,8 @@ en:
           unaligned_outcomes: Courses with Unaligned Outcomes
           without_outcomes: Courses without Outcomes
       unaligned_outcomes_actions:
-        edit_outcomes: Edit Outcomes
+        view_assessments: View Assessments
+        view_outcomes: View Outcomes
       without_outcomes_actions:
         adopt_standard: Adopt Standard Outcomes
         create_custom: Create Custom Outcome
