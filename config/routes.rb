@@ -39,6 +39,12 @@ Rails.application.routes.draw do
     resources :subjects, only: [:index, :show]
   end
 
+  scope :reports, module: :reports do
+    resources :courses, only: [] do
+      resource :assessment_report, only: [:show]
+    end
+  end
+
   get "/pages/*id" => "pages#show", as: :page, format: false
   root "manage_outcomes/dashboard#show"
 end

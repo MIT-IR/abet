@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202181542) do
+ActiveRecord::Schema.define(version: 20151208221025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,4 +156,26 @@ ActiveRecord::Schema.define(version: 20151202181542) do
   add_foreign_key "courses", "departments", on_delete: :restrict
   add_foreign_key "direct_assessments", "subjects"
   add_foreign_key "outcomes", "courses"
+      create_view :assessment_reports, sql_definition:<<-SQL
+        SELECT outcomes.course_id,
+  outcomes.name AS outcome_name,
+  outcomes.description AS outcome_description,
+  direct_assessments.id AS direct_assessment_id,
+  direct_assessments.name AS direct_assessment_name,
+  direct_assessments.description AS direct_assessment_description,
+  direct_assessments.minimum_requirement,
+  direct_assessments.target_percentage,
+  results.percentage AS actual_percentage,
+  results.year,
+  results.semester,
+  subjects.number AS subject_number,
+  subjects.title AS subject_title
+ FROM ((((results
+   JOIN direct_assessments ON ((direct_assessments.id = results.assessment_id)))
+   JOIN subjects ON ((subjects.id = direct_assessments.subject_id)))
+   JOIN outcome_assessments ON ((outcome_assessments.assessment_id = direct_assessments.id)))
+   JOIN outcomes ON ((outcomes.id = outcome_assessments.outcome_id)))
+ORDER BY outcomes.name, results.year DESC, results.semester DESC;
+      SQL
+
 end
