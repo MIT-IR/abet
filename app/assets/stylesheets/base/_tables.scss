@@ -4,12 +4,20 @@ table {
   font-family: $sans-serif-narrow;
   letter-spacing: 0.25px;
   margin: $large-spacing 0;
-  width: 75%;
+  width: 100%;
 }
 
 th,
 td {
-  padding: $small-spacing;
+  padding: $small-spacing $base-spacing;
+
+  &:first-of-type {
+    padding-left: $small-spacing;
+  }
+
+  &:last-of-type {
+    padding-right: $small-spacing;
+  }
 }
 
 th {
@@ -36,4 +44,5 @@ th {
 caption {
   margin: $small-spacing 0;
   text-align: left;
+  width: 75%;
 }
