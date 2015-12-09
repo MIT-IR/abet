@@ -285,7 +285,6 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capybara
-  coffee-rails
   database_cleaner
   email_validator
   factory_girl_rails
