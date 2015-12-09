@@ -4,6 +4,8 @@ en:
     archives:
       create:
         success: Assessment has been archived successfully.
+      destroy:
+        success: Assessment has been unarchived successfully.
     assessments:
       new:
         heading: Choose an Indirect Assessment Type

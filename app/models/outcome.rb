@@ -26,4 +26,8 @@ class Outcome < ActiveRecord::Base
   def to_s
     "#{name} - #{description}"
   end
+
+  def active_assessments_count
+    assessments_count - archived_assessments_count
+  end
 end

@@ -22,4 +22,26 @@ describe DirectAssessment do
       expect(assessment.department).to eq outcome.department
     end
   end
+
+  describe "#archive" do
+    it "archives via the service object" do
+      assessment = DirectAssessment.new
+      allow(AssessmentArchivist).to receive(:archive)
+
+      assessment.archive
+
+      expect(AssessmentArchivist).to have_received(:archive).with(assessment)
+    end
+  end
+
+  describe "#unarchive" do
+    it "unarchives via the service object" do
+      assessment = DirectAssessment.new
+      allow(AssessmentArchivist).to receive(:unarchive)
+
+      assessment.unarchive
+
+      expect(AssessmentArchivist).to have_received(:unarchive).with(assessment)
+    end
+  end
 end

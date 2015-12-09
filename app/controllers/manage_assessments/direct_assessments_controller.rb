@@ -59,7 +59,6 @@ class ManageAssessments::DirectAssessmentsController < ApplicationController
 
   def direct_assessment_params
     params.require(:direct_assessment).permit(
-      :archived,
       :description,
       :minimum_requirement,
       :name,

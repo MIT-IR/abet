@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     resources :direct_assessments, only: [:new, :create, :edit, :update] do
-      resource :archive, only: [:create]
+      resource :archive, only: [:create, :destroy]
     end
 
     resources :indirect_assessments, only: [:edit, :update]

@@ -19,4 +19,12 @@ describe Outcome do
       expect(outcome.reload.assessments_count).to eq 0
     end
   end
+
+  describe "#active_assessments_count" do
+    it "is assessments_count - archived_assessments_count" do
+      outcome = Outcome.new(assessments_count: 5, archived_assessments_count: 3)
+
+      expect(outcome.active_assessments_count).to eq 2
+    end
+  end
 end

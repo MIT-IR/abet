@@ -29,6 +29,14 @@ class DirectAssessment < ActiveRecord::Base
     "#{name} - #{description}"
   end
 
+  def archive
+    AssessmentArchivist.archive(self)
+  end
+
+  def unarchive
+    AssessmentArchivist.unarchive(self)
+  end
+
   private
 
   def department_ids

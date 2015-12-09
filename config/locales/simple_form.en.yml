@@ -9,8 +9,6 @@ en:
       default_message: "Please review the problems below:"
     hints:
       direct_assessment:
-        archived: Set to "Yes" if you no longer need to collect data on this
-          assessment.
         assignment_description: Brief description of the topic of this
           assignment
         assignment_name: For example, "Problem Set 1" or "Quiz 2"
@@ -21,9 +19,6 @@ en:
         target_percentage: The percent of students who should receive a
           satisfactory grade on this problem if, in general, students have
           learned the material. For example, 80 percent.
-      indirect_assessment:
-        archived: Set to "Yes" if you no longer need to collect data on this
-          assessment.
       outcome:
         description: The text of the student learning outcome. The skill or
           ability that the students should have achieved by the time of

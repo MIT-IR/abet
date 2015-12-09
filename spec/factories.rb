@@ -107,7 +107,7 @@ FactoryGirl.define do
   end
 
   factory :subject do
-    department_number { generate(:number) }
+    department
     number
     title { generate(:name) }
   end
