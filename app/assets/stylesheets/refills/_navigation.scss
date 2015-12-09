@@ -31,15 +31,13 @@ header.navigation {
   }
 
   .logo {
+    $logo-height: 34px;
+
     float: left;
     max-height: $navigation-height;
     padding-left: $navigation-padding;
     padding-right: 2em;
-
-    img {
-      height: $navigation-height;
-      padding: 0.8em 0;
-    }
+    padding-top: ($navigation-height - $logo-height) / 2;
   }
 
   .navigation-menu-button {
