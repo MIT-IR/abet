@@ -226,6 +226,9 @@ GEM
       nokogiri (>= 1.4.0)
       nori (~> 2.4)
       wasabi (~> 3.4)
+    scenic (0.3.0)
+      activerecord (>= 4.0.0)
+      railties (>= 4.0.0)
     selectize-rails (0.12.1)
     shoulda-matchers (3.0.1)
       activesupport (>= 4.0.0)
@@ -305,6 +308,7 @@ DEPENDENCIES
   roles_db!
   rspec-rails
   sass-rails
+  scenic
   selectize-rails
   shoulda-matchers
   simple_form

@@ -1,0 +1,31 @@
+<h1><%= t(".heading", course: @course.name) %></h1>
+
+<p><%= t(".description_html", link: link_to(
+  t(".csv_link"),
+  course_assessment_report_path(course_id: @course, format: :csv)
+)) %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t(".outcome_name") %></th>
+      <th><%= t(".direct_assessment_name") %></th>
+      <th><%= t(".minimum_requirement") %></th>
+      <th><%= t(".target_percentage") %></th>
+      <th><%= t(".actual_percentage") %></th>
+      <th><%= t(".period") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |result| %>
+      <tr>
+        <td><%= result.outcome_name %></td>
+        <td><%= result.direct_assessment_name %></td>
+        <td><%= result.minimum_requirement %></td>
+        <td><%= result.target_percentage %></td>
+        <td><%= result.actual_percentage %></td>
+        <td><%= result.period %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
