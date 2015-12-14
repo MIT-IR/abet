@@ -2,7 +2,7 @@ class Result < ActiveRecord::Base
   SEMESTERS = ["FA", "JA", "SP"]
   YEARS = (2012..2019).to_a
 
-  belongs_to :assessment, polymorphic: true
+  belongs_to :assessment, polymorphic: true, counter_cache: true
   delegate :department, to: :assessment
 
   validates :assessment_name, presence: true
