@@ -14,3 +14,5 @@ tmp
 /config/certs/outcomes-key.pem
 /config/certs/outcomes.cer
 /config/certs/outcomes.jks
+/config/certs/outcomes-dev-cert.pem
+/config/certs/outcomes-dev-key.pem
