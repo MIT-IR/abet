@@ -30,11 +30,11 @@ class DirectAssessment < ActiveRecord::Base
   end
 
   def archive
-    AssessmentArchivist.archive(self)
+    update!(archived: true)
   end
 
   def unarchive
-    AssessmentArchivist.unarchive(self)
+    update!(archived: false)
   end
 
   private

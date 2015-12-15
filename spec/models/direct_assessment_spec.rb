@@ -24,24 +24,22 @@ describe DirectAssessment do
   end
 
   describe "#archive" do
-    it "archives via the service object" do
-      assessment = DirectAssessment.new
-      allow(AssessmentArchivist).to receive(:archive)
+    it "sets the archived flag and saves" do
+      assessment = create(:direct_assessment)
 
       assessment.archive
 
-      expect(AssessmentArchivist).to have_received(:archive).with(assessment)
+      expect(assessment.reload).to be_archived
     end
   end
 
   describe "#unarchive" do
-    it "unarchives via the service object" do
-      assessment = DirectAssessment.new
-      allow(AssessmentArchivist).to receive(:unarchive)
+    it "unsets the archived flag and saves" do
+      assessment = create(:direct_assessment)
 
       assessment.unarchive
 
-      expect(AssessmentArchivist).to have_received(:unarchive).with(assessment)
+      expect(assessment.reload).not_to be_archived
     end
   end
 end

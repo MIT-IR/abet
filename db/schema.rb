@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214183303) do
+ActiveRecord::Schema.define(version: 20151214214438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,13 +94,12 @@ ActiveRecord::Schema.define(version: 20151214183303) do
   add_index "outcome_assessments", ["outcome_id"], name: "index_outcome_assessments_on_outcome_id", using: :btree
 
   create_table "outcomes", force: :cascade do |t|
-    t.string   "name",                                   null: false
-    t.string   "description",                            null: false
-    t.integer  "course_id",                              null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.integer  "assessments_count",          default: 0, null: false
-    t.integer  "archived_assessments_count", default: 0, null: false
+    t.string   "name",                          null: false
+    t.string   "description",                   null: false
+    t.integer  "course_id",                     null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "assessments_count", default: 0, null: false
   end
 
   add_index "outcomes", ["course_id", "name"], name: "index_outcomes_on_course_id_and_name", unique: true, using: :btree
@@ -180,5 +179,44 @@ ActiveRecord::Schema.define(version: 20151214183303) do
    JOIN outcomes ON ((outcomes.id = outcome_assessments.outcome_id)))
 ORDER BY outcomes.name, results.year DESC, results.semester DESC;
       SQL
+
+     create_view :outcomes_with_metadata, sql_definition:<<-SQL
+       SELECT outcomes.id,
+ outcomes.name,
+ outcomes.description,
+ outcomes.course_id,
+ outcomes.created_at,
+ outcomes.updated_at,
+ outcomes.assessments_count,
+ COALESCE(active_direct_assessments.count, (0)::bigint) AS active_direct_assessments_count,
+ COALESCE(active_indirect_assessments.count, (0)::bigint) AS active_indirect_assessments_count,
+ COALESCE(active_direct_assessments_with_results.count, (0)::bigint) AS active_direct_assessments_with_results_count,
+ COALESCE(active_indirect_assessments_with_results.count, (0)::bigint) AS active_indirect_assessments_with_results_count
+FROM ((((outcomes
+  LEFT JOIN ( SELECT outcome_assessments.outcome_id,
+         count(*) AS count
+        FROM (outcome_assessments
+          JOIN direct_assessments ON ((direct_assessments.id = outcome_assessments.assessment_id)))
+       WHERE (((outcome_assessments.assessment_type)::text = 'DirectAssessment'::text) AND (direct_assessments.archived = false))
+       GROUP BY outcome_assessments.outcome_id) active_direct_assessments ON ((outcomes.id = active_direct_assessments.outcome_id)))
+  LEFT JOIN ( SELECT outcome_assessments.outcome_id,
+         count(*) AS count
+        FROM (outcome_assessments
+          JOIN indirect_assessments ON ((indirect_assessments.id = outcome_assessments.assessment_id)))
+       WHERE (((outcome_assessments.assessment_type)::text = 'IndirectAssessment'::text) AND (indirect_assessments.archived = false))
+       GROUP BY outcome_assessments.outcome_id) active_indirect_assessments ON ((outcomes.id = active_indirect_assessments.outcome_id)))
+  LEFT JOIN ( SELECT outcome_assessments.outcome_id,
+         count(*) AS count
+        FROM (outcome_assessments
+          JOIN direct_assessments ON ((direct_assessments.id = outcome_assessments.assessment_id)))
+       WHERE ((((outcome_assessments.assessment_type)::text = 'DirectAssessment'::text) AND (direct_assessments.archived = false)) AND (direct_assessments.results_count > 0))
+       GROUP BY outcome_assessments.outcome_id) active_direct_assessments_with_results ON ((outcomes.id = active_direct_assessments_with_results.outcome_id)))
+  LEFT JOIN ( SELECT outcome_assessments.outcome_id,
+         count(*) AS count
+        FROM (outcome_assessments
+          JOIN indirect_assessments ON ((indirect_assessments.id = outcome_assessments.assessment_id)))
+       WHERE ((((outcome_assessments.assessment_type)::text = 'IndirectAssessment'::text) AND (indirect_assessments.archived = false)) AND (indirect_assessments.results_count > 0))
+       GROUP BY outcome_assessments.outcome_id) active_indirect_assessments_with_results ON ((outcomes.id = active_indirect_assessments_with_results.outcome_id)));
+     SQL
 
 end
