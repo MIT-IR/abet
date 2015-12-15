@@ -7,10 +7,12 @@
     </tr>
   </thead>
   <tbody>
-    <% course.outcomes.each do |outcome| %>
+    <% course.outcomes_with_metadata.each do |outcome| %>
       <tr>
         <td><%= outcome %></td>
-        <td><%= render "progress_bar", amount: 5, total: 10 %></td>
+        <td><%= render "progress_bar",
+          amount: outcome.active_assessments_with_results_count,
+          total: outcome.active_assessments_count %></td>
         <td><%= link_to t(".edit_outcome"), edit_manage_outcomes_outcome_path(outcome) %></td>
       </tr>
     <% end %>

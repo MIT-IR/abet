@@ -1,6 +1,10 @@
 class Course < ActiveRecord::Base
   belongs_to :department
   has_many :outcomes, -> { order(:name) }
+  has_many :outcomes_with_metadata,
+    -> { order(:name) },
+    foreign_key: :course_id,
+    class_name: "OutcomeWithMetadata"
 
   def self.without_outcomes
     where(outcomes_count: 0)
