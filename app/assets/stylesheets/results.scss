@@ -3,8 +3,10 @@
 }
 
 ul.assessment-details {
-  @extend %default-ul;
-  margin-bottom: $base-spacing;
+  @include margin($large-spacing null);
+  @include padding(null $large-spacing);
+  line-height: 2em;
+  list-style-type: disc;
 }
 
 .period .input {

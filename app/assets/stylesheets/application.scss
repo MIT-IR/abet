@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @import "normalize-rails";
+@import "font-awesome";
 @import "bourbon";
 @import "base/grid-settings";
 @import "neat";
@@ -10,6 +11,7 @@
 @import "refills/type_system";
 @import "refills/accordion_tabs_minimal";
 @import "refills/progress_bar";
+@import "refills/modal";
 @import "selectize";
 @import "selectize.default";
 

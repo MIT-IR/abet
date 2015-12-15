@@ -28,9 +28,9 @@ feature "User updates result" do
 
     visit root_path(as: user)
     click_on "Manage Assessments"
-    click_on course
+    click_on "View Assessments"
     within("#indirect_assessment_#{assessment.id}") do
-      click_on "View and Add Results"
+      click_on "View"
     end
     within("#result_#{result.id}") do
       click_on "Edit"

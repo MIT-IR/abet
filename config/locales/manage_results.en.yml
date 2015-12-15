@@ -16,6 +16,8 @@ en:
         year: Year
       show:
         add_result: Add result
+        archive: Archive
+        edit: Edit
     indirect_assessments:
       outcomes:
         heading: Outcomes Covered by This Assessment

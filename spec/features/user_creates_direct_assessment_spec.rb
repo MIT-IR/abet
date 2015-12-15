@@ -15,8 +15,8 @@ feature "User creates a direct assessment" do
     click_link course.name
 
     expect(page).to have_content subject_
-    expect(page).to have_content outcomes.first
-    expect(page).to have_content outcomes.last
+    expect(page).to have_content "Outcome #{outcomes.first.name} (#{outcomes.first.direct_assessments.count} Assessment)"
+    expect(page).to have_content "Outcome #{outcomes.last.name} (#{outcomes.last.direct_assessments.count} Assessment)"
     expect(page).to have_content "Problem Set 1"
   end
 
