@@ -1,10 +1,9 @@
 .progress {
   $progress-bar-height: 4px;
 
-  @include size(100% $progress-bar-height);
+  @include size(150px $progress-bar-height);
   background-color: $light-gray;
   border-radius: $progress-bar-height / 2;
-  min-width: 150px;
   overflow: hidden;
 }
 
