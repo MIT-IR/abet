@@ -1,22 +1,51 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
-<h1><%= t(".heading", name: @course) %></h1>
-<% if policy(:generic).create_assessments? %>
-  <%= link_to t(".add_assessment"), manage_assessments_root_path, class: "button" %>
-<% end %>
-<br>
+<div class="headline-with-action">
+  <h1><%= t(".heading", name: @course) %></h1>
 
-<% @outcomes.each do |outcome| %>
-  <% if outcome.direct_assessments.any? || outcome.indirect_assessments.any? %>
-    <h2>Outcome <%= outcome %> (<%= t(".assessments_count", count: outcome.assessments_count) %>)</h2>
+  <% if policy(:generic).create_assessments? %>
+    <%= link_to t(".create_new_assessment"), javascript_void,
+      class: "button modal-trigger",
+      data: { target_modal_name: "create-assessment" } %>
+
+    <%= render "manage_assessments/new_assessment_modal" %>
+  <% end %>
+</div>
+
+<h2><%= t(".direct_assessments") %></h2>
+
+<table id="direct_assessments">
+  <tr>
+    <th><%= t(".subject") %></th>
+    <th><%= t(".assignment") %></th>
+    <th><%= t(".minimum") %></th>
+    <th><%= t(".target") %></th>
+    <th><%= t(".actions") %></th>
+  </tr>
+
+  <% @outcomes.each do |outcome| %>
     <% if outcome.direct_assessments.any? %>
       <%= render "direct_assessments", outcome: outcome %>
     <% end %>
+  <% end %>
+</table>
 
-    <br>
+<h2><%= t(".indirect_assessments") %></h2>
 
+<table id="indirect_assessments">
+  <tr>
+    <th><%= t(".name") %></th>
+    <th><%= t(".description") %></th>
+    <th><%= t(".survey_question") %></th>
+    <th><%= t(".minimum") %></th>
+    <th><%= t(".target") %></th>
+    <th><%= t(".type") %></th>
+    <th><%= t(".actions") %></th>
+  </tr>
+
+  <% @outcomes.each do |outcome| %>
     <% if outcome.indirect_assessments.any? %>
       <%= render "indirect_assessments", outcome: outcome %>
     <% end %>
   <% end %>
-<% end %>
+</table>

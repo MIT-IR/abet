@@ -22,38 +22,47 @@ en:
         survey_results_description: The outcome will be assessed based on the results
           from a student survey
       direct_assessments:
-        description: Assignment Description
+        assessment: Assessment
         edit: Edit
-        minimum: Minimum Grade
-        name: Assignment Name
-        subject: Subject
-        target: Target Percentage
-        view_results: View and Add Results
+        outcome_table_section_header: Outcome %{outcome} (%{count})
+        view: View
       index:
-        add_assessment: Add new assessment
-        heading: Assessments for %{name}
-        assessments_count:
-          one: 1 assessment
-          other: "%{count} assessments"
-      indirect_assessments:
+        actions: Actions
+        assignment: Assignment
+        create_new_assessment: Create New Assessment
         description: Description
-        edit: Edit
-        minimum: Minimum Category
+        direct_assessments: Direct Assessments
+        heading: Assessments for %{name}
+        indirect_assessments: Indirect Assessments
+        minimum: Minimum Grade
         name: Name
+        subject: Subject
         survey_question: Survey Question
         target: Target Percentage
         type: Type
-        view_results: View and Add Results
+      indirect_assessments:
+        assessment: Assessment
+        edit: Edit
+        outcome_table_section_header: Outcome %{outcome} (%{count})
+        view: View
       outcomes:
         outcome:
           assess: New Assessment
           details: Details
     dashboard:
-      show:
+      create_assessment_modal:
         by: by
         course: Course
-        get_started: Get started
         subject: Subject
+        get_started: Get started
+      show:
+        actions: Actions
+        assessments: Assessment Coverage
+        name: Name
+        create_new_assessment: Create New Assessment
+        number: Number
+        title: Manage Assessments for Your Courses
+        view_assessments: View Assessments
     courses:
       index:
         actions: Actions
@@ -82,3 +91,9 @@ en:
           survey: New Survey Assessment
       update:
         success: Assessment updated successfully.
+    new_assessment_modal:
+      by: By
+      course: Course
+      create_new_assessment: Create New Assessment
+      get_started: Get Started
+      subject: Subject

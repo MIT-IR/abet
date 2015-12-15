@@ -3,7 +3,7 @@ table {
   border-collapse: collapse;
   font-family: $sans-serif-narrow;
   letter-spacing: 0.25px;
-  margin: $large-spacing 0;
+  margin: $base-spacing 0 $large-spacing;
   width: 100%;
 }
 
@@ -45,4 +45,29 @@ caption {
   margin: $small-spacing 0;
   text-align: left;
   width: 75%;
+}
+
+.table-section-header {
+  background-color: $lightest-gray;
+  color: $medium-gray;
+  font-size: $smallest-font-size;
+  font-weight: $bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.inline-action-links {
+  a {
+    border-right: 2px solid $base-border-color;
+    display: inline-block;
+    line-height: $no-line-height;
+    margin-right: $small-spacing;
+    padding-right: $small-spacing;
+
+    &:last-of-type {
+      border-right: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
 }

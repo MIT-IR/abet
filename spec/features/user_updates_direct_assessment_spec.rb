@@ -23,8 +23,8 @@ feature "User updates a direct assessment" do
     click_on "Submit"
 
     expect(page).to have_content assessment.subject
-    expect(page).to have_content outcome
-    expect(page).to have_content other_outcome
+    expect(page).to have_content "Outcome #{outcome.name} (#{outcome.direct_assessments.count} Assessment)"
+    expect(page).to have_content "Outcome #{other_outcome.name} (#{outcome.direct_assessments.count} Assessment)"
     expect(page).to have_content("85")
   end
 end

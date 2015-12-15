@@ -18,6 +18,14 @@ class Course < ActiveRecord::Base
     update_column(:has_custom_outcomes, true)
   end
 
+  def active_assessments_count
+    outcomes_with_metadata.to_a.sum(&:active_assessments_count)
+  end
+
+  def active_assessments_with_results_count
+    outcomes_with_metadata.to_a.sum(&:active_assessments_with_results_count)
+  end
+
   def to_s
     "#{number}: #{name}"
   end
