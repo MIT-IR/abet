@@ -25,6 +25,5 @@ feature "User updates a direct assessment" do
     expect(page).to have_content assessment.subject
     expect(page).to have_content "Outcome #{outcome.name} (#{outcome.direct_assessments.count} Assessment)"
     expect(page).to have_content "Outcome #{other_outcome.name} (#{outcome.direct_assessments.count} Assessment)"
-    expect(page).to have_content("85")
   end
 end

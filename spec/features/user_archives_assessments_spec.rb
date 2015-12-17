@@ -11,4 +11,15 @@ feature "User archives assessments" do
     expect(page).to have_content "has been archived"
     expect(page).not_to have_content assessment.name
   end
+
+  scenario "when viewing assessments for a course" do
+    assessment = create(:survey)
+    user = user_with_assessments_access_to(assessment.outcomes.first.department)
+
+    visit manage_assessments_course_assessments_path(assessment.courses.first, as: user)
+    click_link "Archive"
+
+    expect(page).to have_content "has been archived"
+    expect(page).not_to have_content assessment.name
+  end
 end

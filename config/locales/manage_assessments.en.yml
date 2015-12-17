@@ -22,6 +22,10 @@ en:
         survey_results_description: The outcome will be assessed based on the results
           from a student survey
       direct_assessments:
+        archive: Archive
+        archive_confirm: Are you sure you want to archive this assessment? You
+          should archive this assessment only if you no longer wish to collect
+          data for it.
         assessment: Assessment
         edit: Edit
         outcome_table_section_header: Outcome %{outcome} (%{count})
@@ -34,13 +38,14 @@ en:
         direct_assessments: Direct Assessments
         heading: Assessments for %{name}
         indirect_assessments: Indirect Assessments
-        minimum: Minimum Grade
         name: Name
         subject: Subject
-        survey_question: Survey Question
-        target: Target Percentage
         type: Type
       indirect_assessments:
+        archive: Archive
+        archive_confirm: Are you sure you want to archive this assessment? You
+          should archive this assessment only if you no longer wish to collect
+          data for it.
         assessment: Assessment
         edit: Edit
         outcome_table_section_header: Outcome %{outcome} (%{count})

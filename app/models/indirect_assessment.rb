@@ -18,4 +18,12 @@ class IndirectAssessment < ActiveRecord::Base
   def to_s
     "#{name} - #{description}"
   end
+
+  def archive
+    update!(archived: true)
+  end
+
+  def unarchive
+    update!(archived: false)
+  end
 end

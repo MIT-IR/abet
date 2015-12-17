@@ -15,7 +15,15 @@ module ManageAssessments
     private
 
     def assessment
-      @_assessment ||= DirectAssessment.find(params[:direct_assessment_id])
+      @_assessment ||= assessment_type.find(assessment_id)
+    end
+
+    def assessment_type
+      params[:type]
+    end
+
+    def assessment_id
+      params["#{assessment_type.model_name.singular}_id"]
     end
   end
 end
