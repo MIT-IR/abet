@@ -36,8 +36,10 @@
           <td>
             <% if course.active_assessments_count > 0 %>
               <%= link_to t(".view_assessments"), manage_assessments_course_assessments_path(course) %>
-            <% else %>
-              <%= t(".no_assessments") %>
+            <% elsif policy(:generic).create_assessments? %>
+              <%= link_to t(".create_new_assessment"), javascript_void,
+                class: "modal-trigger",
+                data: { target_modal_name: "create-assessment" } %>
             <% end %>
           </td>
         </tr>
