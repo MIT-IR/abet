@@ -60,7 +60,7 @@ en:
         assessments: Assessment Coverage
         create_new_assessment: Create New Assessment
         intro_paragraph:
-          link: add an outcome
+          link: set up outcomes
           text_html: If you do not see your course listed below then you need to %{link} for that course.
         name: Name
         no_assessments: No Assessments
