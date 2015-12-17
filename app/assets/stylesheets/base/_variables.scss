@@ -2,26 +2,31 @@
 $sans-serif: "Roboto", sans-serif;
 $sans-serif-narrow: "Roboto Condensed", sans-serif;
 $serif: "Domine", serif;
-
 $base-font-family: $sans-serif, $helvetica;
 $heading-font-family: $serif;
 
 // Font Sizes
 $base-font-size: 1em;
+$smallest-font-size: rem(12);
 $small-font-size: rem(14);
 $large-font-size: modular-scale(1, $base-font-size);
 
 // Line height
+$no-line-height: 1;
 $base-line-height: 1.5;
 $heading-line-height: 1.2;
 
-// Other Sizes
+// Border Radius
 $base-border-radius: 3px;
+
+// Spacing
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
+$smallest-spacing: $base-spacing / 4;
 $large-spacing: $base-spacing * 2;
 $largest-spacing: $base-spacing * 4;
-$smallest-spacing: $base-spacing / 4;
+
+// Other
 $header-height: 62px;
 
 // Colors
@@ -29,15 +34,17 @@ $blue: #1F67A3;
 $light-blue: aliceblue;
 $light-blue-border: shade($light-blue, 5%);
 $dark-gray: #342E2E;
-$medium-gray: #645858;
+$brown: #645858;
+$medium-gray: #aaa;
 $light-gray: #ddd;
+$lightest-gray: #fafafa;
 $white: #fff;
 $required-color: #f58122;
 $mit-red: #a31f34;
 
 // Font Colors
 $base-background-color: #fff;
-$base-font-color: $medium-gray;
+$base-font-color: $brown;
 $action-color: $blue;
 $base-link-color: $action-color !default;
 
@@ -54,7 +61,9 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 
 // Zs
 $base-z-index: 0;
-$flashes-z-index: 99999;
+$navigation-z-index: 100;
+$modal-overlay-z-index: 200;
+$modal-z-index: $modal-overlay-z-index + 1;
 
 // Steps
 $breadcrumb-border-color: $light-blue-border;
@@ -63,6 +72,11 @@ $breadcrumb-height: $base-spacing * 2.4;
 $breadcrumb-arrow-color: $breadcrumb-border-color;
 $breadcrumb-background: $base-background-color;
 $breadcrumb-inactive-hover-color: $breadcrumb-background;
-$breadcrumb-color: $medium-gray;
+$breadcrumb-color: $brown;
 $breadcrumb-color-hover: $action-color;
 $breadcrumb-color-active: $breadcrumb-color;
+
+// Transition
+$base-transition-duration: 0.2s;
+$base-transition: all $base-transition-duration ease-in-out;
+$long-transition: all ($base-transition-duration * 2) ease-in-out;

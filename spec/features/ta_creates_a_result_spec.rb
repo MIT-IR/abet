@@ -15,7 +15,7 @@ feature "TA creates a result" do
     expect(page).to have_content assessment.description
     expect(page).to have_content assessment.subject
 
-    click_on "View and Add Results"
+    click_on "View"
     click_on "Add result"
 
     expect(find_field("result_assessment_name").value).to eq assessment.name
@@ -42,7 +42,7 @@ feature "TA creates a result" do
     user = user_with_results_access_to(assessment.department)
 
     visit manage_assessments_course_assessments_path(assessment.outcomes.first.course, as: user)
-    click_on "View and Add Results"
+    click_on "View"
 
     expect(page).to have_content assessment.name
     expect(page).to have_content assessment.description

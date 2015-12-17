@@ -1,34 +1,49 @@
 <% tab(TabHelper::ASSESSMENTS) %>
-<% if policy(:generic).create_assessments? %>
-  <h2>Create New Assessment</h2>
-  <div class="assessments-dashboard-options">
-    <div class="assessments-dashboard-option">
-      <h6><%= t(".by") %></h6>
-      <h1><%= t(".subject") %></h1>
-      <%= link_to t(".get_started"),
-        new_manage_assessments_direct_assessment_path,
-        class: "button",
-        data: { role: "start-direct-assessment" }
-      %>
-    </div>
 
-    <div class="assessments-dashboard-option">
-      <h6><%= t(".by") %></h6>
-      <h1><%= t(".course") %></h1>
-      <%= link_to t(".get_started"),
-        manage_assessments_courses_path,
-        class: "button",
-        data: { role: "start-indirect-assessment" }
-      %>
-    </div>
-  </div>
-<% end %>
+<div class="headline-with-action">
+  <h1><%= t(".title") %></h1>
 
-<h2>Manage Existing Assessments</h2>
+  <% if policy(:generic).create_assessments? %>
+    <%= link_to t(".create_new_assessment"), javascript_void,
+      class: "button modal-trigger",
+      data: { target_modal_name: "create-assessment" } %>
+
+    <%= render "manage_assessments/new_assessment_modal" %>
+  <% end %>
+</div>
+
+<p><%= t(".intro_paragraph.text_html", link: link_to(t(".intro_paragraph.link"), manage_outcomes_root_path)) %></p>
+
 <div>
-  <ul>
-    <% @courses.each do |course| %>
-      <li><%= link_to course, manage_assessments_course_assessments_path(course) %></li>
-    <% end %>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t(".number") %></th>
+        <th><%= t(".name")%></th>
+        <th><%= t(".assessments") %></th>
+        <th><%= t(".actions") %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @courses.with_outcomes.each do |course| %>
+        <tr>
+          <td><strong><%= course.number %></strong></td>
+          <td><%= course.name %></td>
+          <td><%= render "progress_bar",
+            amount: course.active_assessments_with_results_count,
+            total: course.active_assessments_count %></td>
+          <td>
+            <% if course.active_assessments_count > 0 %>
+              <%= link_to t(".view_assessments"), manage_assessments_course_assessments_path(course) %>
+            <% elsif policy(:generic).create_assessments? %>
+              <%= link_to t(".create_new_assessment"), javascript_void,
+                class: "modal-trigger",
+                data: { target_modal_name: "create-assessment" } %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,17 +1,26 @@
 <% tab(TabHelper::DATA_ENTRY) %>
 
 <h1><%= @assessment %></h1>
+
+<%= link_to t(".edit"),
+  edit_manage_assessments_direct_assessment_path(@assessment),
+  class: "button" %>
+
+<%= link_to t(".archive"),
+  manage_assessments_direct_assessment_archive_path(@assessment),
+  class: "button" %>
+
 <%= assessment_details(@assessment) %>
 
 <section class="results">
   <h2>Results</h2>
-  <%= render "results", results: @assessment.results %>
-
   <% if policy(@assessment).create_results? %>
     <%= link_to t(".add_result"),
       new_manage_results_direct_assessment_result_path(@assessment),
       class: "button" %>
   <% end %>
+
+  <%= render "results", results: @assessment.results %>
 </section>
 
 <section class="outcomes">

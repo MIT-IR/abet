@@ -22,6 +22,8 @@ gem "therubyracer"
 gem "title"
 gem "turbolinks"
 gem "uglifier"
+gem "autoprefixer-rails"
+gem "font-awesome-rails"
 
 group :development do
   gem "bullet"

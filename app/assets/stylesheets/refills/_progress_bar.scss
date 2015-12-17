@@ -8,7 +8,7 @@
 }
 
 .progress-bar {
-  background-color: $medium-gray;
+  background-color: $brown;
   height: 100%;
 }
 
@@ -16,7 +16,7 @@
   color: darken($light-gray, 20%);
   font-family: $sans-serif;
 
-  span {
-    color: $medium-gray;
+  .nonzero-amount {
+    color: $brown;
   }
 }

@@ -1,4 +1,7 @@
 <div class="progress">
   <div class="progress-bar" style="width: <%= progress_bar_percentage_width(amount, total) %>"></div>
 </div>
-<small class="progress-label"><span><%= amount %></span> / <%= total %></small>
+
+<small class="progress-label">
+  <span class="<%= 'nonzero-amount' if amount != 0 %>"><%= amount %></span> / <%= total %>
+</small>
