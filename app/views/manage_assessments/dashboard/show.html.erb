@@ -12,6 +12,8 @@
   <% end %>
 </div>
 
+<p><%= t(".intro_paragraph.text_html", link: link_to(t(".intro_paragraph.link"), manage_outcomes_root_path)) %></p>
+
 <div>
   <table>
     <thead>
@@ -24,7 +26,7 @@
     </thead>
 
     <tbody>
-      <% @courses.each do |course| %>
+      <% @courses.with_outcomes.each do |course| %>
         <tr>
           <td><strong><%= course.number %></strong></td>
           <td><%= course.name %></td>
@@ -34,10 +36,8 @@
           <td>
             <% if course.active_assessments_count > 0 %>
               <%= link_to t(".view_assessments"), manage_assessments_course_assessments_path(course) %>
-            <% elsif policy(:generic).create_assessments? %>
-              <%= link_to t(".create_new_assessment"), javascript_void,
-                class: "modal-trigger",
-                data: { target_modal_name: "create-assessment" } %>
+            <% else %>
+              <%= t(".no_assessments") %>
             <% end %>
           </td>
         </tr>
