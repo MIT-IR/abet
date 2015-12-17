@@ -13,6 +13,16 @@ class Outcome < ActiveRecord::Base
     through: :outcome_assessments,
     source: :assessment,
     source_type: "IndirectAssessment"
+  has_many :active_direct_assessments,
+    -> { where(archived: false) },
+    through: :outcome_assessments,
+    source: :assessment,
+    source_type: "DirectAssessment"
+  has_many :active_indirect_assessments,
+    -> { where(archived: false) },
+    through: :outcome_assessments,
+    source: :assessment,
+    source_type: "IndirectAssessment"
 
   accepts_nested_attributes_for :alignments,
     reject_if: ->(attributes) { attributes[:level].blank? },
