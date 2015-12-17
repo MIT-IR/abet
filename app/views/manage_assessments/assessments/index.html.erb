@@ -24,7 +24,7 @@
   </tr>
 
   <% @outcomes.each do |outcome| %>
-    <% if outcome.direct_assessments.any? %>
+    <% if outcome.active_direct_assessments.any? %>
       <%= render "direct_assessments", outcome: outcome %>
     <% end %>
   <% end %>
@@ -44,7 +44,7 @@
   </tr>
 
   <% @outcomes.each do |outcome| %>
-    <% if outcome.indirect_assessments.any? %>
+    <% if outcome.active_indirect_assessments.any? %>
       <%= render "indirect_assessments", outcome: outcome %>
     <% end %>
   <% end %>
