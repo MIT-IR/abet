@@ -12,6 +12,8 @@
   <% end %>
 </div>
 
+<p><%= t(".intro_paragraph.text_html", link: link_to(t(".intro_paragraph.link"), manage_outcomes_root_path)) %></p>
+
 <div>
   <table>
     <thead>
@@ -24,7 +26,7 @@
     </thead>
 
     <tbody>
-      <% @courses.each do |course| %>
+      <% @courses.with_outcomes.each do |course| %>
         <tr>
           <td><strong><%= course.number %></strong></td>
           <td><%= course.name %></td>
