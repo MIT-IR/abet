@@ -1,5 +1,4 @@
 /.bundle
-#Keeping this checked in because it only contains connection info for dev and test, not prod
 /config/database.yml
 /log/*.log
 /tmp
