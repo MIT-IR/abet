@@ -7,6 +7,7 @@ en:
         view_outcomes: View Outcomes
       courses_table:
         actions: Actions
+        assessment_coverage: Assessment Coverage
         name: Name
         number: Number
       show:
@@ -67,7 +68,7 @@ en:
       outcomes:
         actions: Actions
         add_outcome: Add A Custom Outcome
-        assessments: Assessments
+        assessments: Assessment Coverage
         edit_outcome: Edit Outcome
         outcome: Outcome
       unaligned_standard_outcomes:

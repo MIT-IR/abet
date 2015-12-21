@@ -6,6 +6,9 @@
     <tr>
       <th class="number"><%= t(".number") %></th>
       <th class="name"><%= t(".name") %></th>
+      <% if show_assessment_coverage %>
+        <th class="assessment-coverage"><%= t(".assessment_coverage") %></th>
+      <% end %>
       <th class="actions"><%= t(".actions") %></th>
     </tr>
   </thead>
@@ -14,9 +17,12 @@
       <tr>
         <td><%= course.number %></td>
         <td><%= course.name %></td>
-        <td>
-          <%= render action_partial, course: course %>
-        </td>
+        <% if show_assessment_coverage %>
+          <td><%= render "progress_bar",
+            amount: course.active_assessments_with_results_count,
+            total: course.active_assessments_count %></td>
+        <% end %>
+        <td><%= render action_partial, course: course %></td>
       </tr>
     <% end %>
   </tbody>
