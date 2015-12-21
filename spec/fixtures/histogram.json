@@ -1,0 +1,37 @@
+{
+    "message": "",
+    "status": 1,
+    "data": {
+        "availableNumbersOfBins": [1, 3, 4, 8, 20, 40],
+        "histogram": [{
+            "frequency": 1,
+            "lowerBound": 5.0,
+            "upperBound": 6.0,
+            "lowerBoundString": "5.00",
+            "upperBoundString": "6.00"
+        }, {
+            "frequency": 1,
+            "lowerBound": 6.0,
+            "upperBound": 7.0,
+            "lowerBoundString": "6.00",
+            "upperBoundString": "7.00"
+        }, {
+            "frequency": 0,
+            "lowerBound": 7.0,
+            "upperBound": 8.0,
+            "lowerBoundString": "7.00",
+            "upperBoundString": "8.00"
+        }, {
+            "frequency": 2,
+            "lowerBound": 8.0,
+            "upperBound": 9.0,
+            "lowerBoundString": "8.00",
+            "upperBoundString": "9.00"
+        }
+        ],
+        "mean": "7.25",
+        "title": "Problem Set 1",
+        "stddev": 2.06155281280883,
+        "num": 4
+    }
+}

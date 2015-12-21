@@ -1,0 +1,15 @@
+en:
+  gradebook:
+    assignments:
+      index:
+        actions_header: Actions
+        description_header: Description
+        header: Assignments for %{subject}
+        histogram: View Histogram
+        name_header: Name
+    histograms:
+      show:
+        frequency_header: Frequency
+        header: Histogram for %{title}
+        label_header: Label
+

@@ -1,0 +1,12 @@
+{
+    "message": "",
+    "status": 1,
+    "data": {
+        "gradebookId": 19665739,
+        "uuid": "STELLAR:/project/jeannetest2",
+        "courseName": "JEANNETEST2",
+        "courseNumber": "JEANNETEST2",
+        "gradebookName": "Gradebook for jeannetest2",
+        "membershipSource": "lmod"
+    }
+}

@@ -13,6 +13,10 @@ class GenericPolicy
     true
   end
 
+  def manage_results?
+    user.manage_results?(AnyDepartment.new)
+  end
+
   class AnyDepartment
     def slug
       self
