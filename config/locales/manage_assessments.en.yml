@@ -3,9 +3,10 @@ en:
   manage_assessments:
     archives:
       create:
-        success: Assessment has been archived successfully.
+        success: Assessment "%{name}" has been archived successfully. %{undo}
+        undo: Undo
       destroy:
-        success: Assessment has been unarchived successfully.
+        success: Assessment "%{name}" has been unarchived successfully.
     assessments:
       new:
         heading: Choose an Indirect Assessment Type
