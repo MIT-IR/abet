@@ -13,3 +13,7 @@ ul.assessment-details {
   display: inline-block;
   padding-right: 2em;
 }
+
+[data-role='view-histogram'] {
+  display: none;
+}

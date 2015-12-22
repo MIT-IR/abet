@@ -1,0 +1,21 @@
+<% tab(TabHelper::DATA_ENTRY) %>
+
+<h1><%= t(".header", title: @histogram.title) %></h1>
+
+<div id="histogram"></div>
+<table id="datatable">
+  <thead>
+    <tr>
+      <th><%= t(".label_header") -%></td>
+      <th><%= t(".frequency_header") -%></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @histogram.bars.each do |bar| %>
+      <tr>
+        <td><%= bar.label -%></td>
+        <td><%= bar.frequency -%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

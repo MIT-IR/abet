@@ -41,6 +41,16 @@ Rails.application.routes.draw do
     resources :subjects, only: [:index, :show]
   end
 
+  namespace :gradebook do
+    get "subjects/:subject_id/:semester/:year/assignments",
+      to: "assignments#index",
+      as: :assignments
+
+    resources :assignments, only: [] do
+      resource :histogram, only: [:show]
+    end
+  end
+
   scope :reports, module: :reports do
     resources :courses, only: [] do
       resource :assessment_report, only: [:show]
