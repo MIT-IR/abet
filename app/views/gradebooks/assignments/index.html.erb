@@ -15,7 +15,7 @@
       <tr>
         <td><%= assignment.name %></td>
         <td><%= assignment.description %></td>
-        <td><%= link_to t(".histogram"), gradebook_assignment_histogram_path(assignment_id: assignment.assignmentId) %></td>
+        <td><%= link_to t(".histogram"), gradebooks_assignment_histogram_path(assignment_id: assignment.assignmentId) %></td>
       </tr>
     <% end %>
   </tbody>

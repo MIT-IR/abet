@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     resources :subjects, only: [:index, :show]
   end
 
-  namespace :gradebook do
+  namespace :gradebooks do
     get "subjects/:subject_id/:semester/:year/assignments",
       to: "assignments#index",
       as: :assignments

@@ -6,11 +6,11 @@ class Offering
   end
 
   def assignments
-    @_assignments = gradebook_client.assignments_for(gradebook_id)
+    @_assignments = GradebookClient::Assignment.where(gradebook_id: gradebook_id)
   end
 
   def gradebook_id
-    @_gradebook_id = gradebook_client.gradebook_id_for(uuid)
+    @_gradebook_id = GradebookClient::Gradebook.find_by_uuid(uuid).id
   end
 
   def to_s
@@ -27,9 +27,5 @@ class Offering
 
   def term
     "#{semester}#{year.last(2)}"
-  end
-
-  def gradebook_client
-    GradebookClient.new
   end
 end

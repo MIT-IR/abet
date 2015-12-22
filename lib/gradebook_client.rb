@@ -1,39 +1,10 @@
-class GradebookClient
-  def assignments_for(gradebook_id)
-    fixture = File.read(Rails.root.join("spec", "fixtures", "assignments.json"))
+require_relative "gradebook_client/adapters/learning_modules"
+require_relative "gradebook_client/adapters/fake"
+require_relative "gradebook_client/configuration"
+require_relative "gradebook_client/assignment"
+require_relative "gradebook_client/gradebook"
+require_relative "gradebook_client/histogram"
+require_relative "gradebook_client/histogram_bar"
 
-    JSON.parse(fixture)["data"].map do |assignment|
-      Assignment.new(assignment)
-    end
-  end
-
-  def gradebook_id_for(uuid)
-    fixture = File.read(Rails.root.join("spec", "fixtures", "gradebook.json"))
-    Gradebook.new(JSON.parse(fixture)["data"]).gradebookId
-  end
-
-  def histogram_for(assignment_id)
-    fixture = File.read(Rails.root.join("spec", "fixtures", "histogram.json"))
-    Histogram.new(JSON.parse(fixture)["data"])
-  end
-
-  class Assignment < OpenStruct
-  end
-
-  class Gradebook < OpenStruct
-  end
-
-  class Histogram < OpenStruct
-    def bars
-      histogram.map do |bar|
-        HistogramBar.new(bar)
-      end
-    end
-  end
-
-  class HistogramBar < OpenStruct
-    def label
-      "#{lowerBoundString} - #{upperBoundString}"
-    end
-  end
+module GradebookClient
 end

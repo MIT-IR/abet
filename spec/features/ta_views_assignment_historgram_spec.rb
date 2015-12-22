@@ -5,7 +5,7 @@ feature "TA views assignment histogram" do
     _subject = create(:subject)
     user = user_with_results_access_to(_subject.department)
 
-    visit gradebook_assignments_path(
+    visit gradebooks_assignments_path(
       subject_id: _subject,
       semester: "FA",
       year: "2016",

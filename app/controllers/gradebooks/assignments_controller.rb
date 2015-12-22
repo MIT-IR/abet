@@ -1,4 +1,4 @@
-module Gradebook
+module Gradebooks
   class AssignmentsController < ApplicationController
     def index
       @offering = Offering.new(
