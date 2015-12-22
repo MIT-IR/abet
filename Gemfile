@@ -25,6 +25,7 @@ gem "turbolinks"
 gem "uglifier"
 gem "autoprefixer-rails"
 gem "font-awesome-rails"
+gem "inline_svg"
 
 group :development do
   gem "bullet"

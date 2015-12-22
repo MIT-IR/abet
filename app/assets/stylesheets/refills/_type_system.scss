@@ -5,12 +5,8 @@ body {
 }
 
 hr {
+  @include margin($large-spacing null);
   border-bottom: 1px solid $light-gray;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  margin: $base-spacing 0;
-  width: 3em;
 }
 
 a {
@@ -25,11 +21,11 @@ h4,
 h5,
 h6 {
   color: $mit-red;
-  font-weight: 700;
-  font-family: $heading-font-family;
+  font-weight: $bold;
 }
 
 h1 {
+  font-family: $heading-font-family;
   font-size: 1.6em;
   margin-bottom: 0.6em;
 
@@ -39,6 +35,7 @@ h1 {
 }
 
 h2 {
+  font-family: $heading-font-family;
   font-size: 1.1em;
   line-height: 1.5em;
   margin-bottom: 1.2em;
@@ -49,10 +46,25 @@ h2 {
 }
 
 h3 {
+  font-family: $heading-font-family;
   font-size: 1em;
   line-height: 1.4em;
   margin-bottom: 0.5em;
   text-transform: uppercase;
+}
+
+h4 {
+  @include margin($medium-spacing null $base-spacing);
+  font-family: $sans-serif-narrow;
+  font-size: $small-font-size;
+  letter-spacing: $base-letter-spacing;
+  text-transform: uppercase;
+}
+
+h5 {
+  @include margin($medium-spacing null $base-spacing);
+  font-family: $heading-font-family;
+  font-size: $small-font-size;
 }
 
 p {

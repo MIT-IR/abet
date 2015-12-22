@@ -1,0 +1,8 @@
+.container {
+  @include outer-container;
+}
+
+.narrow-content {
+  @include shift(2);
+  @include span-columns(8);
+}

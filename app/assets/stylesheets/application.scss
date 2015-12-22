@@ -6,6 +6,7 @@
 @import "base/grid-settings";
 @import "neat";
 @import "base/base";
+@import "extends";
 @import "refills/flashes";
 @import "refills/navigation";
 @import "refills/type_system";
@@ -15,22 +16,16 @@
 @import "selectize";
 @import "selectize.default";
 
+@import "assessment_types";
+@import "assessments";
 @import "course";
 @import "direct_assessment";
+@import "documentation";
 @import "errors";
+@import "faq";
+@import "layout";
 @import "outcome";
 @import "outcomes";
 @import "outcomes_dashboard";
 @import "results";
-@import "assessments";
 @import "subjects";
-@import "assessment_types";
-@import "extends";
-
-.main {
-  @include outer-container;
-}
-
-.no-records {
-  @include flash($notice-color);
-}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render "layouts/head" %>
+
+  <body>
+    <%= render "navigation" %>
+
+    <div class="container documentation-container">
+      <%= render "layouts/documentation_side_nav" %>
+
+      <main class="documentation-content-wrapper">
+        <div class="documentation-content">
+          <%= yield %>
+
+          <% unless current_page?(page_path("getting_started")) %>
+            <%= render "layouts/get_help" %>
+          <% end %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

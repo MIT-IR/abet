@@ -1,0 +1,17 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%#
+    Configure default and controller-, and view-specific titles in
+    config/locales/en.yml. For more see:
+    https://github.com/calebthompson/title#usage
+  %>
+  <title><%= title %></title>
+  <%= stylesheet_link_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= google_fonts_stylesheet_link_tag "Roboto:400,700,300,400italic,700italic,300italic" %>
+  <%= google_fonts_stylesheet_link_tag "Roboto+Condensed:400,700" %>
+  <%= google_fonts_stylesheet_link_tag "Domine:400,700" %>
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>

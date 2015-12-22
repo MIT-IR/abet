@@ -14,6 +14,10 @@ ul.assessment-details {
   padding-right: 2em;
 }
 
+.no-records {
+  @include flash($notice-color);
+}
+
 [data-role='view-histogram'] {
   display: none;
 }

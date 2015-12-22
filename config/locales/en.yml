@@ -40,10 +40,15 @@ en:
       survey: Survey
   application:
     navigation:
-      about: About
-      contact: Contact
+      assessments: Assessments
+      documentation: Documentation
+      faq: FAQ
+      getting_started: Getting Started
+      help: Help
       home: Home
       menu: MENU
+      outcomes: Outcomes
+      recording_data: Recording Data
     tabs:
       assessments: Manage Assessments
       data: Record Data
@@ -56,5 +61,20 @@ en:
       label: Label
   helpers:
     cancel_button: Cancel
+    jon_daries_html: Jon Daries in Institutional Research at %{email}
+  layouts:
+    documentation_side_nav:
+      assessments: Assessments
+      faq: FAQ
+      getting_started: Getting Started
+      outcomes: Outcomes
+      recording_data: Recording Data
+  pages:
+    faq:
+      access:
+        answer:
+          Access is managed via the Roles Database, and can be assigned by your department's HR contact.
+        question:
+          I don't have access to the site.
   titles:
     application: ABET Outcomes Assessment

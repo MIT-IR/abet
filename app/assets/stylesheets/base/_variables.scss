@@ -14,6 +14,7 @@ $large-font-size: modular-scale(1, $base-font-size);
 // Line height
 $no-line-height: 1;
 $base-line-height: 1.5;
+$large-line-height: 1.875;
 $heading-line-height: 1.2;
 
 // Border Radius
@@ -21,13 +22,18 @@ $base-border-radius: 3px;
 
 // Spacing
 $base-spacing: $base-line-height * 1em;
-$small-spacing: $base-spacing / 2;
 $smallest-spacing: $base-spacing / 4;
+$small-spacing: $base-spacing / 2;
+$medium-spacing: $base-spacing * 1.5;
 $large-spacing: $base-spacing * 2;
 $largest-spacing: $base-spacing * 4;
 
+// Letter Spacing
+$base-letter-spacing: 1px;
+
 // Other
-$header-height: 62px;
+$navigation-height: 60px;
+$documentation-side-bar-width: 150px;
 
 // Colors
 $blue: #1F67A3;
@@ -80,3 +86,6 @@ $breadcrumb-color-active: $breadcrumb-color;
 $base-transition-duration: 0.2s;
 $base-transition: all $base-transition-duration ease-in-out;
 $long-transition: all ($base-transition-duration * 2) ease-in-out;
+
+// Shadows
+$base-inset-shadow: inset 0 1px 3px $light-gray;

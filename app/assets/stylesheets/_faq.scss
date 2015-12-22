@@ -1,0 +1,41 @@
+.faq-row {
+  border-top: $base-border;
+  display: block;
+
+  &:hover,
+  &:focus {
+    @include linear-gradient(to top, $white, $lightest-gray);
+  }
+
+  &:last-of-type {
+    border-bottom: $base-border;
+  }
+
+  p {
+    margin-bottom: 0;
+    white-space: normal;
+  }
+}
+
+.faq-row-question {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: $small-spacing;
+
+  p {
+    color: $blue;
+    flex: 1;
+    font-weight: $bold;
+    margin-right: $base-spacing;
+  }
+
+  .plus-sign-line {
+    fill: $blue;
+  }
+}
+
+.faq-row-answer {
+  display: none;
+  margin: $small-spacing;
+}
