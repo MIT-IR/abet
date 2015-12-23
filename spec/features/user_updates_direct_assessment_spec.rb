@@ -4,8 +4,7 @@ feature "User updates a direct assessment" do
   scenario "a direct assessment is successfully updated" do
     course = create(:course, :fully_aligned)
     outcome, other_outcome = create_pair(:outcome, course: course)
-    assessment = create(:direct_assessment, target_percentage: 50)
-    assessment.outcomes << outcome
+    assessment = create(:direct_assessment, target_percentage: 50, outcomes: [outcome])
     user = user_with_admin_access_to(course.department)
 
     visit manage_outcomes_root_path(as: user)

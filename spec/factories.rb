@@ -52,12 +52,14 @@ FactoryGirl.define do
     target_percentage 80
 
     after(:build) do |assessment|
-      course = create(:course)
-      assessment.outcomes << create(:outcome, course: course)
-      unless assessment.subject.present?
+      if assessment.outcomes.empty?
+        assessment.outcomes << create(:outcome, course: create(:course))
+      end
+
+      if assessment.subject.nil?
         assessment.subject = build(
           :subject,
-          department_number: course.department.number
+          department_number: assessment.department.number
         )
       end
     end
