@@ -1,0 +1,16 @@
+<%= form_tag manage_assessments_course_assessments_path(course), method: :get do %>
+  <%= select_tag(
+    "outcome_ids",
+    options_from_collection_for_select(
+      outcomes,
+      :id,
+      ->(outcome){ t(".outcome_label", name: outcome.name.upcase) },
+      params[:outcome_ids],
+    ),
+    include_blank: t(".all_outcomes"),
+    data: { behavior: "auto-submit" },
+    placeholder: "All Outcomes",
+  ) %>
+
+  <%= submit_tag "Filter", data: { behavior: :hidden } %>
+<% end %>

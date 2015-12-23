@@ -21,8 +21,6 @@ feature "User updates a direct assessment" do
     fill_in "direct_assessment_target_percentage", with: 85
     click_on "Submit"
 
-    expect(page).to have_content assessment.subject
-    expect(page).to have_content "Outcome #{outcome.name} (#{outcome.direct_assessments.count} Assessment)"
-    expect(page).to have_content "Outcome #{other_outcome.name} (#{outcome.direct_assessments.count} Assessment)"
+    expect(page.find("#direct_assessments")).to have_content assessment.subject
   end
 end

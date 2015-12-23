@@ -9,7 +9,9 @@
       <%= render "tabs" %>
     <% end %>
 
-    <section class="container tab-content" role="main">
+    <%= yield :header_with_filters %>
+
+    <section class="container" role="main">
       <%= render "flashes" %>
       <%= yield %>
     </section>

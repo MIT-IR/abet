@@ -1,6 +1,7 @@
 FactoryGirl.define do
   sequence(:label) { |n| ("a".."zzz").to_a[n - 1] }
   sequence(:name) { |n| "The #{n.ordinalize} Name" }
+  sequence(:description) { |n| "The #{n.ordinalize} Description" }
   sequence(:number) { |n| n.to_s }
 
   factory :alignment do
@@ -45,15 +46,19 @@ FactoryGirl.define do
   end
 
   factory :direct_assessment do
-    description "Integration"
+    description
     minimum_requirement "7 points out of 10"
-    name "Problem Set 1"
+    name
     problem_description "Question 3, Integration by parts"
     target_percentage 80
 
-    after(:build) do |assessment|
+    transient do
+      course { create(:course) }
+    end
+
+    after(:build) do |assessment, evaluator|
       if assessment.outcomes.empty?
-        assessment.outcomes << create(:outcome, course: create(:course))
+        assessment.outcomes << create(:outcome, course: evaluator.course)
       end
 
       if assessment.subject.nil?

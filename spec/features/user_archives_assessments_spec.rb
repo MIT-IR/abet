@@ -20,7 +20,7 @@ feature "User archives assessments" do
     click_link "Archive"
 
     expect(page).to have_content "has been archived"
-    expect(find("#direct_assessments")).not_to have_content assessment.name
+    expect(page).not_to have_css("#direct_assessments")
 
     click_link "Undo"
 

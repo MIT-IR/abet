@@ -9,6 +9,18 @@ class IndirectAssessment < ActiveRecord::Base
   validates :name, presence: true
   validates :target_percentage, presence: true, inclusion: { in: 0..100 }
 
+  def self.unarchived
+    where(archived: false)
+  end
+
+  def self.for_course(course)
+    joins(:courses).where(courses: { id: course }).uniq
+  end
+
+  def self.for_outcomes(outcomes)
+    joins(:outcomes).where(outcomes: { id: outcomes })
+  end
+
   def department
     outcomes.first.department
   end

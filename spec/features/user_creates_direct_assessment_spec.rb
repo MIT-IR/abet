@@ -14,10 +14,10 @@ feature "User creates a direct assessment" do
     fill_and_submit_form
     click_link course.name
 
-    expect(page).to have_content subject_
-    expect(page).to have_content "Outcome #{outcomes.first.name} (#{outcomes.first.direct_assessments.count} Assessment)"
-    expect(page).to have_content "Outcome #{outcomes.last.name} (#{outcomes.last.direct_assessments.count} Assessment)"
-    expect(page).to have_content "Problem Set 1"
+    within "#direct_assessments" do
+      expect(page).to have_content subject_
+      expect(page).to have_content "Problem Set 1"
+    end
   end
 
   def fill_and_submit_form

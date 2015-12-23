@@ -1,6 +1,7 @@
 table {
   @include font-feature-settings("kern", "liga", "tnum");
   border-collapse: collapse;
+  border-top: 2px solid $medium-gray;
   font-family: $sans-serif-narrow;
   letter-spacing: 0.25px;
   margin: $base-spacing 0 $large-spacing;
@@ -39,6 +40,10 @@ tr,
 td,
 th {
   vertical-align: middle;
+}
+
+th.actions {
+  width: 300px;
 }
 
 caption {

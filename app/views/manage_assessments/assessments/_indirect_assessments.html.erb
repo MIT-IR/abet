@@ -1,31 +1,31 @@
-<tr>
-  <td colspan="4" class="table-section-header" title="<%= outcome.description %>">
-    <%= t(".outcome_table_section_header",
-      outcome: outcome.name,
-      count: pluralize(outcome.indirect_assessments.count, t(".assessment"))) %>
-  </td>
-</tr>
+<table id="indirect_assessments">
+  <tr>
+    <th><%= t(".name") %></th>
+    <th><%= t(".description") %></th>
+    <th><%= t(".type") %></th>
+    <th class="actions"><%= t(".actions") %></th>
+  </tr>
 
-<% outcome.indirect_assessments.each do |assessment| %>
-  <%= content_tag_for :tr, assessment do %>
-    <td><%= assessment.name %></td>
-    <td><%= assessment.description %></td>
-    <td><%= assessment_type(assessment) %></td>
+  <% indirect_assessments.each do |assessment| %>
+    <%= content_tag_for :tr, assessment do %>
+      <td><%= assessment.name %></td>
+      <td><%= assessment.description %></td>
+      <td><%= assessment_type(assessment) %></td>
 
-    <td class="inline-action-links">
-      <% if policy(assessment).edit? %>
-        <%= link_to t(".edit"), edit_manage_assessments_indirect_assessment_path(assessment) %>
-      <% end %>
+      <td class="inline-action-links">
+        <% if policy(assessment).edit? %>
+          <%= link_to t(".edit"), edit_manage_assessments_indirect_assessment_path(assessment) %>
+        <% end %>
 
-      <%= link_to t(".view"), manage_results_indirect_assessment_path(assessment) %>
+        <%= link_to t(".view"), manage_results_indirect_assessment_path(assessment) %>
 
-      <% if policy(assessment).edit? %>
-        <%= link_to t(".archive"),
-          manage_assessments_indirect_assessment_archive_path(assessment),
-          method: :post,
-          data: { confirm: t(".archive_confirm") } %>
-      <% end %>
-    </td>
-    </td>
+        <% if policy(assessment).edit? %>
+          <%= link_to t(".archive"),
+            manage_assessments_indirect_assessment_archive_path(assessment),
+            method: :post,
+            data: { confirm: t(".archive_confirm") } %>
+        <% end %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
+</table>

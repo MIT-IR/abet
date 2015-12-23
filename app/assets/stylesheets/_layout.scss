@@ -1,5 +1,7 @@
 .container {
   @include outer-container;
+  padding: $large-spacing $gutter $base-spacing;
+  width: 100%;
 }
 
 .narrow-content {

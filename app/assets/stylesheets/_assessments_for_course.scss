@@ -1,0 +1,11 @@
+.outcome-description {
+  border-bottom: $base-border;
+  margin-bottom: $large-spacing;
+  padding-bottom: $large-spacing;
+
+  p {
+    font-family: $serif;
+    line-height: $large-line-height;
+    margin-bottom: 0;
+  }
+}

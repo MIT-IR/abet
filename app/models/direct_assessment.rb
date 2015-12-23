@@ -19,6 +19,14 @@ class DirectAssessment < ActiveRecord::Base
     where(archived: false)
   end
 
+  def self.for_course(course)
+    joins(:courses).where(courses: { id: course }).uniq
+  end
+
+  def self.for_outcomes(outcomes)
+    joins(:outcomes).where(outcomes: { id: outcomes })
+  end
+
   def department
     if outcomes.length > 0
       outcomes.first.department

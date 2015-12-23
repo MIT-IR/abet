@@ -1,28 +1,28 @@
-<tr>
-  <td colspan="3" class="table-section-header" title="<%= outcome.description %>">
-    <%= t(".outcome_table_section_header",
-      outcome: outcome.name,
-      count: pluralize(outcome.direct_assessments.count, t(".assessment"))) %>
-  </td>
-</tr>
+<table id="direct_assessments">
+  <tr>
+    <th><%= t(".subject") %></th>
+    <th><%= t(".assignment") %></th>
+    <th class="actions"><%= t(".actions") %></th>
+  </tr>
 
-<% outcome.direct_assessments.each do |assessment| %>
-  <%= content_tag_for :tr, assessment do %>
-    <td><%= assessment.subject %></td>
-    <td><%= assessment.name %> - <%= assessment.description %></td>
-    <td class="inline-action-links">
-      <% if policy(assessment).edit? %>
-        <%= link_to t(".edit"), edit_manage_assessments_direct_assessment_path(assessment) %>
-      <% end %>
+  <% direct_assessments.each do |assessment| %>
+    <%= content_tag_for :tr, assessment do %>
+      <td><%= assessment.subject %></td>
+      <td><%= assessment.name %> - <%= assessment.description %></td>
+      <td class="inline-action-links">
+        <% if policy(assessment).edit? %>
+          <%= link_to t(".edit"), edit_manage_assessments_direct_assessment_path(assessment) %>
+        <% end %>
 
-      <%= link_to t(".view"), manage_results_direct_assessment_path(assessment) %>
+        <%= link_to t(".view"), manage_results_direct_assessment_path(assessment) %>
 
-      <% if policy(assessment).edit? %>
-        <%= link_to t(".archive"),
-          manage_assessments_direct_assessment_archive_path(assessment),
-          method: :post,
-          data: { confirm: t(".archive_confirm") }%>
-      <% end %>
-    </td>
+        <% if policy(assessment).edit? %>
+          <%= link_to t(".archive"),
+            manage_assessments_direct_assessment_archive_path(assessment),
+            method: :post,
+            data: { confirm: t(".archive_confirm") }%>
+        <% end %>
+      </td>
+    <% end %>
   <% end %>
-<% end %>
+</table>

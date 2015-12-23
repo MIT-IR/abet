@@ -8,6 +8,7 @@ $tab-mode: $medium-screen;
 .accordion-tabs-minimal {
   @include outer-container;
   @include clearfix;
+  border-bottom: $tab-border;
   line-height: 1.5;
   margin-top: $large-spacing;
   padding: 0;
@@ -48,10 +49,4 @@ $tab-mode: $medium-screen;
       }
     }
   }
-}
-
-.tab-content {
-  border-top: $tab-border;
-  padding: $large-spacing $gutter $base-spacing;
-  width: 100%;
 }

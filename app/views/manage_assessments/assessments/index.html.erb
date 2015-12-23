@@ -1,46 +1,46 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
-<div class="headline-with-action">
-  <h1><%= t(".heading", name: @course) %></h1>
+<%= content_for :header_with_filters do %>
+  <section class="header-with-filters">
+    <div class="container">
+      <div class="headline-with-action">
+        <h1><%= @course %></h1>
 
-  <% if policy(:generic).create_assessments? %>
-    <%= link_to t(".create_new_assessment"), javascript_void,
-      class: "button modal-trigger",
-      data: { target_modal_name: "create-assessment" } %>
+        <% if policy(:generic).create_assessments? %>
+          <%= link_to t(".create_new_assessment"), javascript_void,
+            class: "button modal-trigger",
+            data: { target_modal_name: "create-assessment" } %>
 
-    <%= render "manage_assessments/new_assessment_modal" %>
-  <% end %>
-</div>
+          <%= render "manage_assessments/new_assessment_modal" %>
+        <% end %>
+      </div>
 
-<h2><%= t(".direct_assessments") %></h2>
+      <div class="filters">
+        <%= render "filter_form", outcomes: @outcomes, course: @course %>
+      </div>
+    </div>
+  </section>
+<% end %>
 
-<table id="direct_assessments">
-  <tr>
-    <th><%= t(".subject") %></th>
-    <th><%= t(".assignment") %></th>
-    <th><%= t(".actions") %></th>
-  </tr>
+<% if @filtered_outcome.present? %>
+  <section class="outcome-description">
+    <h2><%= t(".outcome", name: @filtered_outcome.name.capitalize) %></h2>
+    <p><%= @filtered_outcome.description %></p>
+  </section>
+<% end %>
 
-  <% @outcomes.each do |outcome| %>
-    <% if outcome.active_direct_assessments.any? %>
-      <%= render "direct_assessments", outcome: outcome %>
-    <% end %>
-  <% end %>
-</table>
+<h3><%= t(".direct_assessments", count: @direct_assessments.length) %></h3>
 
-<h2><%= t(".indirect_assessments") %></h2>
+<% if @direct_assessments.present? %>
+  <%= render "direct_assessments", direct_assessments: @direct_assessments %>
+<% else %>
+  <%= render "no_assessments", assessment_type: t(".direct") %>
+<% end %>
 
-<table id="indirect_assessments">
-  <tr>
-    <th><%= t(".name") %></th>
-    <th><%= t(".description") %></th>
-    <th><%= t(".type") %></th>
-    <th><%= t(".actions") %></th>
-  </tr>
+<h3><%= t(".indirect_assessments", count: @indirect_assessments.length) %></h3>
 
-  <% @outcomes.each do |outcome| %>
-    <% if outcome.active_indirect_assessments.any? %>
-      <%= render "indirect_assessments", outcome: outcome %>
-    <% end %>
-  <% end %>
-</table>
+<% if @indirect_assessments.present? %>
+  <%= render "indirect_assessments", indirect_assessments: @indirect_assessments %>
+<% else %>
+  <%= render "no_assessments", assessment_type: t(".indirect") %>
+<% end %>
