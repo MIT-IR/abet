@@ -2,6 +2,7 @@ module TabHelper
   OUTCOMES = :outcomes
   ASSESSMENTS = :assessments
   DATA_ENTRY = :data_entry
+  REPORTS = :reports
 
   def tab(value)
     @current_tab = value.to_sym

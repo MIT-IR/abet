@@ -53,6 +53,7 @@ en:
       assessments: Manage Assessments
       data: Record Data
       outcomes: Manage Outcomes
+      reports: Reports
   courses:
     outcomes:
       actions: Actions

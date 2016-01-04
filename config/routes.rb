@@ -55,6 +55,8 @@ Rails.application.routes.draw do
     resources :courses, only: [] do
       resource :assessment_report, only: [:show]
     end
+
+    root to: "courses#index", as: :reports
   end
 
   get "/pages/*id" => "pages#show", as: :page, format: false

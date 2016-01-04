@@ -12,3 +12,9 @@ en:
         outcome_name: Outcome Name
         period: Period
         target_percentage: Target Percentage
+    courses:
+      index:
+        assessment_report: Assessment Report
+        course_name: Course Name
+        heading: Available Reports
+        reports: Reports

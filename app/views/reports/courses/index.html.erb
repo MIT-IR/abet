@@ -1,0 +1,21 @@
+<% tab(TabHelper::REPORTS) %>
+
+<h1><%= t(".heading") %></h1>
+
+<table>
+  <thead>
+    <th><%= t(".course_name") %></th>
+    <th><%= t(".reports") %></th>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course %></td>
+        <td>
+          <%= link_to t(".assessment_report"),
+            course_assessment_report_path(course_id: course) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
