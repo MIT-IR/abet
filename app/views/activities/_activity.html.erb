@@ -1,0 +1,31 @@
+<tr>
+  <td class="activity-icon">
+    <% if activity.event == "create" %>
+      <%= image_tag "icon_create.svg" %>
+    <% else %>
+      <%= image_tag "icon_edit.svg" %>
+    <% end %>
+  </td>
+
+  <td class="activity-event-and-subject">
+    <span class="activity-event">
+      <%= t(
+        ".event.#{activity.event}_html",
+        assessment: link_to(
+          activity.result.name,
+          result_assessment_path(activity.result),
+        ),
+      ) %>
+    </span>
+
+    <span class="activity-subject"><%= activity.subject %></span>
+  </td>
+
+  <td class="activity-user">
+    <%= activity.username %>
+  </td>
+
+  <td class="activity-time">
+    <%= activity.time_formatted %>
+  </td>
+</tr>

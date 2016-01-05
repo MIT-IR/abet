@@ -2,8 +2,10 @@ class Result < ActiveRecord::Base
   SEMESTERS = ["FA", "JA", "SP"]
   YEARS = (2012..2019).to_a
 
+  before_save :denormalize_department
+
   belongs_to :assessment, polymorphic: true, counter_cache: true
-  delegate :department, to: :assessment
+  belongs_to :department
 
   validates :assessment_name, presence: true
   validates :assessment_description, presence: true
@@ -15,4 +17,14 @@ class Result < ActiveRecord::Base
     uniqueness: { scope: [:assessment_type, :semester, :year] }
 
   has_paper_trail
+
+  def name
+    "#{assessment_name} - #{assessment_description}"
+  end
+
+  private
+
+  def denormalize_department
+    self.department = assessment.department
+  end
 end

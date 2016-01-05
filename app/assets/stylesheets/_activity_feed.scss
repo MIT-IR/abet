@@ -1,0 +1,43 @@
+.activity-feed {
+  border-top: $base-border;
+}
+
+.activity-header-date {
+  color: $mit-red;
+}
+
+.activity-icon {
+  $icon-size: 16px;
+  $padding: $base-spacing;
+
+  width: em($icon-size) + $padding;
+
+  img {
+    display: block;
+  }
+}
+
+.activity-event-and-subject {
+  @include padding($base-spacing null);
+}
+
+.activity-event {
+  display: block;
+  font-family: $serif;
+  margin-bottom: $smallest-spacing;
+
+  a {
+    display: inline;
+  }
+}
+
+.activity-subject {
+  color: $medium-gray;
+  display: block;
+  font-size: $small-font-size;
+}
+
+.activity-header-count,
+.activity-time {
+  text-align: right;
+}

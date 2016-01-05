@@ -38,6 +38,16 @@ en:
       other_assessment: Other Assessment
       participation: Program Participation
       survey: Survey
+  activities:
+    activity:
+      event:
+        create_html: Results created for %{assessment}
+        update_html: Results updated for %{assessment}
+    index:
+      activity_count:
+        one: 1 Change
+        other: "%{count} Changes"
+      heading: Activity Feed
   application:
     navigation:
       assessments: Assessments
@@ -50,6 +60,7 @@ en:
       outcomes: Outcomes
       recording_data: Recording Data
     tabs:
+      activity_feed: Activity Feed
       assessments: Manage Assessments
       data: Record Data
       outcomes: Manage Outcomes
@@ -63,6 +74,8 @@ en:
   helpers:
     cancel_button: Cancel
     jon_daries_html: Jon Daries in Institutional Research at %{email}
+    today: Today
+    yesterday: Yesterday
   layouts:
     documentation_side_nav:
       assessments: Assessments

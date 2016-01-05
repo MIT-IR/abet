@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.string   "semester"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "department_id"
   end
 
   add_index "results", ["assessment_id", "assessment_type", "year", "semester"], name: "index_results_on_assessment_and_year_and_semester", unique: true, using: :btree
@@ -152,6 +153,7 @@ ActiveRecord::Schema.define(version: 20151223163901) do
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+  add_index "versions", ["item_type"], name: "index_versions_on_item_type", using: :btree
 
   add_foreign_key "alignments", "outcomes"
   add_foreign_key "alignments", "standard_outcomes"

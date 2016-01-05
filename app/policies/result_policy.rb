@@ -1,6 +1,6 @@
 class ResultPolicy < ApplicationPolicy
   def create?
-    user.manage_results?(record.department)
+    user.manage_results?(record.assessment.department)
   end
 
   def update?

@@ -59,6 +59,8 @@ Rails.application.routes.draw do
     root to: "courses#index", as: :reports
   end
 
+  resources :activities, only: [:index]
+
   get "/pages/*id" => "pages#show", as: :page, format: false
   root "manage_outcomes/dashboard#show"
 end

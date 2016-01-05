@@ -2,6 +2,7 @@ module TabHelper
   OUTCOMES = :outcomes
   ASSESSMENTS = :assessments
   DATA_ENTRY = :data_entry
+  ACTIVITY_FEED = :activity_feed
   REPORTS = :reports
 
   def tab(value)

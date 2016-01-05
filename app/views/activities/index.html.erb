@@ -1,0 +1,14 @@
+<% tab(TabHelper::ACTIVITY_FEED) %>
+
+<h1><%= t(".heading") %></h1>
+
+<table class="activity-feed">
+  <% @activity_feed.grouped_activities.each do |date, activities| %>
+    <tr class="table-section-header">
+      <td class="activity-header-date" colspan="3"><%= relative_date(date) %></td>
+      <td class="activity-header-count"><%= t(".activity_count", count: activities.size) %></td>
+    </tr>
+
+    <%= render activities %>
+  <% end %>
+</table>
