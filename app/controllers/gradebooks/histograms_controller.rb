@@ -1,5 +1,5 @@
 module Gradebooks
-  class HistogramsController < ApplicationController
+  class HistogramsController < BaseController
     def show
       authorize(:generic, :manage_results?)
       @histogram = GradebookClient::Histogram.find_by_assignment_id(

@@ -44,22 +44,20 @@ module GradebookClient
         else
           parse(resource.get(params: params))
         end
+      rescue RestClient::Exception => ex
+        message = "#{ex.http_code}: #{ex.message}"
+        raise GradebookClient::Error, message
       end
 
       def parse(response)
         response_body = JSON.parse(response.body)
 
         if response_body["status"] == -1
-          raise Error, response_body.fetch("message", "No message available")
+          message = response_body.fetch("message", "No message available")
+          raise GradebookClient::Error, message
         end
 
         response_body["data"]
-      end
-
-      class Error < RuntimeError
-        def message
-          "Error communitcating with gradebook service. #{super}"
-        end
       end
     end
   end

@@ -1,0 +1,13 @@
+<% tab(TabHelper::DATA_ENTRY) %>
+
+<h1>Whoops!</h1>
+
+<p>The request to the Gradebook service has failed. The specific message
+returned was: <span class="exception-message"><%= exception.message %></span></p>
+
+<% if exception.gradebook_unavailable? %>
+  <p>It appears the gradebook you have requested is unavailable. This could be
+  because the selected subject, semester, and year do not have an available
+  gradebook or it could be because this application does not yet have access to
+  the requested gradebook.</p>
+<% end %>
