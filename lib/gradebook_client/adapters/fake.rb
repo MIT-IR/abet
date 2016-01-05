@@ -13,7 +13,7 @@ module GradebookClient
         JSON.parse(fixture)["data"]
       end
 
-      def histogram_for(assignment_id)
+      def histogram_for(assignment_id, number_of_bins: 10)
         fixture = File.read(FIXTURE_ROOT.join("histogram.json"))
         JSON.parse(fixture)["data"]
       end

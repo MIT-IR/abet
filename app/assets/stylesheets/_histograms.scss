@@ -1,0 +1,14 @@
+.gradebooks-histograms-show {
+  form {
+    text-align: center;
+  }
+
+  label,
+  select {
+    display: inline-block;
+  }
+
+  svg > text:last-child {
+    display: none;
+  }
+}

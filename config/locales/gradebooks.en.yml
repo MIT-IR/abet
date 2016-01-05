@@ -12,4 +12,4 @@ en:
         frequency_header: Frequency
         header: Histogram for %{title}
         label_header: Label
-
+        number_of_bins: "Number of bins to display:"

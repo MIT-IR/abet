@@ -19,3 +19,17 @@
     <% end %>
   </tbody>
 </table>
+
+<%= form_tag(
+  gradebooks_assignment_histogram_path(assignment_id: @histogram.assignment_id),
+  method: :get,
+  enforce_utf8: false,
+  data: { role: 'histogram-bar-selection' }) do |f| %>
+
+  <%= label_tag :number_of_bins, t(".number_of_bins") %>
+  <%= select_tag :number_of_bins, options_for_select(
+    @histogram.available_number_of_bins,
+    selected: @histogram.bars.size,
+  ) %>
+<% end %>
+

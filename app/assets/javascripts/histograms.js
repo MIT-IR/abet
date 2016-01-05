@@ -26,4 +26,9 @@ $(function() {
         alert("You must select a semester and a year first");
       }
     });
+
+  $("[data-role='histogram-bar-selection']").find("select")
+    .on("change", function() {
+      $(this).closest("form").trigger("submit");
+    });
 });
