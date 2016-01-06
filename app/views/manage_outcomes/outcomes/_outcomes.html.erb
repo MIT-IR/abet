@@ -13,7 +13,13 @@
         <td><%= render "progress_bar",
           amount: outcome.active_assessments_with_results_count,
           total: outcome.active_assessments_count %></td>
-        <td><%= link_to t(".edit_outcome"), edit_manage_outcomes_outcome_path(outcome) %></td>
+        <td>
+          <%= link_to t(".edit_outcome"), edit_manage_outcomes_outcome_path(outcome) %>
+
+          <% if outcome.outcome_assessments.any? %>
+            <%= link_to t(".view_assessments"), manage_assessments_course_assessments_path(@course, outcome_ids: outcome) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
