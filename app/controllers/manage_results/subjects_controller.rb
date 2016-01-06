@@ -3,6 +3,10 @@ class ManageResults::SubjectsController < ApplicationController
     @subjects = policy_scope(Subject).
       with_direct_assessments.
       sorted_by_number
+
+    if @subjects.length == 1
+      redirect_to manage_results_subject_path(@subjects.first.id)
+    end
   end
 
   def show

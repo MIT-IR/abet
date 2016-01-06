@@ -8,7 +8,6 @@ feature "User updates result" do
 
     visit root_path(as: user)
     click_on "Record Data"
-    click_on assessment.subject
     click_on "View and Add Results"
     within("#result_#{result.id}") do
       click_on "Edit"
@@ -28,7 +27,6 @@ feature "User updates result" do
 
     visit root_path(as: user)
     click_on "Manage Assessments"
-    click_on "View Assessments"
     within("#indirect_assessment_#{assessment.id}") do
       click_on "View"
     end

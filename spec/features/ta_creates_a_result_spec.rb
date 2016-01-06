@@ -4,12 +4,10 @@ feature "TA creates a result" do
   scenario "for a direct assessment" do
     assessment = create(:direct_assessment)
     department = assessment.department
-    permitted_subject = assessment.subject
     user = user_with_results_access_to(department)
 
     visit root_path(as: user)
     click_on "Record Data"
-    click_on permitted_subject
 
     expect(page).to have_content assessment.name
     expect(page).to have_content assessment.description
