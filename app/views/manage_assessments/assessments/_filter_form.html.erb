@@ -1,4 +1,7 @@
-<%= form_tag manage_assessments_course_assessments_path(course), method: :get do %>
+<%= form_tag manage_assessments_course_assessments_path(course),
+  method: :get,
+  enforce_utf8: false do %>
+
   <%= select_tag(
     "outcome_ids",
     options_from_collection_for_select(
