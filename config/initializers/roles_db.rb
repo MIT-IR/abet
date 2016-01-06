@@ -19,7 +19,7 @@ RolesDb.configure do |config|
     config.strategy_class = "RolesDb::LocalRoles"
   end
 
-  if Rails.env.production?
+  if Rails.env.production? || Rails.env.staging?
     config.endpoint = "https://rolesws.mit.edu/rolesws/services/roles"
   end
 end
