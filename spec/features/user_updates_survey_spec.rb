@@ -3,9 +3,7 @@ require "rails_helper"
 feature "User updates a survey assessment" do
   scenario "a survey assessment is successfully updated" do
     course = create(:course, :fully_aligned)
-    outcome = create(:outcome, course: course)
-    assessment = create(:survey, name: "Senior Survey")
-    assessment.outcomes << outcome
+    assessment = create(:survey, name: "Senior Survey", course: course)
     user = user_with_admin_access_to(course.department)
 
     visit manage_outcomes_root_path(as: user)

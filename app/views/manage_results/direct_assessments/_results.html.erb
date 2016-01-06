@@ -1,33 +1,28 @@
-<% if results.present? %>
-  <table>
+<table>
+  <% if results.present? %>
     <thead>
       <tr>
+        <th><%= t(".period") %></th>
         <th><%= t(".name") %></th>
         <th><%= t(".description") %></th>
         <th><%= t(".problem_description") %></th>
-        <th><%= t(".year") %></th>
-        <th><%= t(".semester") %></th>
         <th><%= t(".percentage") %></th>
-        <th></th>
-        <th></th>
+        <th><%= t(".actions") %></th>
       </tr>
     </thead>
     <tbody>
       <% results.each do |result| %>
         <%= content_tag_for :tr, result do %>
+          <td><%= result.semester %>-<%= result.year %></td>
           <td><%= result.assessment_name %></td>
           <td><%= result.assessment_description %></td>
           <td><%= result.problem_description %></td>
-          <td><%= result.year %></td>
-          <td><%= result.semester %></td>
           <td><%= "#{result.percentage}%" %></td>
-          <td>
+          <td class="inline-action-links">
             <% if policy(result).update? %>
               <%= link_to t(".edit"), edit_manage_results_result_path(result) %>
             <% end %>
-          </td>
 
-          <td>
             <% if policy(result).destroy? %>
               <%= link_to t(".delete"),
                 manage_results_result_path(result),
@@ -38,5 +33,9 @@
         <% end %>
       <% end %>
     </tbody>
-  </table>
-<% end %>
+  <% else %>
+    <tr>
+      <td><%= t(".no_results") %></td>
+    </tr>
+  <% end %>
+</table>

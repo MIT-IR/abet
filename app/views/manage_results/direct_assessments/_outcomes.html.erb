@@ -1,10 +1,22 @@
-<h2><%= t(".heading") %></h2>
-<ul>
-  <% outcomes.order(:name).each do |outcome| %>
-    <li>
-      <%= link_to_if policy(outcome.course).show?,
-        "#{outcome.course} - #{outcome}",
-        manage_outcomes_course_outcomes_path(outcome.course) %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th><%= t(".outcome") %></th>
+      <th><%= t(".course") %></th>
+      <th class="actions"><%= t(".actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% outcomes.order(:name).each do |outcome| %>
+      <tr>
+        <td><%= outcome.name %></td>
+        <td><%= outcome.course %></td>
+        <td><%= link_to_if policy(outcome.course).show?,
+              t(".view_all"),
+              manage_outcomes_course_outcomes_path(outcome.course) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

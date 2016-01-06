@@ -74,6 +74,7 @@ en:
   helpers:
     cancel_button: Cancel
     jon_daries_html: Jon Daries in Institutional Research at %{email}
+    create_new_assessment: Create New Assessment
     today: Today
     yesterday: Yesterday
   layouts:

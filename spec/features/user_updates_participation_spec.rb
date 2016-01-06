@@ -3,9 +3,7 @@ require "rails_helper"
 feature "User updates a participation assessment" do
   scenario "a participation assessment is successfully updated" do
     course = create(:course, :fully_aligned)
-    outcome = create(:outcome, course: course)
-    assessment = create(:participation, name: "UROP")
-    assessment.outcomes << outcome
+    assessment = create(:participation, name: "UROP", course: course)
     user = user_with_admin_access_to(course.department)
 
     visit manage_outcomes_root_path(as: user)

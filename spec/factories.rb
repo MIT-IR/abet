@@ -77,8 +77,14 @@ FactoryGirl.define do
     target_percentage 80
     type "OtherAssessment"
 
-    after(:build) do |assessment|
-      assessment.outcomes << build(:outcome)
+    transient do
+      course { create(:course) }
+    end
+
+    after(:build) do |assessment, evaluator|
+      if assessment.outcomes.empty?
+        assessment.outcomes << create(:outcome, course: evaluator.course)
+      end
     end
   end
 
@@ -95,8 +101,14 @@ FactoryGirl.define do
     target_percentage 80
     type "Participation"
 
-    after(:build) do |assessment|
-      assessment.outcomes << build(:outcome)
+    transient do
+      course { create(:course) }
+    end
+
+    after(:build) do |assessment, evaluator|
+      if assessment.outcomes.empty?
+        assessment.outcomes << create(:outcome, course: evaluator.course)
+      end
     end
   end
 
@@ -127,8 +139,14 @@ FactoryGirl.define do
     target_percentage 80
     type "Survey"
 
-    after(:build) do |assessment|
-      assessment.outcomes << build(:outcome)
+    transient do
+      course { create(:course) }
+    end
+
+    after(:build) do |assessment, evaluator|
+      if assessment.outcomes.empty?
+        assessment.outcomes << create(:outcome, course: evaluator.course)
+      end
     end
   end
 

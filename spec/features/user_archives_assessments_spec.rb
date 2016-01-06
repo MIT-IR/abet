@@ -6,10 +6,11 @@ feature "User archives assessments" do
     user = user_with_assessments_access_to(assessment.outcomes.first.department)
 
     visit manage_results_subject_path(assessment.subject, as: user)
+    click_link "View"
     click_link "Archive"
 
     expect(page).to have_content "has been archived"
-    expect(page).to have_content "No direct assessments"
+    expect(page).to have_content "No Direct Assessments"
   end
 
   scenario "when viewing assessments can immediately undo the archive" do

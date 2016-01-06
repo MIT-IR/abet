@@ -1,10 +1,10 @@
-.assessment-title {
+.assessment-problem {
   margin-bottom: $small-spacing/2;
 }
 
-ul.assessment-details {
+.assessment-details {
   @include margin($large-spacing null);
-  @include padding(null $large-spacing);
+  @include padding($medium-spacing $large-spacing);
   line-height: 2em;
   list-style-type: disc;
 }
@@ -13,10 +13,6 @@ ul.assessment-details {
   display: inline-block;
   padding-right: 2em;
   width: 150px;
-}
-
-.no-records {
-  @include flash($notice-color);
 }
 
 [data-role='view-histogram'] {

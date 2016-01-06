@@ -3,9 +3,7 @@ require "rails_helper"
 feature "User updates other assessment" do
   scenario "other assessment is successfully updated" do
     course = create(:course, :fully_aligned)
-    outcome = create(:outcome, course: course)
-    assessment = create(:other_assessment, name: "Senior Thesis")
-    assessment.outcomes << outcome
+    assessment = create(:other_assessment, name: "Senior Thesis", course: course)
     user = user_with_admin_access_to(course.department)
 
     visit manage_outcomes_root_path(as: user)

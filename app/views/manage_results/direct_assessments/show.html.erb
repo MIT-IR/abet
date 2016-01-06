@@ -1,28 +1,38 @@
 <% tab(TabHelper::DATA_ENTRY) %>
 
-<h1><%= @assessment %></h1>
+<section class="headline-with-actions">
+  <h1><%= @assessment %></h1>
 
-<%= link_to t(".edit"),
-  edit_manage_assessments_direct_assessment_path(@assessment),
-  class: "button" %>
+  <div>
+    <% if policy(@assessment).create_results? %>
+      <%= link_to t(".add_result"),
+        new_manage_results_direct_assessment_result_path(@assessment),
+        class: "button" %>
+    <% end %>
 
-<%= link_to t(".archive"),
-  manage_assessments_direct_assessment_archive_path(@assessment),
-  class: "button" %>
+    <%= link_to t(".edit"),
+      edit_manage_assessments_direct_assessment_path(@assessment),
+      class: "button" %>
+
+    <%= link_to t(".archive"),
+      manage_assessments_direct_assessment_archive_path(@assessment),
+      method: :post,
+      class: "button",
+      data: { confirm: t(".archive_confirm") }
+    %>
+  </div>
+</section>
 
 <%= assessment_details(@assessment) %>
 
-<section class="results">
-  <h2>Results</h2>
-  <% if policy(@assessment).create_results? %>
-    <%= link_to t(".add_result"),
-      new_manage_results_direct_assessment_result_path(@assessment),
-      class: "button" %>
-  <% end %>
+<section>
+  <h2><%= t(".results") %></h2>
 
   <%= render "results", results: @assessment.results %>
 </section>
 
-<section class="outcomes">
+<section>
+  <h2><%= t(".outcomes") %></h2>
+
   <%= render "outcomes", outcomes: @assessment.outcomes %>
 </section>

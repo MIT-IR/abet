@@ -1,25 +1,27 @@
-<%= render layout: '/layouts/modal', locals: { modal_name: "create-assessment" } do %>
-  <h2><%= t("manage_assessments.new_assessment_modal.create_new_assessment") %></h2>
+<% if policy(:generic).create_assessments? %>
+  <%= render layout: "/layouts/modal", locals: { modal_name: "create-assessment" } do %>
+    <h2><%= t("manage_assessments.new_assessment_modal.create_new_assessment") %></h2>
 
-  <div class="assessments-dashboard-options">
-    <div class="assessments-dashboard-option">
-      <h6><%= t("manage_assessments.new_assessment_modal.by") %></h6>
-      <h1><%= t("manage_assessments.new_assessment_modal.subject") %></h1>
-      <%= link_to t("manage_assessments.new_assessment_modal.get_started"),
-        new_manage_assessments_direct_assessment_path,
-        class: "button",
-        data: { role: "start-direct-assessment" }
-      %>
-    </div>
+    <div class="assessments-dashboard-options">
+      <div class="assessments-dashboard-option">
+        <h6><%= t("manage_assessments.new_assessment_modal.by") %></h6>
+        <h1><%= t("manage_assessments.new_assessment_modal.subject") %></h1>
+        <%= link_to t("manage_assessments.new_assessment_modal.get_started"),
+          new_manage_assessments_direct_assessment_path,
+          class: "button",
+          data: { role: "start-direct-assessment" }
+        %>
+      </div>
 
-    <div class="assessments-dashboard-option">
-      <h6><%= t("manage_assessments.new_assessment_modal.by") %></h6>
-      <h1><%= t("manage_assessments.new_assessment_modal.course") %></h1>
-      <%= link_to t("manage_assessments.new_assessment_modal.get_started"),
-        manage_assessments_courses_path,
-        class: "button",
-        data: { role: "start-indirect-assessment" }
-      %>
+      <div class="assessments-dashboard-option">
+        <h6><%= t("manage_assessments.new_assessment_modal.by") %></h6>
+        <h1><%= t("manage_assessments.new_assessment_modal.course") %></h1>
+        <%= link_to t("manage_assessments.new_assessment_modal.get_started"),
+          manage_assessments_courses_path,
+          class: "button",
+          data: { role: "start-indirect-assessment" }
+        %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

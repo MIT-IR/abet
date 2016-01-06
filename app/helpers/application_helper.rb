@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def documentation_side_nav_link(link_text, path)
+    path = page_path(path)
+
+    link_to link_text, path, class: "documentation-side-nav-link #{'is-active' if current_page?(path)}"
+  end
+
   def google_fonts_stylesheet_link_tag(family)
     stylesheet_link_tag "https://fonts.googleapis.com/css?family=#{family}"
   end
@@ -11,6 +17,14 @@ module ApplicationHelper
     t("helpers.jon_daries_html", email: mail_to("daries@mit.edu"))
   end
 
+  def new_assessment_action(button = true, text = t("helpers.create_new_assessment"))
+    if policy(:generic).create_assessments?
+      link_to text, javascript_void,
+        class: "#{ 'button' if button } modal-trigger",
+        data: { target_modal_name: "create-assessment" }
+    end
+  end
+
   def progress_bar_percentage_width(amount, total)
     if amount > 0
       amount = amount.to_f
@@ -21,11 +35,5 @@ module ApplicationHelper
     else
       amount
     end
-  end
-
-  def documentation_side_nav_link(link_text, path)
-    path = page_path(path)
-
-    link_to link_text, path, class: "documentation-side-nav-link #{'is-active' if current_page?(path)}"
   end
 end

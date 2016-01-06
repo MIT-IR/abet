@@ -5,17 +5,28 @@
 <% if policy(:generic).create_assessments? %>
   <p><%= t(
     ".description.can_create_assessments_html",
-    add_assessment_link: link_to(
-      t(".add_assessment"),
-      manage_assessments_root_path
-    )
+    add_assessment_link: new_assessment_action(false, t(".add_assessment"))
   ) %></p>
 <% else %>
   <p><%= t(".description.cannot_create_assessments_html") %></p>
 <% end %>
 
-<ul class="subjects">
-  <% @subjects.each do |subject| %>
-    <li><%= link_to subject, manage_results_subject_path(subject) %></li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th><%= t(".subject") %></th>
+      <th><%= t(".assessments") %></th>
+      <th><%= t(".actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject %></td>
+        <td><%= subject.direct_assessments.unarchived.count %></td>
+        <td><%= link_to t(".view_assessments"), manage_results_subject_path(subject) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -8,7 +8,7 @@ feature "User deletes a result" do
 
     visit root_path(as: user)
     click_on "Record Data"
-    click_on "View and Add Results"
+    click_on "View"
     within("#result_#{result.id}") do
       click_on "Delete"
     end

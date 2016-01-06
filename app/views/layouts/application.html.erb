@@ -3,13 +3,21 @@
   <%= render "layouts/head" %>
 
   <body class="<%= body_class %>">
+    <%= render "manage_assessments/new_assessment_modal" %>
+
     <%= render "navigation" %>
 
     <% if @current_tab %>
       <%= render "tabs" %>
     <% end %>
 
-    <%= yield :header_with_filters %>
+    <% if content_for?(:header_with_filters) %>
+      <section class="header-with-filters">
+        <div class="container">
+          <%= yield :header_with_filters %>
+        </div>
+      </section>
+    <% end %>
 
     <section class="container" role="main">
       <%= render "flashes" %>

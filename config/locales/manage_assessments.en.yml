@@ -36,7 +36,6 @@ en:
         all_outcomes: All Outcomes
         outcome_label: Outcome %{name}
       index:
-        create_new_assessment: Create New Assessment
         direct: Direct
         direct_assessments: Direct Assessments (%{count})
         indirect: Indirect

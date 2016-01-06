@@ -1,25 +1,15 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
 <%= content_for :header_with_filters do %>
-  <section class="header-with-filters">
-    <div class="container">
-      <div class="headline-with-action">
-        <h1><%= @course %></h1>
+  <div class="headline-with-actions">
+    <h1><%= @course %></h1>
 
-        <% if policy(:generic).create_assessments? %>
-          <%= link_to t(".create_new_assessment"), javascript_void,
-            class: "button modal-trigger",
-            data: { target_modal_name: "create-assessment" } %>
+    <%= new_assessment_action %>
+  </div>
 
-          <%= render "manage_assessments/new_assessment_modal" %>
-        <% end %>
-      </div>
-
-      <div class="filters">
-        <%= render "filter_form", outcomes: @outcomes, course: @course %>
-      </div>
-    </div>
-  </section>
+  <div class="filters">
+    <%= render "filter_form", outcomes: @outcomes, course: @course %>
+  </div>
 <% end %>
 
 <% if @filtered_outcome.present? %>

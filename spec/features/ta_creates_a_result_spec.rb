@@ -13,8 +13,7 @@ feature "TA creates a result" do
     expect(page).to have_content assessment.description
     expect(page).to have_content assessment.subject
 
-    click_on "View"
-    click_on "Add result"
+    click_on "Add Result"
 
     expect(find_field("result_assessment_name").value).to eq assessment.name
     expect(find_field("result_assessment_description").value).to eq assessment.description

@@ -1,14 +1,17 @@
 <% tab(TabHelper::DATA_ENTRY) %>
 
-<h1><%= @subject %></h1>
+<div class="headline-with-actions">
+  <h1><%= @subject %></h1>
+
+  <%= new_assessment_action %>
+</div>
 
 <% if @subject.direct_assessments.present? %>
   <table id="direct_assessments">
     <thead>
       <tr>
         <th><%= t(".assessment") %></th>
-        <th><%= t(".minimum_grade") %></th>
-        <th><%= t(".target_percentage") %></th>
+        <th><%= t(".last_entry") %></th>
         <th class="actions"><%= t(".actions") %></th>
       </tr>
     </thead>
@@ -16,27 +19,21 @@
       <% @subject.direct_assessments.each do |assessment| %>
         <tr id="direct_assessment-<%=assessment.id %>">
           <td><%= assessment %></td>
-          <td><%= assessment.minimum_requirement %></td>
-          <td><%= assessment.target_percentage %></td>
           <td>
-            <% if policy(:generic).create_assessments? %>
-              <%= link_to t(".edit"), edit_manage_assessments_direct_assessment_path(assessment) %>
+            <% if assessment.results.any? %>
+              <%= assessment.results.last.semester %>-<%= assessment.results.last.year %>
+            <% else %>
+              <%= t(".no_results") %>
             <% end %>
-
-            <% if policy(@subject).manage_assessments? %>
-              <%= link_to t(".archive"),
-                manage_assessments_direct_assessment_archive_path(direct_assessment_id: assessment),
-                method: "post",
-                data: { confirm: t(".archive_confirm") }%>
-            <% end %>
-
-            <%= link_to t(".results"),
-              manage_results_direct_assessment_path(assessment) %>
+          </td>
+          <td class="inline-action-links">
+            <%= link_to t(".view"), manage_results_direct_assessment_path(assessment) %>
+            <%= link_to t(".add_results"), new_manage_results_direct_assessment_result_path(assessment) %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <p class="no-records"><%= t(".no_assessments") %></p>
+  <p><%= t(".no_assessments") %></p>
 <% end %>

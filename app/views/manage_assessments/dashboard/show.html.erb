@@ -1,15 +1,9 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
-<div class="headline-with-action">
+<div class="headline-with-actions">
   <h1><%= t(".title") %></h1>
 
-  <% if policy(:generic).create_assessments? %>
-    <%= link_to t(".create_new_assessment"), javascript_void,
-      class: "button modal-trigger",
-      data: { target_modal_name: "create-assessment" } %>
-
-    <%= render "manage_assessments/new_assessment_modal" %>
-  <% end %>
+  <%= new_assessment_action %>
 </div>
 
 <p><%= t(".intro_paragraph.text_html", link: link_to(t(".intro_paragraph.link"), manage_outcomes_root_path)) %></p>
@@ -36,10 +30,8 @@
           <td>
             <% if course.active_assessments_count > 0 %>
               <%= link_to t(".view_assessments"), manage_assessments_course_assessments_path(course) %>
-            <% elsif policy(:generic).create_assessments? %>
-              <%= link_to t(".create_new_assessment"), javascript_void,
-                class: "modal-trigger",
-                data: { target_modal_name: "create-assessment" } %>
+            <% else %>
+              <%= new_assessment_action(false) %>
             <% end %>
           </td>
         </tr>
