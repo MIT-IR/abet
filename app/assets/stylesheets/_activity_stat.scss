@@ -1,0 +1,50 @@
+.activity-stats {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $large-spacing;
+
+  @include media($medium-screen-up) {
+    flex-direction: row;
+  }
+}
+
+.activity-stat {
+  @include margin($small-spacing null);
+  flex: 1;
+  position: relative;
+  text-align: center;
+
+  &:not(:last-of-type) {
+    &:after {
+      @include position(absolute, 0 0 null null);
+      @include size(2px 50%);
+      background-color: $light-gray;
+      content: '';
+      transform: translateY(50%);
+      visibility: hidden;
+    }
+  }
+
+  @include media($medium-screen-up) {
+    &:not(:last-of-type) {
+      &:after {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.activity-stat-number {
+  font-size: $largest-font-size;
+  font-weight: $thin;
+}
+
+.activity-stat-descriptor {
+  @include margin(0 null $smallest-spacing null);
+  color: $brown;
+  font-size: $smallest-font-size;
+
+  .added {
+    color: $green;
+  }
+}

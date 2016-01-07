@@ -10,6 +10,7 @@ $base-font-size: 1em;
 $smallest-font-size: rem(12);
 $small-font-size: rem(14);
 $large-font-size: modular-scale(1, $base-font-size);
+$largest-font-size: em(60);
 
 // Line height
 $no-line-height: 1;
@@ -37,6 +38,7 @@ $documentation-side-bar-width: 150px;
 
 // Colors
 $blue: #1F67A3;
+$green: #417505;
 $light-blue: aliceblue;
 $light-blue-border: shade($light-blue, 5%);
 $dark-gray: #342E2E;
@@ -56,6 +58,7 @@ $base-link-color: $action-color !default;
 
 // Font Weight
 $bold: 700;
+$thin: 100;
 
 // Letter Spacing
 $base-letter-spacing: 1px;

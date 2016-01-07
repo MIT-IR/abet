@@ -47,7 +47,12 @@ en:
       activity_count:
         one: 1 Change
         other: "%{count} Changes"
-      heading: Activity Feed
+      contributors_this_semester: Contributors This Semester
+      contributors_this_week: Contributors This Week
+      last_week: "%{count} Last Week"
+      last_semester: "%{count} Last Semester"
+      results_added_this_semester_html: Results <span class="added">Added</span> This Semester
+      results_added_this_week_html: Results <span class="added">Added</span> This Week
   application:
     navigation:
       assessments: Assessments
