@@ -63,18 +63,25 @@
     padding: $base-spacing;
   }
 
-  p, ul {
+  p, ol, ul {
     font-family: $serif;
     line-height: $large-line-height;
   }
 
-  ul {
-    list-style-type: disc;
+  p, li {
+    margin-bottom: $small-spacing;
+  }
+
+  ol, ul {
     margin-left: $large-spacing;
   }
 
-  p, li {
-    margin-bottom: $small-spacing;
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
   }
 }
 
