@@ -1,5 +1,5 @@
 RolesDb.configure do |config|
-  if Rails.env.development? || Rails.env.staging?
+  if Rails.env.development?
     config.mocked_account_list_file = Rails.root.join("config", "dev-roles.yaml")
     config.strategy_class = "RolesDb::LocalRoles"
 
@@ -9,6 +9,14 @@ RolesDb.configure do |config|
   if Rails.env.test?
     config.mocked_account_list_file = Rails.root.join("config", "test-roles.yaml")
     config.strategy_class = "RolesDb::LocalRoles"
+  end
+
+  if Rails.env.staging?
+    config.ssl_cert_key_file = Rails.root.join("config", "certs", "outcomes-dev-key.pem")
+    config.ssl_cert_file = Rails.root.join("config", "certs", "outcomes-dev-cert.pem")
+    config.ssl_ca_cert_file = Rails.root.join("config", "certs", "mit.pem")
+    config.proxy_user_name = "abetuser"
+    config.endpoint = "https://ws-test.mit.edu/rolesws/services/roles"
   end
 
   if Rails.env.production?
