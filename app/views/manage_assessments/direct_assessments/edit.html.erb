@@ -2,6 +2,8 @@
 
 <h1><%= t(".heading") %></h1>
 
+<h2><%= @assessment.name %> - <%= @assessment.description %></h2>
+
 <%= simple_form_for @assessment, url: manage_assessments_direct_assessment_path(@assessment) do |f| %>
   <%= render "form", f: f, courses: @courses %>
 <% end %>

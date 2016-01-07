@@ -44,7 +44,7 @@ feature "TA creates a result" do
     expect(page).to have_content assessment.name
     expect(page).to have_content assessment.description
 
-    click_on "Add result"
+    click_on "Add Result"
 
     expect(page).to have_content assessment.minimum_requirement
     expect(find_field("result_assessment_name").value).to eq assessment.name

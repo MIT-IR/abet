@@ -22,6 +22,10 @@
             method: :post,
             data: { confirm: t(".archive_confirm") }%>
         <% end %>
+
+        <% if policy(assessment).create_results? %>
+          <%= link_to t(".add_result"), new_manage_results_direct_assessment_result_path(assessment) %>
+        <% end %>
       </td>
     <% end %>
   <% end %>

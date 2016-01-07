@@ -1,6 +1,9 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
 <h1><%= t(".heading") %></h1>
+
+<h2><%= @assessment.name %> - <%= @assessment.description %></h2>
+
 <%= outcome_details(@outcome || @assessment.outcomes.first) %>
 
 <%= simple_form_for @assessment, url: manage_assessments_indirect_assessment_path(@assessment) do |f| %>

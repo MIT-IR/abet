@@ -24,6 +24,7 @@ en:
           from a student survey
       direct_assessments:
         actions: Actions
+        add_result: Add Result
         archive: Archive
         archive_confirm: Are you sure you want to archive this assessment? You
           should archive this assessment only if you no longer wish to collect
@@ -43,6 +44,7 @@ en:
         outcome: Outcome %{name}
       indirect_assessments:
         actions: Action
+        add_result: Add Result
         archive: Archive
         archive_confirm: Are you sure you want to archive this assessment? You
           should archive this assessment only if you no longer wish to collect
