@@ -29,6 +29,12 @@ select {
   font-size: $base-font-size;
 }
 
+input:focus {
+  @include placeholder {
+    opacity: 0.5;
+  }
+}
+
 label {
   @extend %small-caps;
   font-family: $sans-serif-narrow;
@@ -76,7 +82,11 @@ textarea {
 }
 
 input[type="search"] {
+  $total_padding: 20px;
+
   @include appearance(none);
+  background: image-url("icon_search.svg") no-repeat ($total_padding / 2) center;
+  padding-left: $icon_size + $total_padding;
 }
 
 input[type="checkbox"],
