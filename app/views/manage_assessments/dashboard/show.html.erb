@@ -22,7 +22,7 @@
     <tbody>
       <% @courses.with_outcomes.each do |course| %>
         <tr>
-          <td><strong><%= course.number %></strong></td>
+          <td><%= course.number %></td>
           <td><%= course.name %></td>
           <td><%= render "progress_bar",
             amount: course.active_assessments_with_results_count,
