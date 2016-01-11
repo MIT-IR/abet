@@ -17,11 +17,7 @@ feature "User views list of subjects" do
     click_on "Record Data"
 
     expect(page).to have_content permitted_subject.number
-    expect(page).to have_content permitted_subject.title
-
-    expect(page).not_to have_content unpermitted_subject.number
     expect(page).not_to have_content unpermitted_subject.title
-    expect(page).not_to have_content subject_without_assessment.number
     expect(page).not_to have_content subject_without_assessment.title
   end
 end

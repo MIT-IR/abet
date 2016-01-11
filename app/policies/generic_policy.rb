@@ -6,7 +6,10 @@ class GenericPolicy
   end
 
   def create_assessments?
-    user.manage_assessments?(AnyDepartment.new)
+    Course.joins(:department).
+      where(departments: { slug: user.department_slugs(Permission::MANAGE_ASSESSMENTS) }).
+      with_outcomes.
+      any?
   end
 
   def view_assessments?
