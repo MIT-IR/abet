@@ -1,0 +1,13 @@
+$(function() {
+  var histogramLink = $("<a>")
+    .attr("href", "<%= gradebooks_assignments_path(
+      subject_id: @offering.subject_id,
+      year: @offering.year,
+      semester: @offering.semester) %>")
+    .attr("target", "_blank")
+    .attr("data-role", "histogram-link")
+    .text("View Gradebook Histogram...");
+
+  $("[data-role='histogram-link']").remove();
+  $("[data-role='histogramable']").append(histogramLink);
+});

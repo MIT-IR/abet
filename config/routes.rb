@@ -42,6 +42,11 @@ Rails.application.routes.draw do
   end
 
   namespace :gradebooks do
+    get "subjects/:subject_id/gradebook",
+      format: :js,
+      to: "gradebooks#show",
+      as: :gradebook
+
     get "subjects/:subject_id/:semester/:year/assignments",
       to: "assignments#index",
       as: :assignments

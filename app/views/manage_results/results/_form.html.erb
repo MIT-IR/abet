@@ -1,23 +1,9 @@
 <%= render_errors(f) %>
 
-<fieldset class="period">
+<fieldset class="period" data-role="histogramable">
   <legend><%= t(".period") %></legend>
   <%= f.input :year, collection: Result::YEARS %>
   <%= f.input :semester, collection: Result::SEMESTERS %>
-  <% if f.object.assessment.is_a? DirectAssessment %>
-    <%= link_to(
-      "View Gradebook Histogram",
-      "#",
-      data: {
-        role: "view-histogram",
-        endpoint: gradebooks_assignments_url(
-          subject_id: f.object.assessment.subject_id,
-          semester: "semester",
-          year: "year",
-        )
-      }
-    ) %>
-  <% end %>
 </fieldset>
 
 <fieldset class="background">

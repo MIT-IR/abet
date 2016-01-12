@@ -1,4 +1,6 @@
 class Offering
+  attr_reader :subject, :semester, :year
+
   def initialize(subject:, semester:, year:)
     @subject = subject
     @semester = semester
@@ -13,13 +15,15 @@ class Offering
     @_gradebook_id = GradebookClient::Gradebook.find_by_uuid(uuid).id
   end
 
+  def subject_id
+    subject.id
+  end
+
   def to_s
     "#{subject} #{term.upcase}"
   end
 
   private
-
-  attr_reader :subject, :semester, :year
 
   def uuid
     "STELLAR:/course/#{subject.department_number}/#{term}/#{subject.number}"
