@@ -1,0 +1,9 @@
+<%= form_tag gradebooks_gradebook_url(subject_id: subject),
+  method: :get,
+  remote: true,
+  data: { role: "gradebook-form" } do %>
+
+  <%= hidden_field_tag :semester %>
+  <%= hidden_field_tag :year %>
+
+<% end %>
