@@ -3,11 +3,11 @@ require "rails_helper"
 describe DateHelper do
   describe "#relative_date" do
     it "is 'Today' if supplied the current date" do
-      expect(helper.relative_date(Date.today)).to eq "Today"
+      expect(helper.relative_date(Time.zone.now.to_date)).to eq "Today"
     end
 
     it "is 'Yesterday if supplied yesterday's date" do
-      expect(helper.relative_date(Date.yesterday)).to eq "Yesterday"
+      expect(helper.relative_date(Time.zone.now.to_date - 1.day)).to eq "Yesterday"
     end
 
     it "is the exact date otherwise" do
