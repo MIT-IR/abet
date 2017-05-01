@@ -5,7 +5,7 @@ describe ApplicationController do
     skip_after_action :verify_policy_scoped
 
     def index
-      render text: current_user.email
+      render plain: current_user.email
     end
   end
 

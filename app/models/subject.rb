@@ -10,7 +10,7 @@ class Subject < ActiveRecord::Base
   end
 
   def self.with_direct_assessments
-    joins(:direct_assessments).uniq
+    joins(:direct_assessments).distinct
   end
 
   def to_s

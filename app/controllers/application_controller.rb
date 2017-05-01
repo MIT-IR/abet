@@ -24,12 +24,4 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     render file: "public/401.html", status: :unauthorized
   end
-
-  def redirect_to_back_or_default(default, *args)
-    if request.env["HTTP_REFERER"].present? && request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
-      redirect_to :back, *args
-    else
-      redirect_to default, *args
-    end
-  end
 end

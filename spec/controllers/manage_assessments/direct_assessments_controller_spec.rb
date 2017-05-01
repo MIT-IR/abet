@@ -10,7 +10,9 @@ describe ManageAssessments::DirectAssessmentsController do
 
       expect {
         post :create,
-        direct_assessment: assessment_params.merge(outcome_ids: [outcome.id])
+        params: {
+          direct_assessment: assessment_params.merge(outcome_ids: [outcome.id]),
+        }
       }.to raise_error(RuntimeError, "Not authorized")
       expect(DirectAssessment.count).to eq 0
     end
@@ -27,8 +29,10 @@ describe ManageAssessments::DirectAssessmentsController do
 
       expect {
         patch :update,
-        id: direct_assessment.id,
-        direct_assessment: { outcome_ids: [outcome.id] }
+        params: {
+          id: direct_assessment.id,
+          direct_assessment: { outcome_ids: [outcome.id] },
+        }
       }.to raise_error(RuntimeError, "Not authorized")
     end
   end

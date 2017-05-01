@@ -5,8 +5,8 @@ module ManageAssessments
       assessment.archive
 
       flash[:html_safe] = true
-      redirect_to_back_or_default(
-        root_path,
+      redirect_back(
+        fallback_location: root_path,
         success: t(".success", name: assessment.name, undo: undo_link(assessment)),
       )
     end
@@ -15,8 +15,8 @@ module ManageAssessments
       authorize(assessment, :update?)
       assessment.unarchive
 
-      redirect_to_back_or_default(
-        root_path,
+      redirect_back(
+        fallback_location: root_path,
         success: t(".success", name: assessment.name),
       )
     end

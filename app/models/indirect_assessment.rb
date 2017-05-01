@@ -14,7 +14,7 @@ class IndirectAssessment < ActiveRecord::Base
   end
 
   def self.for_course(course)
-    joins(:courses).where(courses: { id: course }).uniq
+    joins(:courses).where(courses: { id: course }).distinct
   end
 
   def self.for_outcomes(outcomes)

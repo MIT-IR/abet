@@ -74,7 +74,7 @@ class ManageAssessments::DirectAssessmentsController < ApplicationController
   end
 
   def flash_after_create(assessment)
-    links = assessment.courses.uniq.map do |course|
+    links = assessment.courses.distinct.map do |course|
       view_context.link_to(
         view_context.sanitize(course.name),
         manage_assessments_course_assessments_path(course_id: course.id)
