@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "2.2.2"
 
 gem "rails", "~> 5.0.0"
+gem "active_model_serializers", "~> 0.10.6"
 gem "email_validator"
 gem "flutie"
 gem "high_voltage"

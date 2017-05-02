@@ -3,6 +3,12 @@ Rails.application.routes.draw do
     resources :results, only: [:new, :create]
   end
 
+  namespace :api do
+    resources :subjects, only: [], id: /[A-Z0-9\.]+?/i do
+      resources :outcomes, only: [:index]
+    end
+  end
+
   namespace :manage_assessments do
     root "dashboard#show"
 

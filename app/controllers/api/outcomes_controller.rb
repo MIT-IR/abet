@@ -1,0 +1,14 @@
+module Api
+  class OutcomesController < BaseController
+    def index
+      outcomes = subject.outcomes.distinct
+      render json: outcomes
+    end
+
+    private
+
+    def subject
+      Subject.find_by!(number: params[:subject_id])
+    end
+  end
+end
