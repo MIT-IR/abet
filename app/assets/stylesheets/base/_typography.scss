@@ -69,5 +69,7 @@ picture {
 }
 
 small {
-  font-size: $small-font-size;
+  color: $medium-gray;
+  font-size: $smallest-font-size;
+  font-weight: $bold;
 }

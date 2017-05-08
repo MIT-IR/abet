@@ -1,6 +1,26 @@
 <% tab(TabHelper::ACTIVITY_FEED) %>
 
-<h1><%= t(".heading") %></h1>
+<section class="activity-stats">
+  <%= render "stat",
+    number: 16,
+    descriptor: t('.results_added_this_week_html'),
+    comparison: t('.last_week', count: 32) %>
+
+  <%= render "stat",
+    number: 33,
+    descriptor: t('.results_added_this_semester_html'),
+    comparison: t('.last_semester', count: 45) %>
+
+  <%= render "stat",
+    number: 21,
+    descriptor: t('.contributors_this_week'),
+    comparison: t('.last_week', count: 25) %>
+
+  <%= render "stat",
+    number: 44,
+    descriptor: t('.contributors_this_semester'),
+    comparison: t('.last_semester', count: 56) %>
+</section>
 
 <table class="activity-feed">
   <% @activity_feed.grouped_activities.each do |date, activities| %>
