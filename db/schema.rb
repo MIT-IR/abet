@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -22,10 +21,15 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.string   "level",               null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.index ["outcome_id", "standard_outcome_id"], name: "index_alignments_on_outcome_id_and_standard_outcome_id", unique: true, using: :btree
+    t.index ["standard_outcome_id"], name: "index_alignments_on_standard_outcome_id", using: :btree
   end
 
-  add_index "alignments", ["outcome_id", "standard_outcome_id"], name: "index_alignments_on_outcome_id_and_standard_outcome_id", unique: true, using: :btree
-  add_index "alignments", ["standard_outcome_id"], name: "index_alignments_on_standard_outcome_id", using: :btree
+  create_table "ar_internal_metadata", primary_key: "key", id: :string, force: :cascade do |t|
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "number",                          null: false
@@ -35,10 +39,9 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "outcomes_count",      default: 0, null: false
+    t.index ["department_id"], name: "index_courses_on_department_id", using: :btree
+    t.index ["number"], name: "index_courses_on_number", unique: true, using: :btree
   end
-
-  add_index "courses", ["department_id"], name: "index_courses_on_department_id", using: :btree
-  add_index "courses", ["number"], name: "index_courses_on_number", unique: true, using: :btree
 
   create_table "departments", force: :cascade do |t|
     t.string   "name",       null: false
@@ -46,10 +49,9 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "number",     null: false
+    t.index ["number"], name: "index_departments_on_number", unique: true, using: :btree
+    t.index ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
   end
-
-  add_index "departments", ["number"], name: "index_departments_on_number", unique: true, using: :btree
-  add_index "departments", ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
 
   create_table "direct_assessments", force: :cascade do |t|
     t.string   "name",                                null: false
@@ -62,10 +64,9 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.integer  "subject_id",                          null: false
     t.boolean  "archived",            default: false
     t.integer  "results_count",       default: 0,     null: false
+    t.index ["archived"], name: "index_direct_assessments_on_archived", using: :btree
+    t.index ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
   end
-
-  add_index "direct_assessments", ["archived"], name: "index_direct_assessments_on_archived", using: :btree
-  add_index "direct_assessments", ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
 
   create_table "indirect_assessments", force: :cascade do |t|
     t.string   "name",                                null: false
@@ -78,9 +79,8 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.string   "type",                                null: false
     t.boolean  "archived",            default: false
     t.integer  "results_count",       default: 0,     null: false
+    t.index ["archived"], name: "index_indirect_assessments_on_archived", using: :btree
   end
-
-  add_index "indirect_assessments", ["archived"], name: "index_indirect_assessments_on_archived", using: :btree
 
   create_table "outcome_assessments", force: :cascade do |t|
     t.integer  "outcome_id",      null: false
@@ -88,10 +88,9 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.string   "assessment_type", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["assessment_type", "assessment_id"], name: "index_outcome_assessments_on_assessment_type_and_assessment_id", using: :btree
+    t.index ["outcome_id"], name: "index_outcome_assessments_on_outcome_id", using: :btree
   end
-
-  add_index "outcome_assessments", ["assessment_type", "assessment_id"], name: "index_outcome_assessments_on_assessment_type_and_assessment_id", using: :btree
-  add_index "outcome_assessments", ["outcome_id"], name: "index_outcome_assessments_on_outcome_id", using: :btree
 
   create_table "outcomes", force: :cascade do |t|
     t.string   "name",                          null: false
@@ -100,9 +99,8 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "assessments_count", default: 0, null: false
+    t.index ["course_id", "name"], name: "index_outcomes_on_course_id_and_name", unique: true, using: :btree
   end
-
-  add_index "outcomes", ["course_id", "name"], name: "index_outcomes_on_course_id_and_name", unique: true, using: :btree
 
   create_table "results", force: :cascade do |t|
     t.integer  "assessment_id",          null: false
@@ -116,9 +114,8 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "department_id"
+    t.index ["assessment_id", "assessment_type", "year", "semester"], name: "index_results_on_assessment_and_year_and_semester", unique: true, using: :btree
   end
-
-  add_index "results", ["assessment_id", "assessment_type", "year", "semester"], name: "index_results_on_assessment_and_year_and_semester", unique: true, using: :btree
 
   create_table "standard_outcomes", force: :cascade do |t|
     t.string   "name",        null: false
@@ -131,17 +128,15 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.string  "number",            null: false
     t.string  "title",             null: false
     t.integer "department_number", null: false
+    t.index ["department_number"], name: "index_subjects_on_department_number", using: :btree
   end
-
-  add_index "subjects", ["department_number"], name: "index_subjects_on_department_number", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false
@@ -150,10 +145,9 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+    t.index ["item_type"], name: "index_versions_on_item_type", using: :btree
   end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
-  add_index "versions", ["item_type"], name: "index_versions_on_item_type", using: :btree
 
   add_foreign_key "alignments", "outcomes"
   add_foreign_key "alignments", "standard_outcomes"
@@ -212,13 +206,14 @@ ActiveRecord::Schema.define(version: 20151223163901) do
               count(*) AS count
              FROM (outcome_assessments
                JOIN direct_assessments ON ((direct_assessments.id = outcome_assessments.assessment_id)))
-            WHERE ((((outcome_assessments.assessment_type)::text = 'DirectAssessment'::text) AND (direct_assessments.archived = false)) AND (direct_assessments.results_count > 0))
+            WHERE (((outcome_assessments.assessment_type)::text = 'DirectAssessment'::text) AND (direct_assessments.archived = false) AND (direct_assessments.results_count > 0))
             GROUP BY outcome_assessments.outcome_id) active_direct_assessments_with_results ON ((outcomes.id = active_direct_assessments_with_results.outcome_id)))
        LEFT JOIN ( SELECT outcome_assessments.outcome_id,
               count(*) AS count
              FROM (outcome_assessments
                JOIN indirect_assessments ON ((indirect_assessments.id = outcome_assessments.assessment_id)))
-            WHERE ((((outcome_assessments.assessment_type)::text = 'IndirectAssessment'::text) AND (indirect_assessments.archived = false)) AND (indirect_assessments.results_count > 0))
+            WHERE (((outcome_assessments.assessment_type)::text = 'IndirectAssessment'::text) AND (indirect_assessments.archived = false) AND (indirect_assessments.results_count > 0))
             GROUP BY outcome_assessments.outcome_id) active_indirect_assessments_with_results ON ((outcomes.id = active_indirect_assessments_with_results.outcome_id)));
   SQL
+
 end
