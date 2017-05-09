@@ -1,7 +1,7 @@
 <table>
   <tr>
     <td>
-      <%= t(".no_assessments", assessment_type: assessment_type) %>
+      <%= t(".no_assessments") %>
 
       <% if @filtered_outcome.present? %>
         <%= t(".for_outcome", name: @filtered_outcome.name.capitalize) %>

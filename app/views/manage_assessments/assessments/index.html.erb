@@ -24,13 +24,5 @@
 <% if @direct_assessments.present? %>
   <%= render "direct_assessments", direct_assessments: @direct_assessments %>
 <% else %>
-  <%= render "no_assessments", assessment_type: t(".direct") %>
-<% end %>
-
-<h3><%= t(".indirect_assessments", count: @indirect_assessments.length) %></h3>
-
-<% if @indirect_assessments.present? %>
-  <%= render "indirect_assessments", indirect_assessments: @indirect_assessments %>
-<% else %>
-  <%= render "no_assessments", assessment_type: t(".indirect") %>
+  <%= render "no_assessments" %>
 <% end %>

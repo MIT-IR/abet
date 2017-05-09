@@ -70,46 +70,10 @@ FactoryGirl.define do
     end
   end
 
-  factory :other_assessment do
-    description "Senior Thesis Completion"
-    minimum_requirement "Somewhat satisfied"
-    name "Percent of students who complete a senior thesis"
-    target_percentage 80
-    type "OtherAssessment"
-
-    transient do
-      course { create(:course) }
-    end
-
-    after(:build) do |assessment, evaluator|
-      if assessment.outcomes.empty?
-        assessment.outcomes << create(:outcome, course: evaluator.course)
-      end
-    end
-  end
-
   factory :outcome do
     name { generate(:label) }
     description { "description for custom #{name}" }
     course
-  end
-
-  factory :participation do
-    description "Undergraduation Research Project"
-    minimum_requirement "Somewhat satisfied"
-    name "UROP"
-    target_percentage 80
-    type "Participation"
-
-    transient do
-      course { create(:course) }
-    end
-
-    after(:build) do |assessment, evaluator|
-      if assessment.outcomes.empty?
-        assessment.outcomes << create(:outcome, course: evaluator.course)
-      end
-    end
   end
 
   factory :result do
@@ -129,25 +93,6 @@ FactoryGirl.define do
     department
     number
     title { generate(:name) }
-  end
-
-  factory :survey do
-    description "Biennial survey administered to graduating seniors"
-    minimum_requirement "Somewhat satisfied"
-    name "Senior Survey"
-    survey_question "How satisfied are you with advising in your major?"
-    target_percentage 80
-    type "Survey"
-
-    transient do
-      course { create(:course) }
-    end
-
-    after(:build) do |assessment, evaluator|
-      if assessment.outcomes.empty?
-        assessment.outcomes << create(:outcome, course: evaluator.course)
-      end
-    end
   end
 
   factory :user do

@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  concern :resultable do
-    resources :results, only: [:new, :create]
-  end
-
   namespace :api do
     resources :subjects, only: [], id: /[A-Z0-9\.]+?/i do
       resources :outcomes, only: [:index]
@@ -17,16 +13,7 @@ Rails.application.routes.draw do
     end
 
     resources :direct_assessments, only: [:new, :create, :edit, :update] do
-      resource :archive, only: [:create, :destroy], type: DirectAssessment
-    end
-
-    resources :indirect_assessments, only: [:edit, :update] do
-      resource :archive, only: [:create, :destroy], type: IndirectAssessment
-    end
-
-    resources :outcomes, only: [] do
-      resources :assessments, only: [:new]
-      resources :indirect_assessments, only: [:new, :create]
+      resource :archive, only: [:create, :destroy]
     end
   end
 
@@ -41,8 +28,10 @@ Rails.application.routes.draw do
   end
 
   namespace :manage_results do
-    resources :direct_assessments, only: [:show], concerns: :resultable
-    resources :indirect_assessments, only: [:show], concerns: :resultable
+    resources :direct_assessments, only: [:show] do
+      resources :results, only: [:new, :create]
+    end
+
     resources :results, only: [:edit, :update, :destroy]
     resources :subjects, only: [:index, :show]
   end

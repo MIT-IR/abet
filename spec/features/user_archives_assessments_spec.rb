@@ -10,7 +10,7 @@ feature "User archives assessments" do
     click_link "Archive"
 
     expect(page).to have_content "has been archived"
-    expect(page).to have_content "No Direct Assessments"
+    expect(page).to have_content "No Assessments"
   end
 
   scenario "when viewing assessments can immediately undo the archive" do

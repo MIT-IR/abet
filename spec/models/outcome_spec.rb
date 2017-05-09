@@ -2,12 +2,11 @@ require "rails_helper"
 
 describe Outcome do
   context "counter cache" do
-    it "counts the number of direct and indirect assessments" do
+    it "counts the number of assessments" do
       outcome = create(:outcome)
       outcome.direct_assessments << create(:direct_assessment)
-      outcome.indirect_assessments << create(:survey)
 
-      expect(outcome.assessments_count).to eq 2
+      expect(outcome.assessments_count).to eq 1
     end
 
     it "decreases when assessments are removed" do

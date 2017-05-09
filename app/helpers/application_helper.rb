@@ -19,9 +19,7 @@ module ApplicationHelper
 
   def new_assessment_action(button = true, text = t("helpers.create_new_assessment"))
     if policy(:generic).create_assessments?
-      link_to text, javascript_void,
-        class: "#{ 'button' if button } modal-trigger",
-        data: { target_modal_name: "create-assessment" }
+      link_to text, new_manage_assessments_direct_assessment_path, class: "#{ 'button' if button }"
     end
   end
 

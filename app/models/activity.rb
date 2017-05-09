@@ -11,12 +11,7 @@ class Activity < PaperTrail::Version
   end
 
   def subject
-    case result.assessment
-    when DirectAssessment
-      result.assessment.subject.to_s
-    else
-      "Indirect Assessment"
-    end
+    result.assessment.subject.to_s
   end
 
   def time_formatted

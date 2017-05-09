@@ -10,8 +10,6 @@ en:
         assessment_description: Description
         assessment_name: Name
         percentage: Actual Percentage
-      survey:
-        minimum_requirement: Minimum Category
     errors:
       models:
         direct_assessment:
@@ -22,10 +20,6 @@ en:
                 same department.
             target_percentage:
               inclusion: must be between 0 and 100
-        indirect_assessment:
-          attributes:
-            target_percentage:
-              inclusion: must be between 0 and 100
         result:
           attributes:
             assessment_id:
@@ -34,10 +28,6 @@ en:
               inclusion: must be between 0 and 100
     models:
       direct_assessment: Direct Assessment
-      indirect_assessment: Indirect Assessment
-      other_assessment: Other Assessment
-      participation: Program Participation
-      survey: Survey
   activities:
     activity:
       event:

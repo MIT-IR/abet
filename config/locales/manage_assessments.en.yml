@@ -8,20 +8,6 @@ en:
       destroy:
         success: Assessment "%{name}" has been unarchived successfully.
     assessments:
-      new:
-        heading: Choose an Indirect Assessment Type
-        other_assessment: Other Assessment
-        other_assessment_action: Create Other Assessment
-        other_assessment_description: The outcome assessment I would like to perform
-          is not covered above
-        participation: Participation in Program
-        participation_action: Create Participation Assessment
-        participation_description: The outcome will be assessed based on a
-          measurement of student participation in their program
-        survey_results: Survey Results
-        survey_results_action: Create Survey Assessment
-        survey_results_description: The outcome will be assessed based on the results
-          from a student survey
       direct_assessments:
         actions: Actions
         add_result: Add Result
@@ -42,31 +28,14 @@ en:
         indirect: Indirect
         indirect_assessments: Indirect Assessments (%{count})
         outcome: Outcome %{name}
-      indirect_assessments:
-        actions: Action
-        add_result: Add Result
-        archive: Archive
-        archive_confirm: Are you sure you want to archive this assessment? You
-          should archive this assessment only if you no longer wish to collect
-          data for it.
-        description: Description
-        edit: Edit
-        name: Name
-        type: Type
-        view: View
       no_assessments:
         for_outcome: for Outcome %{name}
-        no_assessments: No %{assessment_type} Assessments
+        no_assessments: No Assessments
       outcomes:
         outcome:
           assess: New Assessment
           details: Details
     dashboard:
-      create_assessment_modal:
-        by: by
-        course: Course
-        subject: Subject
-        get_started: Get started
       show:
         actions: Actions
         assessments: Assessment Coverage
@@ -95,21 +64,3 @@ en:
         heading: Add a new direct assessment
       update:
         success: Assessment updated successfully.
-    indirect_assessments:
-      create:
-        success: Assessment created successfully.
-      edit:
-        heading: Edit Indirect Assessment
-      new:
-        heading:
-          otherassessment: New Other Assessment
-          participation: New Program Participation Assessment
-          survey: New Survey Assessment
-      update:
-        success: Assessment updated successfully.
-    new_assessment_modal:
-      by: By
-      course: Course
-      create_new_assessment: Create New Assessment
-      get_started: Get Started
-      subject: Subject

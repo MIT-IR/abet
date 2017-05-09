@@ -55,11 +55,7 @@ class ManageResults::ResultsController < ApplicationController
   end
 
   def find_assessment
-    if params[:direct_assessment_id]
-      @assessment = DirectAssessment.find(params[:direct_assessment_id])
-    else
-      @assessment = IndirectAssessment.find(params[:indirect_assessment_id])
-    end
+    @assessment = DirectAssessment.find(params[:direct_assessment_id])
   end
 
   def assessment_attributes

@@ -33,32 +33,4 @@ feature "TA creates a result" do
     expect(page).to have_content "Polynomial Equations"
     expect(page).to have_content "72"
   end
-
-  scenario "for an indirect assessment" do
-    assessment = create(:survey)
-    user = user_with_results_access_to(assessment.department)
-
-    visit manage_assessments_course_assessments_path(assessment.outcomes.first.course, as: user)
-    click_on "View"
-
-    expect(page).to have_content assessment.name
-    expect(page).to have_content assessment.description
-
-    click_on "Add Result"
-
-    expect(page).to have_content assessment.minimum_requirement
-    expect(find_field("result_assessment_name").value).to eq assessment.name
-    expect(find_field("result_assessment_description").value).to eq assessment.description
-
-    select "2015", from: "result_year"
-    fill_in "result_assessment_name", with: "Senior Survey"
-    fill_in "result_assessment_description", with: "Annual survey"
-    fill_in "result_percentage", with: "92"
-    click_on "Create Result"
-
-    expect(page).to have_content "2015"
-    expect(page).to have_content "Senior Survey"
-    expect(page).to have_content "Annual survey"
-    expect(page).to have_content "92"
-  end
 end

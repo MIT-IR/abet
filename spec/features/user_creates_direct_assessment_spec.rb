@@ -8,7 +8,7 @@ feature "User creates a direct assessment" do
     user = user_with_assessments_access_to(course.department)
 
     visit manage_assessments_root_path(as: user)
-    find("[data-role='start-direct-assessment']").click
+    click_link(I18n.t('helpers.create_new_assessment'))
 
     outcomes.each { |outcome| check(outcome.to_s) }
     fill_and_submit_form

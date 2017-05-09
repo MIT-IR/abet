@@ -24,15 +24,7 @@ module ManageAssessments
     private
 
     def assessment
-      @_assessment ||= assessment_type.find(assessment_id)
-    end
-
-    def assessment_type
-      params[:type]
-    end
-
-    def assessment_id
-      params["#{assessment_type.model_name.singular}_id"]
+      @_assessment ||= DirectAssessment.find(params[:direct_assessment_id])
     end
 
     def undo_link(assessment)
@@ -40,15 +32,9 @@ module ManageAssessments
     end
 
     def undo_href(assessment)
-      if assessment.is_a?(DirectAssessment)
-        manage_assessments_direct_assessment_archive_path(
-          direct_assessment_id: assessment.id,
-        )
-      else
-        manage_assessments_indirect_assessment_archive_path(
-          indirect_assessment_id: assessment.id,
-        )
-      end
+      manage_assessments_direct_assessment_archive_path(
+        direct_assessment_id: assessment.id,
+      )
     end
   end
 end

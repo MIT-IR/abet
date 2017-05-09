@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223163901) do
+ActiveRecord::Schema.define(version: 20170509003455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,27 +68,12 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.index ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
   end
 
-  create_table "indirect_assessments", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "description",                         null: false
-    t.string   "survey_question"
-    t.string   "minimum_requirement",                 null: false
-    t.integer  "target_percentage",                   null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "type",                                null: false
-    t.boolean  "archived",            default: false
-    t.integer  "results_count",       default: 0,     null: false
-    t.index ["archived"], name: "index_indirect_assessments_on_archived", using: :btree
-  end
-
   create_table "outcome_assessments", force: :cascade do |t|
-    t.integer  "outcome_id",      null: false
-    t.integer  "assessment_id",   null: false
-    t.string   "assessment_type", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["assessment_type", "assessment_id"], name: "index_outcome_assessments_on_assessment_type_and_assessment_id", using: :btree
+    t.integer  "outcome_id",    null: false
+    t.integer  "assessment_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["assessment_id"], name: "index_outcome_assessments_on_assessment_id", using: :btree
     t.index ["outcome_id"], name: "index_outcome_assessments_on_outcome_id", using: :btree
   end
 
@@ -104,7 +89,6 @@ ActiveRecord::Schema.define(version: 20151223163901) do
 
   create_table "results", force: :cascade do |t|
     t.integer  "assessment_id",          null: false
-    t.string   "assessment_type",        null: false
     t.string   "assessment_name",        null: false
     t.string   "assessment_description", null: false
     t.string   "problem_description"
@@ -114,7 +98,7 @@ ActiveRecord::Schema.define(version: 20151223163901) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "department_id"
-    t.index ["assessment_id", "assessment_type", "year", "semester"], name: "index_results_on_assessment_and_year_and_semester", unique: true, using: :btree
+    t.index ["assessment_id", "year", "semester"], name: "index_results_on_assessment_id_and_year_and_semester", unique: true, using: :btree
   end
 
   create_table "standard_outcomes", force: :cascade do |t|
@@ -153,7 +137,9 @@ ActiveRecord::Schema.define(version: 20151223163901) do
   add_foreign_key "alignments", "standard_outcomes"
   add_foreign_key "courses", "departments", on_delete: :restrict
   add_foreign_key "direct_assessments", "subjects"
+  add_foreign_key "outcome_assessments", "direct_assessments", column: "assessment_id"
   add_foreign_key "outcomes", "courses"
+  add_foreign_key "results", "direct_assessments", column: "assessment_id"
 
   create_view :assessment_reports,  sql_definition: <<-SQL
       SELECT outcomes.course_id,
@@ -185,35 +171,21 @@ ActiveRecord::Schema.define(version: 20151223163901) do
       outcomes.created_at,
       outcomes.updated_at,
       outcomes.assessments_count,
-      COALESCE(active_direct_assessments.count, (0)::bigint) AS active_direct_assessments_count,
-      COALESCE(active_indirect_assessments.count, (0)::bigint) AS active_indirect_assessments_count,
-      COALESCE(active_direct_assessments_with_results.count, (0)::bigint) AS active_direct_assessments_with_results_count,
-      COALESCE(active_indirect_assessments_with_results.count, (0)::bigint) AS active_indirect_assessments_with_results_count
-     FROM ((((outcomes
+      COALESCE(active_direct_assessments.count, (0)::bigint) AS active_assessments_count,
+      COALESCE(active_direct_assessments_with_results.count, (0)::bigint) AS active_assessments_with_results_count
+     FROM ((outcomes
        LEFT JOIN ( SELECT outcome_assessments.outcome_id,
               count(*) AS count
              FROM (outcome_assessments
                JOIN direct_assessments ON ((direct_assessments.id = outcome_assessments.assessment_id)))
-            WHERE (((outcome_assessments.assessment_type)::text = 'DirectAssessment'::text) AND (direct_assessments.archived = false))
+            WHERE (direct_assessments.archived = false)
             GROUP BY outcome_assessments.outcome_id) active_direct_assessments ON ((outcomes.id = active_direct_assessments.outcome_id)))
        LEFT JOIN ( SELECT outcome_assessments.outcome_id,
               count(*) AS count
              FROM (outcome_assessments
-               JOIN indirect_assessments ON ((indirect_assessments.id = outcome_assessments.assessment_id)))
-            WHERE (((outcome_assessments.assessment_type)::text = 'IndirectAssessment'::text) AND (indirect_assessments.archived = false))
-            GROUP BY outcome_assessments.outcome_id) active_indirect_assessments ON ((outcomes.id = active_indirect_assessments.outcome_id)))
-       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
-              count(*) AS count
-             FROM (outcome_assessments
                JOIN direct_assessments ON ((direct_assessments.id = outcome_assessments.assessment_id)))
-            WHERE (((outcome_assessments.assessment_type)::text = 'DirectAssessment'::text) AND (direct_assessments.archived = false) AND (direct_assessments.results_count > 0))
-            GROUP BY outcome_assessments.outcome_id) active_direct_assessments_with_results ON ((outcomes.id = active_direct_assessments_with_results.outcome_id)))
-       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
-              count(*) AS count
-             FROM (outcome_assessments
-               JOIN indirect_assessments ON ((indirect_assessments.id = outcome_assessments.assessment_id)))
-            WHERE (((outcome_assessments.assessment_type)::text = 'IndirectAssessment'::text) AND (indirect_assessments.archived = false) AND (indirect_assessments.results_count > 0))
-            GROUP BY outcome_assessments.outcome_id) active_indirect_assessments_with_results ON ((outcomes.id = active_indirect_assessments_with_results.outcome_id)));
+            WHERE ((direct_assessments.archived = false) AND (direct_assessments.results_count > 0))
+            GROUP BY outcome_assessments.outcome_id) active_direct_assessments_with_results ON ((outcomes.id = active_direct_assessments_with_results.outcome_id)));
   SQL
 
 end

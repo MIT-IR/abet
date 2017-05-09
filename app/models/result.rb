@@ -4,7 +4,7 @@ class Result < ActiveRecord::Base
 
   before_save :denormalize_department
 
-  belongs_to :assessment, polymorphic: true, counter_cache: true
+  belongs_to :assessment, class_name: 'DirectAssessment', counter_cache: true
   belongs_to :department
 
   validates :assessment_name, presence: true
@@ -14,7 +14,7 @@ class Result < ActiveRecord::Base
     inclusion: { in: SEMESTERS, if: -> { semester.present? } }
   validates :year, presence: true, inclusion: { in: YEARS }
   validates :assessment_id,
-    uniqueness: { scope: [:assessment_type, :semester, :year] }
+    uniqueness: { scope: [:semester, :year] }
 
   has_paper_trail
 

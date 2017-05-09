@@ -71,8 +71,6 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 // Zs
 $base-z-index: 0;
 $navigation-z-index: 100;
-$modal-overlay-z-index: 200;
-$modal-z-index: $modal-overlay-z-index + 1;
 
 // Steps
 $breadcrumb-border-color: $light-blue-border;

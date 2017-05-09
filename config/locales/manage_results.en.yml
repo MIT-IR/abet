@@ -24,26 +24,6 @@ en:
         results: Results
         success: Assessment "%{name}" has been archived. %{undo}
         undo: Undo
-    indirect_assessments:
-      results:
-        actions: Actions
-        confirm: Are you sure you want to delete this result?
-        delete: Delete
-        description: Description
-        edit: Edit
-        name: Name
-        no_results: No Results
-        percentage: Percentage
-        period: Period
-      show:
-        add_result: Add Result
-        archive: Archive
-        archive_confirm: Are you sure you want to archive this assessment? You
-          should archive this assessment only if you no longer wish to collect
-          data for it.
-        edit: Edit
-        outcomes: Outcomes Covered by This Assessment
-        results: Results
     outcomes:
       actions: Actions
       course: Course
@@ -84,6 +64,6 @@ en:
         add_results: Add Result
         assessment: Assessment
         last_entry: Last Result Entered
-        no_assessments: No Direct Assessments
+        no_assessments: No Assessments
         no_results: No Results
         view: View

@@ -1,10 +1,10 @@
 class DirectAssessment < ActiveRecord::Base
-  has_many :outcome_assessments, as: :assessment, dependent: :destroy
+  has_many :outcome_assessments, foreign_key: 'assessment_id', dependent: :destroy
   has_many :outcomes, -> { order(:name) }, through: :outcome_assessments
   has_many :courses, -> { order(:id) }, through: :outcomes
 
   belongs_to :subject
-  has_many :results, as: :assessment
+  has_many :results, foreign_key: :assessment_id
 
   validates :description, presence: true
   validates :minimum_requirement, presence: true

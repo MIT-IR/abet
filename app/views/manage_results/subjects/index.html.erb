@@ -5,7 +5,7 @@
 <% if policy(:generic).create_assessments? %>
   <p><%= t(
     ".description.can_create_assessments_html",
-    add_assessment_link: new_assessment_action(false, t(".add_assessment"))
+    add_assessmnet_link: new_assessment_action(false, t(".add_assessment"))
   ) %></p>
 <% else %>
   <p><%= t(".description.cannot_create_assessments_html") %></p>
