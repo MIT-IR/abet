@@ -19,10 +19,10 @@
   </section>
 <% end %>
 
-<h3><%= t(".direct_assessments", count: @direct_assessments.length) %></h3>
+<h3><%= t(".assessments", count: @assessments.length) %></h3>
 
-<% if @direct_assessments.present? %>
-  <%= render "direct_assessments", direct_assessments: @direct_assessments %>
+<% if @assessments.present? %>
+  <%= render "assessments", assessments: @assessments %>
 <% else %>
   <%= render "no_assessments" %>
 <% end %>

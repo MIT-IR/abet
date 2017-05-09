@@ -11,8 +11,8 @@
   <thead>
     <tr>
       <th><%= t(".outcome_name") %></th>
-      <th><%= t(".direct_assessment_name") %></th>
-      <th><%= t(".direct_assessment_description") %></th>
+      <th><%= t(".assessment_name") %></th>
+      <th><%= t(".assessment_description") %></th>
       <th><%= t(".minimum_requirement") %></th>
       <th><%= t(".target_percentage") %></th>
       <th><%= t(".actual_percentage") %></th>
@@ -23,8 +23,8 @@
     <% @reports.each do |result| %>
       <tr>
         <td><%= result.outcome_name %></td>
-        <td><%= result.direct_assessment_name %></td>
-        <td><%= result.direct_assessment_description %></td>
+        <td><%= result.assessment_name %></td>
+        <td><%= result.assessment_description %></td>
         <td><%= result.minimum_requirement %></td>
         <td><%= result.target_percentage %></td>
         <td><%= result.actual_percentage %></td>

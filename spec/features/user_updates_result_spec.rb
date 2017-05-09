@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "User updates result" do
-  scenario "for a direct assessment" do
+  scenario "for an assessment" do
     result = create(:result, percentage: 80)
     assessment = result.assessment
     user = user_with_results_access_to(assessment.department)

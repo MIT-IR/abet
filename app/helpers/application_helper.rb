@@ -19,7 +19,7 @@ module ApplicationHelper
 
   def new_assessment_action(button = true, text = t("helpers.create_new_assessment"))
     if policy(:generic).create_assessments?
-      link_to text, new_manage_assessments_direct_assessment_path, class: "#{ 'button' if button }"
+      link_to text, new_manage_assessments_assessment_path, class: "#{ 'button' if button }"
     end
   end
 

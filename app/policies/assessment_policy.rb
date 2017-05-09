@@ -1,4 +1,4 @@
-class DirectAssessmentPolicy < ApplicationPolicy
+class AssessmentPolicy < ApplicationPolicy
   def new?
     GenericPolicy.new(user, record).create_assessments?
   end

@@ -2,12 +2,12 @@ require "rails_helper"
 
 feature "User views list of subjects" do
   scenario "and only sees permitted subjects with assessments" do
-    assessment = create(:direct_assessment)
+    assessment = create(:assessment)
     department = assessment.department
     permitted_subject = assessment.subject
 
     unpermitted_subject = create(:subject)
-    create(:direct_assessment, subject: unpermitted_subject)
+    create(:assessment, subject: unpermitted_subject)
 
     subject_without_assessment = create(:subject, department_number: department.number)
 

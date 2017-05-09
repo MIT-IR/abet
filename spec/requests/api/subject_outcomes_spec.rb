@@ -4,7 +4,7 @@ describe "subject outcomes api" do
   it "returns a unique list of outcomes for the given subject" do
     subject = create(:subject, number: "1.234")
     outcome,_ = create_pair(:outcome)
-    assessment = create_pair :direct_assessment,
+    assessment = create_pair :assessment,
       subject: subject,
       outcomes: [outcome]
 

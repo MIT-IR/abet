@@ -4,7 +4,7 @@ class Result < ActiveRecord::Base
 
   before_save :denormalize_department
 
-  belongs_to :assessment, class_name: 'DirectAssessment', counter_cache: true
+  belongs_to :assessment, counter_cache: true
   belongs_to :department
 
   validates :assessment_name, presence: true

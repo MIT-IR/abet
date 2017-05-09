@@ -1,7 +1,7 @@
 class ManageResults::SubjectsController < ApplicationController
   def index
     @subjects = policy_scope(Subject).
-      with_direct_assessments.
+      with_assessments.
       sorted_by_number
 
     if @subjects.length == 1

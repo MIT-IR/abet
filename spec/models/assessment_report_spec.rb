@@ -9,7 +9,7 @@ describe AssessmentReport do
       reports = AssessmentReport.for(result.assessment.courses.first)
 
       expect(reports.length). to eq 1
-      expect(reports.first.direct_assessment_name).to eq result.assessment.name
+      expect(reports.first.assessment_name).to eq result.assessment.name
     end
   end
 end

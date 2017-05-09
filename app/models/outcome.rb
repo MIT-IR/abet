@@ -5,13 +5,10 @@ class Outcome < ActiveRecord::Base
   has_many :outcome_assessments, dependent: :destroy
   has_many :alignments
   has_many :standard_outcomes, through: :alignments
-  has_many :direct_assessments,
-    through: :outcome_assessments,
-    source: :assessment
-  has_many :active_direct_assessments,
+  has_many :assessments, through: :outcome_assessments
+  has_many :active_assessments,
     -> { where(archived: false) },
-    through: :outcome_assessments,
-    source: :assessment
+    through: :outcome_assessments
 
   accepts_nested_attributes_for :alignments,
     reject_if: ->(attributes) { attributes[:level].blank? },

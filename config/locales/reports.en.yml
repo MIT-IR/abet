@@ -6,8 +6,8 @@ en:
         actual_percentage: Actual Percentage
         csv_link: complete report as a CSV
         description_html: For full results, download the %{link}.
-        direct_assessment_name: Assessment Name
-        direct_assessment_description: Assessment Description
+        assessment_name: Assessment Name
+        assessment_description: Assessment Description
         heading: "Assessment Report for %{course}"
         minimum_requirement: Minimum Requirement
         outcome_name: Outcome Name

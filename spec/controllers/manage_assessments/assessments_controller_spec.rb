@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe ManageAssessments::DirectAssessmentsController do
+describe ManageAssessments::AssessmentsController do
   describe "POST :create" do
     it "does not allow a user to create an assessment without permission" do
       outcome = create(:outcome)
@@ -11,27 +11,27 @@ describe ManageAssessments::DirectAssessmentsController do
       expect {
         post :create,
         params: {
-          direct_assessment: assessment_params.merge(outcome_ids: [outcome.id]),
+          assessment: assessment_params.merge(outcome_ids: [outcome.id]),
         }
       }.to raise_error(RuntimeError, "Not authorized")
-      expect(DirectAssessment.count).to eq 0
+      expect(Assessment.count).to eq 0
     end
   end
 
   describe "PATCH :update" do
     it "does not allow a user to create an assessment without permission" do
-      direct_assessment = create(:direct_assessment)
-      course = create(:course, department: direct_assessment.department)
+      assessment = create(:assessment)
+      course = create(:course, department: assessment.department)
       outcome = create(:outcome, course: course)
-      user = user_with_read_access_to(direct_assessment.department)
+      user = user_with_read_access_to(assessment.department)
       grant_access(user, create(:department), Permission::ASSESSMENTS)
       sign_in(user)
 
       expect {
         patch :update,
         params: {
-          id: direct_assessment.id,
-          direct_assessment: { outcome_ids: [outcome.id] },
+          id: assessment.id,
+          assessment: { outcome_ids: [outcome.id] },
         }
       }.to raise_error(RuntimeError, "Not authorized")
     end

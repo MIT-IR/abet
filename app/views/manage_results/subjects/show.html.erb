@@ -6,8 +6,8 @@
   <%= new_assessment_action %>
 </div>
 
-<% if @subject.direct_assessments.present? %>
-  <table id="direct_assessments">
+<% if @subject.assessments.present? %>
+  <table id="assessments">
     <thead>
       <tr>
         <th><%= t(".assessment") %></th>
@@ -16,8 +16,8 @@
       </tr>
     </thead>
     <tbody>
-      <% @subject.direct_assessments.each do |assessment| %>
-        <tr id="direct_assessment-<%=assessment.id %>">
+      <% @subject.assessments.each do |assessment| %>
+        <tr id="assessment-<%=assessment.id %>">
           <td><%= assessment %></td>
           <td>
             <% if assessment.results.any? %>
@@ -27,8 +27,8 @@
             <% end %>
           </td>
           <td class="inline-action-links">
-            <%= link_to t(".view"), manage_results_direct_assessment_path(assessment) %>
-            <%= link_to t(".add_results"), new_manage_results_direct_assessment_result_path(assessment) %>
+            <%= link_to t(".view"), manage_results_assessment_path(assessment) %>
+            <%= link_to t(".add_results"), new_manage_results_assessment_result_path(assessment) %>
           </td>
         </tr>
       <% end %>

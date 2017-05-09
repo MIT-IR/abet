@@ -8,7 +8,7 @@ en:
       destroy:
         success: Assessment "%{name}" has been unarchived successfully.
     assessments:
-      direct_assessments:
+      assessments:
         actions: Actions
         add_result: Add Result
         archive: Archive
@@ -19,15 +19,18 @@ en:
         edit: Edit
         subject: Subject
         view: View
+      create:
+        success: Assessment created successfully. View assessments for %{links}.
+      edit:
+        heading: Edit Assessment
       filter_form:
         all_outcomes: All Outcomes
         outcome_label: Outcome %{name}
       index:
-        direct: Direct
-        direct_assessments: Direct Assessments (%{count})
-        indirect: Indirect
-        indirect_assessments: Indirect Assessments (%{count})
+        assessments: Assessments (%{count})
         outcome: Outcome %{name}
+      new:
+        heading: Add a new assessment
       no_assessments:
         for_outcome: for Outcome %{name}
         no_assessments: No Assessments
@@ -35,6 +38,8 @@ en:
         outcome:
           assess: New Assessment
           details: Details
+      update:
+        success: Assessment updated successfully.
     dashboard:
       show:
         actions: Actions
@@ -55,12 +60,3 @@ en:
         description: Description
         heading: Outcomes for %{name}
         label: Label
-    direct_assessments:
-      create:
-        success: Assessment created successfully. View assessments for %{links}.
-      edit:
-        heading: Edit Direct Assessment
-      new:
-        heading: Add a new direct assessment
-      update:
-        success: Assessment updated successfully.

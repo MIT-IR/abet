@@ -45,7 +45,7 @@ FactoryGirl.define do
     number
   end
 
-  factory :direct_assessment do
+  factory :assessment do
     description
     minimum_requirement "7 points out of 10"
     name
@@ -77,7 +77,7 @@ FactoryGirl.define do
   end
 
   factory :result do
-    association :assessment, factory: :direct_assessment
+    association :assessment
     assessment_name "Problem Set 2"
     assessment_description "Multiplication"
     percentage 80

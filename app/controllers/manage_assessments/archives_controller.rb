@@ -24,7 +24,7 @@ module ManageAssessments
     private
 
     def assessment
-      @_assessment ||= DirectAssessment.find(params[:direct_assessment_id])
+      @_assessment ||= Assessment.find(params[:assessment_id])
     end
 
     def undo_link(assessment)
@@ -32,7 +32,7 @@ module ManageAssessments
     end
 
     def undo_href(assessment)
-      manage_assessments_direct_assessment_archive_path(
+      manage_assessments_assessment_archive_path(
         direct_assessment_id: assessment.id,
       )
     end

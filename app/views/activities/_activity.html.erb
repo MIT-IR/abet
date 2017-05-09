@@ -13,7 +13,7 @@
         ".event.#{activity.event}_html",
         assessment: link_to(
           activity.result.name,
-          manage_results_direct_assessment_path(activity.result.assessment_id)
+          manage_results_assessment_path(activity.result.assessment_id)
         ),
       ) %>
     </span>

@@ -1,4 +1,4 @@
-class ManageResults::DirectAssessmentsController < ApplicationController
+class ManageResults::AssessmentsController < ApplicationController
   before_action :ensure_active_assessment
 
   def show
@@ -9,7 +9,7 @@ class ManageResults::DirectAssessmentsController < ApplicationController
   private
 
   def assessment
-    @_assessment ||= DirectAssessment.
+    @_assessment ||= Assessment.
       includes(results: :assessment).
       includes(outcomes: :department).
       find(params[:id])
@@ -28,7 +28,7 @@ class ManageResults::DirectAssessmentsController < ApplicationController
   def undo_link(assessment)
     view_context.link_to(
       t(".undo"),
-      manage_assessments_direct_assessment_archive_path(direct_assessment_id: assessment.id),
+      manage_assessments_assessment_archive_path(assessment_id: assessment.id),
       method: :delete
     )
   end

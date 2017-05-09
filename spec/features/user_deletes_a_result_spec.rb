@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "User deletes a result" do
-  scenario "from a direct assessment" do
+  scenario "from an assessment" do
     result = create(:result)
     assessment = result.assessment
     user = user_with_results_access_to(assessment.department)

@@ -5,7 +5,7 @@
 <% if policy(:generic).create_assessments? %>
   <p><%= t(
     ".description.can_create_assessments_html",
-    add_assessmnet_link: new_assessment_action(false, t(".add_assessment"))
+    add_assessment_link: new_assessment_action(false, t(".add_assessment"))
   ) %></p>
 <% else %>
   <p><%= t(".description.cannot_create_assessments_html") %></p>
@@ -24,7 +24,7 @@
     <% @subjects.each do |subject| %>
       <tr>
         <td><%= subject %></td>
-        <td><%= subject.direct_assessments.unarchived.count %></td>
+        <td><%= subject.assessments.unarchived.count %></td>
         <td><%= link_to t(".view_assessments"), manage_results_subject_path(subject) %></td>
       </tr>
     <% end %>

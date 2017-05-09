@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe Result do
   it "denomarlizes the department from the associated assessment on save" do
-    assessment = create(:direct_assessment)
+    assessment = create(:assessment)
     result = build(:result, assessment: assessment)
 
     result.save!

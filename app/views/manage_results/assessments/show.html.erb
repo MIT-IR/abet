@@ -6,17 +6,17 @@
   <div>
     <% if policy(@assessment).create_results? %>
       <%= link_to t(".add_result"),
-        new_manage_results_direct_assessment_result_path(@assessment),
+        new_manage_results_assessment_result_path(@assessment),
         class: "button" %>
     <% end %>
 
     <% if policy(@assessment).edit? %>
       <%= link_to t(".edit"),
-        edit_manage_assessments_direct_assessment_path(@assessment),
+        edit_manage_assessments_assessment_path(@assessment),
         class: "button" %>
 
       <%= link_to t(".archive"),
-        manage_assessments_direct_assessment_archive_path(@assessment),
+        manage_assessments_assessment_archive_path(@assessment),
         method: :post,
         class: "button",
         data: { confirm: t(".archive_confirm") }

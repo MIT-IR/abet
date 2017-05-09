@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509003455) do
+ActiveRecord::Schema.define(version: 20170509015537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 20170509003455) do
     t.string   "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "assessments", force: :cascade do |t|
+    t.string   "name",                                null: false
+    t.string   "description",                         null: false
+    t.string   "problem_description"
+    t.string   "minimum_requirement",                 null: false
+    t.integer  "target_percentage",                   null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "subject_id",                          null: false
+    t.boolean  "archived",            default: false
+    t.integer  "results_count",       default: 0,     null: false
+    t.index ["archived"], name: "index_assessments_on_archived", using: :btree
+    t.index ["subject_id"], name: "index_assessments_on_subject_id", using: :btree
   end
 
   create_table "courses", force: :cascade do |t|
@@ -51,21 +66,6 @@ ActiveRecord::Schema.define(version: 20170509003455) do
     t.integer  "number",     null: false
     t.index ["number"], name: "index_departments_on_number", unique: true, using: :btree
     t.index ["slug"], name: "index_departments_on_slug", unique: true, using: :btree
-  end
-
-  create_table "direct_assessments", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "description",                         null: false
-    t.string   "problem_description"
-    t.string   "minimum_requirement",                 null: false
-    t.integer  "target_percentage",                   null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "subject_id",                          null: false
-    t.boolean  "archived",            default: false
-    t.integer  "results_count",       default: 0,     null: false
-    t.index ["archived"], name: "index_direct_assessments_on_archived", using: :btree
-    t.index ["subject_id"], name: "index_direct_assessments_on_subject_id", using: :btree
   end
 
   create_table "outcome_assessments", force: :cascade do |t|
@@ -135,30 +135,30 @@ ActiveRecord::Schema.define(version: 20170509003455) do
 
   add_foreign_key "alignments", "outcomes"
   add_foreign_key "alignments", "standard_outcomes"
+  add_foreign_key "assessments", "subjects"
   add_foreign_key "courses", "departments", on_delete: :restrict
-  add_foreign_key "direct_assessments", "subjects"
-  add_foreign_key "outcome_assessments", "direct_assessments", column: "assessment_id"
+  add_foreign_key "outcome_assessments", "assessments"
   add_foreign_key "outcomes", "courses"
-  add_foreign_key "results", "direct_assessments", column: "assessment_id"
+  add_foreign_key "results", "assessments"
 
   create_view :assessment_reports,  sql_definition: <<-SQL
       SELECT outcomes.course_id,
       outcomes.name AS outcome_name,
       outcomes.description AS outcome_description,
-      direct_assessments.id AS direct_assessment_id,
-      direct_assessments.name AS direct_assessment_name,
-      direct_assessments.description AS direct_assessment_description,
-      direct_assessments.minimum_requirement,
-      direct_assessments.target_percentage,
+      assessments.id AS assessment_id,
+      assessments.name AS assessment_name,
+      assessments.description AS assessment_description,
+      assessments.minimum_requirement,
+      assessments.target_percentage,
       results.percentage AS actual_percentage,
       results.year,
       results.semester,
       subjects.number AS subject_number,
       subjects.title AS subject_title
      FROM ((((results
-       JOIN direct_assessments ON ((direct_assessments.id = results.assessment_id)))
-       JOIN subjects ON ((subjects.id = direct_assessments.subject_id)))
-       JOIN outcome_assessments ON ((outcome_assessments.assessment_id = direct_assessments.id)))
+       JOIN assessments ON ((assessments.id = results.assessment_id)))
+       JOIN subjects ON ((subjects.id = assessments.subject_id)))
+       JOIN outcome_assessments ON ((outcome_assessments.assessment_id = assessments.id)))
        JOIN outcomes ON ((outcomes.id = outcome_assessments.outcome_id)))
     ORDER BY outcomes.name, results.year DESC, results.semester DESC;
   SQL
@@ -171,21 +171,21 @@ ActiveRecord::Schema.define(version: 20170509003455) do
       outcomes.created_at,
       outcomes.updated_at,
       outcomes.assessments_count,
-      COALESCE(active_direct_assessments.count, (0)::bigint) AS active_assessments_count,
-      COALESCE(active_direct_assessments_with_results.count, (0)::bigint) AS active_assessments_with_results_count
+      COALESCE(active_assessments.count, (0)::bigint) AS active_assessments_count,
+      COALESCE(active_assessments_with_results.count, (0)::bigint) AS active_assessments_with_results_count
      FROM ((outcomes
        LEFT JOIN ( SELECT outcome_assessments.outcome_id,
               count(*) AS count
              FROM (outcome_assessments
-               JOIN direct_assessments ON ((direct_assessments.id = outcome_assessments.assessment_id)))
-            WHERE (direct_assessments.archived = false)
-            GROUP BY outcome_assessments.outcome_id) active_direct_assessments ON ((outcomes.id = active_direct_assessments.outcome_id)))
+               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
+            WHERE (assessments.archived = false)
+            GROUP BY outcome_assessments.outcome_id) active_assessments ON ((outcomes.id = active_assessments.outcome_id)))
        LEFT JOIN ( SELECT outcome_assessments.outcome_id,
               count(*) AS count
              FROM (outcome_assessments
-               JOIN direct_assessments ON ((direct_assessments.id = outcome_assessments.assessment_id)))
-            WHERE ((direct_assessments.archived = false) AND (direct_assessments.results_count > 0))
-            GROUP BY outcome_assessments.outcome_id) active_direct_assessments_with_results ON ((outcomes.id = active_direct_assessments_with_results.outcome_id)));
+               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
+            WHERE ((assessments.archived = false) AND (assessments.results_count > 0))
+            GROUP BY outcome_assessments.outcome_id) active_assessments_with_results ON ((outcomes.id = active_assessments_with_results.outcome_id)));
   SQL
 
 end

@@ -8,6 +8,4 @@
   <%= render "form", f: f %>
 <% end %>
 
-<% if @result.assessment.is_a?(DirectAssessment) %>
-  <%= render "gradebook_form", subject: @result.assessment.subject %>
-<% end %>
+<%= render "gradebook_form", subject: @result.assessment.subject %>

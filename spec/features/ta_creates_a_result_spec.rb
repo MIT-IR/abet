@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "TA creates a result" do
-  scenario "for a direct assessment" do
-    assessment = create(:direct_assessment)
+  scenario "for an assessment" do
+    assessment = create(:assessment)
     department = assessment.department
     user = user_with_results_access_to(department)
 

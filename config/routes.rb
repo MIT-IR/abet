@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :assessments, only: [:index]
     end
 
-    resources :direct_assessments, only: [:new, :create, :edit, :update] do
+    resources :assessments, only: [:new, :create, :edit, :update] do
       resource :archive, only: [:create, :destroy]
     end
   end
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manage_results do
-    resources :direct_assessments, only: [:show] do
+    resources :assessments, only: [:show] do
       resources :results, only: [:new, :create]
     end
 

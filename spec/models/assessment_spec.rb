@@ -1,22 +1,22 @@
 require "rails_helper"
 
-describe DirectAssessment do
+describe Assessment do
   describe "validations" do
     it { should validate_presence_of(:subject) }
   end
 
   describe ".unarchived" do
-    it "returns only unarchived direct assessments" do
-      assessment = create(:direct_assessment, archived: false)
-      create(:direct_assessment, archived: true)
+    it "returns only unarchived assessments" do
+      assessment = create(:assessment, archived: false)
+      create(:assessment, archived: true)
 
-      expect(DirectAssessment.unarchived).to eq [assessment]
+      expect(Assessment.unarchived).to eq [assessment]
     end
   end
 
   describe "#department" do
     it "should return the department of the first associated outcome" do
-      assessment = create(:direct_assessment)
+      assessment = create(:assessment)
       outcome = assessment.outcomes.first
 
       expect(assessment.department).to eq outcome.department
@@ -25,7 +25,7 @@ describe DirectAssessment do
 
   describe "#archive" do
     it "sets the archived flag and saves" do
-      assessment = create(:direct_assessment)
+      assessment = create(:assessment)
 
       assessment.archive
 
@@ -35,7 +35,7 @@ describe DirectAssessment do
 
   describe "#unarchive" do
     it "unsets the archived flag and saves" do
-      assessment = create(:direct_assessment)
+      assessment = create(:assessment)
 
       assessment.unarchive
 

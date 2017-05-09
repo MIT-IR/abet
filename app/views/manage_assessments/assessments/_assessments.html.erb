@@ -1,30 +1,30 @@
-<table id="direct_assessments">
+<table id="assessments">
   <tr>
     <th><%= t(".subject") %></th>
     <th><%= t(".assignment") %></th>
     <th class="actions"><%= t(".actions") %></th>
   </tr>
 
-  <% direct_assessments.each do |assessment| %>
+  <% assessments.each do |assessment| %>
     <%= content_tag_for :tr, assessment do %>
       <td><%= assessment.subject %></td>
       <td><%= assessment.name %> - <%= assessment.description %></td>
       <td class="inline-action-links">
         <% if policy(assessment).edit? %>
-          <%= link_to t(".edit"), edit_manage_assessments_direct_assessment_path(assessment) %>
+          <%= link_to t(".edit"), edit_manage_assessments_assessment_path(assessment) %>
         <% end %>
 
-        <%= link_to t(".view"), manage_results_direct_assessment_path(assessment) %>
+        <%= link_to t(".view"), manage_results_assessment_path(assessment) %>
 
         <% if policy(assessment).edit? %>
           <%= link_to t(".archive"),
-            manage_assessments_direct_assessment_archive_path(assessment),
+            manage_assessments_assessment_archive_path(assessment),
             method: :post,
             data: { confirm: t(".archive_confirm") }%>
         <% end %>
 
         <% if policy(assessment).create_results? %>
-          <%= link_to t(".add_result"), new_manage_results_direct_assessment_result_path(assessment) %>
+          <%= link_to t(".add_result"), new_manage_results_assessment_result_path(assessment) %>
         <% end %>
       </td>
     <% end %>
