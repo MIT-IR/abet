@@ -11,8 +11,8 @@
       params[:outcome_ids],
     ),
     include_blank: t(".all_outcomes"),
-    data: { behavior: "auto-submit" },
-    placeholder: "All Outcomes",
+    data: { behavior: "auto-submit", allow_empty_option: "true" },
+    placeholder: "All Outcomes"
   ) %>
 
   <%= submit_tag "Filter", data: { behavior: :hidden } %>

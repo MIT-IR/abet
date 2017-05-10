@@ -1,5 +1,7 @@
 $(function() {
-  $("select").selectize({
+  $("select[data-allow-empty-option]").selectize({
     allowEmptyOption: true,
   });
+
+  $("select").not("[data-allow-empty-option]").selectize({});
 });
