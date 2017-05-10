@@ -25,6 +25,6 @@
   </tbody>
 </table>
 
-<% if course.has_custom_outcomes? && policy(course).create_outcomes? %>
+<% if policy(course).create_outcomes? %>
   <%= link_to t(".add_outcome"), new_manage_outcomes_course_outcome_path(course), class: "button" %>
 <% end %>

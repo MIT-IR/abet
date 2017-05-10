@@ -73,9 +73,6 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.3)
-    bullet (5.5.1)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.10.0)
     bundler-audit (0.5.0)
       bundler (~> 1.2)
       thor (~> 0.18)
@@ -294,7 +291,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.4)
-    uniform_notifier (1.10.0)
     wasabi (3.5.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.2)
@@ -316,7 +312,6 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.6)
   autoprefixer-rails
   awesome_print
-  bullet
   bundler-audit
   byebug
   capistrano-rails
