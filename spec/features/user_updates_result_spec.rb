@@ -8,14 +8,15 @@ feature "User updates result" do
 
     visit root_path(as: user)
     click_on "Record Data"
-    click_on "View"
+    click_on t("manage_results.subjects.show.view")
     within("#result_#{result.id}") do
-      click_on "Edit"
+      click_on t("manage_results.assessments.results.edit")
     end
 
     fill_in "Percentage", with: "90"
     click_on "Update Result"
 
     expect(page).to have_content "90%"
+    expect(page).to have_content t("manage_results.results.update.success")
   end
 end

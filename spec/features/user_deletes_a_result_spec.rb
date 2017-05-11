@@ -8,12 +8,12 @@ feature "User deletes a result" do
 
     visit root_path(as: user)
     click_on "Record Data"
-    click_on "View"
+    click_on t("manage_results.subjects.show.view")
     within("#result_#{result.id}") do
-      click_on "Delete"
+      click_on t("manage_results.assessments.results.delete")
     end
 
-    expect(page).to have_content "Result deleted"
+    expect(page).to have_content t("manage_results.results.destroy.success")
     expect(page).not_to have_content result.assessment_name
   end
 end

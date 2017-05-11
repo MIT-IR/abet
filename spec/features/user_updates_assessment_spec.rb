@@ -10,11 +10,11 @@ feature "User updates an assessment" do
     visit manage_outcomes_root_path(as: user)
 
     within("table.fully-aligned") do
-      click_on "View Assessments"
+      click_on t("manage_outcomes.dashboard.aligned_outcomes_actions.view_assessments")
     end
 
     within("#assessment_#{assessment.id}") do
-      click_on "Edit"
+      click_on t("manage_assessments.assessments.assessments.edit")
     end
 
     check(other_outcome.to_s)

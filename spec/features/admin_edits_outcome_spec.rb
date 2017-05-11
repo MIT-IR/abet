@@ -10,7 +10,7 @@ feature "Admin edits outcome" do
     select Alignment::MODERATE, from: standard_outcome
     click_button "Update Outcome"
 
-    expect(page).to have_content "Outcome updated successfully"
+    expect(page).to have_content t("manage_outcomes.outcomes.update.success")
     expect(page).not_to have_css ".unaligned-outcomes"
   end
 

@@ -7,14 +7,14 @@ feature "Admin adopts standard outcomes for a course" do
     user = user_with_admin_access_to(course.department)
 
     visit manage_outcomes_root_path(course, as: user)
-    click_on "Adopt Standard Outcomes"
+    click_on t("manage_outcomes.dashboard.without_outcomes_actions.adopt_standard")
 
     expect(page).to have_content(standard_outcomes.first)
     expect(page).to have_content(standard_outcomes.last)
 
     click_on "Adopt"
 
-    expect(page).to have_content "Standard outcomes successfully adopted."
+    expect(page).to have_content t("manage_outcomes.standard_outcomes.create.success.other")
     expect(find(".fully-aligned")).to have_content(course.name)
   end
 
@@ -24,12 +24,12 @@ feature "Admin adopts standard outcomes for a course" do
     user = user_with_admin_access_to(course.department)
 
     visit manage_outcomes_course_outcomes_path(course, as: user)
-
+    
     expect(find(".unaligned-outcomes")).to have_content standard_outcome
 
-    click_on "Adopt"
+    click_on t("manage_outcomes.outcomes.unaligned_standard_outcomes.adopt")
 
-    expect(page).to have_content "Standard outcome successfully adopted."
+    expect(page).to have_content t("manage_outcomes.standard_outcomes.create.success.one")
     expect(page).to have_content standard_outcome
     expect(page).not_to have_css(".unassociated_outcomes")
   end

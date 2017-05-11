@@ -7,9 +7,9 @@ feature "Admin views outcomes dashboard" do
 
     visit manage_outcomes_root_path(as: user)
 
-    expect(page).to have_content "Courses without Outcomes"
+    expect(page).to have_content t("manage_outcomes.dashboard.show.titles.without_outcomes")
     expect(page).to have_content course.name
-    expect(page).to have_link "Adopt Standard Outcomes"
+    expect(page).to have_link t("manage_outcomes.dashboard.without_outcomes_actions.adopt_standard")
   end
 
   scenario "sees list of courses with unaligned outcomes" do
@@ -19,7 +19,7 @@ feature "Admin views outcomes dashboard" do
     visit manage_outcomes_root_path(as: user)
 
     expect(page).to have_content course.name
-    expect(page).to have_link "View Outcomes"
-    expect(page).to have_content "Courses with Unaligned Outcomes"
+    expect(page).to have_link t("manage_outcomes.dashboard.unaligned_outcomes_actions.view_outcomes")
+    expect(page).to have_content t("manage_outcomes.dashboard.show.titles.unaligned_outcomes")
   end
 end
