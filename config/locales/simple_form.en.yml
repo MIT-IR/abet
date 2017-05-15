@@ -26,6 +26,8 @@ en:
         name: The name or number of the outcome. Typically these are short and
           indicative of a sequential numbering system, like '1.1, 1.2... or a,
           b, c…'
+        nickname: A short identifier to quickly recall the topics an outcome
+          covers.
       result:
         assessment_description: A brief description of the assignment, survey,
           or program.

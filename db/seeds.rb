@@ -32,22 +32,25 @@ ActiveRecord::Base.transaction do
   end
 
   standard_outcomes = [
-    ["a", "an ability to apply knowledge of mathematics, science, and engineering"],
-    ["b", "an ability to design and conduct experiments, as well as to analyze and interpret data"],
-    ["c", "an ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability"],
-    ["d", "an ability to function on multidisciplinary teams"],
-    ["e", "an ability to identify, formulate, and solve engineering problems"],
-    ["f", "an understanding of professional and ethical responsibility"],
-    ["g", "an ability to communicate effectively"],
-    ["h", "the broad education necessary to understand the impact of engineering solutions in a global, economic, environmental, and societal context"],
-    ["i", "a recognition of the need for, and an ability to engage in life-long learning"],
-    ["j", "a knowledge of contemporary issues"],
-    ["k", "an ability to use the techniques, skills, and modern engineering tools necessary for engineering practice"]
+    ["Science and Engineering", "a", "an ability to apply knowledge of mathematics, science, and engineering"],
+    ["Experimentation", "b", "an ability to design and conduct experiments, as well as to analyze and interpret data"],
+    ["Design", "c", "an ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability"],
+    ["Teamwork", "d", "an ability to function on multidisciplinary teams"],
+    ["Problem Solving", "e", "an ability to identify, formulate, and solve engineering problems"],
+    ["Ethics", "f", "an understanding of professional and ethical responsibility"],
+    ["Communication", "g", "an ability to communicate effectively"],
+    ["Broad Education", "h", "the broad education necessary to understand the impact of engineering solutions in a global, economic, environmental, and societal context"],
+    ["Life-long Learning", "i", "a recognition of the need for, and an ability to engage in life-long learning"],
+    ["Contemporary Issues", "j", "a knowledge of contemporary issues"],
+    ["Modern Practice", "k", "an ability to use the techniques, skills, and modern engineering tools necessary for engineering practice"]
   ]
 
   standard_outcomes.each do |outcome|
-    StandardOutcome.find_or_create_by(name: outcome[0],
-      description: outcome[1])
+    StandardOutcome.find_or_create_by(
+      nickname: outcome[0],
+      name: outcome[1],
+      description: outcome[2],
+    )
   end
 
   subject_csv = Rails.root.join("config", "subjects.csv")

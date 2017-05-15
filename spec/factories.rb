@@ -1,6 +1,7 @@
 FactoryGirl.define do
   sequence(:label) { |n| ("a".."zzz").to_a[n - 1] }
   sequence(:name) { |n| "The #{n.ordinalize} Name" }
+  sequence(:nickname) { |n| "Nickname #{n}" }
   sequence(:description) { |n| "The #{n.ordinalize} Description" }
   sequence(:number) { |n| n.to_s }
 
@@ -71,6 +72,7 @@ FactoryGirl.define do
   end
 
   factory :outcome do
+    nickname
     name { generate(:label) }
     description { "description for custom #{name}" }
     course
@@ -85,6 +87,7 @@ FactoryGirl.define do
   end
 
   factory :standard_outcome do
+    nickname
     name { generate(:label) }
     description { "description for standard #{name}" }
   end

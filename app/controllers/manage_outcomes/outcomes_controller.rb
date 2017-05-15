@@ -75,6 +75,7 @@ class ManageOutcomes::OutcomesController < ApplicationController
     params.require(:outcome).permit(
       :name,
       :description,
+      :nickname,
       :standard_outcome_id,
       alignments_attributes: [
         :_destroy,

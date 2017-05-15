@@ -11,6 +11,7 @@ feature "Admin creates custom outcomes" do
     click_link "Create Custom Outcome"
     fill_in "Name", with: "X"
     fill_in "Description", with: description
+    fill_in "Nickname", with: "Nickname"
     select Alignment::LEVELS.first, from: standard_outcome
     click_on "Create Outcome"
 

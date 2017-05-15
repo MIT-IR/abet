@@ -12,6 +12,7 @@ class Adoption
     ActiveRecord::Base.transaction do
       adoptable_outcomes.each do |adoptable_outcome|
         outcome = course.outcomes.build(
+          nickname: adoptable_outcome.nickname,
           name: adoptable_outcome.name,
           description: adoptable_outcome.description
         )

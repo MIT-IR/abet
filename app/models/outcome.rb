@@ -15,6 +15,7 @@ class Outcome < ActiveRecord::Base
     allow_destroy: true
 
   validates :name, presence: true, uniqueness: { scope: :course_id }
+  validates :nickname, presence: true, uniqueness: { scope: :course_id }
   validates :description, presence: true
 
   has_paper_trail

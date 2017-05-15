@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509015537) do
+ActiveRecord::Schema.define(version: 20170515183207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,9 @@ ActiveRecord::Schema.define(version: 20170509015537) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "assessments_count", default: 0, null: false
+    t.string   "nickname",                      null: false
     t.index ["course_id", "name"], name: "index_outcomes_on_course_id_and_name", unique: true, using: :btree
+    t.index ["course_id", "nickname"], name: "index_outcomes_on_course_id_and_nickname", unique: true, using: :btree
   end
 
   create_table "results", force: :cascade do |t|
@@ -106,6 +108,8 @@ ActiveRecord::Schema.define(version: 20170509015537) do
     t.string   "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "nickname",    null: false
+    t.index ["nickname"], name: "index_standard_outcomes_on_nickname", unique: true, using: :btree
   end
 
   create_table "subjects", force: :cascade do |t|
