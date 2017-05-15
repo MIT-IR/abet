@@ -5,6 +5,7 @@ class Course < ActiveRecord::Base
     -> { order(:name) },
     foreign_key: :course_id,
     class_name: "OutcomeWithMetadata"
+  has_many :outcome_coverages
 
   def self.without_outcomes
     where(outcomes_count: 0)

@@ -1,0 +1,5 @@
+<%= simple_form_for @outcome_coverage, url: manage_assessments_course_outcome_coverage_path(course_id: @outcome_coverage.course.id) do |form| %>
+  <%= form.input :subject_id, collection: Subject.all %>
+  <%= form.input :outcome_id, collection: @outcome_coverage.course.outcomes, label_method: :nickname %>
+  <%= form.button :submit, "Add" %>
+<% end %>
