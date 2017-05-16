@@ -7,8 +7,7 @@ feature "user adds outcome coverage to a course" do
     outcome = create(:outcome, course: course)
     user = user_with_assessments_access_to(course.department)
 
-    visit manage_assessments_course_outcome_coverage_path(course, as: user)
-
+    visit manage_assessments_course_outcome_coverages_path(course, as: user)
     click_on "Add a class"
     select subject.title, from: "outcome_coverage[subject_id]"
     select outcome.nickname, from: "outcome_coverage[outcome_id]"

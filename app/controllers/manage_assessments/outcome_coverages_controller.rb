@@ -12,15 +12,14 @@ module ManageAssessments
       authorize(@outcome_coverage)
 
       if @outcome_coverage.save
-        redirect_to manage_assessments_course_outcome_coverage_path
+        redirect_to manage_assessments_course_outcome_coverages_path
       else
         render :new
       end
     end
 
-    def show
-      @course = Course.find(params[:course_id])
-      authorize(@course)
+    def index
+      @course = policy_scope(Course).find(params[:course_id])
     end
 
     private
