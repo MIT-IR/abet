@@ -1,13 +1,11 @@
 module ManageAssessments
   class OutcomeCoveragesController < ApplicationController
     def new
-      course = Course.find(params[:course_id])
       @outcome_coverage = course.outcome_coverages.build
       authorize(@outcome_coverage)
     end
 
     def create
-      course = Course.find(params[:course_id])
       @outcome_coverage = course.outcome_coverages.build(outcome_coverages_params)
       authorize(@outcome_coverage)
 
@@ -19,10 +17,14 @@ module ManageAssessments
     end
 
     def index
-      @course = policy_scope(Course).find(params[:course_id])
+      @course = course
     end
 
     private
+
+    def course
+      @_course ||= policy_scope(Course).find(params[:course_id])
+    end
 
     def outcome_coverages_params
       params.require(:outcome_coverage).permit(:subject_id, :outcome_id)
