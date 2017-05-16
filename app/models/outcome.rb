@@ -1,4 +1,6 @@
 class Outcome < ActiveRecord::Base
+  attribute :label, Label.new
+
   belongs_to :course, counter_cache: true
 
   has_one :department, through: :course
@@ -15,7 +17,7 @@ class Outcome < ActiveRecord::Base
     allow_destroy: true
 
   validates :label, presence: true, uniqueness: { scope: :course_id },
-    length: { maximum: 500 }
+    length: { maximum: 5 }
   validates :nickname, presence: true, uniqueness: { scope: :course_id }
   validates :description, presence: true
 

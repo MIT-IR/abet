@@ -1,4 +1,6 @@
 class StandardOutcome < ActiveRecord::Base
+  attribute :label, Label.new
+
   has_many :alignments
 
   def self.aligned_with(course)
