@@ -1,0 +1,12 @@
+.headline-with-actions {
+  display: flex;
+
+  h1 {
+    flex: 1;
+    margin-right: $small-spacing;
+  }
+
+  .button {
+    align-self: flex-start;
+  }
+}
