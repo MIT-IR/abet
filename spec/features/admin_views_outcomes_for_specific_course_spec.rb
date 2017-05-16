@@ -9,10 +9,12 @@ feature "Admin views the outcomes for a specific course" do
 
     course_outcome_label = course.outcomes.first.label
     course_outcome_description = course.outcomes.first.description
+    course_outcome_nickname = course.outcomes.first.nickname
 
     expect(page).to have_content t("manage_outcomes.outcomes.outcomes.add_outcome")
     expect(page).to have_outcome_label(course_outcome_label)
     expect(page).to have_outcome_description(course_outcome_description)
+    expect(page).to have_outcome_nickname(course_outcome_nickname)
     expect(page).to have_content t("manage_outcomes.outcomes.outcomes.edit_outcome")
   end
 
@@ -24,15 +26,21 @@ feature "Admin views the outcomes for a specific course" do
 
     course_outcome_label = course.outcomes.first.label
     course_outcome_description = course.outcomes.first.description
+    course_outcome_nickname = course.outcomes.first.nickname
 
     expect(page).to have_content t("manage_outcomes.outcomes.outcomes.add_outcome")
     expect(page).to have_outcome_label(course_outcome_label)
     expect(page).to have_outcome_description(course_outcome_description)
+    expect(page).to have_outcome_nickname(course_outcome_nickname)
     expect(page).to have_content t("manage_outcomes.outcomes.outcomes.edit_outcome")
   end
 
   def have_outcome_label(label)
     have_content(label)
+  end
+
+  def have_outcome_nickname(nickname)
+    have_content(nickname)
   end
 
   def have_outcome_description(text)

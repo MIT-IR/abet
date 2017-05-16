@@ -9,7 +9,10 @@
   <tbody>
     <% @outcomes.each do |outcome| %>
       <tr>
-        <td><%= outcome %></td>
+        <td>
+          <p><%= outcome.nickname %></p>
+          <p><%= outcome.label %> - <%= outcome.description %></p>
+        </td>
       </tr>
     <% end %>
   </tbody>

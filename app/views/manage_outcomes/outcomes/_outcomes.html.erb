@@ -9,7 +9,10 @@
   <tbody>
     <% course.outcomes_with_metadata.each do |outcome| %>
       <tr>
-        <td><%= outcome %></td>
+        <td>
+          <p><%= outcome.nickname %></p>
+          <p><%= outcome %></p>
+        </td>
         <td><%= render "progress_bar",
           amount: outcome.active_assessments_with_results_count,
           total: outcome.active_assessments_count %></td>

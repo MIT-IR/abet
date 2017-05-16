@@ -12,7 +12,10 @@
     <tbody>
       <% outcomes.each do |standard_outcome| %>
         <tr>
-          <td><%= standard_outcome %>
+          <td>
+            <p><%= standard_outcome.nickname %></p>
+            <p><%= standard_outcome %></p>
+          </td>
           <td>
             <%= button_to t(".adopt"),
               manage_outcomes_course_standard_outcomes_path(
