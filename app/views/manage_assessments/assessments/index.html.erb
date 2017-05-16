@@ -14,7 +14,7 @@
 
 <% if @filtered_outcome.present? %>
   <section class="outcome-description">
-    <h2><%= t(".outcome", name: @filtered_outcome.name.capitalize) %></h2>
+    <h2><%= t(".outcome", name: @filtered_outcome.label) %></h2>
     <p><%= @filtered_outcome.description %></p>
   </section>
 <% end %>

@@ -10,7 +10,7 @@ en:
         assessment_description: Assessment Description
         heading: "Assessment Report for %{course}"
         minimum_requirement: Minimum Requirement
-        outcome_name: Outcome Name
+        outcome_label: Outcome Label
         period: Period
         target_percentage: Target Percentage
     courses:

@@ -1,6 +1,6 @@
 class Assessment < ActiveRecord::Base
   has_many :outcome_assessments, dependent: :destroy
-  has_many :outcomes, -> { order(:name) }, through: :outcome_assessments
+  has_many :outcomes, -> { order(:label) }, through: :outcome_assessments
   has_many :courses, -> { order(:id) }, through: :outcomes
 
   belongs_to :subject

@@ -6,7 +6,7 @@ class ManageOutcomes::OutcomesController < ApplicationController
     @course = course
     @unaligned_standard_outcomes = StandardOutcome.
       unaligned_with(course).
-      order(:name)
+      order(:label)
     authorize(@course, :show?)
   end
 
@@ -73,7 +73,7 @@ class ManageOutcomes::OutcomesController < ApplicationController
 
   def outcome_params
     params.require(:outcome).permit(
-      :name,
+      :label,
       :description,
       :nickname,
       :standard_outcome_id,

@@ -1,3 +1,3 @@
 class OutcomeSerializer < ActiveModel::Serializer
-  attributes :name, :description
+  attributes :label, :description, :nickname
 end

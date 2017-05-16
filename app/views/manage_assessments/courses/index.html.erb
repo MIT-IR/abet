@@ -14,7 +14,7 @@
       <tbody>
         <% course.outcomes.each do |outcome| %>
           <%= content_tag_for(:tr, outcome) do %>
-            <td><%= outcome.name%></td>
+            <td><%= outcome.label%></td>
             <td><%= outcome.description%></td>
             <td class="actions">
               <% if policy(outcome).create_assessments? %>

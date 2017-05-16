@@ -4,7 +4,7 @@
       <%= t(".no_assessments") %>
 
       <% if @filtered_outcome.present? %>
-        <%= t(".for_outcome", name: @filtered_outcome.name.capitalize) %>
+        <%= t(".for_outcome", name: @filtered_outcome.label) %>
       <% end %>
     </td>
   </tr>

@@ -10,6 +10,6 @@ class StandardOutcome < ActiveRecord::Base
   end
 
   def to_s
-    "#{name} - #{description}"
+    "#{label} - #{description}"
   end
 end

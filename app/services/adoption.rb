@@ -13,7 +13,7 @@ class Adoption
       adoptable_outcomes.each do |adoptable_outcome|
         outcome = course.outcomes.build(
           nickname: adoptable_outcome.nickname,
-          name: adoptable_outcome.name,
+          label: adoptable_outcome.label,
           description: adoptable_outcome.description
         )
 

@@ -9,7 +9,7 @@ feature "Admin creates custom outcomes" do
 
     visit manage_outcomes_root_path(as: user)
     click_link "Create Custom Outcome"
-    fill_in "Name", with: "X"
+    fill_in "Label", with: "X"
     fill_in "Description", with: description
     fill_in "Nickname", with: "Nickname"
     select Alignment::LEVELS.first, from: standard_outcome

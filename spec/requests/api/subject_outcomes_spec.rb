@@ -12,8 +12,9 @@ describe "subject outcomes api" do
 
     expect(response).to be_ok
     expect(parsed_response.size).to eq 1
-    expect(parsed_response.first["name"]).to eq outcome.name
+    expect(parsed_response.first["label"]).to eq outcome.label
     expect(parsed_response.first["description"]).to eq outcome.description
+    expect(parsed_response.first["nickname"]).to eq outcome.nickname
   end
 
   def parsed_response

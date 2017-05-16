@@ -3,5 +3,5 @@ class OutcomeCoverage < ActiveRecord::Base
   belongs_to :outcome
   belongs_to :subject
 
-  delegate :name, :nickname, to: :outcome, prefix: true
+  delegate :label, :nickname, to: :outcome, prefix: true
 end

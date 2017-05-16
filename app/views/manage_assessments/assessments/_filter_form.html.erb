@@ -7,7 +7,7 @@
     options_from_collection_for_select(
       outcomes,
       :id,
-      ->(outcome){ t(".outcome_label", name: outcome.name.upcase) },
+      ->(outcome){ outcome.to_short_s },
       params[:outcome_ids],
     ),
     include_blank: t(".all_outcomes"),

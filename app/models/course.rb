@@ -1,8 +1,8 @@
 class Course < ActiveRecord::Base
   belongs_to :department
-  has_many :outcomes, -> { order(:name) }
+  has_many :outcomes, -> { order(:label) }
   has_many :outcomes_with_metadata,
-    -> { order(:name) },
+    -> { order(:label) },
     foreign_key: :course_id,
     class_name: "OutcomeWithMetadata"
   has_many :outcome_coverages

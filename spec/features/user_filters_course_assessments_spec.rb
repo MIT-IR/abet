@@ -9,13 +9,13 @@ describe "User filters course assessments" do
 
     visit manage_assessments_course_assessments_path(course, as: user)
 
-    select "Outcome #{outcomes.first.name.upcase}", from: "outcome_ids"
+    select outcomes.first.nickname, from: "outcome_ids"
     click_button "Filter"
 
     expect(page).to have_content assessments.first.to_s
     expect(page).not_to have_content assessments.last.to_s
 
-    select "Outcome #{outcomes.last.name.upcase}", from: "outcome_ids"
+    select outcomes.last.nickname, from: "outcome_ids"
     click_button "Filter"
 
     expect(page).not_to have_content assessments.first.to_s

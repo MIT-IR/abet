@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516143819) do
+ActiveRecord::Schema.define(version: 20170516194700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,14 +89,14 @@ ActiveRecord::Schema.define(version: 20170516143819) do
   end
 
   create_table "outcomes", force: :cascade do |t|
-    t.string   "name",                          null: false
-    t.string   "description",                   null: false
-    t.integer  "course_id",                     null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "assessments_count", default: 0, null: false
-    t.string   "nickname",                      null: false
-    t.index ["course_id", "name"], name: "index_outcomes_on_course_id_and_name", unique: true, using: :btree
+    t.string   "label",             limit: 5,             null: false
+    t.string   "description",                             null: false
+    t.integer  "course_id",                               null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "assessments_count",           default: 0, null: false
+    t.string   "nickname",                                null: false
+    t.index ["course_id", "label"], name: "index_outcomes_on_course_id_and_label", unique: true, using: :btree
     t.index ["course_id", "nickname"], name: "index_outcomes_on_course_id_and_nickname", unique: true, using: :btree
   end
 
@@ -115,11 +115,11 @@ ActiveRecord::Schema.define(version: 20170516143819) do
   end
 
   create_table "standard_outcomes", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "description", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "nickname",    null: false
+    t.string   "label",       limit: 5, null: false
+    t.string   "description",           null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "nickname",              null: false
     t.index ["nickname"], name: "index_standard_outcomes_on_nickname", unique: true, using: :btree
   end
 
@@ -159,9 +159,35 @@ ActiveRecord::Schema.define(version: 20170516143819) do
   add_foreign_key "outcomes", "courses"
   add_foreign_key "results", "assessments"
 
+  create_view :outcomes_with_metadata,  sql_definition: <<-SQL
+      SELECT outcomes.id,
+      outcomes.label,
+      outcomes.description,
+      outcomes.course_id,
+      outcomes.created_at,
+      outcomes.updated_at,
+      outcomes.assessments_count,
+      outcomes.nickname,
+      COALESCE(active_assessments.count, (0)::bigint) AS active_assessments_count,
+      COALESCE(active_assessments_with_results.count, (0)::bigint) AS active_assessments_with_results_count
+     FROM ((outcomes
+       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
+              count(*) AS count
+             FROM (outcome_assessments
+               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
+            WHERE (assessments.archived = false)
+            GROUP BY outcome_assessments.outcome_id) active_assessments ON ((outcomes.id = active_assessments.outcome_id)))
+       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
+              count(*) AS count
+             FROM (outcome_assessments
+               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
+            WHERE ((assessments.archived = false) AND (assessments.results_count > 0))
+            GROUP BY outcome_assessments.outcome_id) active_assessments_with_results ON ((outcomes.id = active_assessments_with_results.outcome_id)));
+  SQL
+
   create_view :assessment_reports,  sql_definition: <<-SQL
       SELECT outcomes.course_id,
-      outcomes.name AS outcome_name,
+      outcomes.label AS outcome_label,
       outcomes.description AS outcome_description,
       assessments.id AS assessment_id,
       assessments.name AS assessment_name,
@@ -178,32 +204,7 @@ ActiveRecord::Schema.define(version: 20170516143819) do
        JOIN subjects ON ((subjects.id = assessments.subject_id)))
        JOIN outcome_assessments ON ((outcome_assessments.assessment_id = assessments.id)))
        JOIN outcomes ON ((outcomes.id = outcome_assessments.outcome_id)))
-    ORDER BY outcomes.name, results.year DESC, results.semester DESC;
-  SQL
-
-  create_view :outcomes_with_metadata,  sql_definition: <<-SQL
-      SELECT outcomes.id,
-      outcomes.name,
-      outcomes.description,
-      outcomes.course_id,
-      outcomes.created_at,
-      outcomes.updated_at,
-      outcomes.assessments_count,
-      COALESCE(active_assessments.count, (0)::bigint) AS active_assessments_count,
-      COALESCE(active_assessments_with_results.count, (0)::bigint) AS active_assessments_with_results_count
-     FROM ((outcomes
-       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
-              count(*) AS count
-             FROM (outcome_assessments
-               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
-            WHERE (assessments.archived = false)
-            GROUP BY outcome_assessments.outcome_id) active_assessments ON ((outcomes.id = active_assessments.outcome_id)))
-       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
-              count(*) AS count
-             FROM (outcome_assessments
-               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
-            WHERE ((assessments.archived = false) AND (assessments.results_count > 0))
-            GROUP BY outcome_assessments.outcome_id) active_assessments_with_results ON ((outcomes.id = active_assessments_with_results.outcome_id)));
+    ORDER BY outcomes.label, results.year DESC, results.semester DESC;
   SQL
 
 end

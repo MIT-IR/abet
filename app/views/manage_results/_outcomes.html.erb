@@ -8,9 +8,9 @@
   </thead>
 
   <tbody>
-    <% outcomes.order(:name).each do |outcome| %>
+    <% outcomes.order(:label).each do |outcome| %>
       <tr>
-        <td><%= outcome.name %></td>
+        <td><%= outcome.label %></td>
         <td><%= outcome.course %></td>
         <td><%= link_to_if policy(outcome.course).show?,
               t(".view_all"),

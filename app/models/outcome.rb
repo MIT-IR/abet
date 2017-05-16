@@ -14,17 +14,18 @@ class Outcome < ActiveRecord::Base
     reject_if: ->(attributes) { attributes[:level].blank? },
     allow_destroy: true
 
-  validates :name, presence: true, uniqueness: { scope: :course_id }
+  validates :label, presence: true, uniqueness: { scope: :course_id },
+    length: { maximum: 500 }
   validates :nickname, presence: true, uniqueness: { scope: :course_id }
   validates :description, presence: true
 
   has_paper_trail
 
   def to_s
-    "#{name} - #{description}"
+    "#{label} - #{description}"
   end
 
-  def label
-    "#{name} - #{nickname}"
+  def to_short_s
+    "#{label} - #{nickname}"
   end
 end
