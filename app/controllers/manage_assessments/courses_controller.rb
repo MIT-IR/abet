@@ -5,4 +5,10 @@ class ManageAssessments::CoursesController < ApplicationController
   def index
     @courses = policy_scope(Course).includes(outcomes: :department)
   end
+
+  def show
+    @course = policy_scope(Course).
+      includes(outcome_coverages: [:subject, :outcome]).
+      find(params[:id])
+  end
 end

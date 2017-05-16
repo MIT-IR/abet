@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   namespace :manage_assessments do
     root "dashboard#show"
 
-    resources :courses, only: [:index] do
-      resources :outcome_coverages, only: [:index, :new, :create]
+    resources :courses, only: [:index, :show] do
+      resources :outcome_coverages, only: [:new, :create]
       resources :assessments, only: [:index]
     end
 

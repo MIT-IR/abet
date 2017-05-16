@@ -23,4 +23,8 @@ class Outcome < ActiveRecord::Base
   def to_s
     "#{name} - #{description}"
   end
+
+  def label
+    "#{name} - #{nickname}"
+  end
 end

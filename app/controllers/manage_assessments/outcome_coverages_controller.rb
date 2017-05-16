@@ -10,14 +10,10 @@ module ManageAssessments
       authorize(@outcome_coverage)
 
       if @outcome_coverage.save
-        redirect_to manage_assessments_course_outcome_coverages_path
+        redirect_to manage_assessments_course_path(course)
       else
         render :new
       end
-    end
-
-    def index
-      @course = course
     end
 
     private

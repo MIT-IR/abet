@@ -60,6 +60,6 @@ en:
         description: Description
         heading: Outcomes for %{name}
         label: Label
-    outcome_coverages:
-      index:
+      show:
         add_a_class: Add a class
+        course_number: Course %{number}

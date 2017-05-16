@@ -1,0 +1,8 @@
+<h1><%= @course.name %></h1>
+<div><%= t(".course_number", number: @course.number) %></div>
+
+<section id="matched_outcomes">
+  <%= render @course.outcome_coverages %>
+</section>
+
+<%= link_to t(".add_a_class"), new_manage_assessments_course_outcome_coverage_path(@course) %>
