@@ -1,0 +1,35 @@
+.class-card {
+  @include margin($base-spacing null);
+  background-color: $white;
+  border: $thickest-border-width solid $lighter-border-color;
+  padding: $base-spacing;
+}
+
+.class-card-heading {
+  border-bottom: 1px solid shade($lighter-border-color, 5%);
+  color: $base-font-color;
+  padding-bottom: $small-spacing;
+}
+
+.class-card-outcome-letter {
+  @extend %small-caps;
+  font-family: $sans-serif-narrow;
+  font-size: $smallest-font-size;
+  margin-bottom: $smallest-spacing;
+}
+
+.class-card-outcome-nickname {
+  color: $medium-gray;
+  font-family: $serif;
+  margin-bottom: 0;
+}
+
+.class-card-subject-number {
+  font-size: 85%;
+  letter-spacing: 0.0325em;
+
+  &::after {
+    color: $mit-red;
+    content: "·";
+  }
+}

@@ -1,5 +1,12 @@
-<h2><%= coverage.subject %></h2>
+<div class="class-card">
+  <h2 class="class-card-heading">
+    <span class="class-card-subject-number">
+      <%= coverage.subject.number %>
+    </span>
+    <%= coverage.subject.title %>
+  </h2>
 
-<div>
-  <%= render coverage.outcome_coverages %>
+  <div>
+    <%= render coverage.outcome_coverages %>
+  </div>
 </div>

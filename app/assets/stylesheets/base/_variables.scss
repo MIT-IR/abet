@@ -41,8 +41,9 @@ $light-blue: aliceblue;
 $light-blue-border: shade($light-blue, 5%);
 $dark-gray: #484343;
 $brown: #645858;
-$medium-gray: #aaa;
+$medium-gray: tint($brown, 20%);
 $light-gray: #ddd;
+$lighter-gray: #f7f7f7;
 $lightest-gray: #fafafa;
 $white: #fff;
 $required-color: #f58122;
@@ -62,7 +63,10 @@ $base-letter-spacing: 1px;
 
 // Border
 $base-border-color: $light-gray;
+$lighter-border-color: $lighter-gray;
 $base-border: 1px solid $base-border-color;
+$thick-border-width: 2px;
+$thickest-border-width: 6px;
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
@@ -85,6 +89,7 @@ $breadcrumb-color-active: $breadcrumb-color;
 
 // Transition
 $base-transition-duration: 0.2s;
+$longest-transition-duration: 1s;
 $base-transition: all $base-transition-duration ease-in-out;
 $long-transition: all ($base-transition-duration * 2) ease-in-out;
 
