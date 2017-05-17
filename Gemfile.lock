@@ -98,8 +98,13 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-selenium (0.0.6)
+      capybara
+      selenium-webdriver
     case_transform (0.2)
       activesupport
+    childprocess (0.7.0)
+      ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
     database_cleaner (1.5.3)
@@ -235,6 +240,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    rubyzip (1.2.1)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -254,6 +260,10 @@ GEM
       activerecord (>= 4.0.0)
       railties (>= 4.0.0)
     selectize-rails (0.11.2)
+    selenium-webdriver (3.4.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.4.0)
@@ -299,6 +309,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    websocket (1.2.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -317,6 +328,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capybara
+  capybara-selenium
   database_cleaner
   email_validator
   factory_girl_rails

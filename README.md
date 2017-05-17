@@ -20,6 +20,11 @@ After setting up, you can run the application using rails server:
 
     % rails server
 
+To run the tests, you will need to have Chrome and chromedriver installed. On OS
+X, you can install chromedriver with:
+
+    % brew install chromedriver
+
 ## Deployment
 
 Deployment uses Capistrano and requires a couple pre-requisites. First, add the
