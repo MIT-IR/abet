@@ -9,4 +9,8 @@
   <%= render @course.coverages %>
 </section>
 
-<%= link_to t(".add_a_class"), new_manage_assessments_course_coverage_path(@course) %>
+<%= link_to new_manage_assessments_course_coverage_path(@course),
+  class: "add-item add-item-subtle add-item-short" do %>
+  <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
+  <%= t(".add_a_class") %>
+<% end %>

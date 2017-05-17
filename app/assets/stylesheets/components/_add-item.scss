@@ -1,0 +1,36 @@
+.add-item {
+  @include margin($large-spacing null);
+  color: $base-font-color;
+  cursor: pointer;
+  display: block;
+  font-family: $sans-serif-narrow;
+  text-align: center;
+  transition: $long-transition;
+
+  &:hover,
+  &:focus {
+    background-color: $mit-red;
+    color: $white;
+  }
+}
+
+.add-item-short {
+  @include padding($base-spacing null);
+}
+
+.add-item-subtle {
+  background-color: shade($base-background-color, 3%);
+}
+
+.add-item-icon {
+  @include size(0.65em 0.75em);
+  fill: $mit-red;
+  margin-right: $smallest-spacing;
+  transition: inherit;
+
+  @at-root {
+    .add-item:hover & {
+      fill: $white;
+    }
+  }
+}

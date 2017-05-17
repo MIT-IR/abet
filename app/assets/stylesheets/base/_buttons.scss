@@ -2,7 +2,6 @@
 button,
 a.button {
   @include appearance(none);
-  -webkit-font-smoothing: antialiased;
   background-color: $action-color;
   border-radius: $base-border-radius;
   border: none;
