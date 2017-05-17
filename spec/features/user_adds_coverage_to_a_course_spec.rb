@@ -9,8 +9,8 @@ feature "user adds coverage to a course" do
 
     visit manage_assessments_course_path(course, as: user)
     click_on t('manage_assessments.courses.show.add_a_class')
-    select subject.title, from: "coverage[subject_id]"
-    select outcome.nickname, from: "coverage[outcome_id]"
+    select subject.title, from: "Subject"
+    select outcome.nickname, from: "Outcome"
     click_button t('helpers.submit.coverage.create')
 
     within("#matched_outcomes") do

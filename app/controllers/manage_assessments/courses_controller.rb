@@ -8,7 +8,7 @@ class ManageAssessments::CoursesController < ApplicationController
 
   def show
     @course = policy_scope(Course).
-      includes(coverages: [:subject, :outcome]).
+      includes(coverages: [:subject, :outcomes]).
       find(params[:id])
   end
 end

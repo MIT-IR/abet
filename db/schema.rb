@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517150230) do
+ActiveRecord::Schema.define(version: 20170517153248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,9 +63,7 @@ ActiveRecord::Schema.define(version: 20170517150230) do
     t.datetime "updated_at", null: false
     t.integer  "course_id",  null: false
     t.integer  "subject_id", null: false
-    t.integer  "outcome_id", null: false
     t.index ["course_id"], name: "index_coverages_on_course_id", using: :btree
-    t.index ["outcome_id"], name: "index_coverages_on_outcome_id", using: :btree
     t.index ["subject_id"], name: "index_coverages_on_subject_id", using: :btree
   end
 
@@ -86,6 +84,16 @@ ActiveRecord::Schema.define(version: 20170517150230) do
     t.datetime "updated_at",    null: false
     t.index ["assessment_id"], name: "index_outcome_assessments_on_assessment_id", using: :btree
     t.index ["outcome_id"], name: "index_outcome_assessments_on_outcome_id", using: :btree
+  end
+
+  create_table "outcome_coverages", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "coverage_id", null: false
+    t.integer  "outcome_id",  null: false
+    t.index ["coverage_id", "outcome_id"], name: "index_outcome_coverages_on_coverage_id_and_outcome_id", unique: true, using: :btree
+    t.index ["coverage_id"], name: "index_outcome_coverages_on_coverage_id", using: :btree
+    t.index ["outcome_id"], name: "index_outcome_coverages_on_outcome_id", using: :btree
   end
 
   create_table "outcomes", force: :cascade do |t|
@@ -153,9 +161,10 @@ ActiveRecord::Schema.define(version: 20170517150230) do
   add_foreign_key "assessments", "subjects"
   add_foreign_key "courses", "departments", on_delete: :restrict
   add_foreign_key "coverages", "courses"
-  add_foreign_key "coverages", "outcomes"
   add_foreign_key "coverages", "subjects"
   add_foreign_key "outcome_assessments", "assessments"
+  add_foreign_key "outcome_coverages", "coverages", on_delete: :cascade
+  add_foreign_key "outcome_coverages", "outcomes"
   add_foreign_key "outcomes", "courses"
   add_foreign_key "results", "assessments"
 

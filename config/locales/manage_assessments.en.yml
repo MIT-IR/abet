@@ -39,8 +39,8 @@ en:
           details: Details
       update:
         success: Assessment updated successfully.
-    coverages:
-      coverage:
+    outcome_coverages:
+      outcome_coverage:
         outcome: Outcome %{label}
     dashboard:
       show:
