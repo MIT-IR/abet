@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     root "dashboard#show"
 
     resources :courses, only: [:index, :show] do
-      resources :outcome_coverages, only: [:new, :create]
       resources :assessments, only: [:index]
+      resources :coverages, only: [:new, :create]
     end
 
     resources :assessments, only: [:new, :create, :edit, :update] do

@@ -1,7 +1,7 @@
 en:
   helpers:
     submit:
-      outcome_coverage:
+      coverage:
         create: Add
   simple_form:
     "yes": 'Yes'

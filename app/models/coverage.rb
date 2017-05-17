@@ -1,4 +1,4 @@
-class OutcomeCoverage < ActiveRecord::Base
+class Coverage < ActiveRecord::Base
   belongs_to :course
   belongs_to :outcome, required: true
   belongs_to :subject, required: true
