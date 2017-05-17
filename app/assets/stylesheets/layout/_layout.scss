@@ -1,3 +1,7 @@
+body {
+  transition: all $longest-transition-duration;
+}
+
 .container {
   @include outer-container;
   padding: $large-spacing $gutter $base-spacing;

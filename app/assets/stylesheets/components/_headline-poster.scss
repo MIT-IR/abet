@@ -1,0 +1,46 @@
+.headline-poster-wrapper {
+  @include padding($base-spacing null);
+  @include clearfix;
+}
+
+.headline-poster {
+  @include margin(null 0 0);
+  font-family: $heading-font-family;
+  font-size: modular-scale(2, $base-font-size);
+  font-weight: normal;
+  line-height: $heading-line-height;
+  transition: all $longest-transition-duration;
+
+  @include media($medium-screen-up) {
+    font-size: modular-scale(4, $base-font-size);
+  }
+}
+
+.headline-poster-top-billing {
+  color: tint($dark-gray, 15%);
+
+  &::after {
+    content: "—";
+  }
+}
+
+.headline-poster-copy {
+  color: tint($brown, 20%);
+}
+
+.headline-poster-action {
+  border-bottom: $thick-border-width solid $mit-red;
+  color: $mit-red;
+}
+
+.headline-poster-takeover {
+  background-color: $mit-red;
+
+  .headline-poster {
+    color: shade($mit-red, 33%);
+
+    &.headline-poster-action {
+      color: $white;
+    }
+  }
+}

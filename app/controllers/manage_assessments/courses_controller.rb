@@ -10,5 +10,11 @@ class ManageAssessments::CoursesController < ApplicationController
     @course = policy_scope(Course).
       includes(coverages: [:subject, :outcomes]).
       find(params[:id])
+
+    if @course.coverages.present?
+      render :show
+    else
+      render :show_without_coverages
+    end
   end
 end
