@@ -1,0 +1,54 @@
+.madlib {
+  .selectize-control .selectize-input {
+    @include padding($smallest-spacing null);
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    border-bottom: $thick-border-width solid $base-border-color;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    font-family: $sans-serif-narrow;
+    font-size: modular-scale(2, $base-font-size);
+    line-height: normal;
+    transition: all $base-transition-duration;
+
+    &.has-items,
+    &.input-active,
+    &:hover {
+      border-bottom: $thick-border-width solid $mit-red;
+      color: $mit-red;
+    }
+
+    &.input-active.dropdown-active {
+      background-color: $white;
+      box-shadow: inset 0 0 0 1px rgba($base-border-color, 1);
+    }
+
+    input[type="text"] {
+      font-size: rem(28);
+    }
+  }
+
+  .input.select {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: $medium-spacing;
+  }
+
+  .selectize-control {
+    margin-bottom: $smallest-spacing;
+  }
+
+  .selectize-dropdown {
+    border-color: $base-border-color;
+    margin: 0;
+  }
+
+  .selectize-dropdown-content {
+    @include padding($small-spacing null);
+    font-family: $sans-serif-narrow;
+    font-size: $large-font-size;
+    max-height: 300px;
+  }
+}

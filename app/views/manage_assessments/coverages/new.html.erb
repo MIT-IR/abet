@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-<%= simple_form_for @coverage, url: manage_assessments_course_coverages_path(course_id: @coverage.course.id) do |form| %>
+<%= simple_form_for @coverage, html: { class: "madlib" }, url: manage_assessments_course_coverages_path(course_id: @coverage.course.id) do |form| %>
   <%= form.input :subject_id,
     collection: Subject.sorted_by_number,
     label_method: :to_s %>
@@ -31,4 +31,5 @@
   </div>
 
   <%= form.button :submit %>
+  <%= link_to t("helpers.cancel_button"), :back %>
 <% end %>
