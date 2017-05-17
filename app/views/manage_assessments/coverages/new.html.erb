@@ -1,3 +1,16 @@
+<%= content_for :full_bleed do %>
+  <div class="madlib-header">
+    <h1 class="headline-narrow">
+      Add a class
+    </h1>
+    <h2 class="headline-narrow-subhead">
+      <%= @coverage.course.number %>
+      &middot;
+      <%= @coverage.course.name %>
+    </h2>
+  </div>
+<% end %>
+
 <%= simple_form_for @coverage, url: manage_assessments_course_coverages_path(course_id: @coverage.course.id) do |form| %>
   <%= form.input :subject_id,
     collection: Subject.sorted_by_number,

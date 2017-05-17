@@ -7,10 +7,19 @@
 .headline-narrow {
   color: $dark-gray;
   margin-bottom: 0.2em;
+
+  .madlib-header & {
+    color: $white;
+  }
 }
 
 .headline-narrow-subhead {
   color: $brown;
+  font-size: $base-font-size;
   font-weight: normal;
   margin-bottom: $medium-spacing;
+
+  .madlib-header & {
+    color: $mit-red-shade;
+  }
 }

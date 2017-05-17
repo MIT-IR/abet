@@ -1,0 +1,4 @@
+.madlib-header {
+  @include padding($large-spacing null $small-spacing);
+  background-color: $mit-red;
+}
