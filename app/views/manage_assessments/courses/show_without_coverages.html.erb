@@ -1,0 +1,12 @@
+<div class="headline-poster-wrapper">
+  <h1 class="headline-poster headline-poster-top-billing narrow-content">
+    <%= t(".course_number", number: @course.number) %>
+  </h1>
+  <h2 class="headline-poster headline-poster-copy narrow-content">
+    <%= t(".no_classes", name: @course.name) %>
+  </h2>
+</div>
+
+<%= link_to t(".add_a_class"),
+  new_manage_assessments_course_coverage_path(@course),
+  class: "headline-poster headline-poster-action" %>

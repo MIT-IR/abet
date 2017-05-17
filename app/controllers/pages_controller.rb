@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   def layout_for_page
     case params[:id]
     when 'help'
+    when 'course-no-classes'
       'application'
     else
       'documentation'
