@@ -7,10 +7,10 @@
 }
 
 .activity-icon {
-  $icon-size: 16px;
-  $padding: $base-spacing;
+  $total-padding: 20px;
 
-  width: em($icon-size) + $padding;
+  @include padding(null ($total-padding / 2));
+  width: $icon-size + $total-padding;
 
   img {
     display: block;

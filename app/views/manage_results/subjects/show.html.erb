@@ -1,10 +1,17 @@
 <% tab(TabHelper::DATA_ENTRY) %>
 
-<div class="headline-with-actions">
-  <h1><%= @subject %></h1>
+<%= content_for :header_with_filters do %>
+  <div class="headline-with-actions">
+    <h1><%= @subject %></h1>
 
-  <%= new_assessment_action %>
-</div>
+    <%= new_assessment_action %>
+  </div>
+
+  <div class="filters">
+    <%# Derek - Wire Up Search Here %>
+    <input type="search" placeholder="<%= t('placeholders.search') %>">
+  </div>
+<% end %>
 
 <% if @subject.assessments.present? %>
   <table id="assessments">

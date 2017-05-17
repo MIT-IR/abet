@@ -9,6 +9,9 @@
 
   <div class="filters">
     <%= render "filter_form", outcomes: @outcomes, course: @course %>
+
+    <%# Derek - Wire Up Search Here %>
+    <input type="search" placeholder="<%= t('placeholders.search') %>">
   </div>
 <% end %>
 

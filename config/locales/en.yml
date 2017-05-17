@@ -81,5 +81,7 @@ en:
           Access is managed via the Roles Database, and can be assigned by your department's HR contact.
         question:
           I don't have access to the site.
+  placeholders:
+    search: Search
   titles:
     application: ABET Outcomes Assessment

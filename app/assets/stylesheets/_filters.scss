@@ -4,10 +4,22 @@
 }
 
 .filters {
+  @include clearfix;
+  float: left;
   margin-top: $base-spacing;
 
+  > * {
+    float: left;
+  }
+
+  input,
   .selectize-control {
-    margin: 0;
-    max-width: 200px;
+    @include margin(0 $small-spacing $small-spacing 0);
+    float: left;
+    width: $filter-item-width;
+  }
+
+  input {
+    background-color: $white;
   }
 }
