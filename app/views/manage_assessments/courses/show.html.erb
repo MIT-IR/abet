@@ -1,10 +1,9 @@
-<h1>
+<h1 class="headline-narrow">
   <%= @course.name %>
 </h1>
-
-<div>
+<h2 class="headline-narrow-subhead">
   <%= t(".course_number", number: @course.number) %>
-</div>
+</h2>
 
 <section id="matched_outcomes">
   <%= render @course.coverages %>
