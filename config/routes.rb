@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       resources :coverages, only: [:new, :create]
     end
 
+    resources :outcome_coverages, only: [] do
+      resources :assignments, only: [:new, :create]
+    end
+
     resources :assessments, only: [:new, :create, :edit, :update] do
       resource :archive, only: [:create, :destroy]
     end

@@ -26,6 +26,11 @@ en:
               taken: results have already been recorded for this period
             percentage:
               inclusion: must be between 0 and 100
+        coverage:
+          attributes:
+            base:
+              outcomes_required: Outcomes required.
+
     models:
       direct_assessment: Direct Assessment
   activities:

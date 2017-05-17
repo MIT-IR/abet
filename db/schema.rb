@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517153248) do
+ActiveRecord::Schema.define(version: 20170518162321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20170517153248) do
     t.integer  "results_count",       default: 0,     null: false
     t.index ["archived"], name: "index_assessments_on_archived", using: :btree
     t.index ["subject_id"], name: "index_assessments_on_subject_id", using: :btree
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "outcome_coverage_id", null: false
+    t.string   "name",                null: false
+    t.string   "problem",             null: false
+    t.index ["outcome_coverage_id"], name: "index_assignments_on_outcome_coverage_id", using: :btree
   end
 
   create_table "courses", force: :cascade do |t|
@@ -159,6 +168,7 @@ ActiveRecord::Schema.define(version: 20170517153248) do
   add_foreign_key "alignments", "outcomes"
   add_foreign_key "alignments", "standard_outcomes"
   add_foreign_key "assessments", "subjects"
+  add_foreign_key "assignments", "outcome_coverages"
   add_foreign_key "courses", "departments", on_delete: :restrict
   add_foreign_key "coverages", "courses"
   add_foreign_key "coverages", "subjects"

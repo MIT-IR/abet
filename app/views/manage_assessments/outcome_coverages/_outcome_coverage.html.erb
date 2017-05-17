@@ -4,3 +4,10 @@
 <p class="class-card-outcome class-card-outcome-nickname">
   <%= outcome_coverage.outcome_nickname %>
 </p>
+<% if outcome_coverage.assignment.present? %>
+  <p> In <%= outcome_coverage.assignment.name %> on <%= outcome_coverage.assignment.problem %>
+<% else %>
+  <p class="class-card-outcome">
+    <%= link_to t(".add_assignment"), new_manage_assessments_outcome_coverage_assignment_path(outcome_coverage) %>
+  </p>
+<% end %>

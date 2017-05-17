@@ -39,11 +39,19 @@ en:
           details: Details
       update:
         success: Assessment updated successfully.
+    assignments:
+      create:
+        success: Assignment added and matched to Outcome "%{label}"
+      new:
+        add: Add
+        assignment: Assignment
+        problem: Problem
     coverages:
       new:
         add_outcome: Add an Outcome
     outcome_coverages:
       outcome_coverage:
+        add_assignment: Add Assignment
         outcome: Outcome %{label}
     dashboard:
       show:

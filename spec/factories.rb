@@ -103,4 +103,9 @@ FactoryGirl.define do
       "user-#{n}@example.com"
     end
   end
+
+  factory :coverage do
+    course
+    subject
+  end
 end

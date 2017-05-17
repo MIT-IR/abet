@@ -18,7 +18,7 @@
             <td><%= outcome.description%></td>
             <td class="actions">
               <% if policy(outcome).create_assessments? %>
-                <%= link_to t(".assess"), new_manage_assessments_outcome_assessment_path(outcome) %>
+                <%= link_to t(".assess"), new_manage_assessments_outcome_coverage_assignment_path(outcome) %>
               <% end %>
             </td>
           <% end %>
