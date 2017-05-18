@@ -105,6 +105,7 @@ GEM
       activesupport
     childprocess (0.7.0)
       ffi (~> 1.0, >= 1.0.11)
+    cocoon (1.2.10)
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
     database_cleaner (1.5.3)
@@ -329,6 +330,7 @@ DEPENDENCIES
   capistrano-rvm
   capybara
   capybara-selenium
+  cocoon
   database_cleaner
   email_validator
   factory_girl_rails
