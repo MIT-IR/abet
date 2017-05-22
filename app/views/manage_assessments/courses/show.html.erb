@@ -14,3 +14,9 @@
   <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
   <%= t(".add_a_class") %>
 <% end %>
+
+<section class="unmatched-outcomes outcome-cards">
+  <% @course.outcomes.each do |outcome| %>
+    <%= render "outcome_status", outcome: outcome %>
+  <% end %>
+</section>

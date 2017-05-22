@@ -105,7 +105,15 @@ FactoryGirl.define do
   end
 
   factory :coverage do
+    transient do
+      outcomes []
+    end
+
     course
     subject
+
+    after(:build) do |coverage, evaluator|
+      coverage.outcomes = evaluator.outcomes
+    end
   end
 end

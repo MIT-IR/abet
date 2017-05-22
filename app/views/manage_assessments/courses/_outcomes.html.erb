@@ -1,0 +1,26 @@
+<%= link_to "#!", class: "outcome-card outcome-card-unmatched" do %>
+  <div class="outcome-card-copy">
+    <h3 class="outcome-letter-subhead">Outcome B</h3>
+    <h2 class="outcome-nickname">Experimentation</h2>
+    <p class="outcome-card-description">
+      Students show an ability to design and conduct experiments, as well as to analyze and interpret data.
+    </p>
+  </div>
+
+  <div class="outcome-card-action">
+    <%= inline_svg "plus_sign.svg", class: "outcome-card-icon plus" %>
+  </div>
+<% end %>
+
+<div class="outcome-card outcome-card-matched">
+  <div class="outcome-card-copy">
+    <h3 class="outcome-letter-subhead">Outcome B</h3>
+    <h2 class="outcome-nickname">Experimentation</h2>
+    <p class="outcome-card-description">
+      Students show an ability to design and conduct experiments, as well as to analyze and interpret data.
+    </p>
+  </div>
+  <div class="outcome-card-action">
+    <%= inline_svg "check_mark.svg", class: "outcome-card-icon check" %>
+  </div>
+</div>

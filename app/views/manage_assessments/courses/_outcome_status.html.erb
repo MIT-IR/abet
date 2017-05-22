@@ -1,0 +1,17 @@
+<%= link_to "#!", class: "outcome-card #{outcome_card_class(outcome)}" do %>
+  <div class="outcome-card-copy">
+    <h3 class="outcome-letter-subhead"><%= t(".label", label: outcome.label) %></h3>
+    <h2 class="outcome-nickname"><%= outcome.nickname %></h2>
+    <p class="outcome-card-description">
+      <%= outcome.description %>
+    </p>
+  </div>
+
+  <div class="outcome-card-action">
+    <% if outcome.outcome_coverages.present? %>
+      <%= inline_svg "check_mark.svg", class: "outcome-card-icon check" %>
+    <% else %>
+      <%= inline_svg "plus_sign.svg", class: "outcome-card-icon plus" %>
+    <% end %>
+  </div>
+<% end %>

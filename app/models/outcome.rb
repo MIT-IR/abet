@@ -5,6 +5,7 @@ class Outcome < ActiveRecord::Base
 
   has_one :department, through: :course
   has_many :outcome_assessments, dependent: :destroy
+  has_many :outcome_coverages
   has_many :alignments
   has_many :standard_outcomes, through: :alignments
   has_many :assessments, through: :outcome_assessments

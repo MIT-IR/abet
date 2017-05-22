@@ -1,0 +1,18 @@
+.outcome-nickname {
+  color: $medium-gray;
+  font-family: $serif;
+  margin-bottom: 0;
+
+  .outcome-card-unmatched &,
+  .outcome-card-matched & {
+    font-weight: bolder;
+
+    @include media($medium-screen-up) {
+      font-size: 120%;
+    }
+  }
+
+  .outcome-card-unmatched & {
+    color: $mit-red;
+  }
+}

@@ -75,6 +75,8 @@ en:
         description: Description
         heading: Outcomes for %{name}
         label: Label
+      outcome_status:
+        label: Outcome %{label}
       show: &courses_show
         add_a_class: Add a class
         course_number: Course %{number}

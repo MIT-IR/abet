@@ -1,0 +1,103 @@
+$outcome-card-height: 185px;
+
+.outcome-cards,
+.outcome-card {
+  @include clearfix;
+}
+
+.outcome-card {
+  background-color: $white;
+  color: $base-font-color;
+  display: block;
+  margin-bottom: $base-spacing;
+  overflow: hidden;
+  padding: $base-spacing;
+  text-align: center;
+  white-space: normal;
+
+  @include media($large-screen-up) {
+    @include span-columns(6 of 12);
+    @include omega(2n);
+    height: $outcome-card-height;
+    text-align: left;
+  }
+}
+
+.outcome-card-unmatched {
+  border: $base-border;
+  transition: $base-transition;
+
+  &:focus,
+  &:hover {
+    border-color: $mit-red;
+    color: inherit;
+    transform: translate3d(0, -$smallest-spacing, 0);
+  }
+}
+
+.outcome-card-matched {
+  background-color: $lighter-gray;
+  cursor: default;
+}
+
+.outcome-card-copy {
+  max-width: em(400);
+  margin: 0 auto;
+
+  @include media($large-screen-up) {
+    float: left;
+    padding-right: $base-spacing;
+    width: 75%;
+  }
+
+  .outcome-card-matched & {
+    color: $medium-gray;
+    text-decoration: line-through;
+  }
+}
+
+.outcome-card-action {
+  color: $mit-red;
+  font-size: $smallest-font-size;
+  text-align: center;
+
+  @include media($large-screen-up) {
+    float: right;
+    margin-top: $outcome-card-height / 4;
+    width: 15%;
+  }
+
+  .outcome-card-unmatched:hover &,
+  .outcome-card-unmatched:focus & {
+    transform: scale(1.0625);
+    transition: $base-transition;
+  }
+}
+
+.outcome-card-icon {
+  @include size(36px);
+  border-radius: 50%;
+  padding: 1em;
+
+  @include media($large-screen-up) {
+    @include size(44px);
+    padding: 1.125em;
+  }
+
+  &.check {
+    background-color: $white;
+    fill: $medium-gray;
+  }
+
+  &.plus {
+    background-color: $mit-red;
+    fill: $white;
+  }
+}
+
+.outcome-card-description {
+  @include margin($smallest-spacing null $small-spacing);
+  font-family: $sans-serif-narrow;
+  font-size: $small-font-size;
+  line-height: 1.4;
+}

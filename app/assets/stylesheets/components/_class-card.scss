@@ -11,19 +11,6 @@
   padding-bottom: $small-spacing;
 }
 
-.class-card-outcome-letter {
-  @extend %small-caps;
-  font-family: $sans-serif-narrow;
-  font-size: $smallest-font-size;
-  margin-bottom: $smallest-spacing;
-}
-
-.class-card-outcome-nickname {
-  color: $medium-gray;
-  font-family: $serif;
-  margin-bottom: 0;
-}
-
 .class-card-subject-number {
   font-size: 85%;
   letter-spacing: 0.0325em;
