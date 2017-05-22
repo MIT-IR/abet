@@ -1,6 +1,6 @@
 en:
   gradebooks:
-    assignments:
+    gradebook_assignments:
       index:
         actions_header: Actions
         description_header: Description

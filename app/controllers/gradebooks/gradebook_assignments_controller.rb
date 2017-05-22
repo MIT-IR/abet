@@ -1,5 +1,5 @@
 module Gradebooks
-  class AssignmentsController < BaseController
+  class GradebookAssignmentsController < BaseController
     def index
       @offering = Offering.new(
         subject: subject,

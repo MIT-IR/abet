@@ -43,9 +43,9 @@ Rails.application.routes.draw do
       to: "gradebooks#show",
       as: :gradebook
 
-    get "subjects/:subject_id/:semester/:year/assignments",
-      to: "assignments#index",
-      as: :assignments
+    get "subjects/:subject_id/:semester/:year/gradebook_assignments",
+      to: "gradebook_assignments#index",
+      as: :gradebook_assignments
 
     resources :assignments, only: [] do
       resource :histogram, only: [:show]
