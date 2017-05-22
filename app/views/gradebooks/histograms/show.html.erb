@@ -21,7 +21,7 @@
 </table>
 
 <%= form_tag(
-  gradebooks_assignment_histogram_path(assignment_id: @histogram.assignment_id),
+  gradebooks_gradebook_assignment_histogram_path(gradebook_assignment_id: @histogram.gradebook_assignment_id),
   method: :get,
   enforce_utf8: false,
   data: { role: 'histogram-bar-selection' }) do |f| %>
@@ -32,4 +32,3 @@
     selected: @histogram.bars.size,
   ) %>
 <% end %>
-

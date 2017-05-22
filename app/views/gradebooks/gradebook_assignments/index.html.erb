@@ -11,11 +11,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @offering.assignments.each do |assignment| %>
+    <% @offering.gradebook_assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.name %></td>
         <td><%= assignment.description %></td>
-        <td><%= link_to t(".histogram"), gradebooks_assignment_histogram_path(assignment_id: assignment.assignmentId) %></td>
+        <td><%= link_to t(".histogram"), gradebooks_gradebook_assignment_histogram_path(gradebook_assignment_id: assignment.assignmentId) %></td>
       </tr>
     <% end %>
   </tbody>

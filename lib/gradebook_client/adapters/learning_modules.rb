@@ -7,7 +7,7 @@ module GradebookClient
         @client_key = OpenSSL::PKey::RSA.new(client_key)
       end
 
-      def assignments_for(gradebook_id)
+      def gradebook_assignments_for(gradebook_id)
         get(
           "assignments/#{gradebook_id}",
           includeMaxPoints: false,

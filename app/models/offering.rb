@@ -7,8 +7,8 @@ class Offering
     @year = year
   end
 
-  def assignments
-    @_assignments = GradebookClient::Assignment.where(gradebook_id: gradebook_id)
+  def gradebook_assignments
+    @_gradebook_assignments = GradebookClient::GradebookAssignment.where(gradebook_id: gradebook_id)
   end
 
   def gradebook_id

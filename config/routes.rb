@@ -47,7 +47,7 @@ Rails.application.routes.draw do
       to: "gradebook_assignments#index",
       as: :gradebook_assignments
 
-    resources :assignments, only: [] do
+    resources :gradebook_assignments, only: [] do
       resource :histogram, only: [:show]
     end
   end

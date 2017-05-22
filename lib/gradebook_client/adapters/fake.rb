@@ -3,7 +3,7 @@ module GradebookClient
     class Fake
       FIXTURE_ROOT = Rails.root.join("spec", "fixtures")
 
-      def assignments_for(gradebook_id)
+      def gradebook_assignments_for(gradebook_id)
         fixture = File.read(FIXTURE_ROOT.join("assignments.json"))
         JSON.parse(fixture)["data"]
       end
