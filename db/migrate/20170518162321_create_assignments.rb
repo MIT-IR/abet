@@ -4,7 +4,7 @@ class CreateAssignments < ActiveRecord::Migration[5.0]
       t.timestamps null: false
       t.references :outcome_coverage, index: true, foreign_key: true, null: false
       t.string :name, null: false
-      t.string :problem, null: false
+      t.string :problem
     end
   end
 end

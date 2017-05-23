@@ -5,7 +5,11 @@
   <%= outcome_coverage.outcome_nickname %>
 </p>
 <% if outcome_coverage.assignment.present? %>
-  <p> In <%= outcome_coverage.assignment.name %> on <%= outcome_coverage.assignment.problem %>
+  <p>
+    <%= t(".assignment_name", name: outcome_coverage.assignment.name) %>
+    <%= t(".assignment_problem",
+        problem: outcome_coverage.assignment.problem) if outcome_coverage.assignment.problem.present? %>
+  </p>
 <% else %>
   <p class="class-card-outcome">
     <%= link_to t(".add_assignment"), new_manage_assessments_outcome_coverage_assignment_path(outcome_coverage) %>

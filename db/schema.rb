@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170518162321) do
     t.datetime "updated_at",          null: false
     t.integer  "outcome_coverage_id", null: false
     t.string   "name",                null: false
-    t.string   "problem",             null: false
+    t.string   "problem"
     t.index ["outcome_coverage_id"], name: "index_assignments_on_outcome_coverage_id", using: :btree
   end
 
