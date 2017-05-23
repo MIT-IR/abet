@@ -1,13 +1,14 @@
 class ManageAssessments::AssignmentsController < ApplicationController
   def new
     @assignment = outcome_coverage.build_assignment
+    @assignment.attachments.build
     authorize(@assignment)
   end
 
   def create
     @assignment = outcome_coverage.build_assignment(assignment_params)
     authorize(@assignment)
-
+    
     if @assignment.save
       redirect_to manage_assessments_course_path(outcome_coverage.coverage.course),
         success: t(".success", label: outcome_coverage.outcome.label)
@@ -23,6 +24,6 @@ class ManageAssessments::AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :problem)
+    params.require(:assignment).permit(:name, :problem, attachments_attributes: [:file])
   end
 end
