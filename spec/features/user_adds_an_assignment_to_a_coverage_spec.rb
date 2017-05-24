@@ -13,9 +13,9 @@ feature "User adds assignment to outcome coverage" do
     expect(page).to have_content(course.number)
 
     click_on t("manage_assessments.outcome_coverages.outcome_coverage.add_assignment")
-    fill_in t("manage_assessments.assignments.new.assignment"), with: "Problem Set 2"
-    fill_in t("manage_assessments.assignments.new.problem"), with: "Question 4"
-    click_on t("manage_assessments.assignments.new.add")
+    fill_in :assignment_name, with: "Problem Set 2"
+    fill_in :assignment_problem, with: "Question 4"
+    click_on t("helpers.submit.coverage.create")
 
     expect(page).to have_content(course.name)
     expect(page).to have_content(course.number)

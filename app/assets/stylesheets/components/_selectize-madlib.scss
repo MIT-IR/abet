@@ -1,12 +1,18 @@
 .madlib {
-  .selectize-control .selectize-input {
+  .selectize-control .selectize-input,
+  #{$all-text-inputs} {
     @include padding($smallest-spacing null);
+    @include placeholder {
+      color: $medium-gray;
+    }
+
     background-color: transparent;
     background-image: none;
     border: 0;
     border-bottom: $thick-border-width solid $base-border-color;
     border-radius: 0;
     box-shadow: none;
+    color: $mit-red;
     cursor: pointer;
     font-family: $sans-serif-narrow;
     font-size: modular-scale(2, $base-font-size);
@@ -30,7 +36,17 @@
     }
   }
 
-  .input.select {
+  #{$all-text-inputs} {
+    margin-bottom: $smallest-spacing;
+    padding-left: $smallest-spacing;
+  }
+
+  label {
+    padding-left: $small-spacing;
+  }
+
+  .input.select,
+  .input {
     display: flex;
     flex-direction: column-reverse;
     margin-bottom: $medium-spacing;

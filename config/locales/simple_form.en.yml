@@ -1,6 +1,8 @@
 en:
   helpers:
     submit:
+      assignment:
+        create: Add
       coverage:
         create: Add
   simple_form:
@@ -41,6 +43,10 @@ en:
           question you are entering data for.
         percentage: The percent of students who meet the minimum criteria
           for this item.
+    placeholders:
+      assignment:
+        name: Problem Set 4
+        problem: Problem 4
     prompts:
       alignments:
         level: No alignment

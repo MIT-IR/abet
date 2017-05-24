@@ -4,6 +4,8 @@ en:
     attributes:
       alignment:
         _destroy: Remove
+      assignment:
+        name: Assignment
       direct_assessment:
         outcome_ids: Outcomes
       result:

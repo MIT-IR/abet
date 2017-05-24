@@ -1,5 +1,21 @@
-<%= simple_form_for @assignment, url: manage_assessments_outcome_coverage_assignments_path do |form| %>
-  <%= form.input :name, label: t(".assignment") %>
-  <%= form.input :problem, label: t(".problem") %>
-  <%= form.submit t(".add") %>
+<%= content_for :full_bleed do %>
+  <div class="madlib-header">
+    <h1 class="headline-narrow">
+      <%= t(".headline") %>
+    </h1>
+    <h2 class="headline-narrow-subhead">
+      <%= @assignment.course_number %>
+      &middot;
+      <%= @assignment.course_name %>
+    </h2>
+  </div>
+<% end %>
+
+
+<%= simple_form_for @assignment, html: { class: "madlib" }, url: manage_assessments_outcome_coverage_assignments_path do |form| %>
+  <%= form.input :name %>
+  <%= form.input :problem %>
+  <%= form.submit %>
+
+  <%= link_to t("helpers.cancel_button"), :back %>
 <% end %>

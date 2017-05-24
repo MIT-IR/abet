@@ -44,8 +44,7 @@ en:
         success: Assignment added and matched to Outcome "%{label}"
       new:
         add: Add
-        assignment: Assignment
-        problem: Problem
+        headline: Add assignment
     coverages:
       new:
         add_outcome: Add an Outcome
