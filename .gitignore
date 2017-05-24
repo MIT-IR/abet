@@ -9,3 +9,6 @@ tmp
 
 .DS_Store
 /config/certs/
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
