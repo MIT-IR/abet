@@ -1,7 +1,7 @@
 module Api
   class OutcomesController < BaseController
     def index
-      outcomes = subject.outcomes.distinct
+      outcomes = subject.outcomes.to_a.uniq
       render json: outcomes
     end
 
