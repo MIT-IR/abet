@@ -32,6 +32,7 @@ gem "font-awesome-rails"
 gem "inline_svg"
 
 group :development do
+  gem "browser_sync_rails"
   gem "capistrano-rails"
   gem "capistrano-rvm"
   gem "gssapi", git: "git@github.com:derekprior/gssapi.git"

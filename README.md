@@ -25,6 +25,23 @@ X, you can install chromedriver with:
 
     % brew install chromedriver
 
+## Using Browsersync for Faster Frontend Development
+
+Browsersync is a tool for faster frontend development. It syncs scrolling and
+livereloading between disparate devices, browsers, and windows. This means less
+design time and more consistent designs.
+
+You will use the browser sync along with your rails app. So you need to start
+the rails app normally and, in another terminal instance, start the browser
+sync.
+
+The browser sync will proxy your running app and will handle the live reloading
+and synchronization between multiple devices.
+
+Run this rake task to start it:
+
+    bundle exec rake browser_sync:start
+
 ## Deployment
 
 Deployment uses Capistrano and requires a couple pre-requisites. First, add the
