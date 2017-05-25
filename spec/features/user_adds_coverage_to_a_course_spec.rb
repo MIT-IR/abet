@@ -25,6 +25,19 @@ feature "user adds coverage to a course" do
     end
   end
 
+  scenario "via unmatched outcome link" do
+    course = create(:course)
+    matched_outcome, unmatched_outcome = create_pair(:outcome, course: course)
+    coverage = create(:coverage, course: course, outcomes: [matched_outcome])
+    user = user_with_assessments_access_to(course.department)
+
+    visit manage_assessments_course_path(course.id, as: user)
+    click_on unmatched_outcome.nickname
+
+    expect(page).to have_css("h1.headline-narrow", text: "Add a class")
+    expect(page).to have_prepopulated_select_box(unmatched_outcome.nickname)
+  end
+
   def selectize(item, from:)
     container = find_field(from, visible: false).first(:xpath, ".//..")
     container.find(".selectize-control").click
@@ -34,4 +47,9 @@ feature "user adds coverage to a course" do
   def attach(path)
     all("input.file").last.set(File.absolute_path(path))
   end
+
+  def have_prepopulated_select_box(text)
+    have_css("select", text: text)
+  end
+
 end

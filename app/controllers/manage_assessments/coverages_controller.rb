@@ -2,8 +2,8 @@ module ManageAssessments
   class CoveragesController < ApplicationController
     def new
       @coverage = course.coverages.build
-      @coverage.outcome_coverages.build
       @coverage.attachments.build
+      @coverage.outcome_coverages.build(outcome_id: params[:outcome_id])
       authorize(@coverage)
     end
 
