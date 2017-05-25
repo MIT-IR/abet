@@ -3,9 +3,9 @@ button,
 a.button {
   @include appearance(none);
   background-color: $action-color;
+  border: 0;
   border-radius: $base-border-radius;
-  border: none;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
@@ -14,6 +14,7 @@ a.button {
   line-height: 1;
   padding: 0.75em 1em;
   text-decoration: none;
+  transition: $base-transition;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -21,7 +22,7 @@ a.button {
   &:hover,
   &:focus {
     background-color: darken($action-color, 15%);
-    color: #fff;
+    color: $white;
   }
 
   &:disabled {

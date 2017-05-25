@@ -1,0 +1,19 @@
+.madlib-controls {
+  margin-top: $medium-spacing;
+
+  #{$all-button-inputs} {
+    @include padding(null $large-spacing);
+    background-color: $mit-red;
+
+    &:focus,
+    &:hover {
+      background-color: darken($mit-red, 15%);
+    }
+  }
+
+  a {
+    color: $medium-gray;
+    font-size: $small-font-size;
+    margin-left: $large-spacing;
+  }
+}

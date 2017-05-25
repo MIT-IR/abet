@@ -11,11 +11,9 @@
   </div>
 <% end %>
 
-
 <%= simple_form_for @assignment, html: { class: "madlib" }, url: manage_assessments_outcome_coverage_assignments_path do |form| %>
   <%= form.input :name %>
   <%= form.input :problem %>
-  <%= form.submit %>
 
-  <%= link_to t("helpers.cancel_button"), :back %>
+  <%= render partial: "manage_assessments/madlib_controls", locals: { form: form } %>
 <% end %>

@@ -30,6 +30,5 @@
       render_options: { locals: { outcomes: @coverage.course.outcomes } } %>
   </div>
 
-  <%= form.button :submit %>
-  <%= link_to t("helpers.cancel_button"), :back %>
+  <%= render partial: "manage_assessments/madlib_controls", locals: { form: form } %>
 <% end %>
