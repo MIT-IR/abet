@@ -12,3 +12,6 @@ tmp
 
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
+
+# Ignore local attachments in dev/test
+public/attachments/*

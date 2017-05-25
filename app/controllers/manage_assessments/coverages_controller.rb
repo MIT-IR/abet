@@ -3,6 +3,7 @@ module ManageAssessments
     def new
       @coverage = course.coverages.build
       @coverage.outcome_coverages.build
+      @coverage.attachments.build
       authorize(@coverage)
     end
 
@@ -26,7 +27,11 @@ module ManageAssessments
     def coverage_params
       params.
         require(:coverage).
-        permit(:subject_id, outcome_coverages_attributes: [:coverage_id, :outcome_id])
+        permit(
+          :subject_id,
+          attachments_attributes: [:file],
+          outcome_coverages_attributes: [:coverage_id, :outcome_id],
+        )
     end
   end
 end

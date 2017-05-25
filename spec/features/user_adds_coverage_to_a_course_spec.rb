@@ -13,6 +13,9 @@ feature "user adds coverage to a course" do
     selectize first_outcome.nickname, from: "Outcome"
     click_on t('manage_assessments.coverages.new.add_outcome')
     selectize second_outcome.nickname, from: "Outcome"
+    attach("spec/fixtures/syllabus.pdf")
+    click_on t('manage_assessments.coverages.new.add_attachment')
+    attach("spec/fixtures/syllabus.pdf")
     click_button t('helpers.submit.coverage.create')
 
     within("#matched_outcomes") do
@@ -26,5 +29,9 @@ feature "user adds coverage to a course" do
     container = find_field(from, visible: false).first(:xpath, ".//..")
     container.find(".selectize-control").click
     container.find("div.option", text: item).click
+  end
+
+  def attach(path)
+    all("input.file").last.set(File.absolute_path(path))
   end
 end
