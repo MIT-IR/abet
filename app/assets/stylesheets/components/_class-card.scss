@@ -1,8 +1,11 @@
 .class-card {
-  @include margin($base-spacing null);
   background-color: $white;
-  border: $thickest-border-width solid $lighter-border-color;
+  border: $thickest-border-width solid tint($lighter-border-color, 50%);
   padding: $base-spacing;
+
+  &:not(:first-of-type) {
+    @include margin($base-spacing null);
+  }
 }
 
 .class-card-heading {

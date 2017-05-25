@@ -1,22 +1,39 @@
-<h1 class="headline-narrow">
-  <%= @course.name %>
-</h1>
-<h2 class="headline-narrow-subhead">
-  <%= t(".course_number", number: @course.number) %>
-</h2>
+<%= content_for :full_bleed do %>
+  <h1 class="headline-narrow headline-narrow-pad">
+    <%= @course.name %>
+  </h1>
+  <h2 class="headline-narrow-subhead">
+    <%= t(".course_number", number: @course.number) %>
+  </h2>
 
-<section id="matched_outcomes">
-  <%= render @course.coverages %>
-</section>
+  <nav class="split-tabs">
+    <%= link_to "#!", class: "split-tab" do %>
+      <%= t(".matched") %>
+      <span class="split-tab-digit"><%= @course.covered_outcomes_count %></span>
+    <% end %>
+    <%= link_to "#!", class: "split-tab" do %>
+      <%= t(".unmatched") %>
+      <span class="split-tab-digit"><%= @course.uncovered_outcomes_count %></span>
+    <% end %>
+  </nav>
 
-<%= link_to new_manage_assessments_course_coverage_path(@course),
-  class: "add-item add-item-subtle add-item-short" do %>
-  <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
-  <%= t(".add_a_class") %>
+  <section id="matched_outcomes" class="split-tab-panel">
+    <div class="container">
+      <%= render @course.coverages %>
+
+      <%= link_to new_manage_assessments_course_coverage_path(@course),
+        class: "add-item add-item-subtle add-item-short" do %>
+        <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
+        <%= t(".add_a_class") %>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="outcome-cards split-tab-panel">
+    <div class="container">
+      <% @course.outcomes.each do |outcome| %>
+        <%= render "outcome_status", outcome: outcome %>
+      <% end %>
+    </div>
+  </section>
 <% end %>
-
-<section class="unmatched-outcomes outcome-cards">
-  <% @course.outcomes.each do |outcome| %>
-    <%= render "outcome_status", outcome: outcome %>
-  <% end %>
-</section>

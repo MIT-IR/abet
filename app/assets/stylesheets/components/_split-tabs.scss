@@ -1,0 +1,46 @@
+.split-tabs {
+  color: $base-font-color;
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    color: inherit;
+  }
+}
+
+.split-tab {
+  @include padding(calc(#{$small-spacing} + #{$thickest-border-width}) null);
+  background-color: $lighter-gray;
+  flex: 1;
+  font-family: $sans-serif-narrow;
+  font-size: $small-font-size;
+  text-align: center;
+
+  @include media($medium-screen-up) {
+    @include padding(calc(#{$base-spacing} + #{$thickest-border-width}) null);
+    font-size: $base-font-size;
+  }
+
+  &.is-active {
+    background-color: $lightest-gray;
+    box-shadow: inset 0 $thickest-border-width 0 0 rgba($mit-red, 1);
+  }
+}
+
+.split-tab-digit {
+  background-color: $medium-gray;
+  border-radius: 1em;
+  color: $white;
+  font-weight: $bold;
+  margin: $smallest-spacing;
+  padding: 0.125em 1em;
+
+  .is-active & {
+    background-color: $mit-red;
+  }
+}
+
+.split-tab-panel {
+  background-color: $lightest-gray;
+  display: none;
+}

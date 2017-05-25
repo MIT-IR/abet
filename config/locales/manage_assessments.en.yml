@@ -80,6 +80,8 @@ en:
       show: &courses_show
         add_a_class: Add a class
         course_number: Course %{number}
+        matched: Matched Outcomes
+        unmatched: Unmatched Outcomes
       show_without_coverages:
         <<: *courses_show
         no_classes: "%{name} doesn’t have any classes yet"

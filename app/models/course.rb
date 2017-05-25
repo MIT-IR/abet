@@ -2,6 +2,7 @@ class Course < ActiveRecord::Base
   belongs_to :department
 
   has_many :coverages
+  has_many :outcome_coverages, through: :coverages
   has_many :outcomes, -> { order(:label) }
   has_many :outcomes_with_metadata,
     -> { order(:label) },
