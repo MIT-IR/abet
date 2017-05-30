@@ -17,7 +17,6 @@ feature "User adds assignment to outcome coverage" do
     fill_in :assignment_problem, with: "Question 4"
     click_on "Attach student work"
     attach("spec/fixtures/attachments/example.pdf")
-    click_on t("manage_assessments.assignments.new.add")
     click_on t("helpers.submit.coverage.create")
 
     expect(page).to have_content(course.name)

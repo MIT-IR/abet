@@ -1,7 +1,7 @@
 class Assignment < ActiveRecord::Base
   belongs_to :outcome_coverage
 
-  has_many :attachments
+  has_many :attachments, as: :attachable
   accepts_nested_attributes_for :attachments
 
   has_one :outcome, through: :outcome_coverage

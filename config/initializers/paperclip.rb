@@ -6,8 +6,12 @@ Paperclip.interpolates :attachments_root do |attachment, style|
   end
 end
 
-Paperclip.interpolates :coverage_id do |attachment, style|
-  attachment.instance.coverage.id
+Paperclip.interpolates :attachable_id do |attachment, style|
+  attachment.instance.attachable.id
+end
+
+Paperclip.interpolates :attachable_type do |attachment, style|
+  attachment.instance.attachable.model_name.singular
 end
 
 if Rails.env.production? || Rails.env.staging?

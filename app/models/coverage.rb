@@ -4,7 +4,7 @@ class Coverage < ActiveRecord::Base
 
   has_many :outcome_coverages
   has_many :outcomes, through: :outcome_coverages
-  has_many :attachments
+  has_many :attachments, as: :attachable
 
   accepts_nested_attributes_for :outcome_coverages,
     allow_destroy: true,
