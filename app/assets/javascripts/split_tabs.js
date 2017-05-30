@@ -1,29 +1,21 @@
 $(function() {
-  var splitTabsContainer = ".split-tabs";
-  var splitTab = ".split-tab";
-  var splitTabPanel = ".split-tab-panel";
   var activeClass = "is-active";
-  var transitionTime = 300;
+  var transitionTimeInMilliSeconds = 300;
 
-  $(splitTab + ":first-child")
-    .addClass(activeClass)
-    .closest(splitTabsContainer)
-    .siblings(splitTabPanel + ":first-of-type")
-    .show();
+  var activateTab = function() {
+    var targetTabControl = $(this);
+    var targetTabContent = $("[data-content='" + targetTabControl.data("tab") + "']");
+    var otherTabControls = $("[data-tab]").not(targetTabControl);
+    var otherTabContent = $("[data-content]").not(targetTabContent);
 
-  $(splitTab).click(function() {
-    $(this)
-      .siblings(splitTab)
-      .removeClass(activeClass)
-      .closest(splitTabsContainer)
-      .siblings(splitTabPanel)
-      .hide();
+    targetTabControl.addClass(activeClass);
+    otherTabControls.removeClass(activeClass);
 
-    $(this)
-      .addClass(activeClass)
-      .closest(splitTabsContainer)
-      .siblings(splitTabPanel)
-      .eq($(this).index(splitTab))
-      .fadeIn(transitionTime);
-  });
+    targetTabContent.fadeIn(transitionTimeInMilliSeconds);
+    otherTabContent.hide();
+  };
+
+  $("[data-tab]")
+    .on('click', activateTab)
+    .first().trigger('click');
 });

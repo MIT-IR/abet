@@ -7,17 +7,17 @@
   </h2>
 
   <nav class="split-tabs">
-    <%= link_to "#!", class: "split-tab" do %>
+    <%= link_to "#!", class: "split-tab", data: { tab: "matched" } do %>
       <%= t(".matched") %>
       <span class="split-tab-digit"><%= @course.covered_outcomes_count %></span>
     <% end %>
-    <%= link_to "#!", class: "split-tab" do %>
+    <%= link_to "#!", class: "split-tab", data: { tab: "unmatched" } do %>
       <%= t(".unmatched") %>
       <span class="split-tab-digit"><%= @course.uncovered_outcomes_count %></span>
     <% end %>
   </nav>
 
-  <section id="matched_outcomes" class="split-tab-panel">
+  <section id="matched_outcomes" class="split-tab-panel" data-content="matched">
     <div class="container">
       <%= render @course.coverages %>
 
@@ -29,7 +29,7 @@
     </div>
   </section>
 
-  <section class="outcome-cards split-tab-panel">
+  <section class="outcome-cards split-tab-panel" data-content="unmatched">
     <div class="container">
       <% @course.outcomes.each do |outcome| %>
         <%= render "outcome_status", outcome: outcome %>
