@@ -5,6 +5,7 @@ en:
         create: Add
       coverage:
         create: Add
+        update: Update
   simple_form:
     "yes": 'Yes'
     "no": 'No'

@@ -5,4 +5,6 @@ class OutcomeCoverage < ActiveRecord::Base
   has_one :assignment
 
   delegate :label, :nickname, to: :outcome, prefix: true
+
+  validates :outcome_id, uniqueness: { scope: :coverage_id }
 end

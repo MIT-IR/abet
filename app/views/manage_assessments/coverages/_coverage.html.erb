@@ -6,5 +6,6 @@
     <%= coverage.subject.title %>
   </h2>
 
-  <%= render coverage.outcome_coverages %>
+    <%= render coverage.outcome_coverages %>
+    <%= link_to t(".add_another_outcome"), edit_manage_assessments_course_coverage_path(coverage, course_id: coverage.course.id) %>
 </div>

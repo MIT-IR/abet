@@ -49,7 +49,9 @@ en:
       attachments:
         add: Add an Attachment
       new:
-        add_outcome: Add an Outcome
+        add_outcome: Add Outcome
+      coverage:
+        add_another_outcome: Add another outcome
     outcome_coverages:
       outcome_coverage:
         add_assignment: Add an Assignment

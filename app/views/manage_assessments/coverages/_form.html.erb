@@ -1,0 +1,27 @@
+<%= form.input :subject_id,
+  collection: Subject.sorted_by_number,
+  label_method: :to_s %>
+
+<%= form.simple_fields_for :outcome_coverages do |outcome_coverage_fields| %>
+  <%= outcome_coverage_fields.input :outcome_id,
+    collection: @coverage.course.outcomes,
+    label_method: :to_short_s,
+    required: outcome_coverage_fields.options[:child_index] == 0 %>
+<% end %>
+
+<div class="nested-form-actions">
+  <%= link_to_add_association "Add Outcome",
+    form,
+    :outcome_coverages,
+    render_options: { locals: { outcomes: @coverage.course.outcomes } } %>
+</div>
+
+<%= form.simple_fields_for :attachments do |attachment_fields| %>
+  <%= render "attachment_fields", f: attachment_fields %>
+<% end %>
+
+<div class="nested-form-actions">
+  <%= link_to_add_association "Attach student work", form, :attachments %>
+</div>
+
+<%= render "manage_assessments/madlib_controls", form: form %>

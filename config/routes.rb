@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resources :courses, only: [:index, :show] do
       resources :assessments, only: [:index]
-      resources :coverages, only: [:new, :create]
+      resources :coverages, only: [:new, :edit, :create, :update]
     end
 
     resources :outcome_coverages, only: [] do
