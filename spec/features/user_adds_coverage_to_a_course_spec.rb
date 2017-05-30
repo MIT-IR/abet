@@ -20,8 +20,8 @@ feature "user adds coverage to a course" do
 
     within("#matched_outcomes") do
       expect(page).to have_content(subject.title)
-      expect(page).to have_content(first_outcome.nickname)
-      expect(page).to have_content(second_outcome.nickname)
+      expect(page).to have_content(/#{first_outcome.nickname}/i)
+      expect(page).to have_content(/#{second_outcome.nickname}/i)
     end
   end
 

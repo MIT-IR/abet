@@ -25,7 +25,7 @@
 .add-item-icon {
   @include size(0.65em 0.75em);
   fill: $mit-red;
-  margin-right: $smallest-spacing;
+  margin-right: 0.0175em;
   transition: inherit;
 
   @at-root {

@@ -1,6 +1,6 @@
 .class-card {
   background-color: $white;
-  border: $thickest-border-width solid tint($lighter-border-color, 50%);
+  border: $thick-border-width solid tint($lighter-border-color, 25%);
   padding: $base-spacing;
 
   &:not(:first-of-type) {
@@ -9,7 +9,7 @@
 }
 
 .class-card-heading {
-  border-bottom: 1px solid shade($lighter-border-color, 5%);
+  border-bottom: 1px solid $lighter-border-color;
   color: $base-font-color;
   padding-bottom: $small-spacing;
 }
@@ -21,5 +21,47 @@
   &::after {
     color: $mit-red;
     content: "·";
+  }
+}
+
+.class-card-outcomes-wrapper {
+  @include padding($small-spacing null);
+  display: flex;
+  flex-wrap: wrap;
+
+  &:not(:first-of-type) {
+    padding-top: $base-spacing;
+  }
+}
+
+.class-card-outcomes {
+  @include margin($smallest-spacing $small-spacing $small-spacing null);
+  flex: 0.25 auto;
+  line-height: $heading-line-height;
+  width: 100px;
+}
+
+.class-card-assignments {
+  flex: 1 auto;
+  width: $sensible-line-length;
+}
+
+.class-card-assignment {
+  @include margin(0 null $smallest-spacing);
+  display: inline-block;
+  font-family: $sans-serif-narrow;
+  font-size: 125%;
+  font-weight: bolder;
+  line-height: $heading-line-height;
+  margin-bottom: 0.175em;
+
+  &.add-assignment {
+    border-bottom: $thick-border-width solid $mit-red;
+    padding-bottom: $thick-border-width;
+
+    a {
+      color: $mit-red;
+      padding-bottom: $smallest-spacing;
+    }
   }
 }

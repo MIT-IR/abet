@@ -1,17 +1,31 @@
-<p class="class-card-outcome outcome-letter-subhead">
-  <%= t(".outcome", label: outcome_coverage.outcome_label) %>
-</p>
-<p class="class-card-outcome outcome-nickname">
-  <%= outcome_coverage.outcome_nickname %>
-</p>
-<% if outcome_coverage.assignment.present? %>
-  <p>
-    <%= t(".assignment_name", name: outcome_coverage.assignment.name) %>
-    <%= t(".assignment_problem",
-        problem: outcome_coverage.assignment.problem) if outcome_coverage.assignment.problem.present? %>
-  </p>
-<% else %>
-  <p class="class-card-outcome">
-    <%= link_to t(".add_assignment"), new_manage_assessments_outcome_coverage_assignment_path(outcome_coverage) %>
-  </p>
-<% end %>
+<div class="class-card-outcomes-wrapper">
+  <div class="class-card-outcomes">
+    <p class="class-card-outcome outcome-letter-subhead">
+      <%= t(".outcome", label: outcome_coverage.outcome_label) %>
+    </p>
+    <p class="class-card-outcome outcome-nickname">
+      <%= outcome_coverage.outcome_nickname %>
+    </p>
+  </div>
+
+  <div class="class-card-assignments">
+    <% if outcome_coverage.assignment.present? %>
+    <p class="class-card-assignment">
+      <%= t(".assignment_name", name: outcome_coverage.assignment.name) %>
+      <%= t(".assignment_problem",
+      problem: outcome_coverage.assignment.problem) if outcome_coverage.assignment.problem.present? %>
+    </p>
+    <p class="outcome-card-description">
+      <%= outcome_coverage.outcome.description %>
+    </p>
+    <% else %>
+    <p class="class-card-outcome class-card-assignment add-assignment">
+      <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
+      <%= link_to t(".add_assignment"), new_manage_assessments_outcome_coverage_assignment_path(outcome_coverage) %>
+    </p>
+    <p class="outcome-card-description">
+      <%= outcome_coverage.outcome.description %>
+    </p>
+    <% end %>
+  </div>
+</div>

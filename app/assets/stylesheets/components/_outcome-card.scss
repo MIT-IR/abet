@@ -41,8 +41,8 @@ $outcome-card-height: 185px;
 }
 
 .outcome-card-copy {
-  max-width: em(400);
   margin: 0 auto;
+  max-width: $sensible-line-length;
 
   @include media($large-screen-up) {
     float: left;
@@ -96,8 +96,17 @@ $outcome-card-height: 185px;
 }
 
 .outcome-card-description {
-  @include margin($smallest-spacing null $small-spacing);
+  @include margin(0 null $small-spacing);
+  color: $medium-gray;
   font-family: $sans-serif-narrow;
-  font-size: $small-font-size;
   line-height: 1.4;
+  max-width: 35em;
+
+  .outcome-card & {
+    font-size: $small-font-size;
+  }
+
+  &::before {
+    content: "Students demonstrate";
+  }
 }

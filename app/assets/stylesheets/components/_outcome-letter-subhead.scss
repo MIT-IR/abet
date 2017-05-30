@@ -1,9 +1,9 @@
 .outcome-letter-subhead {
   @extend %small-caps;
-  color: $brown;
+  color: tint($medium-gray, 15%);
   font-family: $sans-serif-narrow;
   font-size: $smallest-font-size;
-  margin-bottom: 0;
+  margin-bottom: 0.125em;
 
   &:not(:first-of-type) {
     margin-top: $small-spacing;

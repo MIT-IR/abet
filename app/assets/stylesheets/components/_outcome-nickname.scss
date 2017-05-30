@@ -1,11 +1,15 @@
 .outcome-nickname {
-  color: $medium-gray;
-  font-family: $serif;
+  @extend %small-caps;
+  color: $brown;
+  font-size: $smallest-font-size;
   margin-bottom: 0;
 
   .outcome-card-unmatched &,
   .outcome-card-matched & {
-    font-weight: bolder;
+    font-family: $serif;
+    font-size: initial;
+    letter-spacing: normal;
+    text-transform: none;
 
     @include media($medium-screen-up) {
       font-size: 120%;
@@ -13,6 +17,6 @@
   }
 
   .outcome-card-unmatched & {
-    color: $mit-red;
+    color: $brown;
   }
 }

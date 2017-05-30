@@ -51,7 +51,7 @@ en:
         add_outcome: Add an Outcome
     outcome_coverages:
       outcome_coverage:
-        add_assignment: Add Assignment
+        add_assignment: Add an Assignment
         assignment_name: In %{name}
         assignment_problem: on %{problem}
         outcome: Outcome %{label}
