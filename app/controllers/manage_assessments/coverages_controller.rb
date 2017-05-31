@@ -2,7 +2,6 @@ module ManageAssessments
   class CoveragesController < ApplicationController
     def new
       @coverage = course.coverages.build
-      @coverage.attachments.build
       @coverage.outcome_coverages.build(outcome_id: params[:outcome_id])
       authorize(@coverage)
     end
@@ -29,7 +28,7 @@ module ManageAssessments
         require(:coverage).
         permit(
           :subject_id,
-          attachments_attributes: [:file],
+          attachments_attributes: [:id, :file, :_destroy],
           outcome_coverages_attributes: [:coverage_id, :outcome_id],
         )
     end

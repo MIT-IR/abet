@@ -7,4 +7,6 @@ class Attachment < ActiveRecord::Base
     s3_permissions: :private
 
   validates_attachment_content_type :file, content_type: /\Aapplication\/pdf\z/
+
+  delegate :name, to: :file
 end

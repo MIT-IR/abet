@@ -1,1 +1,11 @@
-<%= f.input :file, as: :file %>
+<li class="attachment">
+  <%= f.file_field :file, as: :file %>
+
+  <% if f.object.persisted? %>
+    <span class="file-name"><%= f.object.name %></span>
+  <% else %>
+    <span class="file-name"></span>
+  <% end %>
+
+  <%= link_to_remove_association "x", f, wrapper_class: "attachment" %>
+</li>

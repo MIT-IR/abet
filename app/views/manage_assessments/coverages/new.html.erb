@@ -30,13 +30,6 @@
       render_options: { locals: { outcomes: @coverage.course.outcomes } } %>
   </div>
 
-  <%= form.simple_fields_for :attachments do |attachment_fields| %>
-    <%= render "attachment_fields", f: attachment_fields %>
-  <% end %>
-
-  <div class="nested-form-actions">
-    <%= link_to_add_association t(".add_attachment"), form, :attachments %>
-  </div>
-
+  <%= render "attachments", form: form %>
   <%= render "manage_assessments/madlib_controls", form: form %>
 <% end %>

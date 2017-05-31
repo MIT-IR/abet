@@ -1,0 +1,9 @@
+<ul class="attachments">
+  <%= form.fields_for :attachments, wrapper: false do |attachment_fields| %>
+    <%= render "attachment_fields", f: attachment_fields %>
+  <% end %>
+</ul>
+
+<div class="nested-form-actions">
+  <%= link_to_add_association t(".add"), form, :attachments %>
+</div>
