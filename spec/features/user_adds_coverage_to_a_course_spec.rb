@@ -11,7 +11,7 @@ feature "user adds coverage to a course" do
     click_on t('manage_assessments.courses.show.add_a_class')
     selectize subject.title, from: "Subject"
     selectize first_outcome.nickname, from: "Outcome"
-    click_on t('manage_assessments.coverages.new.add_outcome')
+    click_on t('manage_assessments.coverages.form.add_outcome')
     selectize second_outcome.nickname, from: "Outcome"
     click_button t('helpers.submit.coverage.create')
 

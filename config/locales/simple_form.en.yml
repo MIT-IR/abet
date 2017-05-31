@@ -14,6 +14,11 @@ en:
       mark: '*'
     error_notification:
       default_message: "Please review the problems below:"
+    headlines:
+      coverage:
+        subject_id: In
+      outcome_coverages:
+        outcome_id: students learn
     hints:
       direct_assessment:
         assignment_description: Brief description of the topic of this

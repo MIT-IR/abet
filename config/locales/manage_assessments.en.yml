@@ -48,7 +48,7 @@ en:
     coverages:
       attachments:
         add: Add an Attachment
-      new:
+      form:
         add_outcome: Add Outcome
       coverage:
         add_another_outcome: Add another outcome
