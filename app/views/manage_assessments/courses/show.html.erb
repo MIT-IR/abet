@@ -20,7 +20,6 @@
   <section id="matched_outcomes" class="split-tab-panel" data-content="matched">
     <div class="container">
       <%= render @course.coverages %>
-
       <%= link_to new_manage_assessments_course_coverage_path(@course),
         class: "add-item add-item-subtle add-item-short" do %>
         <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
@@ -30,6 +29,20 @@
   </section>
 
   <section class="outcome-cards split-tab-panel" data-content="unmatched">
+    <div class="progress-outcomes container">
+      <span class="progress-outcomes-percent"
+            style="width: <%= progress_bar_percentage_width(@course.covered_outcomes_count,
+            @course.outcomes_count) %>">
+        <%= progress_bar_percentage_width(@course.covered_outcomes_count, @course.outcomes_count) %>
+
+        Complete
+      </span>
+
+      <%= render "progress_bar",
+        amount: @course.covered_outcomes_count,
+        total: @course.outcomes_count %>
+    </div>
+
     <div class="container">
       <% @course.outcomes.each do |outcome| %>
         <%= render "outcome_status", outcome: outcome %>

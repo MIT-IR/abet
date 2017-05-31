@@ -1,10 +1,15 @@
-.progress {
-  $progress-bar-height: 4px;
+$progress-bar-height: 4px;
 
+.progress {
   @include size(150px $progress-bar-height);
   background-color: $light-gray;
   border-radius: $progress-bar-height / 2;
   overflow: hidden;
+
+  .progress-outcomes & {
+    @include size(100% $thick-border-width);
+    margin-top: $smallest-spacing;
+  }
 }
 
 .progress-bar {
@@ -16,7 +21,20 @@
   color: darken($light-gray, 20%);
   font-family: $sans-serif;
 
+  .progress-outcomes & {
+    display: none;
+  }
+
   .nonzero-amount {
     color: $brown;
   }
+}
+
+.progress-outcomes-percent {
+  display: block;
+  font-family: $sans-serif-narrow;
+  font-size: $small-font-size;
+  font-weight: bold;
+  min-width: $small-font-size * 6;
+  text-align: right;
 }
