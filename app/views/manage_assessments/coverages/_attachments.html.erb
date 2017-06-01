@@ -5,5 +5,8 @@
 </ul>
 
 <div class="nested-form-actions">
-  <%= link_to_add_association t(".add"), form, :attachments %>
+  <%= link_to_add_association t(".add"), form, :attachments, data: {
+    association_insertion_method: "append",
+    association_insertion_node: ".attachments"
+  } %>
 </div>

@@ -3,7 +3,7 @@ $(function() {
   var fileName = ".file-name";
   var removeLink = "a.remove_fields";
 
-  $(document).on("cocoon:before-insert", function(e, insertedItem) {
+  $(document).on("cocoon:before-insert", ".attachments", function(e, insertedItem) {
     $(insertedItem).find(fileInput).hide().click();
     $(insertedItem).find(removeLink).hide();
 
