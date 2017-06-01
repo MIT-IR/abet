@@ -14,7 +14,7 @@ class Coverage < ActiveRecord::Base
     allow_destroy: true,
     reject_if: :all_blank
 
-  validates :subject_id, presence: true
+  validates :subject_id, presence: true, uniqueness: { scope: :course_id }
   validate :must_have_outcomes
 
   private
