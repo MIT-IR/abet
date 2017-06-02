@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-<%= simple_form_for @assignment, html: { class: "madlib" }, url: manage_assessments_outcome_coverage_assignments_path do |form| %>
+<%= madlib_form_for @assignment, url: manage_assessments_outcome_coverage_assignments_path do |form| %>
   <%= form.input :name %>
   <%= form.input :problem %>
 

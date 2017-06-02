@@ -15,6 +15,9 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     headlines:
+      assignment:
+        name: is best shown on
+        problem: with
       coverage:
         subject_id: In
       outcome_coverages:
