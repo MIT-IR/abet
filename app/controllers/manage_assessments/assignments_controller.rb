@@ -1,7 +1,6 @@
 class ManageAssessments::AssignmentsController < ApplicationController
   def new
     @assignment = outcome_coverage.build_assignment
-    @assignment.attachments.build
     authorize(@assignment)
   end
 

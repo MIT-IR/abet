@@ -16,5 +16,5 @@
     render_options: { locals: { outcomes: @coverage.course.outcomes } } %>
 </div>
 
-<%= render "attachments", form: form %>
+<%= render "attachments/nested_form", form: form %>
 <%= render "manage_assessments/madlib_controls", form: form %>

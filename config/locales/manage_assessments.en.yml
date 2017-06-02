@@ -46,8 +46,6 @@ en:
         add: Add
         headline: Add assignment
     coverages:
-      attachments:
-        add: Add an Attachment
       form:
         add_outcome: Add Outcome
       coverage:

@@ -15,13 +15,6 @@
   <%= form.input :name %>
   <%= form.input :problem %>
 
-  <%= form.simple_fields_for :attachments do |fields| %>
-    <%= fields.input :file %>
-  <% end %>
-
-  <div>
-    <%= link_to_add_association "Attach student work", form, :attachments %>
-  </div>
-
+  <%= render "attachments/nested_form", form: form %>
   <%= render "manage_assessments/madlib_controls", form: form %>
 <% end %>

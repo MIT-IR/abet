@@ -62,6 +62,10 @@ en:
       data: Record Data
       outcomes: Manage Outcomes
       reports: Reports
+  attachments:
+    nested_form:
+      add_for_coverage: Add an Attachment
+      add_for_assignment: Attach Student Work
   courses:
     outcomes:
       actions: Actions
