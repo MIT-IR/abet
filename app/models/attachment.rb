@@ -8,5 +8,7 @@ class Attachment < ActiveRecord::Base
 
   validates_attachment_content_type :file, content_type: /\Aapplication\/pdf\z/
 
-  delegate :name, to: :file
+  def name
+    file_file_name
+  end
 end
