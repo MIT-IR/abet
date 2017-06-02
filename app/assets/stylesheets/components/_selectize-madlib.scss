@@ -1,4 +1,7 @@
 .madlib {
+  margin: 0 auto;
+  max-width: $large-screen;
+
   .selectize-control .selectize-input,
   #{$all-text-inputs} {
     @include padding($smallest-spacing null);
@@ -15,9 +18,13 @@
     color: $mit-red;
     cursor: pointer;
     font-family: $sans-serif-narrow;
-    font-size: modular-scale(2, $base-font-size);
+    font-size: $base-font-size;
     line-height: normal;
     transition: all $base-transition-duration;
+
+    @include media($medium-screen-up) {
+      font-size: modular-scale(2, $base-font-size);
+    }
 
     &.has-items,
     &.input-active,
@@ -42,6 +49,8 @@
   }
 
   label {
+    color: $medium-gray;
+    font-size: $smallest-font-size;
     padding-left: $small-spacing;
   }
 
