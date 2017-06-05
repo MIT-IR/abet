@@ -3,7 +3,9 @@ require "rails_helper"
 feature "User views activity feed" do
   around do |example|
     PaperTrail.enabled = true
+    PaperTrail.enabled_for_controller = true
     example.run
+    PaperTrail.enabled_for_controller = false
     PaperTrail.enabled = false
   end
 
