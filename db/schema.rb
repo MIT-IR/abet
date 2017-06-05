@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601183541) do
+ActiveRecord::Schema.define(version: 20170607151337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,8 @@ ActiveRecord::Schema.define(version: 20170601183541) do
     t.datetime "updated_at", null: false
     t.integer "course_id", null: false
     t.integer "subject_id", null: false
-    t.index ["course_id", "subject_id"], name: "index_coverages_on_course_id_and_subject_id", unique: true
+    t.boolean "archived", default: false, null: false
+    t.index ["course_id", "subject_id"], name: "index_coverages_on_course_id_and_subject_id", unique: true, where: "(archived IS FALSE)"
     t.index ["subject_id"], name: "index_coverages_on_subject_id"
   end
 
@@ -106,7 +107,8 @@ ActiveRecord::Schema.define(version: 20170601183541) do
     t.datetime "updated_at", null: false
     t.integer "coverage_id", null: false
     t.integer "outcome_id", null: false
-    t.index ["coverage_id", "outcome_id"], name: "index_outcome_coverages_on_coverage_id_and_outcome_id", unique: true
+    t.boolean "archived", default: false, null: false
+    t.index ["coverage_id", "outcome_id"], name: "index_outcome_coverages_on_coverage_id_and_outcome_id", unique: true, where: "(archived IS FALSE)"
     t.index ["coverage_id"], name: "index_outcome_coverages_on_coverage_id"
     t.index ["outcome_id"], name: "index_outcome_coverages_on_outcome_id"
   end

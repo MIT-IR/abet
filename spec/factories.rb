@@ -11,6 +11,11 @@ FactoryGirl.define do
     standard_outcome
   end
 
+  factory :assignment do
+    sequence(:name) { |n| "Problem Set #{n}" }
+    sequence(:problem) { |n| "Question #{n}" }
+  end
+
   factory :course do
     name
     number

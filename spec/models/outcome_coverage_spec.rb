@@ -7,6 +7,6 @@ describe OutcomeCoverage do
     coverage = create(:coverage, course: course, outcomes: [outcome])
     outcome_coverage = OutcomeCoverage.new(coverage: coverage, outcome: outcome)
 
-    expect(outcome_coverage).to validate_uniqueness_of(:outcome_id).scoped_to(:coverage_id)
+    expect(outcome_coverage).to validate_uniqueness_of(:outcome_id).scoped_to(:coverage_id, :archived)
   end
 end

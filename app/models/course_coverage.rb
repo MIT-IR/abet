@@ -1,6 +1,6 @@
 class CourseCoverage < SimpleDelegator
   def has_coverages?
-    coverages.present?
+    coverages.where(archived: false).present?
   end
 
   def covered_outcomes_count

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resources :assignments, only: [:new, :create]
     end
 
+    resources :outcome_coverages, only: [:destroy]
+
     resources :assessments, only: [:new, :create, :edit, :update] do
       resource :archive, only: [:create, :destroy]
     end

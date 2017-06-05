@@ -2,7 +2,7 @@ class Coverage < ActiveRecord::Base
   belongs_to :course
   belongs_to :subject, required: true
 
-  has_many :outcome_coverages
+  has_many :outcome_coverages, -> { where archived: false }
   has_many :outcomes, through: :outcome_coverages
   has_many :attachments, as: :attachable
 
@@ -14,7 +14,7 @@ class Coverage < ActiveRecord::Base
     allow_destroy: true,
     reject_if: :all_blank
 
-  validates :subject_id, presence: true, uniqueness: { scope: :course_id }
+  validates :subject_id, presence: true, uniqueness: { scope: [:course_id, :archived] }, unless: :archived
   validate :must_have_outcomes
 
   private
