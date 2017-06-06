@@ -23,6 +23,10 @@ class ManageAssessments::AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :problem, attachments_attributes: [:file])
+    params.require(:assignment).permit(
+      :name,
+      :problem,
+      attachments_attributes: [:id, :file, :_destroy],
+    )
   end
 end
