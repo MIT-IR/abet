@@ -23,6 +23,17 @@ FactoryGirl.define do
     end
   end
 
+  factory :attachment do
+    file File.open("spec/fixtures/attachments/example.pdf")
+
+    after(:build) do |attachment|
+      if attachment.attachable.nil?
+        assignment = create(:assignment)
+        attachment.attachable = assignment
+      end
+    end
+  end
+
   factory :course do
     name
     number
