@@ -1,17 +1,15 @@
 class ManageResults::ResultsController < ApplicationController
   def new
-    @assessment = find_assessment
-    @result = @assessment.results.build(assessment_attributes)
+    @result = assignment.results.build
     authorize(@result)
   end
 
   def create
-    @assessment = find_assessment
-    @result = @assessment.results.build(result_params)
+    @result = assignment.results.build(result_params)
     authorize(@result)
 
     if @result.save
-      redirect_to [:manage_results, @result.assessment], success: t(".success")
+      redirect_to [:manage_results, @result.assignment], success: t(".success")
     else
       render :new
     end
@@ -27,7 +25,7 @@ class ManageResults::ResultsController < ApplicationController
     authorize(@result)
 
     if @result.update(result_params)
-      redirect_to [:manage_results, @result.assessment], success: t(".success")
+      redirect_to [:manage_results, @result.assignment], success: t(".success")
     else
       render :edit
     end
@@ -45,24 +43,13 @@ class ManageResults::ResultsController < ApplicationController
 
   def result_params
     params.require(:result).permit(
-      :assessment_description,
-      :assessment_name,
       :percentage,
-      :problem_description,
       :semester,
       :year
     )
   end
 
-  def find_assessment
-    @assessment = Assessment.find(params[:assessment_id])
-  end
-
-  def assessment_attributes
-    {
-      assessment_name: @assessment.name,
-      assessment_description: @assessment.description,
-      problem_description: @assessment.try(:problem_description)
-    }.compact
+  def assignment
+    @_assignment ||= Assignment.find(params[:assignment_id])
   end
 end

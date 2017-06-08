@@ -38,8 +38,8 @@ en:
   activities:
     activity:
       event:
-        create_html: Results created for %{assessment}
-        update_html: Results updated for %{assessment}
+        create_html: Results created for %{assignment}
+        update_html: Results updated for %{assignment}
     index:
       activity_count:
         one: 1 Change

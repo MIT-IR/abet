@@ -1,21 +1,21 @@
 ---
 en:
   reports:
-    assessment_reports:
+    assignment_reports:
       show:
         actual_percentage: Actual Percentage
         csv_link: complete report as a CSV
         description_html: For full results, download the %{link}.
-        assessment_name: Assessment Name
-        assessment_description: Assessment Description
-        heading: "Assessment Report for %{course}"
+        assignment_name: Assignment Name
+        assignment_problem: Assignment Problem
+        heading: "Assignment Report for %{course}"
         minimum_requirement: Minimum Requirement
         outcome_label: Outcome Label
         period: Period
         target_percentage: Target Percentage
     courses:
       index:
-        assessment_report: Assessment Report
+        assignment_report: Assignment Report
         course_name: Course Name
         heading: Available Reports
         reports: Reports

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607151337) do
+ActiveRecord::Schema.define(version: 20170607193812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,9 +126,9 @@ ActiveRecord::Schema.define(version: 20170607151337) do
   end
 
   create_table "results", force: :cascade do |t|
-    t.integer "assessment_id", null: false
-    t.string "assessment_name", null: false
-    t.string "assessment_description", null: false
+    t.integer "assessment_id"
+    t.string "assessment_name"
+    t.string "assessment_description"
     t.string "problem_description"
     t.integer "percentage", null: false
     t.integer "year", null: false
@@ -136,7 +136,10 @@ ActiveRecord::Schema.define(version: 20170607151337) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "department_id"
+    t.bigint "assignment_id"
     t.index ["assessment_id", "year", "semester"], name: "index_results_on_assessment_id_and_year_and_semester", unique: true
+    t.index ["assignment_id", "year", "semester"], name: "index_results_on_assignment_id_and_year_and_semester", unique: true
+    t.index ["assignment_id"], name: "index_results_on_assignment_id"
   end
 
   create_table "standard_outcomes", force: :cascade do |t|
@@ -185,6 +188,7 @@ ActiveRecord::Schema.define(version: 20170607151337) do
   add_foreign_key "outcome_coverages", "outcomes"
   add_foreign_key "outcomes", "courses"
   add_foreign_key "results", "assessments"
+  add_foreign_key "results", "assignments"
 
   create_view "outcomes_with_metadata",  sql_definition: <<-SQL
       SELECT outcomes.id,
@@ -212,25 +216,25 @@ ActiveRecord::Schema.define(version: 20170607151337) do
             GROUP BY outcome_assessments.outcome_id) active_assessments_with_results ON ((outcomes.id = active_assessments_with_results.outcome_id)));
   SQL
 
-  create_view "assessment_reports",  sql_definition: <<-SQL
+  create_view "assignment_reports",  sql_definition: <<-SQL
       SELECT outcomes.course_id,
       outcomes.label AS outcome_label,
       outcomes.description AS outcome_description,
-      assessments.id AS assessment_id,
-      assessments.name AS assessment_name,
-      assessments.description AS assessment_description,
-      assessments.minimum_requirement,
-      assessments.target_percentage,
+      outcomes.nickname AS outcome_nickname,
+      assignments.id AS assignment_id,
+      assignments.name AS assignment_name,
+      assignments.problem AS assignment_problem,
       results.percentage AS actual_percentage,
       results.year,
       results.semester,
       subjects.number AS subject_number,
       subjects.title AS subject_title
-     FROM ((((results
-       JOIN assessments ON ((assessments.id = results.assessment_id)))
-       JOIN subjects ON ((subjects.id = assessments.subject_id)))
-       JOIN outcome_assessments ON ((outcome_assessments.assessment_id = assessments.id)))
-       JOIN outcomes ON ((outcomes.id = outcome_assessments.outcome_id)))
+     FROM (((((results
+       JOIN assignments ON ((assignments.id = results.assignment_id)))
+       JOIN outcome_coverages ON ((outcome_coverages.id = assignments.outcome_coverage_id)))
+       JOIN coverages ON ((coverages.id = outcome_coverages.coverage_id)))
+       JOIN subjects ON ((subjects.id = coverages.subject_id)))
+       JOIN outcomes ON ((outcomes.id = outcome_coverages.outcome_id)))
     ORDER BY outcomes.label, results.year DESC, results.semester DESC;
   SQL
 

@@ -2,20 +2,11 @@
 
 <h1><%= t(".heading") %></h1>
 
-<% if policy(:generic).create_assessments? %>
-  <p><%= t(
-    ".description.can_create_assessments_html",
-    add_assessment_link: new_assessment_action(false, t(".add_assessment"))
-  ) %></p>
-<% else %>
-  <p><%= t(".description.cannot_create_assessments_html") %></p>
-<% end %>
-
 <table>
   <thead>
     <tr>
       <th><%= t(".subject") %></th>
-      <th><%= t(".assessments") %></th>
+      <th><%= t(".assignments") %></th>
       <th><%= t(".actions") %></th>
     </tr>
   </thead>
@@ -24,8 +15,8 @@
     <% @subjects.each do |subject| %>
       <tr>
         <td><%= subject %></td>
-        <td><%= subject.assessments.unarchived.count %></td>
-        <td><%= link_to t(".view_assessments"), manage_results_subject_path(subject) %></td>
+        <td><%= subject.assignments.count %></td>
+        <td><%= link_to t(".view_assignments"), manage_results_subject_path(subject) %></td>
       </tr>
     <% end %>
   </tbody>

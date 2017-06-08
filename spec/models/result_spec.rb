@@ -2,12 +2,12 @@ require "rails_helper"
 
 describe Result do
   it "denomarlizes the department from the associated assessment on save" do
-    assessment = create(:assessment)
-    result = build(:result, assessment: assessment)
+    assignment = create(:assignment)
+    result = build(:result, assignment: assignment)
 
     result.save!
 
-    expect(result.department_id).to eq assessment.department.id
+    expect(result.department_id).to eq assignment.course_department.id
   end
 
   describe "#name" do

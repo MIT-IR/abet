@@ -4,17 +4,15 @@
 
 <p><%= t(".description_html", link: link_to(
   t(".csv_link"),
-  course_assessment_report_path(course_id: @course, format: :csv)
+  course_assignment_report_path(course_id: @course, format: :csv)
 )) %></p>
 
 <table>
   <thead>
     <tr>
       <th><%= t(".outcome_label") %></th>
-      <th><%= t(".assessment_name") %></th>
-      <th><%= t(".assessment_description") %></th>
-      <th><%= t(".minimum_requirement") %></th>
-      <th><%= t(".target_percentage") %></th>
+      <th><%= t(".assignment_name") %></th>
+      <th><%= t(".assignment_problem") %></th>
       <th><%= t(".actual_percentage") %></th>
       <th><%= t(".period") %></th>
     </tr>
@@ -23,10 +21,8 @@
     <% @reports.each do |result| %>
       <tr>
         <td><%= result.outcome_label %></td>
-        <td><%= result.assessment_name %></td>
-        <td><%= result.assessment_description %></td>
-        <td><%= result.minimum_requirement %></td>
-        <td><%= result.target_percentage %></td>
+        <td><%= result.assignment_name %></td>
+        <td><%= result.assignment_problem %></td>
         <td><%= result.actual_percentage %></td>
         <td><%= result.period %></td>
       </tr>

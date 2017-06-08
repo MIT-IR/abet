@@ -1,0 +1,27 @@
+<% tab(TabHelper::DATA_ENTRY) %>
+
+<section class="headline-with-actions">
+  <h1><%= @assignment.name %></h1>
+
+  <div>
+    <% if policy(@assignment).create_results? %>
+      <%= link_to t(".add_result"),
+        new_manage_results_assignment_result_path(@assignment),
+        class: "button" %>
+    <% end %>
+  </div>
+</section>
+
+<%= render "manage_results/results/assignment_details", assignment: @assignment %>
+
+<section>
+  <h2><%= t(".results") %></h2>
+
+  <%= render "results", results: @assignment.results %>
+</section>
+
+<section>
+  <h2><%= t(".outcomes") %></h2>
+
+  <%= render "manage_results/outcomes", outcomes: [@assignment.outcome] %>
+</section>

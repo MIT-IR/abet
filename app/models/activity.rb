@@ -11,7 +11,7 @@ class Activity < PaperTrail::Version
   end
 
   def subject
-    result.assessment.subject.to_s
+    result.assignment.subject.to_s
   end
 
   def time_formatted

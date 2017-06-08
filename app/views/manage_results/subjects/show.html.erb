@@ -2,38 +2,36 @@
 
 <div class="headline-with-actions">
   <h1><%= @subject %></h1>
-
-  <%= new_assessment_action %>
 </div>
 
-<% if @subject.assessments.present? %>
-  <table id="assessments">
+<% if @subject.assignments.present? %>
+  <table id="assignments">
     <thead>
       <tr>
-        <th><%= t(".assessment") %></th>
+        <th><%= t(".assignment") %></th>
         <th><%= t(".last_entry") %></th>
         <th class="actions"><%= t(".actions") %></th>
       </tr>
     </thead>
     <tbody>
-      <% @subject.assessments.each do |assessment| %>
-        <tr id="assessment-<%=assessment.id %>">
-          <td><%= assessment %></td>
+      <% @subject.assignments.each do |assignment| %>
+        <tr id="assignment-<%=assignment.id %>">
+          <td><%= assignment.name %></td>
           <td>
-            <% if assessment.results.any? %>
-              <%= assessment.results.last.semester %>-<%= assessment.results.last.year %>
+            <% if assignment.results.any? %>
+              <%= assignment.results.last.semester %>-<%= assignment.results.last.year %>
             <% else %>
               <%= t(".no_results") %>
             <% end %>
           </td>
           <td class="inline-action-links">
-            <%= link_to t(".view"), manage_results_assessment_path(assessment) %>
-            <%= link_to t(".add_results"), new_manage_results_assessment_result_path(assessment) %>
+            <%= link_to t(".view"), manage_results_assignment_path(assignment) %>
+            <%= link_to t(".add_results"), new_manage_results_assignment_result_path(assignment) %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <p><%= t(".no_assessments") %></p>
+  <p><%= t(".no_assignments") %></p>
 <% end %>

@@ -1,9 +1,9 @@
 module Reports
-  class AssessmentReportsController < ApplicationController
+  class AssignmentReportsController < ApplicationController
     def show
       @course = Course.find(params[:course_id])
-      authorize(@course, :manage_assessments?)
-      @reports = AssessmentReport.for(@course)
+      authorize(@course, :manage_assignments?)
+      @reports = AssignmentReport.for(@course)
 
       respond_to do |format|
         format.html
@@ -11,7 +11,7 @@ module Reports
           send_data(
             @reports.to_csv,
             type: "text/csv",
-            filename: "#{@course.name.parameterize}-assessment-report.csv"
+            filename: "#{@course.name.parameterize}-assignment-report.csv"
           )
         end
       end

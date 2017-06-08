@@ -6,13 +6,6 @@
   <%= f.input :semester, collection: Result::SEMESTERS %>
 </fieldset>
 
-<fieldset class="background">
-  <legend><%= t(".assessment_background") %></legend>
-  <%= f.input :assessment_name %>
-  <%= f.input :assessment_description %>
-  <%= f.input :problem_description %>
-</fieldset>
-
 <%= f.input :percentage %>
 
 <div class="form-actions">

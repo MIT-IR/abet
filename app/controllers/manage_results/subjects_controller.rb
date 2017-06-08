@@ -1,11 +1,11 @@
 class ManageResults::SubjectsController < ApplicationController
   def index
     @subjects = policy_scope(Subject).
-      with_assessments.
+      with_assignments.
       sorted_by_number
 
     if @subjects.length == 1
-      redirect_to manage_results_subject_path(@subjects.first.id)
+      redirect_to manage_results_subject_path(@subjects.first)
     end
   end
 

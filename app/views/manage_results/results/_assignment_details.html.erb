@@ -1,0 +1,9 @@
+<h2 class="assignment-title"><%= assignment.name %></h2>
+
+<ul class="assignment-details">
+  <li>Subject: <%= assignment.subject %></li>
+  <li>Name: <%= assignment.name %></li>
+  <% if assignment.problem.present? %>
+    <li>Problem: <%= assignment.problem %><li>
+  <% end %>
+</ul>

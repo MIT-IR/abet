@@ -1,11 +1,11 @@
 <% tab(TabHelper::DATA_ENTRY) %>
 
 <h1><%= t(".heading") %></h1>
-<h2 class="assessment-title"><%= @result.assessment %></h2>
-<%= assessment_details(@result.assessment) %>
+<h2 class="assignment-title"><%= @result.assignment %></h2>
+<%= render "assignment_details", assignment: @result.assignment %>
 
-<%= simple_form_for [:manage_results, @assessment, @result] do |f| %>
+<%= simple_form_for [:manage_results, @assignment, @result] do |f| %>
   <%= render "form", f: f %>
 <% end %>
 
-<%= render "gradebook_form", subject: @result.assessment.subject %>
+<%= render "gradebook_form", subject: @result.assignment.subject %>

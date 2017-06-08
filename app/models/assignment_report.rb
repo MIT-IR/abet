@@ -1,4 +1,4 @@
-class AssessmentReport < ActiveRecord::Base
+class AssignmentReport < ActiveRecord::Base
   def self.for(course)
     where(course_id: course)
   end

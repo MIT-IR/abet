@@ -8,7 +8,7 @@
   </thead>
 
   <tbody>
-    <% outcomes.order(:label).each do |outcome| %>
+    <% outcomes.each do |outcome| %>
       <tr>
         <td><%= outcome.label %></td>
         <td><%= outcome.course %></td>

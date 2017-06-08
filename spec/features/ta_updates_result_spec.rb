@@ -1,17 +1,14 @@
 require "rails_helper"
 
-feature "User updates result" do
+feature "TA updates result" do
   scenario "for an assessment" do
     result = create(:result, percentage: 80)
-    assessment = result.assessment
-    user = user_with_results_access_to(assessment.department)
+    assignment = result.assignment
+    user = user_with_results_access_to(assignment.subject_department)
 
-    visit root_path(as: user)
-    click_on "Record Data"
+    visit manage_results_subjects_path(as: user)
     click_on t("manage_results.subjects.show.view")
-    within("#result_#{result.id}") do
-      click_on t("manage_results.assessments.results.edit")
-    end
+    click_on t("manage_results.assignments.results.edit")
 
     fill_in "Percentage", with: "90"
     click_on "Update Result"

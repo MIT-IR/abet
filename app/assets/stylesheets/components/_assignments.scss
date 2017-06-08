@@ -1,4 +1,4 @@
-.assessment-details {
+.assignment-details {
   &.card {
     border: 0;
     margin: ($large-spacing - 1.5em) 0 $large-spacing;
@@ -13,23 +13,23 @@
   }
 }
 
-.assessment-details {
+.assignment-details {
   background-color: tint($light-gray, 75%);
   padding: $large-spacing 0;
 }
 
-.assessment-subtitle {
+.assignment-subtitle {
   color: $brown;
   margin-bottom: $smallest-spacing;
 }
 
-.assessment-title {
+.assignment-title {
   font-size: em(20);
   font-weight: $bold;
   margin-bottom: $small-spacing;
 }
 
-.assessment-form-container {
+.assignment-form-container {
   &.card {
     border-top: 0;
     margin-top: 0;
@@ -52,7 +52,7 @@
   }
 }
 
-.assessments-dashboard-options {
+.assignments-dashboard-options {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,7 +68,7 @@
   }
 }
 
-.assessments-dashboard-option {
+.assignments-dashboard-option {
   flex: 1;
   padding: $base-spacing;
   text-align: center;

@@ -14,6 +14,13 @@ FactoryGirl.define do
   factory :assignment do
     sequence(:name) { |n| "Problem Set #{n}" }
     sequence(:problem) { |n| "Question #{n}" }
+
+    after(:build) do |assignment|
+      if assignment.outcome_coverage.nil?
+        coverage = create(:coverage)
+        assignment.outcome_coverage = coverage.outcome_coverages.first
+      end
+    end
   end
 
   factory :course do
@@ -84,9 +91,7 @@ FactoryGirl.define do
   end
 
   factory :result do
-    association :assessment
-    assessment_name "Problem Set 2"
-    assessment_description "Multiplication"
+    assignment
     percentage 80
     year 2015
   end
@@ -118,7 +123,13 @@ FactoryGirl.define do
     subject
 
     after(:build) do |coverage, evaluator|
-      coverage.outcomes = evaluator.outcomes
+      if evaluator.outcomes.present?
+        coverage.outcomes = Array(evaluator.outcomes)
+      else
+        coverage.outcomes = [
+          build(:outcome, course: coverage.course)
+        ]
+      end
     end
   end
 end

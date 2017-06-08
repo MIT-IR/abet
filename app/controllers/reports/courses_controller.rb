@@ -4,7 +4,7 @@ module Reports
       @courses = policy_scope(Course)
 
       if @courses.size == 1
-        redirect_to course_assessment_report_path(course_id: @courses.first)
+        redirect_to course_assignment_report_path(course_id: @courses.first)
       end
     end
   end

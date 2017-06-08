@@ -7,7 +7,7 @@ class CoursePolicy < ApplicationPolicy
     user.admin?(record.department)
   end
 
-  def manage_assessments?
+  def manage_assignments?
     user.manage_assessments?(record.department)
   end
 

@@ -1,9 +1,9 @@
 class AssignmentPolicy < ApplicationPolicy
-  def new?
-    GenericPolicy.new(user, record).create_assessments?
+  def create?
+    user.manage_assessments?(record.coverage.course.department)
   end
 
-  def create?
-    user.manage_assessments?(record.department)
+  def create_results?
+    ResultPolicy.new(user, Result.new(assignment: record)).create?
   end
 end

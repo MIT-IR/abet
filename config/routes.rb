@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manage_results do
-    resources :assessments, only: [:show] do
+    resources :assignments, only: [:show] do
       resources :results, only: [:new, :create]
     end
 
@@ -60,7 +60,7 @@ Rails.application.routes.draw do
 
   scope :reports, module: :reports do
     resources :courses, only: [] do
-      resource :assessment_report, only: [:show]
+      resource :assignment_report, only: [:show]
     end
 
     root to: "courses#index", as: :reports

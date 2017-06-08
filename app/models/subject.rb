@@ -1,15 +1,17 @@
 class Subject < ActiveRecord::Base
   belongs_to :department, foreign_key: :department_number, primary_key: :number
 
-  has_many :assessments, -> { merge(Assessment.unarchived).order(:name) }
-  has_many :outcomes, through: :assessments
+  has_many :coverages
+  has_many :outcome_coverages, through: :coverages
+  has_many :outcomes, through: :outcome_coverages
+  has_many :assignments, through: :outcome_coverages
 
   def self.sorted_by_number
     order(number: :asc).sort_by { |s| s.number.to_f }
   end
 
-  def self.with_assessments
-    joins(:assessments).distinct
+  def self.with_assignments
+    joins(:assignments).distinct
   end
 
   def to_s
