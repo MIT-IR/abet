@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20170612182739) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "outcomes_count", default: 0, null: false
+    t.index ["department_id"], name: "index_courses_on_department_id"
     t.index ["number"], name: "index_courses_on_number", unique: true
   end
 
@@ -185,6 +186,7 @@ ActiveRecord::Schema.define(version: 20170612182739) do
   add_foreign_key "outcome_assessments", "assessments"
   add_foreign_key "outcome_coverages", "coverages", on_delete: :cascade
   add_foreign_key "outcome_coverages", "outcomes"
+  add_foreign_key "outcomes", "courses"
   add_foreign_key "results", "assessments"
   add_foreign_key "results", "assignments"
 
