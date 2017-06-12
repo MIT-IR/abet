@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20170612182739) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "department_id"
-    t.integer "assignment_id"
+    t.bigint "assignment_id"
     t.index ["assessment_id", "year", "semester"], name: "index_results_on_assessment_id_and_year_and_semester", unique: true
     t.index ["assignment_id", "year", "semester"], name: "index_results_on_assignment_id_and_year_and_semester", unique: true
     t.index ["assignment_id"], name: "index_results_on_assignment_id"
