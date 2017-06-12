@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607193812) do
+ActiveRecord::Schema.define(version: 20170612182739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alignments", id: :serial, force: :cascade do |t|
-    t.integer "outcome_id", null: false
-    t.integer "standard_outcome_id", null: false
+  create_table "alignments", force: :cascade do |t|
+    t.bigint "outcome_id", null: false
+    t.bigint "standard_outcome_id", null: false
     t.string "level", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["standard_outcome_id"], name: "index_alignments_on_standard_outcome_id"
   end
 
-  create_table "assessments", id: :serial, force: :cascade do |t|
+  create_table "assessments", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
     t.string "problem_description"
@@ -33,38 +33,38 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.integer "target_percentage", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "subject_id", null: false
+    t.bigint "subject_id", null: false
     t.boolean "archived", default: false
     t.integer "results_count", default: 0, null: false
     t.index ["archived"], name: "index_assessments_on_archived"
     t.index ["subject_id"], name: "index_assessments_on_subject_id"
   end
 
-  create_table "assignments", id: :serial, force: :cascade do |t|
+  create_table "assignments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "outcome_coverage_id", null: false
+    t.bigint "outcome_coverage_id", null: false
     t.string "name", null: false
     t.string "problem"
     t.index ["outcome_coverage_id"], name: "index_assignments_on_outcome_coverage_id"
   end
 
-  create_table "attachments", id: :serial, force: :cascade do |t|
+  create_table "attachments", force: :cascade do |t|
     t.string "file_file_name", null: false
     t.string "file_content_type", null: false
     t.integer "file_file_size", null: false
     t.datetime "file_updated_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "attachable_id", null: false
+    t.bigint "attachable_id", null: false
     t.string "attachable_type", null: false
     t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id"
   end
 
-  create_table "courses", id: :serial, force: :cascade do |t|
+  create_table "courses", force: :cascade do |t|
     t.string "number", null: false
     t.string "name", null: false
-    t.integer "department_id", null: false
+    t.bigint "department_id", null: false
     t.boolean "has_custom_outcomes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -72,17 +72,17 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["number"], name: "index_courses_on_number", unique: true
   end
 
-  create_table "coverages", id: :serial, force: :cascade do |t|
+  create_table "coverages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "course_id", null: false
-    t.integer "subject_id", null: false
+    t.bigint "course_id", null: false
+    t.bigint "subject_id", null: false
     t.boolean "archived", default: false, null: false
     t.index ["course_id", "subject_id"], name: "index_coverages_on_course_id_and_subject_id", unique: true, where: "(archived IS FALSE)"
     t.index ["subject_id"], name: "index_coverages_on_subject_id"
   end
 
-  create_table "departments", id: :serial, force: :cascade do |t|
+  create_table "departments", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
     t.datetime "created_at", null: false
@@ -92,30 +92,30 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["slug"], name: "index_departments_on_slug", unique: true
   end
 
-  create_table "outcome_assessments", id: :serial, force: :cascade do |t|
-    t.integer "outcome_id", null: false
-    t.integer "assessment_id", null: false
+  create_table "outcome_assessments", force: :cascade do |t|
+    t.bigint "outcome_id", null: false
+    t.bigint "assessment_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assessment_id"], name: "index_outcome_assessments_on_assessment_id"
     t.index ["outcome_id"], name: "index_outcome_assessments_on_outcome_id"
   end
 
-  create_table "outcome_coverages", id: :serial, force: :cascade do |t|
+  create_table "outcome_coverages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "coverage_id", null: false
-    t.integer "outcome_id", null: false
+    t.bigint "coverage_id", null: false
+    t.bigint "outcome_id", null: false
     t.boolean "archived", default: false, null: false
     t.index ["coverage_id", "outcome_id"], name: "index_outcome_coverages_on_coverage_id_and_outcome_id", unique: true, where: "(archived IS FALSE)"
     t.index ["coverage_id"], name: "index_outcome_coverages_on_coverage_id"
     t.index ["outcome_id"], name: "index_outcome_coverages_on_outcome_id"
   end
 
-  create_table "outcomes", id: :serial, force: :cascade do |t|
+  create_table "outcomes", force: :cascade do |t|
     t.string "label", limit: 5, null: false
     t.string "description", null: false
-    t.integer "course_id", null: false
+    t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "assessments_count", default: 0, null: false
@@ -124,8 +124,8 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["course_id", "nickname"], name: "index_outcomes_on_course_id_and_nickname", unique: true
   end
 
-  create_table "results", id: :serial, force: :cascade do |t|
-    t.integer "assessment_id"
+  create_table "results", force: :cascade do |t|
+    t.bigint "assessment_id"
     t.string "assessment_name"
     t.string "assessment_description"
     t.string "problem_description"
@@ -134,14 +134,14 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.string "semester"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "department_id"
-    t.bigint "assignment_id"
+    t.bigint "department_id"
+    t.integer "assignment_id"
     t.index ["assessment_id", "year", "semester"], name: "index_results_on_assessment_id_and_year_and_semester", unique: true
     t.index ["assignment_id", "year", "semester"], name: "index_results_on_assignment_id_and_year_and_semester", unique: true
     t.index ["assignment_id"], name: "index_results_on_assignment_id"
   end
 
-  create_table "standard_outcomes", id: :serial, force: :cascade do |t|
+  create_table "standard_outcomes", force: :cascade do |t|
     t.string "label", limit: 5, null: false
     t.string "description", null: false
     t.datetime "created_at", null: false
@@ -150,23 +150,23 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["nickname"], name: "index_standard_outcomes_on_nickname", unique: true
   end
 
-  create_table "subjects", id: :serial, force: :cascade do |t|
+  create_table "subjects", force: :cascade do |t|
     t.string "number", null: false
     t.string "title", null: false
     t.integer "department_number", null: false
     t.index ["department_number"], name: "index_subjects_on_department_number"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "versions", id: :serial, force: :cascade do |t|
+  create_table "versions", force: :cascade do |t|
     t.string "item_type", null: false
-    t.integer "item_id", null: false
+    t.bigint "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
     t.text "object"
@@ -187,6 +187,28 @@ ActiveRecord::Schema.define(version: 20170607193812) do
   add_foreign_key "outcome_coverages", "outcomes"
   add_foreign_key "results", "assessments"
   add_foreign_key "results", "assignments"
+
+  create_view "assignment_reports",  sql_definition: <<-SQL
+      SELECT outcomes.course_id,
+      outcomes.label AS outcome_label,
+      outcomes.description AS outcome_description,
+      outcomes.nickname AS outcome_nickname,
+      assignments.id AS assignment_id,
+      assignments.name AS assignment_name,
+      assignments.problem AS assignment_problem,
+      results.percentage AS actual_percentage,
+      results.year,
+      results.semester,
+      subjects.number AS subject_number,
+      subjects.title AS subject_title
+     FROM (((((results
+       JOIN assignments ON ((assignments.id = results.assignment_id)))
+       JOIN outcome_coverages ON ((outcome_coverages.id = assignments.outcome_coverage_id)))
+       JOIN coverages ON ((coverages.id = outcome_coverages.coverage_id)))
+       JOIN subjects ON ((subjects.id = coverages.subject_id)))
+       JOIN outcomes ON ((outcomes.id = outcome_coverages.outcome_id)))
+    ORDER BY outcomes.label, results.year DESC, results.semester DESC;
+  SQL
 
   create_view "outcomes_with_metadata",  sql_definition: <<-SQL
       SELECT outcomes.id,
@@ -212,28 +234,6 @@ ActiveRecord::Schema.define(version: 20170607193812) do
                JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
             WHERE ((assessments.archived = false) AND (assessments.results_count > 0))
             GROUP BY outcome_assessments.outcome_id) active_assessments_with_results ON ((outcomes.id = active_assessments_with_results.outcome_id)));
-  SQL
-
-  create_view "assignment_reports",  sql_definition: <<-SQL
-      SELECT outcomes.course_id,
-      outcomes.label AS outcome_label,
-      outcomes.description AS outcome_description,
-      outcomes.nickname AS outcome_nickname,
-      assignments.id AS assignment_id,
-      assignments.name AS assignment_name,
-      assignments.problem AS assignment_problem,
-      results.percentage AS actual_percentage,
-      results.year,
-      results.semester,
-      subjects.number AS subject_number,
-      subjects.title AS subject_title
-     FROM (((((results
-       JOIN assignments ON ((assignments.id = results.assignment_id)))
-       JOIN outcome_coverages ON ((outcome_coverages.id = assignments.outcome_coverage_id)))
-       JOIN coverages ON ((coverages.id = outcome_coverages.coverage_id)))
-       JOIN subjects ON ((subjects.id = coverages.subject_id)))
-       JOIN outcomes ON ((outcomes.id = outcome_coverages.outcome_id)))
-    ORDER BY outcomes.label, results.year DESC, results.semester DESC;
   SQL
 
 end
