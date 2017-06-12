@@ -2,6 +2,8 @@ class RemoveIndirectAssessments < ActiveRecord::Migration[5.0]
   def up
     drop_table :indirect_assessments
 
+    execute "DELETE FROM outcome_assessments WHERE assessment_type = 'IndirectAssessment'"
+
     remove_column :outcome_assessments, :assessment_type
     add_index :outcome_assessments, :assessment_id
     add_foreign_key :outcome_assessments, :direct_assessments, column: :assessment_id

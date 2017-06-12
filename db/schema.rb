@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alignments", force: :cascade do |t|
+  create_table "alignments", id: :serial, force: :cascade do |t|
     t.integer "outcome_id", null: false
     t.integer "standard_outcome_id", null: false
     t.string "level", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["standard_outcome_id"], name: "index_alignments_on_standard_outcome_id"
   end
 
-  create_table "assessments", force: :cascade do |t|
+  create_table "assessments", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
     t.string "problem_description"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["subject_id"], name: "index_assessments_on_subject_id"
   end
 
-  create_table "assignments", force: :cascade do |t|
+  create_table "assignments", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "outcome_coverage_id", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["outcome_coverage_id"], name: "index_assignments_on_outcome_coverage_id"
   end
 
-  create_table "attachments", force: :cascade do |t|
+  create_table "attachments", id: :serial, force: :cascade do |t|
     t.string "file_file_name", null: false
     t.string "file_content_type", null: false
     t.integer "file_file_size", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id"
   end
 
-  create_table "courses", force: :cascade do |t|
+  create_table "courses", id: :serial, force: :cascade do |t|
     t.string "number", null: false
     t.string "name", null: false
     t.integer "department_id", null: false
@@ -69,11 +69,10 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "outcomes_count", default: 0, null: false
-    t.index ["department_id"], name: "index_courses_on_department_id"
     t.index ["number"], name: "index_courses_on_number", unique: true
   end
 
-  create_table "coverages", force: :cascade do |t|
+  create_table "coverages", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "course_id", null: false
@@ -83,7 +82,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["subject_id"], name: "index_coverages_on_subject_id"
   end
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
     t.datetime "created_at", null: false
@@ -93,7 +92,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["slug"], name: "index_departments_on_slug", unique: true
   end
 
-  create_table "outcome_assessments", force: :cascade do |t|
+  create_table "outcome_assessments", id: :serial, force: :cascade do |t|
     t.integer "outcome_id", null: false
     t.integer "assessment_id", null: false
     t.datetime "created_at", null: false
@@ -102,7 +101,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["outcome_id"], name: "index_outcome_assessments_on_outcome_id"
   end
 
-  create_table "outcome_coverages", force: :cascade do |t|
+  create_table "outcome_coverages", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "coverage_id", null: false
@@ -113,7 +112,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["outcome_id"], name: "index_outcome_coverages_on_outcome_id"
   end
 
-  create_table "outcomes", force: :cascade do |t|
+  create_table "outcomes", id: :serial, force: :cascade do |t|
     t.string "label", limit: 5, null: false
     t.string "description", null: false
     t.integer "course_id", null: false
@@ -125,7 +124,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["course_id", "nickname"], name: "index_outcomes_on_course_id_and_nickname", unique: true
   end
 
-  create_table "results", force: :cascade do |t|
+  create_table "results", id: :serial, force: :cascade do |t|
     t.integer "assessment_id"
     t.string "assessment_name"
     t.string "assessment_description"
@@ -142,7 +141,7 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["assignment_id"], name: "index_results_on_assignment_id"
   end
 
-  create_table "standard_outcomes", force: :cascade do |t|
+  create_table "standard_outcomes", id: :serial, force: :cascade do |t|
     t.string "label", limit: 5, null: false
     t.string "description", null: false
     t.datetime "created_at", null: false
@@ -151,21 +150,21 @@ ActiveRecord::Schema.define(version: 20170607193812) do
     t.index ["nickname"], name: "index_standard_outcomes_on_nickname", unique: true
   end
 
-  create_table "subjects", force: :cascade do |t|
+  create_table "subjects", id: :serial, force: :cascade do |t|
     t.string "number", null: false
     t.string "title", null: false
     t.integer "department_number", null: false
     t.index ["department_number"], name: "index_subjects_on_department_number"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "versions", force: :cascade do |t|
+  create_table "versions", id: :serial, force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false
@@ -186,7 +185,6 @@ ActiveRecord::Schema.define(version: 20170607193812) do
   add_foreign_key "outcome_assessments", "assessments"
   add_foreign_key "outcome_coverages", "coverages", on_delete: :cascade
   add_foreign_key "outcome_coverages", "outcomes"
-  add_foreign_key "outcomes", "courses"
   add_foreign_key "results", "assessments"
   add_foreign_key "results", "assignments"
 
