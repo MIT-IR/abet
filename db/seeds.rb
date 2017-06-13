@@ -53,6 +53,5 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  subject_csv = Rails.root.join("config", "subjects.csv")
-  SubjectImporter.new(subject_csv).run
+  Rake::Task["subjects:import"].invoke("2017FA")
 end
