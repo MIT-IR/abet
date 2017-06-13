@@ -61,19 +61,17 @@ contents of `config/secrets.yml.key`.
 
 There is a rake task available to import the list of subjects. The task will
 create new subjects that don't yet exist and update the name of subjects that
-have changed since the last import.
+have changed since the last import. To run the import, run:
 
-You must pass the term (e.g. `2017FA`) as an argument to the import task like
-so:
+    rake subjects:import
 
-    rake subjects:import[2017FA]
-
-This will import subjects from each department that the ABET system currently
-tracks. If you need to import subjects from another department not yet using
-ABET, you can supply a second argument corresponding to that department's
-number:
+This will import subjects for an approximation of the current term for the
+departments that the ABET system currently tracks. You can override the default
+term and the department to import for by specifying rake task arguments like so:
 
     rake subjects:import[2017FA,4]
+
+This will import subjects in department 4 for 2017FA.
 
 Running this rake task successfully requires access to the encrypted secrets.
 See the "Accessing Encrypted Secrets" section above.

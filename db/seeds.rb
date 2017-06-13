@@ -53,5 +53,5 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  Rake::Task["subjects:import"].invoke("2017FA")
+  Rake::Task["subjects:import"].invoke
 end

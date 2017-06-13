@@ -10,20 +10,11 @@ namespace :subjects do
       MSG
     end
 
-    term = args.fetch(:term) do
-      abort "Term is required (e.g. `rake subjects:import[FA2017]`"
-    end
-
-    departments = args.fetch(:department) do
-      puts "Importing subjects from ABET departments."
-      puts "To specify other departments, add department number argument. e.g."
-      puts "`rake subjects:import[FA2017,4]` to import department number 4"
-      puts
-      Department.pluck(:number)
-    end
+    term = args.fetch(:term) { Term.current.to_s }
+    departments = args.fetch(:department) { Department.pluck(:number) }
 
     Array(departments).each do |department|
-      puts "Importing subjects for department #{department}"
+      puts "Importing #{term} subjects for department #{department}"
       SubjectImporter.new(term: term, department: department).run
     end
   end
