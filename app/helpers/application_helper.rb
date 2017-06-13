@@ -17,12 +17,6 @@ module ApplicationHelper
     t("helpers.jon_daries_html", email: mail_to("daries@mit.edu"))
   end
 
-  def new_assessment_action(button = true, text = t("helpers.create_new_assessment"))
-    if policy(:generic).create_assessments?
-      link_to text, new_manage_assessments_assessment_path, class: "#{ 'button' if button }"
-    end
-  end
-
   def progress_bar_percentage_width(amount, total)
     if amount > 0
       amount = amount.to_f
