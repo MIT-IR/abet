@@ -11,7 +11,7 @@
     table_class: "without-outcomes",
     title: t(".titles.without_outcomes"),
     action_partial: "without_outcomes_actions",
-    show_assessment_coverage: false %>
+    show_coverage: false %>
 <% end %>
 
 <% if @outcomes_dashboard.unaligned_courses.present? %>
@@ -21,7 +21,7 @@
     table_class: "unaligned",
     title: t(".titles.unaligned_outcomes"),
     action_partial: "unaligned_outcomes_actions",
-    show_assessment_coverage: true %>
+    show_coverage: true %>
 <% end %>
 
 <% if @outcomes_dashboard.aligned_courses.present? %>
@@ -31,5 +31,5 @@
     table_class: "fully-aligned",
     title: t(".titles.aligned_outcomes"),
     action_partial: "aligned_outcomes_actions",
-    show_assessment_coverage: true %>
+    show_coverage: true %>
 <% end %>

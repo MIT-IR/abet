@@ -3,11 +3,11 @@ en:
   manage_outcomes:
     dashboard:
       aligned_outcomes_actions:
-        view_assessments: View Assessments
+        view_coverage: View Outcome Coverage
         view_outcomes: View Outcomes
       courses_table:
         actions: Actions
-        assessment_coverage: Assessment Coverage
+        outcome_coverage: Outcomes Covered
         name: Name
         number: Number
       show:
@@ -42,7 +42,7 @@ en:
           unaligned_outcomes: Courses with Unaligned Outcomes
           without_outcomes: Courses without Outcomes
       unaligned_outcomes_actions:
-        view_assessments: View Assessments
+        view_coverage: View Outcome Coverage
         view_outcomes: View Outcomes
       without_outcomes_actions:
         adopt_standard: Adopt Standard Outcomes
@@ -62,16 +62,11 @@ en:
         heading: Outcomes for %{course}
       new:
         heading: Create Custom Student Learning Outcome
-      outcome:
-        assess: Assess
-        details: Details
       outcomes:
         actions: Actions
         add_outcome: Add A Custom Outcome
-        assessments: Assessment Coverage
         edit_outcome: Edit Outcome
         outcome: Outcome
-        view_assessments: View Assessments
       unaligned_standard_outcomes:
         actions: Actions
         adopt: Adopt

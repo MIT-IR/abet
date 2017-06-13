@@ -2,12 +2,13 @@
   <caption>
     <h2><%= title %></h2>
     <%= caption %>
+  </caption>
   <thead>
     <tr>
       <th class="number"><%= t(".number") %></th>
       <th class="name"><%= t(".name") %></th>
-      <% if show_assessment_coverage %>
-        <th class="assessment-coverage"><%= t(".assessment_coverage") %></th>
+      <% if show_coverage %>
+        <th class="outcome-coverage"><%= t(".outcome_coverage") %></th>
       <% end %>
       <th class="actions"><%= t(".actions") %></th>
     </tr>
@@ -17,10 +18,10 @@
       <tr>
         <td><%= course.number %></td>
         <td><%= course.name %></td>
-        <% if show_assessment_coverage %>
+        <% if show_coverage %>
           <td><%= render "progress_bar",
-            amount: course.active_assessments_with_results_count,
-            total: course.active_assessments_count %></td>
+            amount: course.covered_outcomes_count,
+            total: course.outcomes_count %></td>
         <% end %>
         <td><%= render action_partial, course: course %></td>
       </tr>
