@@ -1,10 +1,6 @@
 <% tab(TabHelper::ASSESSMENTS) %>
 
-<div class="headline-with-actions">
-  <h1><%= t(".title") %></h1>
-
-  <%= new_assessment_action %>
-</div>
+<h1><%= t(".title") %></h1>
 
 <p><%= t(".intro_paragraph.text_html", link: link_to(t(".intro_paragraph.link"), manage_outcomes_root_path)) %></p>
 
@@ -14,25 +10,21 @@
       <tr>
         <th><%= t(".number") %></th>
         <th><%= t(".name")%></th>
-        <th><%= t(".assessments") %></th>
+        <th><%= t(".outcomes_covered") %></th>
         <th><%= t(".actions") %></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @courses.with_outcomes.each do |course| %>
+      <% @courses.each do |course| %>
         <tr>
           <td><%= course.number %></td>
           <td><%= course.name %></td>
           <td><%= render "progress_bar",
-            amount: course.active_assessments_with_results_count,
-            total: course.active_assessments_count %></td>
+            amount: course.covered_outcomes_count,
+            total: course.outcomes_count %></td>
           <td>
-            <% if course.active_assessments_count > 0 %>
-              <%= link_to t(".view_assessments"), manage_assessments_course_assessments_path(course) %>
-            <% else %>
-              <%= new_assessment_action(false) %>
-            <% end %>
+            <%= link_to t(".view"), manage_assessments_course_path(course) %>
           </td>
         </tr>
       <% end %>

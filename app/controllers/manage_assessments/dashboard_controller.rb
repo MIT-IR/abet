@@ -1,10 +1,24 @@
 class ManageAssessments::DashboardController < ApplicationController
-  def show
-    @courses = policy_scope(Course.includes(:outcomes_with_metadata))
-    authorize(:generic, :view_assessments?)
+  before_action :redirect_to_course_coverage, if: :has_access_to_one_course?
 
-    if @courses.length == 1
-      redirect_to manage_assessments_course_assessments_path(@courses.first.id)
+  def show
+    @courses = courses
+    authorize(:generic, :view_assessments?)
+  end
+
+  private
+
+  def courses
+    @_courses ||= policy_scope(Course.includes(:outcome_coverages).with_outcomes).map do |course|
+      CourseCoverage.new(course)
     end
+  end
+
+  def has_access_to_one_course?
+    courses.length == 1
+  end
+
+  def redirect_to_course_coverage
+    redirect_to manage_assessments_course_path(courses.first)
   end
 end

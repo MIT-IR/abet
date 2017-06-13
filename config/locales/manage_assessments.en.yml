@@ -59,16 +59,14 @@ en:
     dashboard:
       show:
         actions: Actions
-        assessments: Assessment Coverage
-        create_new_assessment: Create New Assessment
         intro_paragraph:
           link: set up outcomes
           text_html: If you do not see your course listed below then you need to %{link} for that course.
         name: Name
-        no_assessments: No Assessments
         number: Number
-        title: Manage Assessments for Your Courses
-        view_assessments: View Assessments
+        outcomes_covered: Outcomes Covered
+        title: Manage Outcome Coverage for Your Courses
+        view: View Outcome Coverage
     courses:
       index:
         actions: Actions
