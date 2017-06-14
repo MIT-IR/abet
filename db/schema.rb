@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612182739) do
+ActiveRecord::Schema.define(version: 20170614152932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -210,32 +210,6 @@ ActiveRecord::Schema.define(version: 20170612182739) do
        JOIN subjects ON ((subjects.id = coverages.subject_id)))
        JOIN outcomes ON ((outcomes.id = outcome_coverages.outcome_id)))
     ORDER BY outcomes.label, results.year DESC, results.semester DESC;
-  SQL
-
-  create_view "outcomes_with_metadata",  sql_definition: <<-SQL
-      SELECT outcomes.id,
-      outcomes.label,
-      outcomes.description,
-      outcomes.course_id,
-      outcomes.created_at,
-      outcomes.updated_at,
-      outcomes.assessments_count,
-      outcomes.nickname,
-      COALESCE(active_assessments.count, (0)::bigint) AS active_assessments_count,
-      COALESCE(active_assessments_with_results.count, (0)::bigint) AS active_assessments_with_results_count
-     FROM ((outcomes
-       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
-              count(*) AS count
-             FROM (outcome_assessments
-               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
-            WHERE (assessments.archived = false)
-            GROUP BY outcome_assessments.outcome_id) active_assessments ON ((outcomes.id = active_assessments.outcome_id)))
-       LEFT JOIN ( SELECT outcome_assessments.outcome_id,
-              count(*) AS count
-             FROM (outcome_assessments
-               JOIN assessments ON ((assessments.id = outcome_assessments.assessment_id)))
-            WHERE ((assessments.archived = false) AND (assessments.results_count > 0))
-            GROUP BY outcome_assessments.outcome_id) active_assessments_with_results ON ((outcomes.id = active_assessments_with_results.outcome_id)));
   SQL
 
 end
