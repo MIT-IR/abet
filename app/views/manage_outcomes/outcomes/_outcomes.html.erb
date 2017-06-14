@@ -6,7 +6,7 @@
     </tr>
   </thead>
   <tbody>
-    <% course.outcomes.each do |outcome| %>
+    <% course.outcomes.alphabetical.each do |outcome| %>
       <tr>
         <td>
           <p><%= outcome.nickname %></p>

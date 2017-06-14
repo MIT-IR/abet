@@ -21,6 +21,10 @@ class Outcome < ActiveRecord::Base
 
   has_paper_trail
 
+  def self.alphabetical
+    order(:label)
+  end
+
   def to_s
     "#{label} - #{description}"
   end

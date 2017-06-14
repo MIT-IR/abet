@@ -3,7 +3,7 @@ class Course < ActiveRecord::Base
 
   has_many :coverages, -> { where archived: false }
   has_many :outcome_coverages, through: :coverages
-  has_many :outcomes, -> { order(:label) }
+  has_many :outcomes
 
   def self.without_outcomes
     where(outcomes_count: 0)
