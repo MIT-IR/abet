@@ -4,7 +4,7 @@
 
 <%= form.simple_fields_for :outcome_coverages do |outcome_coverage_fields| %>
   <%= outcome_coverage_fields.input :outcome_id,
-    collection: @coverage.course.outcomes,
+    collection: form.object.course.outcomes,
     label_method: :to_short_s,
     required: outcome_coverage_fields.options[:child_index] == 0 %>
 <% end %>
@@ -13,7 +13,7 @@
   <%= link_to_add_association t(".add_outcome"),
     form,
     :outcome_coverages,
-    render_options: { locals: { outcomes: @coverage.course.outcomes } } %>
+    render_options: { locals: { outcomes: form.object.course.outcomes } } %>
 </div>
 
 <%= render "attachments/nested_form", form: form %>
