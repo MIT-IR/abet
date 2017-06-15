@@ -1,17 +1,11 @@
-class Activity < PaperTrail::Version
-  default_scope { where(item_type: "Result") }
-
-  belongs_to :user, foreign_key: :whodunnit
-  belongs_to :result, foreign_key: :item_id
+class Activity < ApplicationRecord
+  belongs_to :user
+  belongs_to :item, polymorphic: true
 
   delegate :username, to: :user, allow_nil: true
 
   def date
     created_at.to_date
-  end
-
-  def subject
-    result.assignment.subject.to_s
   end
 
   def time_formatted

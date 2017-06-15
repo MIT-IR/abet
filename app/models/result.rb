@@ -23,6 +23,10 @@ class Result < ActiveRecord::Base
     "#{assessment_name} - #{assessment_description}"
   end
 
+  def subject_name
+    assignment.subject.to_s
+  end
+
   private
 
   def denormalize_department

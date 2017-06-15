@@ -2,8 +2,7 @@ class ActivityPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.
-        joins(result: :department).
-        where(departments: { slug: user.department_slugs }).
+        where(department_id: user.departments.pluck(:id)).
         order(created_at: :desc)
     end
   end

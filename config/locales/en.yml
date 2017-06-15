@@ -36,10 +36,18 @@ en:
     models:
       direct_assessment: Direct Assessment
   activities:
-    activity:
+    assignment_activity:
       event:
-        create_html: Results created for %{assignment}
-        update_html: Results updated for %{assignment}
+        create_assignment_html: Assignment %{name} created for %{subject}
+        update_assignment_html: Assignment %{name} updated for %{subject}
+    outcome_coverage_activity:
+      event:
+        create_outcomecoverage_html: Outcome coverage created for %{subject}
+        update_outcomecoverage_html: Outcome coverage updated for %{subject}
+    result_activity:
+      event:
+        create_result_html: Result created for %{assignment} in %{subject}
+        update_result_html: Result updated for %{assignment} in %{subject}
     index:
       activity_count:
         one: 1 Change

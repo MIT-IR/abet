@@ -1,0 +1,8 @@
+<%= t(
+    ".event.#{activity.event}_#{activity.item_type.downcase}_html",
+    assignment: link_to(
+      activity.item.assignment.name,
+      manage_results_assignment_path(activity.item.assignment_id)
+    ),
+    subject: activity.item.subject_name
+) %>

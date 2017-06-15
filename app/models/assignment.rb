@@ -18,4 +18,10 @@ class Assignment < ActiveRecord::Base
   delegate :department, to: :course, prefix: true
 
   validates :name, presence: true
+
+  has_paper_trail
+
+  def subject_name
+    subject.to_s
+  end
 end

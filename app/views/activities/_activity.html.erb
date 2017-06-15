@@ -9,16 +9,8 @@
 
   <td class="activity-event-and-subject">
     <span class="activity-event">
-      <%= t(
-        ".event.#{activity.event}_html",
-        assignment: link_to(
-          activity.result.name,
-          manage_results_assignment_path(activity.result.assignment_id)
-        ),
-      ) %>
+      <%= render "#{activity.item_type.underscore}_activity", activity: activity %>
     </span>
-
-    <span class="activity-subject"><%= activity.subject %></span>
   </td>
 
   <td class="activity-user">

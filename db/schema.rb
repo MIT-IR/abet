@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614152932) do
+ActiveRecord::Schema.define(version: 20170620185115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -210,6 +210,49 @@ ActiveRecord::Schema.define(version: 20170614152932) do
        JOIN subjects ON ((subjects.id = coverages.subject_id)))
        JOIN outcomes ON ((outcomes.id = outcome_coverages.outcome_id)))
     ORDER BY outcomes.label, results.year DESC, results.semester DESC;
+  SQL
+
+  create_view "activities",  sql_definition: <<-SQL
+      SELECT versions.id,
+      versions.item_type,
+      versions.item_id,
+      versions.event,
+      versions.whodunnit AS user_id,
+      departments.id AS department_id,
+      versions.created_at
+     FROM ((versions
+       JOIN results ON ((versions.item_id = results.id)))
+       JOIN departments ON ((results.department_id = departments.id)))
+    WHERE ((versions.item_type)::text = 'Result'::text)
+  UNION ALL
+   SELECT versions.id,
+      versions.item_type,
+      versions.item_id,
+      versions.event,
+      versions.whodunnit AS user_id,
+      departments.id AS department_id,
+      versions.created_at
+     FROM (((((versions
+       JOIN assignments ON ((versions.item_id = assignments.id)))
+       JOIN outcome_coverages ON ((assignments.outcome_coverage_id = outcome_coverages.id)))
+       JOIN coverages ON ((outcome_coverages.coverage_id = coverages.id)))
+       JOIN courses ON ((coverages.course_id = courses.id)))
+       JOIN departments ON ((courses.department_id = departments.id)))
+    WHERE ((versions.item_type)::text = 'Assignment'::text)
+  UNION ALL
+   SELECT versions.id,
+      versions.item_type,
+      versions.item_id,
+      versions.event,
+      versions.whodunnit AS user_id,
+      departments.id AS department_id,
+      versions.created_at
+     FROM ((((versions
+       JOIN outcome_coverages ON ((versions.item_id = outcome_coverages.id)))
+       JOIN coverages ON ((outcome_coverages.coverage_id = coverages.id)))
+       JOIN courses ON ((coverages.course_id = courses.id)))
+       JOIN departments ON ((courses.department_id = departments.id)))
+    WHERE ((versions.item_type)::text = 'OutcomeCoverage'::text);
   SQL
 
 end
