@@ -35,12 +35,6 @@ feature "user adds coverage to a course" do
     expect(page).to have_prepopulated_select_box(unmatched_outcome.nickname)
   end
 
-  def selectize(item, from:)
-    container = find_field(from, visible: false).first(:xpath, ".//..")
-    container.find(".selectize-control").click
-    container.find("div.option", text: item).click
-  end
-
   def have_prepopulated_select_box(text)
     have_css("select", text: text)
   end

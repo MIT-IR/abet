@@ -2,12 +2,12 @@ class Coverage < ActiveRecord::Base
   belongs_to :course
   belongs_to :subject, required: true
 
+  has_one :department, through: :course
   has_many :outcome_coverages, -> { where archived: false }
   has_many :outcomes, through: :outcome_coverages
   has_many :attachments, as: :attachable
 
   accepts_nested_attributes_for :outcome_coverages,
-    allow_destroy: true,
     reject_if: :all_blank
 
   accepts_nested_attributes_for :attachments,

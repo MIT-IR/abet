@@ -45,7 +45,7 @@ module ManageAssessments
         permit(
           :subject_id,
           attachments_attributes: [:id, :file, :_destroy],
-          outcome_coverages_attributes: [:id, :outcome_id],
+          outcome_coverages_attributes: [:id, :outcome_id, :_destroy]
         )
     end
   end

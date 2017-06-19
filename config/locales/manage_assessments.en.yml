@@ -46,10 +46,12 @@ en:
         add: Add
         headline: Add assignment
     coverages:
-      form:
-        add_outcome: Add Outcome
       coverage:
         add_another_outcome: Add an outcome
+      form:
+        add_outcome: Add Outcome
+      outcome_coverage_fields:
+        remove: undo
     outcome_coverages:
       outcome_coverage:
         add_assignment: Add an Assignment

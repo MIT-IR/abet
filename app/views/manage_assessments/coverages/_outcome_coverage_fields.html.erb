@@ -1,5 +1,11 @@
-<%= f.input :outcome_id,
-  headline: "and",
-  collection: outcomes,
-  label_method: :to_short_s,
-  required: false %>
+<div class="nested-fields">
+  <%= f.input :outcome_id,
+    headline: "and",
+    collection: outcomes,
+    label_method: :to_short_s,
+    required: false %>
+
+  <% if f.object.new_record? %>
+    <%= link_to_remove_association t(".remove"), f %>
+  <% end %>
+</div>
