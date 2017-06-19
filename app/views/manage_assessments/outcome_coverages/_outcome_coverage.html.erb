@@ -27,6 +27,10 @@
       <%= outcome_coverage.outcome.description %>
     </p>
     <% end %>
-    <p> <%= link_to "Delete", manage_assessments_outcome_coverage_path(outcome_coverage), method: :delete %> </p>
+    <p> <%= link_to t(".edit_assignment"),
+            edit_manage_assessments_outcome_coverage_assignment_path(
+              outcome_coverage_id: outcome_coverage.id,
+              assignment: outcome_coverage.assignment) %></p>
+    <p> <%= link_to t(".delete_outcome_coverage"), manage_assessments_outcome_coverage_path(outcome_coverage), method: :delete %> </p>
   </div>
 </div>

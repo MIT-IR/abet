@@ -8,7 +8,8 @@ feature "User deletes an outcome coverage for a subject" do
     user = user_with_assessments_access_to(course.department)
 
     visit manage_assessments_course_path(course.id, as: user)
-    first(".class-card-outcomes-wrapper").click_on("Delete")
+    first(".class-card-outcomes-wrapper")
+      .click_on t("manage_assessments.outcome_coverages.outcome_coverage.delete_outcome_coverage")
 
     expect(page).to have_outcome_number_of(1)
   end
@@ -23,7 +24,7 @@ feature "User deletes an outcome coverage for a subject" do
     coverage.outcome_coverages.first.update(assignment: assignment)
 
     visit manage_assessments_course_path(course.id, as: user)
-    click_on "Delete"
+    click_on t("manage_assessments.outcome_coverages.outcome_coverage.delete_outcome_coverage")
 
     expect(page).to have_content(course.number)
     expect(page).to have_content t("manage_assessments.courses.show_without_coverages.no_classes", name: course.name)

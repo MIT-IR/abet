@@ -3,6 +3,14 @@ class AssignmentPolicy < ApplicationPolicy
     user.manage_assessments?(record.coverage.course.department)
   end
 
+  def edit?
+    create?
+  end
+
+  def update?
+    edit?
+  end 
+
   def create_results?
     ResultPolicy.new(user, Result.new(assignment: record)).create?
   end

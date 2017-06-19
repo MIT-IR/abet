@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
 
     resources :outcome_coverages, only: [:destroy] do
-      resources :assignments, only: [:new, :create]
+      resources :assignments, only: [:new, :edit, :create, :update]
     end
   end
 

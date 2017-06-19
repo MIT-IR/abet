@@ -45,6 +45,8 @@ en:
       new:
         add: Add
         headline: Add assignment
+      edit:
+        headline: Edit assignment
     coverages:
       coverage:
         add_another_outcome: Add an outcome
@@ -57,6 +59,8 @@ en:
         add_assignment: Add an Assignment
         assignment_name: In %{name}
         assignment_problem: on %{problem}
+        edit_assignment: Edit Assignment
+        delete_outcome_coverage: Delete
         outcome: Outcome %{label}
     dashboard:
       show:

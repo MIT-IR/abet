@@ -4,6 +4,11 @@ class ManageAssessments::AssignmentsController < ApplicationController
     authorize(@assignment)
   end
 
+  def edit
+    @assignment = OutcomeCoverage.find(params[:outcome_coverage_id]).assignment
+    authorize(@assignment)
+  end
+
   def create
     @assignment = outcome_coverage.build_assignment(assignment_params)
     authorize(@assignment)
@@ -13,6 +18,17 @@ class ManageAssessments::AssignmentsController < ApplicationController
         success: t(".success", label: outcome_coverage.outcome.label)
     else
       render :new
+    end
+  end
+
+  def update
+    @assignment = OutcomeCoverage.find(params[:outcome_coverage_id]).assignment
+    authorize(@assignment)
+
+    if @assignment.update_attributes(assignment_params)
+      redirect_to manage_assessments_course_path(@assignment.course)
+    else
+      render :edit
     end
   end
 

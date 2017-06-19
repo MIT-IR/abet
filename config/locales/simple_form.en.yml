@@ -3,6 +3,7 @@ en:
     submit:
       assignment:
         create: Add
+        update: Update
       coverage:
         create: Add
         update: Update
