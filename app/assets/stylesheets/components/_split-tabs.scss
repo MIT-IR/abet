@@ -28,7 +28,12 @@
   }
 }
 
-.split-tab-digit {
+.split-tab-panel {
+  background-color: $lightest-gray;
+  display: none;
+}
+
+.emphasized-tab-digit {
   background-color: $medium-gray;
   border-radius: 1em;
   color: $white;
@@ -39,9 +44,4 @@
   .is-active & {
     background-color: $mit-red;
   }
-}
-
-.split-tab-panel {
-  background-color: $lightest-gray;
-  display: none;
 }

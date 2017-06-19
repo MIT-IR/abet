@@ -9,6 +9,7 @@
 }
 
 .class-card-heading {
+  @include clearfix;
   border-bottom: 1px solid $lighter-border-color;
   color: $base-font-color;
   padding-bottom: $small-spacing;
@@ -64,4 +65,11 @@
       padding-bottom: $smallest-spacing;
     }
   }
+}
+
+.matched-outcome-total {
+  float: right;
+  font-family: $sans-serif-narrow;
+  font-size: $small-font-size;
+  font-weight: normal;
 }

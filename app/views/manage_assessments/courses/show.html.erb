@@ -9,11 +9,11 @@
   <nav class="split-tabs">
     <%= link_to "#!", class: "split-tab", data: { tab: "matched" } do %>
       <%= t(".matched") %>
-      <span class="split-tab-digit"><%= @course.covered_outcomes_count %></span>
+      <span class="emphasized-tab-digit"><%= @course.covered_outcomes_count %></span>
     <% end %>
     <%= link_to "#!", class: "split-tab", data: { tab: "unmatched" } do %>
       <%= t(".unmatched") %>
-      <span class="split-tab-digit"><%= @course.uncovered_outcomes_count %></span>
+      <span class="emphasized-tab-digit"><%= @course.uncovered_outcomes_count %></span>
     <% end %>
   </nav>
 
