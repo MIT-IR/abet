@@ -4,13 +4,19 @@
   cursor: pointer;
   display: block;
   font-family: $sans-serif-narrow;
+  font-size: 110%;
   text-align: center;
-  transition: $long-transition;
+  transition: $base-transition;
 
   &:hover,
   &:focus {
     background-color: $mit-red;
     color: $white;
+  }
+
+  .class-card & {
+    @include margin(0 (-$base-spacing) (-$base-spacing));
+    border-top: 1px solid $lighter-border-color;
   }
 }
 

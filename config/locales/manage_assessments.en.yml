@@ -49,7 +49,7 @@ en:
       form:
         add_outcome: Add Outcome
       coverage:
-        add_another_outcome: Add another outcome
+        add_another_outcome: Add an outcome
     outcome_coverages:
       outcome_coverage:
         add_assignment: Add an Assignment
