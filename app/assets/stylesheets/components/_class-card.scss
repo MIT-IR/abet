@@ -73,3 +73,11 @@
   font-size: $small-font-size;
   font-weight: normal;
 }
+
+.class-card-assignment-controls {
+  @include margin($base-spacing null);
+  display: flex;
+  font-family: $sans-serif-narrow;
+  font-size: $small-font-size;
+  justify-content: space-between;
+}

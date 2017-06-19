@@ -27,10 +27,15 @@
       <%= outcome_coverage.outcome.description %>
     </p>
     <% end %>
-    <p> <%= link_to t(".edit_assignment"),
+
+    <div class="class-card-assignment-controls">
+      <%= link_to t(".edit_assignment"),
             edit_manage_assessments_outcome_coverage_assignment_path(
               outcome_coverage_id: outcome_coverage.id,
-              assignment: outcome_coverage.assignment) %></p>
-    <p> <%= link_to t(".delete_outcome_coverage"), manage_assessments_outcome_coverage_path(outcome_coverage), method: :delete %> </p>
+              assignment: outcome_coverage.assignment) %>
+      <%= link_to t(".delete_outcome_coverage"),
+            manage_assessments_outcome_coverage_path(outcome_coverage),
+            method: :delete %>
+    </div>
   </div>
 </div>
