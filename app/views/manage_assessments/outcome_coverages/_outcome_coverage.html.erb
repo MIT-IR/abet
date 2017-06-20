@@ -29,10 +29,12 @@
     <% end %>
 
     <div class="class-card-assignment-controls">
-      <%= link_to t(".edit_assignment"),
-            edit_manage_assessments_outcome_coverage_assignment_path(
-              outcome_coverage_id: outcome_coverage.id,
-              assignment: outcome_coverage.assignment) %>
+      <% if outcome_coverage.assignment.present? %>
+        <%= link_to t(".edit_assignment"),
+              edit_manage_assessments_outcome_coverage_assignment_path(
+                outcome_coverage_id: outcome_coverage.id,
+                assignment: outcome_coverage.assignment) %>
+      <% end %>
       <%= link_to t(".delete_outcome_coverage"),
             manage_assessments_outcome_coverage_path(outcome_coverage),
             method: :delete %>
