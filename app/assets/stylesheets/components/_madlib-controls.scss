@@ -17,3 +17,11 @@
     margin-left: $large-spacing;
   }
 }
+
+.remove-outcome {
+  color: $medium-gray;
+  float: right;
+  font-size: $smallest-font-size;
+  letter-spacing: $small-font-letter-spacing;
+  margin-top: -($large-spacing + 0.75em);
+}

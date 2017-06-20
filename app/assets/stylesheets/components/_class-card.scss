@@ -17,7 +17,7 @@
 
 .class-card-subject-number {
   font-size: 85%;
-  letter-spacing: 0.0325em;
+  letter-spacing: $small-font-letter-spacing;
 
   &::after {
     color: $mit-red;
