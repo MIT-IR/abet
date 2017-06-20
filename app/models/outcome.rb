@@ -4,7 +4,7 @@ class Outcome < ActiveRecord::Base
   belongs_to :course, counter_cache: true
 
   has_one :department, through: :course
-  has_many :outcome_coverages
+  has_many :outcome_coverages, -> { where archived: false }
   has_many :alignments
   has_many :standard_outcomes, through: :alignments
 
