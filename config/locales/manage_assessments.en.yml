@@ -1,44 +1,6 @@
 ---
 en:
   manage_assessments:
-    archives:
-      create:
-        success: Assessment "%{name}" has been archived successfully. %{undo}
-        undo: Undo
-      destroy:
-        success: Assessment "%{name}" has been unarchived successfully.
-    assessments:
-      assessments:
-        actions: Actions
-        add_result: Add Result
-        archive: Archive
-        archive_confirm: Are you sure you want to archive this assessment? You
-          should archive this assessment only if you no longer wish to collect
-          data for it.
-        assignment: Assignment
-        edit: Edit
-        subject: Subject
-        view: View
-      create:
-        success: Assessment created successfully. View assessments for %{links}.
-      edit:
-        heading: Edit Assessment
-      filter_form:
-        all_outcomes: All Outcomes
-      index:
-        assessments: Assessments (%{count})
-        outcome: Outcome %{name}
-      new:
-        heading: Add a new assessment
-      no_assessments:
-        for_outcome: for Outcome %{name}
-        no_assessments: No Assessments
-      outcomes:
-        outcome:
-          assess: New Assessment
-          details: Details
-      update:
-        success: Assessment updated successfully.
     assignments:
       create:
         success: Assignment added and matched to Outcome "%{label}"
@@ -74,12 +36,6 @@ en:
         title: Manage Outcome Coverage for Your Courses
         view: View Outcome Coverage
     courses:
-      index:
-        actions: Actions
-        assess: Add Assessment
-        description: Description
-        heading: Outcomes for %{name}
-        label: Label
       outcome_status:
         label: Outcome %{label}
       show: &courses_show
