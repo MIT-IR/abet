@@ -23,6 +23,9 @@ en:
         assignment_problem: on %{problem}
         edit_assignment: Edit Assignment
         delete_outcome_coverage: Delete
+        delete_outcome_coverage_confirmation: You are about to remove this
+          outcome from this class archiving the associated assignment and
+          results. Are you sure you want to continue?
         outcome: Outcome %{label}
     dashboard:
       show:

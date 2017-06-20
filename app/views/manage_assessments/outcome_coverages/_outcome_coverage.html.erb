@@ -37,7 +37,8 @@
       <% end %>
       <%= link_to t(".delete_outcome_coverage"),
             manage_assessments_outcome_coverage_path(outcome_coverage),
-            method: :delete %>
+            method: :delete,
+            data: { confirm: t(".delete_outcome_coverage_confirmation") } %>
     </div>
   </div>
 </div>
