@@ -2,16 +2,21 @@ require "rails_helper"
 
 feature "User edits course coverage" do
   scenario "by adding another outcome successfully" do
-    course = create(:course)
-    outcome = create(:outcome)
-    coverage = create(:coverage, course: course, outcomes: [outcome])
-    user = user_with_assessments_access_to(course.department)
+    covered_outcome = create(:outcome)
+    coverage = create(:coverage, course: covered_outcome.course, outcomes: [covered_outcome])
+    uncovered_outcome = create(:outcome, course: coverage.course)
+    user = user_with_assessments_access_to(coverage.department)
 
-    visit manage_assessments_course_path(course.id, as: user)
+    visit manage_assessments_course_path(coverage.course_id, as: user)
     click_on t("manage_assessments.coverages.coverage.add_another_outcome")
 
-    expect(page).to have_css("h1.headline-narrow", text: "Add and Edit Outcomes")
-    expect(page).to have_prepopulated_select_box(coverage.subject.title)
+    expect(page).to have_no_option_for(covered_outcome)
+    expect(page).to have_option_for(uncovered_outcome)
+
+    click_on "Update"
+
+    expect(page).to have_content(covered_outcome.nickname)
+    expect(page).to have_content(uncovered_outcome.nickname)
   end
 
   scenario "by removing an unpersisted outcome", js: true do
@@ -28,7 +33,11 @@ feature "User edits course coverage" do
     expect(page).not_to have_content(outcome.nickname)
   end
 
-  def have_prepopulated_select_box(text)
-    have_css("select", text: text)
+  def have_no_option_for(outcome)
+    have_no_css("option", text: outcome.nickname)
+  end
+
+  def have_option_for(outcome)
+    have_css("option", text: outcome.nickname)
   end
 end

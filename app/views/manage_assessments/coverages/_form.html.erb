@@ -1,20 +1,26 @@
 <%= form.input :subject_id,
   collection: Subject.sorted_by_number,
-  label_method: :to_s %>
+  label_method: :to_s,
+  disabled: form.object.persisted? %>
 
-<%= form.simple_fields_for :outcome_coverages do |outcome_coverage_fields| %>
-  <%= outcome_coverage_fields.input :outcome_id,
-    collection: form.object.course.outcomes,
-    label_method: :to_short_s,
-    required: outcome_coverage_fields.options[:child_index] == 0 %>
+<%= form.simple_fields_for :outcome_coverages,
+  form.object.outcome_coverages.select(&:new_record?) do |fields| %>
+    <%= fields.input :outcome_id,
+      collection: available_outcomes,
+      headline: t("simple_form.headlines.outcome_coverages.outcome_id", count: fields.options[:child_index]),
+      label_method: :to_short_s,
+      required: fields.options[:child_index] == 0 %>
 <% end %>
 
 <div class="nested-form-actions">
   <%= link_to_add_association t(".add_outcome"),
     form,
     :outcome_coverages,
-    render_options: { locals: { outcomes: form.object.course.outcomes } } %>
+    render_options: { locals: { outcomes: available_outcomes } } %>
 </div>
 
-<%= render "attachments/nested_form", form: form %>
+<% if form.object.new_record? %>
+  <%= render "attachments/nested_form", form: form %>
+<% end %>
+
 <%= render "manage_assessments/madlib_controls", form: form %>

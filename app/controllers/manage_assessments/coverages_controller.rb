@@ -8,6 +8,7 @@ module ManageAssessments
 
     def edit
       @coverage = Coverage.find(params[:id])
+      @coverage.outcome_coverages.build
       authorize(@coverage)
     end
 
@@ -26,7 +27,7 @@ module ManageAssessments
       @coverage = Coverage.find(params[:id])
       authorize(@coverage)
 
-      if @coverage.update_attributes(coverage_params)
+      if @coverage.update_attributes(update_coverage_params)
         redirect_to manage_assessments_course_path(@coverage.course)
       else
         render :edit
@@ -45,8 +46,14 @@ module ManageAssessments
         permit(
           :subject_id,
           attachments_attributes: [:id, :file, :_destroy],
-          outcome_coverages_attributes: [:id, :outcome_id, :_destroy]
+          outcome_coverages_attributes: [:outcome_id, :_destroy]
         )
+    end
+
+    def update_coverage_params
+      params.
+        require(:coverage).
+        permit(outcome_coverages_attributes: [:outcome_id, :_destroy])
     end
   end
 end

@@ -22,7 +22,10 @@ en:
       coverage:
         subject_id: In
       outcome_coverages:
-        outcome_id: students learn
+        outcome_id:
+          zero: students learn
+          one: and
+          other: and
     hints:
       direct_assessment:
         assignment_description: Brief description of the topic of this
