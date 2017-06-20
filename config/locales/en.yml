@@ -11,6 +11,8 @@ en:
       result:
         percentage: Actual Percentage
     errors:
+      messages:
+        blank: Please fill out this field
       models:
         direct_assessment:
           attributes:

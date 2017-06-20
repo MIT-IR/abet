@@ -15,7 +15,7 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
   end
 
-  config.wrappers :madlib, class: "madlib-statement" do |b|
+  config.wrappers :madlib, class: "madlib-statement", error_class: :field_with_errors do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -27,7 +27,11 @@ SimpleForm.setup do |config|
     b.wrapper tag: :div, class: "madlib-statement-input" do |input|
       input.use :placeholder
       input.use :input
-      input.use :label
+
+      input.wrapper tag: :div, class: :underline do |underline|
+        underline.use :label
+        underline.use :error, wrap_with: { tag: :span, class: "error" }
+      end
     end
   end
 

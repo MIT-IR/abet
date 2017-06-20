@@ -26,7 +26,6 @@
       font-size: modular-scale(2, $base-font-size);
     }
 
-    &.has-items,
     &.input-active,
     &:hover {
       border-bottom: $thick-border-width solid $mit-red;

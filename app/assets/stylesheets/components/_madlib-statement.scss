@@ -16,3 +16,27 @@
     margin-left: $base-spacing;
   }
 }
+
+.underline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field_with_errors {
+  .selectize-control .selectize-input.items {
+    background-color: tint($required-color, 90%);
+    border-bottom-color: $required-color;
+  }
+
+  .error {
+    display: block;
+
+    @at-root .error {
+      background: image-url("icon_error.svg") 100% center / 1.35em no-repeat;
+      color: $required-color;
+      display: none;
+      font-size: $small-font-size;
+      padding-right: 2em;
+    }
+  }
+}
