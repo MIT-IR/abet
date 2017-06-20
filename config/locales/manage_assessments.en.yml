@@ -19,6 +19,7 @@ en:
     outcome_coverages:
       outcome_coverage:
         add_assignment: Add an Assignment
+        add_result: Add Result
         assignment_name: In %{name}
         assignment_problem: on %{problem}
         edit_assignment: Edit Assignment

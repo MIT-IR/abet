@@ -34,6 +34,7 @@
               edit_manage_assessments_outcome_coverage_assignment_path(
                 outcome_coverage_id: outcome_coverage.id,
                 assignment: outcome_coverage.assignment) %>
+        <%= link_to t(".add_result"), new_manage_results_assignment_result_path(outcome_coverage.assignment) %>
       <% end %>
       <%= link_to t(".delete_outcome_coverage"),
             manage_assessments_outcome_coverage_path(outcome_coverage),
