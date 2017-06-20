@@ -12,7 +12,7 @@
     </span>
   </h2>
 
-  <%= render coverage.outcome_coverages %>
+  <%= render coverage.outcome_coverages.sort_by(&:outcome_label) %>
 
   <%= link_to(edit_manage_assessments_course_coverage_path(coverage, course_id: coverage.course_id), html_options = {class: "add-item add-item-short"}) do %>
     <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
