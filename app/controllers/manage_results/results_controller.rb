@@ -36,7 +36,7 @@ class ManageResults::ResultsController < ApplicationController
     authorize(result)
 
     result.destroy!
-    redirect_to [:manage_results, result.assessment], success: t(".success")
+    redirect_to [:manage_results, result.assignment], success: t(".success")
   end
 
   private

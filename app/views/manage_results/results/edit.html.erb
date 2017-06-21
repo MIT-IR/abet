@@ -1,7 +1,6 @@
 <% tab(TabHelper::DATA_ENTRY) %>
 
 <h1><%= t(".heading") %></h1>
-<h2 class="assignment-title"><%= @result.assignment %></h2>
 <%= render "assignment_details", assignment: @result.assignment %>
 
 <%= simple_form_for [:manage_results, @assignment, @result] do |f| %>
