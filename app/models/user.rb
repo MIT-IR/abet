@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validates :email, presence: true, email: true
 
-  delegate :admin?, :read?, :manage_results?, :manage_assessments?,
+  delegate :admin?, :read?, :manage_results?, :manage_assignments?,
     :department_slugs, to: :permissions
 
   def username

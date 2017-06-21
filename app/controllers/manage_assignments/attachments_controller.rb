@@ -1,4 +1,4 @@
-module ManageAssessments
+module ManageAssignments
   class AttachmentsController < ApplicationController
     def show
       @attachment = Attachment.find(params[:id])

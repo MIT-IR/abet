@@ -5,10 +5,10 @@ feature "User edits course coverage" do
     covered_outcome = create(:outcome)
     coverage = create(:coverage, course: covered_outcome.course, outcomes: [covered_outcome])
     uncovered_outcome = create(:outcome, course: coverage.course)
-    user = user_with_assessments_access_to(coverage.department)
+    user = user_with_assignments_access_to(coverage.department)
 
-    visit manage_assessments_course_path(coverage.course_id, as: user)
-    click_on t("manage_assessments.coverages.coverage.add_another_outcome")
+    visit manage_assignments_course_path(coverage.course_id, as: user)
+    click_on t("manage_assignments.coverages.coverage.add_another_outcome")
 
     expect(page).to have_no_option_for(covered_outcome)
     expect(page).to have_option_for(uncovered_outcome)
@@ -22,13 +22,13 @@ feature "User edits course coverage" do
   scenario "by removing an unpersisted outcome", js: true do
     coverage = create(:coverage)
     outcome = create(:outcome, course: coverage.course)
-    user = user_with_assessments_access_to(coverage.department)
+    user = user_with_assignments_access_to(coverage.department)
 
-    visit manage_assessments_course_path(coverage.course, as: user)
-    click_on t("manage_assessments.coverages.coverage.add_another_outcome")
-    click_on t("manage_assessments.coverages.form.add_outcome")
+    visit manage_assignments_course_path(coverage.course, as: user)
+    click_on t("manage_assignments.coverages.coverage.add_another_outcome")
+    click_on t("manage_assignments.coverages.form.add_outcome")
     selectize outcome.nickname, from: "Outcome"
-    click_on t("manage_assessments.coverages.outcome_coverage_fields.remove")
+    click_on t("manage_assignments.coverages.outcome_coverage_fields.remove")
 
     expect(page).not_to have_content(outcome.nickname)
   end

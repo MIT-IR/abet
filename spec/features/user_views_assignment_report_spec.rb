@@ -4,7 +4,7 @@ feature "User views assignment report" do
   scenario "sees assignment results for the course" do
     result = create(:result)
     course = result.assignment.course
-    user = user_with_assessments_access_to(course.department)
+    user = user_with_assignments_access_to(course.department)
 
     visit reports_path(as: user)
     click_link t("reports.assignment_reports.show.csv_link")

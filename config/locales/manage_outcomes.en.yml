@@ -14,7 +14,7 @@ en:
         captions:
           aligned_outcomes_html: |
             <p>Congratulations! These courses have outcomes that fully align with
-            ABET outcomes. You are ready to create assessments.</p>
+            ABET outcomes. You are ready to create assignments.</p>
           unaligned_outcomes_html: |
             <p>No alignment is required for any particular custom outcome, but in
             the final set of custom outcomes, each ABET outcome should be aligned

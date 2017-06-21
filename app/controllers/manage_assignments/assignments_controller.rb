@@ -1,4 +1,4 @@
-class ManageAssessments::AssignmentsController < ApplicationController
+class ManageAssignments::AssignmentsController < ApplicationController
   def new
     @assignment = outcome_coverage.build_assignment
     authorize(@assignment)
@@ -14,7 +14,7 @@ class ManageAssessments::AssignmentsController < ApplicationController
     authorize(@assignment)
 
     if @assignment.save
-      redirect_to manage_assessments_course_path(outcome_coverage.coverage.course),
+      redirect_to manage_assignments_course_path(outcome_coverage.coverage.course),
         success: t(".success", label: outcome_coverage.outcome.label)
     else
       render :new
@@ -26,7 +26,7 @@ class ManageAssessments::AssignmentsController < ApplicationController
     authorize(@assignment)
 
     if @assignment.update_attributes(assignment_params)
-      redirect_to manage_assessments_course_path(@assignment.course)
+      redirect_to manage_assignments_course_path(@assignment.course)
     else
       render :edit
     end

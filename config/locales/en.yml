@@ -9,8 +9,6 @@ en:
       direct_assessment:
         outcome_ids: Outcomes
       result:
-        assessment_description: Description
-        assessment_name: Name
         percentage: Actual Percentage
     errors:
       models:
@@ -55,7 +53,7 @@ en:
       heading: Activity Feed
   application:
     navigation:
-      assessments: Assessments
+      assignments: Assignments
       documentation: Documentation
       faq: FAQ
       getting_started: Getting Started

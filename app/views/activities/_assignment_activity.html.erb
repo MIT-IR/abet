@@ -1,6 +1,6 @@
 <%= t(".event.#{activity.event}_#{activity.item_type.downcase}_html",
     name: link_to(
       activity.item.name,
-      manage_assessments_course_path(id: activity.item.course, anchor: dom_id(activity.item))
+      manage_assignments_course_path(id: activity.item.course, anchor: dom_id(activity.item))
     ),
     subject: activity.item.subject_name) %>

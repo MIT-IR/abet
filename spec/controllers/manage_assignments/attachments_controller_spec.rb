@@ -1,12 +1,12 @@
 require "rails_helper"
 
-describe ManageAssessments::AttachmentsController do
+describe ManageAssignments::AttachmentsController do
   describe "GET #show" do
     it "downloads the requested attachment from server" do
       assignment = create(:assignment)
       attachment = create(:attachment, attachable: assignment)
       department = assignment.course_department
-      user = user_with_assessments_access_to(department)
+      user = user_with_assignments_access_to(department)
 
       sign_in(user)
       get :show, params: { id: attachment.id }

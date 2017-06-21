@@ -5,11 +5,11 @@ feature "User deletes an outcome coverage for a subject" do
     course = create(:course)
     outcomes = create_pair(:outcome, course: course)
     coverage = create(:coverage, course: course, outcomes: outcomes)
-    user = user_with_assessments_access_to(course.department)
+    user = user_with_assignments_access_to(course.department)
 
-    visit manage_assessments_course_path(course.id, as: user)
+    visit manage_assignments_course_path(course.id, as: user)
     first(".class-card-outcomes-wrapper")
-      .click_on t("manage_assessments.outcome_coverages.outcome_coverage.delete_outcome_coverage")
+      .click_on t("manage_assignments.outcome_coverages.outcome_coverage.delete_outcome_coverage")
 
     expect(page).to have_outcome_number_of(1)
   end
@@ -19,15 +19,15 @@ feature "User deletes an outcome coverage for a subject" do
     outcome = create(:outcome, course: course)
     coverage = create(:coverage, course: course, outcomes: [outcome])
     outcome_coverage = OutcomeCoverage.first
-    user = user_with_assessments_access_to(course.department)
+    user = user_with_assignments_access_to(course.department)
     assignment = create(:assignment, outcome_coverage: outcome_coverage)
     coverage.outcome_coverages.first.update(assignment: assignment)
 
-    visit manage_assessments_course_path(course.id, as: user)
-    click_on t("manage_assessments.outcome_coverages.outcome_coverage.delete_outcome_coverage")
+    visit manage_assignments_course_path(course.id, as: user)
+    click_on t("manage_assignments.outcome_coverages.outcome_coverage.delete_outcome_coverage")
 
     expect(page).to have_content(course.number)
-    expect(page).to have_content t("manage_assessments.courses.show_without_coverages.no_classes", name: course.name)
+    expect(page).to have_content t("manage_assignments.courses.show_without_coverages.no_classes", name: course.name)
     expect(page).to have_no_content(coverage.subject.title)
     expect(page).to have_no_content(outcome.nickname)
   end

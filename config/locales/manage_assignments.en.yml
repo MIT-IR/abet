@@ -1,6 +1,6 @@
 ---
 en:
-  manage_assessments:
+  manage_assignments:
     assignments:
       create:
         success: Assignment added and matched to Outcome "%{label}"

@@ -1,4 +1,4 @@
-class ManageAssessments::CoursesController < ApplicationController
+class ManageAssignments::CoursesController < ApplicationController
   def show
     @course = CourseCoverage.new(course)
     authorize(@course)

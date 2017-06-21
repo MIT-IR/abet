@@ -15,9 +15,9 @@ module PermissionsHelpers
     end
   end
 
-  def user_with_assessments_access_to(department)
+  def user_with_assignments_access_to(department)
     create(:user).tap do |user|
-      grant_access(user, department, Permission::ASSESSMENTS)
+      grant_access(user, department, Permission::ASSIGNMENTS)
     end
   end
 

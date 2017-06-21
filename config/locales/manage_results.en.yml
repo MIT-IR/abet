@@ -14,7 +14,7 @@ en:
         period: Period
       show:
         add_result: Add Result
-        outcomes: Outcomes Covered by This Assessment
+        outcomes: Outcomes Covered by This Assignment
         results: Results
     outcomes:
       actions: Actions
@@ -39,7 +39,7 @@ en:
       index:
         actions: Actions
         assignments: Assignments
-        heading: Record Assessment Data For Your Subjects
+        heading: Record Assignment Data For Your Subjects
         subject: Subject
         view_assignments: View Assignments
       show:

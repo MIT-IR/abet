@@ -3,8 +3,8 @@ class SubjectPolicy < ApplicationPolicy
     user.read?(record.department)
   end
 
-  def manage_assessments?
-    user.manage_assessments?(record.department)
+  def manage_assignments?
+    user.manage_assignments?(record.department)
   end
 
   class Scope < Scope

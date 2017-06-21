@@ -1,9 +1,9 @@
-class ManageAssessments::DashboardController < ApplicationController
+class ManageAssignments::DashboardController < ApplicationController
   before_action :redirect_to_course_coverage, if: :has_access_to_one_course?
 
   def show
     @courses = courses
-    authorize(:generic, :view_assessments?)
+    authorize(:generic, :view_assignments?)
   end
 
   private
@@ -19,6 +19,6 @@ class ManageAssessments::DashboardController < ApplicationController
   end
 
   def redirect_to_course_coverage
-    redirect_to manage_assessments_course_path(courses.first)
+    redirect_to manage_assignments_course_path(courses.first)
   end
 end

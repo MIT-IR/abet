@@ -1,6 +1,6 @@
 class CoveragePolicy < ApplicationPolicy
   def create?
-    user.manage_assessments?(record.course.department)
+    user.manage_assignments?(record.course.department)
   end
 
   def edit?

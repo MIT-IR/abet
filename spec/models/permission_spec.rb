@@ -73,9 +73,9 @@ describe Permission do
       department = Department.new(slug: "D_BAR")
 
       admin_permission = Permission.new(department.slug, Permission::ADMIN)
-      assessment_permission = Permission.new(
+      assignment_permission = Permission.new(
         department.slug,
-        Permission::ASSESSMENTS
+        Permission::ASSIGNMENTS
       )
       result_permission = Permission.new(
         department.slug,
@@ -83,7 +83,7 @@ describe Permission do
       )
 
       expect(admin_permission.manage_results?(department)).to eq true
-      expect(assessment_permission.manage_results?(department)).to eq true
+      expect(assignment_permission.manage_results?(department)).to eq true
       expect(result_permission.manage_results?(department)).to eq true
     end
 
@@ -98,18 +98,18 @@ describe Permission do
     end
   end
 
-  describe "#manage_assessments?" do
+  describe "#manage_assignments?" do
     it "is true for the provided department if user has permission" do
       department = Department.new(slug: "D_BAR")
 
       admin_permission = Permission.new(department.slug, Permission::ADMIN)
-      assessment_permission = Permission.new(
+      assignment_permission = Permission.new(
         department.slug,
-        Permission::ASSESSMENTS
+        Permission::ASSIGNMENTS
       )
 
       expect(admin_permission.manage_results?(department)).to eq true
-      expect(assessment_permission.manage_results?(department)).to eq true
+      expect(assignment_permission.manage_results?(department)).to eq true
     end
 
     it "is false if the user does not have permission" do

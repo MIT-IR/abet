@@ -1,4 +1,4 @@
-module ManageAssessments
+module ManageAssignments
   class CoveragesController < ApplicationController
     def new
       @coverage = course.coverages.build
@@ -17,7 +17,7 @@ module ManageAssessments
       authorize(@coverage)
 
       if @coverage.save
-        redirect_to manage_assessments_course_path(course)
+        redirect_to manage_assignments_course_path(course)
       else
         render :new
       end
@@ -28,7 +28,7 @@ module ManageAssessments
       authorize(@coverage)
 
       if @coverage.update_attributes(update_coverage_params)
-        redirect_to manage_assessments_course_path(@coverage.course)
+        redirect_to manage_assignments_course_path(@coverage.course)
       else
         render :edit
       end

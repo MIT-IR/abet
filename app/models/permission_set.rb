@@ -32,8 +32,8 @@ class PermissionSet
     any? { |permission| permission.manage_results?(department) }
   end
 
-  def manage_assessments?(department)
-    any? { |permission| permission.manage_assessments?(department) }
+  def manage_assignments?(department)
+    any? { |permission| permission.manage_assignments?(department) }
   end
 
   def admin?(department)

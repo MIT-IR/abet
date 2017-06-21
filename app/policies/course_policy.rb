@@ -8,7 +8,7 @@ class CoursePolicy < ApplicationPolicy
   end
 
   def manage_assignments?
-    user.manage_assessments?(record.department)
+    user.manage_assignments?(record.department)
   end
 
   class Scope < Scope

@@ -5,7 +5,7 @@ class GenericPolicy
     @user = user
   end
 
-  def view_assessments?
+  def view_assignments?
     true
   end
 

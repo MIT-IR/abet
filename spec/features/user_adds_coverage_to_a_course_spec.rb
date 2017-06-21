@@ -5,13 +5,13 @@ feature "user adds coverage to a course" do
     subject = create(:subject)
     course = create(:course)
     first_outcome, second_outcome = create_pair(:outcome, course: course)
-    user = user_with_assessments_access_to(course.department)
+    user = user_with_assignments_access_to(course.department)
 
-    visit manage_assessments_course_path(course, as: user)
-    click_on t('manage_assessments.courses.show.add_a_class')
+    visit manage_assignments_course_path(course, as: user)
+    click_on t('manage_assignments.courses.show.add_a_class')
     selectize subject.title, from: "Subject"
     selectize first_outcome.nickname, from: "Outcome"
-    click_on t('manage_assessments.coverages.form.add_outcome')
+    click_on t('manage_assignments.coverages.form.add_outcome')
     selectize second_outcome.nickname, from: "Outcome"
     click_button t('helpers.submit.coverage.create')
 
@@ -26,9 +26,9 @@ feature "user adds coverage to a course" do
     course = create(:course)
     matched_outcome, unmatched_outcome = create_pair(:outcome, course: course)
     coverage = create(:coverage, course: course, outcomes: [matched_outcome])
-    user = user_with_assessments_access_to(course.department)
+    user = user_with_assignments_access_to(course.department)
 
-    visit manage_assessments_course_path(course.id, as: user)
+    visit manage_assignments_course_path(course.id, as: user)
     click_on unmatched_outcome.nickname
 
     expect(page).to have_css("h1.headline-narrow", text: "Add a class")

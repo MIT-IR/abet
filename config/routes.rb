@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :manage_assessments do
+  namespace :manage_assignments do
     root "dashboard#show"
 
     resources :attachments, only: [:show]

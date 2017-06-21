@@ -19,10 +19,6 @@ class Result < ActiveRecord::Base
 
   has_paper_trail
 
-  def name
-    "#{assessment_name} - #{assessment_description}"
-  end
-
   def subject_name
     assignment.subject.to_s
   end

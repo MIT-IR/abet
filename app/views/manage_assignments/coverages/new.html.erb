@@ -11,6 +11,6 @@
   </div>
 <% end %>
 
-<%= madlib_form_for @coverage, url: manage_assessments_course_coverages_path(@coverage.course_id) do |form| %>
+<%= madlib_form_for @coverage, url: manage_assignments_course_coverages_path(@coverage.course_id) do |form| %>
   <%= render "form", form: form, available_outcomes: available_outcomes(@coverage) %>
 <% end %>

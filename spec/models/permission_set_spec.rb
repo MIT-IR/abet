@@ -42,7 +42,7 @@ describe PermissionSet do
       permission = instance_double(
         Permission,
         department_slug: "D_CHM",
-        access_level: Permission::ASSESSMENTS
+        access_level: Permission::ASSIGNMENTS
       )
       non_applicable_permission = instance_double(
         Permission,
@@ -51,7 +51,7 @@ describe PermissionSet do
       )
 
       permissions = PermissionSet.new([permission, non_applicable_permission])
-      department_slugs = permissions.department_slugs(Permission::MANAGE_ASSESSMENTS)
+      department_slugs = permissions.department_slugs(Permission::MANAGE_ASSIGNMENTS)
 
       expect(department_slugs).to eq [permission.department_slug]
     end
@@ -117,23 +117,23 @@ describe PermissionSet do
     end
   end
 
-  describe "#manage_assessments?" do
+  describe "#manage_assignments?" do
     it "is true if delegating to any of the permissions returns true" do
       department = instance_double(Department)
-      permission = instance_double(Permission, manage_assessments?: true)
+      permission = instance_double(Permission, manage_assignments?: true)
 
       permissions = PermissionSet.new([permission])
 
-      expect(permissions.manage_assessments?(department)).to eq true
+      expect(permissions.manage_assignments?(department)).to eq true
     end
 
     it "is false otherwise" do
       department = instance_double(Department)
-      permission = instance_double(Permission, manage_assessments?: false)
+      permission = instance_double(Permission, manage_assignments?: false)
 
       permissions = PermissionSet.new([permission])
 
-      expect(permissions.manage_assessments?(department)).to eq false
+      expect(permissions.manage_assignments?(department)).to eq false
     end
   end
 
