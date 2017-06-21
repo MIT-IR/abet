@@ -10,7 +10,7 @@
 
   <div class="class-card-assignments">
     <% if outcome_coverage.assignment.present? %>
-    <p class="class-card-assignment">
+    <p class="class-card-assignment" id="<%= dom_id(outcome_coverage.assignment) %>">
       <%= t(".assignment_name", name: outcome_coverage.assignment.name) %>
       <%= t(".assignment_problem",
       problem: outcome_coverage.assignment.problem) if outcome_coverage.assignment.problem.present? %>
