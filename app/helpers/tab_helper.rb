@@ -1,6 +1,6 @@
 module TabHelper
   OUTCOMES = :outcomes
-  ASSESSMENTS = :assessments
+  ASSIGNMENTS = :assignments
   DATA_ENTRY = :data_entry
   ACTIVITY_FEED = :activity_feed
   REPORTS = :reports
