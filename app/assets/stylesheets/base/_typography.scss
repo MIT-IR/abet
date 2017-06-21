@@ -76,16 +76,10 @@ p {
 }
 
 a {
-  color: $action-color;
+  @include anchor-color;
   text-decoration: none;
   transition: color 0.1s linear;
   white-space: nowrap;
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: darken($action-color, 15%);
-  }
 
   &:active,
   &:focus {

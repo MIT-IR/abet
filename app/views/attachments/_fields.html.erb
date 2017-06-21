@@ -4,8 +4,14 @@
   <% if f.object.persisted? %>
     <span class="file-name"><%= f.object.name %></span>
   <% else %>
-    <span class="file-name"></span>
+    <span class="file-name">
+      <%= t(".mid-attachment") %>
+    </span>
   <% end %>
 
-  <%= link_to_remove_association "x", f, wrapper_class: "attachment" %>
+  <%= link_to_remove_association f, wrapper_class: "attachment" do %>
+    <span class="remove-outcome">
+      <%= t(".remove") %>
+    </span>
+  <% end %>
 </li>

@@ -16,7 +16,8 @@
   <%= link_to_add_association t(".add_outcome"),
     form,
     :outcome_coverages,
-    render_options: { locals: { outcomes: available_outcomes } } %>
+    render_options: { locals: { outcomes: available_outcomes } },
+    class: "headline-poster headline-poster-faint" %>
 </div>
 
 <% if form.object.new_record? %>

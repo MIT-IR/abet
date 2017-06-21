@@ -28,6 +28,16 @@
   color: tint($brown, 20%);
 }
 
+.headline-poster-faint {
+  @include anchor-color(tint($brown, 80%));
+  font-weight: normal;
+  text-transform: lowercase;
+
+  &::before {
+    content: "+ ";
+  }
+}
+
 .headline-poster-action {
   border-bottom: $thick-border-width solid $mit-red;
   color: $mit-red;

@@ -10,7 +10,7 @@
 
 .class-card-heading {
   @include clearfix;
-  border-bottom: 1px solid $lighter-border-color;
+  border-bottom: $lighter-border;
   color: $base-font-color;
   padding-bottom: $small-spacing;
 }

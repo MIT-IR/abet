@@ -1,0 +1,9 @@
+@mixin anchor-color($color: $action-color) {
+  color: $color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: darken($color, 15%);
+  }
+}

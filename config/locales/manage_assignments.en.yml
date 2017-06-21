@@ -1,5 +1,9 @@
 ---
 en:
+  attachments:
+    fields:
+      mid-attachment: Choose the attachment ...
+      remove: Delete
   manage_assignments:
     assignments:
       create:

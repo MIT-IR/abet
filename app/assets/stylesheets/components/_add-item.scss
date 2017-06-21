@@ -16,7 +16,7 @@
 
   .class-card & {
     @include margin(0 (-$base-spacing) (-$base-spacing));
-    border-top: 1px solid $lighter-border-color;
+    border-top: $lighter-border;
   }
 }
 
@@ -35,8 +35,36 @@
   transition: inherit;
 
   @at-root {
-    .add-item:hover & {
+    .add-item:hover &,
+    .add-item:focus & {
       fill: $white;
     }
+  }
+}
+
+.add-item-attachment {
+  font-size: $base-font-size;
+  margin: 0;
+}
+
+.attachments {
+  border: $lighter-border;
+  font-family: $sans-serif-narrow;
+  margin-top: $large-spacing;
+}
+
+.attachment {
+  @include padding($small-spacing);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-of-type) {
+    border-bottom: $lighter-border;
+  }
+
+  .remove_fields {
+    flex: 1;
+    text-align: right;
   }
 }

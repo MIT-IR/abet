@@ -12,16 +12,20 @@
   }
 
   a {
-    color: $medium-gray;
+    @include anchor-color($medium-gray);
     font-size: $small-font-size;
     margin-left: $large-spacing;
   }
 }
 
 .remove-outcome {
-  color: $medium-gray;
-  float: right;
+  @include anchor-color($mit-red);
+  font-family: $sans-serif-narrow;
   font-size: $smallest-font-size;
   letter-spacing: $small-font-letter-spacing;
-  margin-top: -($large-spacing + 0.75em);
+
+  .nested-fields & {
+    float: right;
+    margin-top: -($large-spacing + 0.75em);
+  }
 }
