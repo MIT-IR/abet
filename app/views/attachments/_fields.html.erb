@@ -1,6 +1,6 @@
 <li class="attachment">
   <%= f.hidden_field :id %>
-  <%= f.file_field :file, as: :file %>
+  <%= f.file_field :file, as: :file, class: "is-hidden" %>
 
   <% if f.object.persisted? %>
     <span class="file-name"><%= f.object.name %></span>
