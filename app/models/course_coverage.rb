@@ -1,4 +1,10 @@
 class CourseCoverage < SimpleDelegator
+  def ordered_coverages
+    @ordered_coverages ||= coverages.sort_by do |coverage|
+      coverage.subject.number
+    end
+  end
+
   def has_coverages?
     coverages.where(archived: false).present?
   end
