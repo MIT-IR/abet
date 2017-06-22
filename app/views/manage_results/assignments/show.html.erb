@@ -3,13 +3,15 @@
 <section class="headline-with-actions">
   <h1><%= @assignment.name %></h1>
 
-  <div>
-    <% if policy(@assignment).create_results? %>
-      <%= link_to t(".add_result"),
-        new_manage_results_assignment_result_path(@assignment),
-        class: "button" %>
-    <% end %>
-  </div>
+  <% if policy(@assignment).create_results? %>
+    <%= link_to t(".back-to-course", course: @assignment.course.name),
+      manage_assignments_course_path(@assignment.course),
+      class: "back-to-course" %>
+    <%= link_to t(".add_result"),
+      new_manage_results_assignment_result_path(@assignment),
+      class: "button" %>
+  <% end %>
+
 </section>
 
 <%= render "manage_results/results/assignment_details", assignment: @assignment %>

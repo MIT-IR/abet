@@ -14,6 +14,7 @@ en:
         period: Period
       show:
         add_result: Add Result
+        back-to-course: Back to %{course}
         outcomes: Outcomes Covered by This Assignment
         results: Results
     outcomes:
