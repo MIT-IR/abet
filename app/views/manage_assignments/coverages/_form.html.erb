@@ -8,8 +8,7 @@
     <%= fields.input :outcome_id,
       collection: available_outcomes,
       headline: t("simple_form.headlines.outcome_coverages.outcome_id", count: fields.options[:child_index]),
-      label_method: :to_short_s,
-      required: fields.options[:child_index] == 0 %>
+      label_method: :to_short_s %>
 <% end %>
 
 <div class="nested-form-actions">

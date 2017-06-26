@@ -30,7 +30,10 @@ module ApplicationHelper
   end
 
   def madlib_form_for(path, options = {}, &block)
-    options = options.deep_merge(html: { class: :madlib }, wrapper: :madlib)
+    options = options.deep_merge(
+      html: { class: :madlib, novalidate: true },
+      wrapper: :madlib,
+    )
     simple_form_for(path, options, &block)
   end
 end

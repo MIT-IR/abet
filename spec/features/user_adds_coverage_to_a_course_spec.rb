@@ -35,7 +35,23 @@ feature "user adds coverage to a course" do
     expect(page).to have_prepopulated_select_box(unmatched_outcome.nickname)
   end
 
+  scenario "sees errors for missing required fields", js: true do
+    course = create(:course)
+    create(:outcome, course: course)
+    user = user_with_assignments_access_to(course.department)
+
+    visit new_manage_assignments_course_coverage_path(course, as: user)
+    click_button t('helpers.submit.coverage.create')
+
+    expect(find(".coverage_subject_id")).to have_content(blank_error)
+    expect(find(".coverage_outcome_coverages_outcome_id")).to have_content(blank_error)
+  end
+
   def have_prepopulated_select_box(text)
     have_css("select", text: text)
+  end
+
+  def blank_error
+    t("activerecord.errors.messages.blank")
   end
 end

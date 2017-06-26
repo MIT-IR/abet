@@ -6,7 +6,8 @@ class OutcomeCoverage < ActiveRecord::Base
 
   delegate :label, :nickname, to: :outcome, prefix: true
 
-  validates :outcome_id, uniqueness: { scope: [:coverage_id, :archived] }, unless: :archived
+  validates :outcome_id,
+    uniqueness: { scope: [:coverage_id, :archived], unless: :archived }
 
   has_paper_trail
 

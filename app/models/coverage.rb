@@ -14,13 +14,17 @@ class Coverage < ActiveRecord::Base
     allow_destroy: true,
     reject_if: :all_blank
 
-  validates :subject_id, presence: true, uniqueness: { scope: [:course_id, :archived] }, unless: :archived
+  validates :subject_id,
+    presence: true,
+    uniqueness: { scope: [:course_id, :archived], unless: :archived }
   validate :must_have_outcomes
 
   private
 
   def must_have_outcomes
     if outcome_coverages.empty? || all_outcome_coverages_marked_for_destruction?
+      outcome_coverage = outcome_coverages.build
+      outcome_coverage.errors.add(:outcome_id, :blank)
       errors.add(:base, :outcomes_required)
     end
   end
