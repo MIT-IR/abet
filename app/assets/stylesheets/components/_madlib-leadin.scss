@@ -1,0 +1,8 @@
+.madlib-leadin {
+  margin-bottom: $base-spacing;
+  padding-left: $smallest-spacing;
+
+  @include media($medium-screen-up) {
+    @include margin($large-spacing null);
+  }
+}

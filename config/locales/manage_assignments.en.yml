@@ -14,7 +14,8 @@ en:
       edit:
         headline: Edit assignment
       form:
-        intro: "In %{subject_number}, mastery of Outcome %{outcome_label}:
+        intro_subject: "In %{subject_number} —"
+        intro_outcome: "Mastery of Outcome %{outcome_label}:
           %{outcome_nickname}"
     coverages:
       coverage:

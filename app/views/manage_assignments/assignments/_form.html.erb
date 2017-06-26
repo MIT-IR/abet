@@ -1,10 +1,15 @@
-<div class="madlib-statement">
-  <p class="headline-poster">
+<div class="madlib-leadin">
+  <p class="headline-poster headline-poster-copy">
     <%= t(
-      ".intro",
-      subject_number:  form.object.subject.number,
-      outcome_label: form.object.outcome.label,
-      outcome_nickname: form.object.outcome.nickname,
+    ".intro_subject",
+    subject_number: form.object.subject.number,
+    ) %>
+  </p>
+  <p class="headline-poster headline-poster-copy">
+    <%= t(
+    ".intro_outcome",
+    outcome_label: form.object.outcome.label,
+    outcome_nickname: form.object.outcome.nickname,
     ) %>
   </p>
 </div>
