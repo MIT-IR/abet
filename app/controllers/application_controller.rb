@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   protect_from_forgery with: :exception
+  before_action :set_paper_trail_whodunnit
   after_action :verify_authorized, except: [:index]
   after_action :verify_policy_scoped, only: [:index]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

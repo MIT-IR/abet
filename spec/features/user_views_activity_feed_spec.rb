@@ -34,4 +34,24 @@ feature "User views activity feed" do
                                     assignment: other_department_result.assignment.name,
                                     subject: other_department_result.assignment.subject)
   end
+
+  scenario "sees her username is associated with each activity" do
+    outcome = create(:outcome)
+    course = outcome.course
+    coverage = create(:coverage, course: course, outcomes: [outcome])
+    outcome_coverage = OutcomeCoverage.first
+    user = user_with_assignments_access_to(course.department)
+    user_creates_an_assignment(outcome_coverage, user)
+
+    visit activities_path(as: user)
+
+    expect(page).to have_content user.username
+  end
+
+  def user_creates_an_assignment(outcome_coverage, user)
+    visit new_manage_assignments_outcome_coverage_assignment_path(outcome_coverage, as: user)
+    fill_in :assignment_name, with: "Problem Set 2"
+    fill_in :assignment_problem, with: "Question 4"
+    click_on t("helpers.submit.coverage.create")
+  end
 end
