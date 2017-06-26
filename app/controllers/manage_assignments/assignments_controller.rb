@@ -5,7 +5,7 @@ class ManageAssignments::AssignmentsController < ApplicationController
   end
 
   def edit
-    @assignment = OutcomeCoverage.find(params[:outcome_coverage_id]).assignment
+    @assignment = outcome_coverage.assignment
     authorize(@assignment)
   end
 
@@ -22,7 +22,7 @@ class ManageAssignments::AssignmentsController < ApplicationController
   end
 
   def update
-    @assignment = OutcomeCoverage.find(params[:outcome_coverage_id]).assignment
+    @assignment = outcome_coverage.assignment
     authorize(@assignment)
 
     if @assignment.update_attributes(assignment_params)

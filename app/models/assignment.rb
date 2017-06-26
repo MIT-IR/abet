@@ -3,8 +3,6 @@ class Assignment < ActiveRecord::Base
 
   has_one :outcome, through: :outcome_coverage
   has_one :coverage, through: :outcome_coverage
-  has_one :subject, through: :coverage
-  has_one :course, through: :coverage
 
   has_many :attachments, as: :attachable
   has_many :results
@@ -13,7 +11,9 @@ class Assignment < ActiveRecord::Base
     allow_destroy: true,
     reject_if: :all_blank
 
-  delegate :course_number, :course_name, to: :outcome
+  delegate :course, to: :outcome
+  delegate :subject, to: :coverage
+  delegate :number, :name, to: :course, prefix: true
   delegate :department, to: :subject, prefix: true
   delegate :department, to: :course, prefix: true
 
