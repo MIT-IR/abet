@@ -1,6 +1,6 @@
 <div class="nested-form-actions">
   <ul class="attachments">
-    <%= form.fields_for :attachments, wrapper: false do |attachment_fields| %>
+    <%= form.fields_for :attachments, wrapper: false, include_id: false do |attachment_fields| %>
       <%= render "attachments/fields", f: attachment_fields %>
     <% end %>
 
@@ -9,10 +9,6 @@
         form,
         :attachments,
         partial: "attachments/fields",
-        data: {
-          association_insertion_method: "append",
-          association_insertion_node: ".attachments"
-        },
         class: "add-item add-item-short add-item-subtle add-item-attachment"
       ) do %>
         <%= inline_svg "paper_clip.svg", class: "add-item-icon" %>

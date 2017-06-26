@@ -1,4 +1,5 @@
 <li class="attachment">
+  <%= f.hidden_field :id %>
   <%= f.file_field :file, as: :file %>
 
   <% if f.object.persisted? %>
