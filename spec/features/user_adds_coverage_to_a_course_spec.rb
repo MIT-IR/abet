@@ -13,6 +13,8 @@ feature "user adds coverage to a course" do
     selectize first_outcome.nickname, from: "Outcome"
     click_on t('manage_assignments.coverages.form.add_outcome')
     selectize second_outcome.nickname, from: "Outcome"
+    click_on t('manage_assignments.coverages.form.add_outcome')
+    selectize first_outcome.nickname, from: "Outcome"
     click_button t('helpers.submit.coverage.create')
 
     within("#matched_outcomes") do

@@ -13,7 +13,7 @@ module ManageAssignments
     end
 
     def create
-      @coverage = course.coverages.build(coverage_params)
+      @coverage = course.coverages.build(dedupe_outcomes(new_coverage_params))
       authorize(@coverage)
 
       if @coverage.save
@@ -27,7 +27,7 @@ module ManageAssignments
       @coverage = Coverage.find(params[:id])
       authorize(@coverage)
 
-      if @coverage.update_attributes(update_coverage_params)
+      if @coverage.update_attributes(dedupe_outcomes(edit_coverage_params))
         redirect_to manage_assignments_course_path(@coverage.course)
       else
         render :edit
@@ -40,7 +40,7 @@ module ManageAssignments
       @_course ||= policy_scope(Course).find(params[:course_id])
     end
 
-    def coverage_params
+    def new_coverage_params
       params.
         require(:coverage).
         permit(
@@ -50,10 +50,21 @@ module ManageAssignments
         )
     end
 
-    def update_coverage_params
+    def edit_coverage_params
       params.
         require(:coverage).
         permit(outcome_coverages_attributes: [:outcome_id, :_destroy])
+    end
+
+    def dedupe_outcomes(coverage_params)
+      outcome_coverage_params = coverage_params[:outcome_coverages_attributes]
+      coverage_params[:outcome_coverages_attributes] = unique_outcomes(outcome_coverage_params)
+
+      coverage_params
+    end
+
+    def unique_outcomes(outcome_params)
+      outcome_params.to_h.to_a.uniq { |_, value| value[:outcome_id] }.to_h
     end
   end
 end
