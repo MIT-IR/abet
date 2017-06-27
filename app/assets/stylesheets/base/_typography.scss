@@ -79,7 +79,6 @@ a {
   @include anchor-color;
   text-decoration: none;
   transition: color 0.1s linear;
-  white-space: nowrap;
 
   &:active,
   &:focus {

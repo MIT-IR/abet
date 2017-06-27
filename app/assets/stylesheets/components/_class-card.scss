@@ -33,6 +33,18 @@
   &:not(:first-of-type) {
     padding-top: $base-spacing;
   }
+
+  a {
+    @include anchor-color($base-font-color);
+    border-bottom: $thick-border-width solid $base-border-color;
+    padding-bottom: $thick-border-width;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-bottom-color: $mit-red;
+    }
+  }
 }
 
 .class-card-outcomes {
@@ -49,20 +61,17 @@
 
 .class-card-assignment {
   @include margin(0 null $smallest-spacing);
-  display: inline-block;
   font-family: $sans-serif-narrow;
   font-size: 125%;
   font-weight: bolder;
-  line-height: $heading-line-height;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.5em;
 
   &.add-assignment {
-    border-bottom: $thick-border-width solid $mit-red;
-    padding-bottom: $thick-border-width;
-
+    margin-left: -$small-spacing;
+    
     a {
-      color: $mit-red;
-      padding-bottom: $smallest-spacing;
+      @include anchor-color($mit-red);
+      border-bottom: $thick-border-width solid $mit-red;
     }
   }
 }
