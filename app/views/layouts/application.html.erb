@@ -13,14 +13,6 @@
       <%= yield :full_bleed %>
     <% end %>
 
-    <% if content_for?(:header_with_filters) %>
-      <section class="header-with-filters">
-        <div class="container">
-          <%= yield :header_with_filters %>
-        </div>
-      </section>
-    <% end %>
-
     <section class="container" role="main">
       <%= render "flashes" %>
       <%= yield %>
