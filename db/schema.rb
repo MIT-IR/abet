@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620185115) do
+ActiveRecord::Schema.define(version: 20170628173632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20170620185115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "department_id"
-    t.bigint "assignment_id"
+    t.bigint "assignment_id", null: false
     t.index ["assessment_id", "year", "semester"], name: "index_results_on_assessment_id_and_year_and_semester", unique: true
     t.index ["assignment_id", "year", "semester"], name: "index_results_on_assignment_id_and_year_and_semester", unique: true
     t.index ["assignment_id"], name: "index_results_on_assignment_id"

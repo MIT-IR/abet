@@ -4,8 +4,7 @@ class Result < ApplicationRecord
 
   before_save :denormalize_department
 
-  belongs_to :assessment, counter_cache: true
-  belongs_to :assignment, required: true
+  belongs_to :assignment
   belongs_to :department
 
   validates :percentage, presence: true, inclusion: { in: 0..100 }
