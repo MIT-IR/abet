@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :manage_assignments do
     root "dashboard#show"
 
-    resources :attachments, only: [:show]
+    resources :attachments, only: [:show, :destroy]
 
     resources :courses, only: [:index, :show] do
       resources :coverages, only: [:new, :edit, :create, :update]

@@ -11,3 +11,8 @@ $(function() {
     });
   });
 });
+
+$(".assignment-attachments").on("click", function(e) {
+  e.preventDefault();
+  $(this).toggleClass("is-hidden");
+});
