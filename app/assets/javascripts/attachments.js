@@ -11,3 +11,8 @@ $(function() {
     });
   });
 });
+
+$(document).on("click", function(e) {
+    e.preventDefault();
+   $("#attachments-list").toggleClass("is-hidden");
+});
