@@ -5,7 +5,7 @@ class Attachment < ActiveRecord::Base
 
   has_attached_file :file,
     url: "/attachments/:id",
-    path: ":attachments_root/:attachable_type/:attachable_id/:id/:filename",
+    path: ":attachments_root/:attachable_type/:attachable_id/:updated_at/:filename",
     s3_permissions: :private
 
   do_not_validate_attachment_file_type :file
