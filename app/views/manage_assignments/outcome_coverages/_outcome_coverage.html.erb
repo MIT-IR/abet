@@ -34,6 +34,13 @@
 
     <div class="class-card-assignment-controls">
       <% if outcome_coverage.assignment.present? %>
+
+        <% if outcome_coverage.assignment.attachments.present? %>
+          <%= render "attachments", attachments: outcome_coverage.assignment.attachments %>
+        <% else %>
+          <%= link_to "Attach student work" %>
+        <% end %>
+
         <%= link_to t(".add_result"), new_manage_results_assignment_result_path(outcome_coverage.assignment) %>
       <% end %>
       <%= link_to t(".delete_outcome_coverage"),

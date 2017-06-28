@@ -1,0 +1,10 @@
+<table>
+  <tbody>
+    <% attachments.each do |attachment| %>
+      <tr>
+        <td><%= attachment.file_file_name %></td>
+        <td><%= link_to "Delete" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
