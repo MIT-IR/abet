@@ -37,7 +37,6 @@
 
 
         <% if outcome_coverage.assignment.attachments.present? %>
-          <%= link_to t(".attachments-expandable-link") %>
           <%= render "attachments", attachments: outcome_coverage.assignment.attachments %>
         <% else %>
           <%= link_to t(".attach-student-work"),

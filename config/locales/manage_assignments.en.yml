@@ -30,7 +30,6 @@ en:
         add_result: Add Result
         assignment_name: In %{name}
         assignment_problem: on %{problem}
-        attachments-expandable-link: Attachments
         attach-student-work: Attach student work
         edit_assignment: Edit Assignment
         delete_outcome_coverage: Delete
@@ -51,6 +50,7 @@ en:
         view: View Outcome Coverage
     courses:
       attachments:
+        attachments-expandable-link: Attachments
         delete-link: Delete
       outcome_status:
         label: Outcome %{label}

@@ -1,4 +1,7 @@
-<table class="assignment-attachments">
+<%= link_to t(".attachments-expandable-link"), "javascript:void(0)",
+  data: { expands: ".assignment-attachments" } %>
+
+<table class="assignment-attachments is-hidden">
   <tbody>
     <% attachments.each do |attachment| %>
       <tr>
