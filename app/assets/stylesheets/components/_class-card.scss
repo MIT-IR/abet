@@ -42,9 +42,26 @@
 }
 
 .class-card-outcomes-wrapper {
-  @include padding($small-spacing null);
+  @include padding($base-spacing null);
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+
+  @at-root {
+    .delete-outcome-coverage {
+      font-size: $small-font-size;
+      opacity: 0.50;
+      position: absolute;
+      right: 0;
+      top: calc(#{$base-spacing} + 0.75em);
+
+      &:active,
+      &:focus,
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
 
   a {
     @include anchor-color($base-font-color);
@@ -79,8 +96,6 @@
   margin-bottom: 0.5em;
 
   &.add-assignment {
-    margin-left: -$small-spacing;
-
     a {
       @include anchor-color($mit-red);
       border-bottom: $thick-border-width solid $mit-red;
@@ -92,6 +107,5 @@
   @include margin($base-spacing null);
   display: flex;
   font-family: $sans-serif-narrow;
-  font-size: $small-font-size;
   justify-content: space-between;
 }

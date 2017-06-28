@@ -24,8 +24,10 @@
     </p>
     <% else %>
     <p class="class-card-outcome class-card-assignment add-assignment">
-      <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
-      <%= link_to t(".add_assignment"), new_manage_assignments_outcome_coverage_assignment_path(outcome_coverage) %>
+      <%= link_to new_manage_assignments_outcome_coverage_assignment_path(outcome_coverage) do %>
+        <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
+        <%= t(".add_assignment") %>
+      <% end %>
     </p>
     <p class="outcome-card-description">
       <%= outcome_coverage.outcome.description %>
@@ -34,10 +36,14 @@
 
     <div class="class-card-assignment-controls">
       <% if outcome_coverage.assignment.present? %>
-        <%= link_to t(".add_result"), new_manage_results_assignment_result_path(outcome_coverage.assignment) %>
+        <%= link_to new_manage_results_assignment_result_path(outcome_coverage.assignment) do %>
+          <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
+          <%= t(".add_result") %>
+        <% end %>
       <% end %>
       <%= link_to t(".delete_outcome_coverage"),
             manage_assignments_outcome_coverage_path(outcome_coverage),
+            class: "delete-outcome-coverage",
             method: :delete,
             data: { confirm: t(".delete_outcome_coverage_confirmation") } %>
     </div>
