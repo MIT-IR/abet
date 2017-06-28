@@ -69,31 +69,6 @@ FactoryGirl.define do
     number
   end
 
-  factory :assessment do
-    description
-    minimum_requirement "7 points out of 10"
-    name
-    problem_description "Question 3, Integration by parts"
-    target_percentage 80
-
-    transient do
-      course { create(:course) }
-    end
-
-    after(:build) do |assessment, evaluator|
-      if assessment.outcomes.empty?
-        assessment.outcomes << create(:outcome, course: evaluator.course)
-      end
-
-      if assessment.subject.nil?
-        assessment.subject = build(
-          :subject,
-          department_number: assessment.department.number
-        )
-      end
-    end
-  end
-
   factory :outcome do
     nickname
     label

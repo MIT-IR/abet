@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628173632) do
+ActiveRecord::Schema.define(version: 20170628191637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,21 +23,6 @@ ActiveRecord::Schema.define(version: 20170628173632) do
     t.datetime "updated_at", null: false
     t.index ["outcome_id", "standard_outcome_id"], name: "index_alignments_on_outcome_id_and_standard_outcome_id", unique: true
     t.index ["standard_outcome_id"], name: "index_alignments_on_standard_outcome_id"
-  end
-
-  create_table "assessments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "description", null: false
-    t.string "problem_description"
-    t.string "minimum_requirement", null: false
-    t.integer "target_percentage", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "subject_id", null: false
-    t.boolean "archived", default: false
-    t.integer "results_count", default: 0, null: false
-    t.index ["archived"], name: "index_assessments_on_archived"
-    t.index ["subject_id"], name: "index_assessments_on_subject_id"
   end
 
   create_table "assignments", force: :cascade do |t|
@@ -93,15 +78,6 @@ ActiveRecord::Schema.define(version: 20170628173632) do
     t.index ["slug"], name: "index_departments_on_slug", unique: true
   end
 
-  create_table "outcome_assessments", force: :cascade do |t|
-    t.bigint "outcome_id", null: false
-    t.bigint "assessment_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["assessment_id"], name: "index_outcome_assessments_on_assessment_id"
-    t.index ["outcome_id"], name: "index_outcome_assessments_on_outcome_id"
-  end
-
   create_table "outcome_coverages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -119,17 +95,12 @@ ActiveRecord::Schema.define(version: 20170628173632) do
     t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "assessments_count", default: 0, null: false
     t.string "nickname", null: false
     t.index ["course_id", "label"], name: "index_outcomes_on_course_id_and_label", unique: true
     t.index ["course_id", "nickname"], name: "index_outcomes_on_course_id_and_nickname", unique: true
   end
 
   create_table "results", force: :cascade do |t|
-    t.bigint "assessment_id"
-    t.string "assessment_name"
-    t.string "assessment_description"
-    t.string "problem_description"
     t.integer "percentage", null: false
     t.integer "year", null: false
     t.string "semester"
@@ -137,7 +108,6 @@ ActiveRecord::Schema.define(version: 20170628173632) do
     t.datetime "updated_at", null: false
     t.bigint "department_id"
     t.bigint "assignment_id", null: false
-    t.index ["assessment_id", "year", "semester"], name: "index_results_on_assessment_id_and_year_and_semester", unique: true
     t.index ["assignment_id", "year", "semester"], name: "index_results_on_assignment_id_and_year_and_semester", unique: true
     t.index ["assignment_id"], name: "index_results_on_assignment_id"
   end
@@ -178,16 +148,13 @@ ActiveRecord::Schema.define(version: 20170628173632) do
 
   add_foreign_key "alignments", "outcomes"
   add_foreign_key "alignments", "standard_outcomes"
-  add_foreign_key "assessments", "subjects"
   add_foreign_key "assignments", "outcome_coverages"
   add_foreign_key "courses", "departments", on_delete: :restrict
   add_foreign_key "coverages", "courses"
   add_foreign_key "coverages", "subjects"
-  add_foreign_key "outcome_assessments", "assessments"
   add_foreign_key "outcome_coverages", "coverages", on_delete: :cascade
   add_foreign_key "outcome_coverages", "outcomes"
   add_foreign_key "outcomes", "courses"
-  add_foreign_key "results", "assessments"
   add_foreign_key "results", "assignments"
 
   create_view "assignment_reports",  sql_definition: <<-SQL
