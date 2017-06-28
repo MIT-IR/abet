@@ -1,9 +1,11 @@
-<table>
+<table class="assignment-attachments">
   <tbody>
     <% attachments.each do |attachment| %>
       <tr>
         <td><%= attachment.file_file_name %></td>
-        <td><%= link_to "Delete" %></td>
+        <td><%= link_to "Delete",
+              manage_assignments_attachment_path(attachment),
+              method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
