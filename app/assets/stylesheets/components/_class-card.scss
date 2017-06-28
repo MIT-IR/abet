@@ -1,18 +1,34 @@
 .class-card {
+  @include margin(null null $medium-spacing);
   background-color: $white;
   border: $thick-border-width solid tint($lighter-border-color, 25%);
+  border-top: 0;
   padding: $base-spacing;
+}
 
-  &:not(:first-of-type) {
-    @include margin($base-spacing null);
-  }
+.class-card-subject-title {
+  color: $white;
+  font-family: $sans-serif-narrow;
+  font-size: 165%;
+  margin: 0;
+}
+
+.class-card-heading-outcomes {
+  color: tint($medium-gray, 18%);
+  font-family: $sans-serif-narrow;
+  margin-bottom: 0;
 }
 
 .class-card-heading {
-  @include clearfix;
-  border-bottom: $lighter-border;
-  color: $base-font-color;
-  padding-bottom: $small-spacing;
+  @include border-top-radius($base-border-radius);
+  @include padding($medium-spacing $base-spacing);
+  align-items: center;
+  background-color: $brown;
+  border-bottom: $thick-border-width solid rgba(black, 0.15);
+  color: $white;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
 }
 
 .class-card-subject-number {
@@ -29,10 +45,6 @@
   @include padding($small-spacing null);
   display: flex;
   flex-wrap: wrap;
-
-  &:not(:first-of-type) {
-    padding-top: $base-spacing;
-  }
 
   a {
     @include anchor-color($base-font-color);
@@ -68,19 +80,12 @@
 
   &.add-assignment {
     margin-left: -$small-spacing;
-    
+
     a {
       @include anchor-color($mit-red);
       border-bottom: $thick-border-width solid $mit-red;
     }
   }
-}
-
-.matched-outcome-total {
-  float: right;
-  font-family: $sans-serif-narrow;
-  font-size: $small-font-size;
-  font-weight: normal;
 }
 
 .class-card-assignment-controls {

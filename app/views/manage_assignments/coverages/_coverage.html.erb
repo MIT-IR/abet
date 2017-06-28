@@ -1,17 +1,23 @@
-<div class="class-card">
-  <h2 class="class-card-heading">
-    <span class="class-card-subject-number">
+<div class="class-card-heading">
+  <div class="class-card-outcomes">
+    <p class="outcome-letter-subhead">
+      Subject
+    </p>
+    <p class="outcome-nickname">
       <%= coverage.subject.number %>
-    </span>
-    <%= coverage.subject.title %>
-    <span class="matched-outcome-total">
-      Matched Outcomes
-      <span class="emphasized-tab-digit">
-        <%= coverage.outcome_coverages.size %>
-      </span>
-    </span>
-  </h2>
+    </p>
+  </div>
+  <div class="class-card-assignments">
+    <h2 class="class-card-subject-title">
+      <%= coverage.subject.title %>
+    </h2>
+    <p class="class-card-heading-outcomes">
+      <%= coverage.outcome_coverages.size %> Matched Outcomes
+    </p>
+  </div>
+</div>
 
+<div class="class-card">
   <%= render coverage.outcome_coverages.sort_by(&:outcome_label) %>
 
   <%= link_to(edit_manage_assignments_course_coverage_path(coverage, course_id: coverage.course_id), html_options = {class: "add-item add-item-short"}) do %>
