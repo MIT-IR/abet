@@ -1,4 +1,4 @@
-class Assignment < ActiveRecord::Base
+class Assignment < ApplicationRecord
   belongs_to :outcome_coverage
 
   has_one :outcome, through: :outcome_coverage

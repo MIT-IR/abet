@@ -24,7 +24,7 @@ class Archive
   end
 
   def archive_coverage_and(outcome_coverage)
-    ActiveRecord::Base.transaction do
+    ApplicationRecord.transaction do
       outcome_coverage.coverage.update!(archived: true)
       outcome_coverage.update!(archived: true)
     end

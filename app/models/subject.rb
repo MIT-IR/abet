@@ -1,4 +1,4 @@
-class Subject < ActiveRecord::Base
+class Subject < ApplicationRecord
   belongs_to :department, foreign_key: :department_number, primary_key: :number
 
   has_many :coverages

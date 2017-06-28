@@ -1,4 +1,4 @@
-class OutcomeCoverage < ActiveRecord::Base
+class OutcomeCoverage < ApplicationRecord
   belongs_to :coverage
   belongs_to :outcome, required: true
 

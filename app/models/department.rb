@@ -1,3 +1,3 @@
-class Department < ActiveRecord::Base
+class Department < ApplicationRecord
   has_many :courses
 end

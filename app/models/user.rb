@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :email, presence: true, email: true
 
   delegate :admin?, :read?, :manage_results?, :manage_assignments?,

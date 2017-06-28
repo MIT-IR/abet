@@ -1,4 +1,4 @@
-class Attachment < ActiveRecord::Base
+class Attachment < ApplicationRecord
   EXPIRE_TIMEFRAME = 60.seconds
 
   belongs_to :attachable, polymorphic: true

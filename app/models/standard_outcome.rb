@@ -1,4 +1,4 @@
-class StandardOutcome < ActiveRecord::Base
+class StandardOutcome < ApplicationRecord
   attribute :label, Label.new
 
   has_many :alignments

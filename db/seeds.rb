@@ -1,4 +1,4 @@
-ActiveRecord::Base.transaction do
+ApplicationRecord.transaction do
   Department.find_or_create_by(name: "Civil and Environmental Engineering", slug: "D_CEE", number: 1)
   Department.find_or_create_by(name: "Mechanical Engineering", slug: "D_MECHE", number: 2)
   Department.find_or_create_by(name: "DMSE", slug: "D_DMSE", number: 3)

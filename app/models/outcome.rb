@@ -1,4 +1,4 @@
-class Outcome < ActiveRecord::Base
+class Outcome < ApplicationRecord
   attribute :label, Label.new
 
   belongs_to :course, counter_cache: true

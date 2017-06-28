@@ -63,7 +63,7 @@ class ManageOutcomes::OutcomesController < ApplicationController
 
   def persist_outcome(outcome)
     if outcome.valid?
-      ActiveRecord::Base.transaction do
+      ApplicationRecord.transaction do
         authorize(outcome)
         outcome.course.adopt_custom_outcomes!
         outcome.save!

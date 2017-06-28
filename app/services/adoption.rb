@@ -9,7 +9,7 @@ class Adoption
   end
 
   def process
-    ActiveRecord::Base.transaction do
+    ApplicationRecord.transaction do
       adoptable_outcomes.each do |adoptable_outcome|
         outcome = course.outcomes.build(
           nickname: adoptable_outcome.nickname,

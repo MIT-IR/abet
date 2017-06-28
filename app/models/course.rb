@@ -1,4 +1,4 @@
-class Course < ActiveRecord::Base
+class Course < ApplicationRecord
   belongs_to :department
 
   has_many :coverages, -> { where archived: false }

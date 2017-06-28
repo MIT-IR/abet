@@ -1,4 +1,4 @@
-class Result < ActiveRecord::Base
+class Result < ApplicationRecord
   SEMESTERS = ["FA", "JA", "SP"]
   YEARS = (2012..2019).to_a
 

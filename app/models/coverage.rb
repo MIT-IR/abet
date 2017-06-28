@@ -1,4 +1,4 @@
-class Coverage < ActiveRecord::Base
+class Coverage < ApplicationRecord
   belongs_to :course
   belongs_to :subject, required: true
 

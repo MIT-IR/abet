@@ -1,4 +1,4 @@
-class Alignment < ActiveRecord::Base
+class Alignment < ApplicationRecord
   LOW = "Low alignment".freeze
   MODERATE = "Moderate alignment".freeze
   HIGH = "High alignment".freeze
