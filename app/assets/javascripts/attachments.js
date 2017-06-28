@@ -12,7 +12,7 @@ $(function() {
   });
 });
 
-$(document).on("click", function(e) {
-    e.preventDefault();
-   $("#attachments-list").toggleClass("is-hidden");
+$(".assignment-attachments").on("click", function(e) {
+  e.preventDefault();
+  $(this).toggleClass("is-hidden");
 });
