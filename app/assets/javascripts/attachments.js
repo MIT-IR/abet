@@ -10,4 +10,9 @@ $(function() {
       $(this).find(fileName).text(selectedFileName);
     });
   });
+
+  $(".attachments-expandable-link").on("click", function(e) {
+    e.preventDefault();
+    $(this).siblings(".assignment-attachments").toggleClass("is-hidden");
+  });
 });

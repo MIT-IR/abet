@@ -36,6 +36,15 @@
 
     <div class="class-card-assignment-controls">
       <% if outcome_coverage.assignment.present? %>
+        <% if outcome_coverage.assignment.attachments.present? %>
+          <%= link_to t(".attachments-expandable-link"), "#", class: "attachments-expandable-link" %>
+          <%= render "attachments", attachments: outcome_coverage.assignment.attachments %>
+        <% else %>
+          <%= link_to t(".attach-student-work"),
+              edit_manage_assignments_outcome_coverage_assignment_path(
+                outcome_coverage_id: outcome_coverage.id,
+                assignment: outcome_coverage.assignment) %>
+        <% end %>
         <%= link_to new_manage_results_assignment_result_path(outcome_coverage.assignment) do %>
           <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
           <%= t(".add_result") %>
