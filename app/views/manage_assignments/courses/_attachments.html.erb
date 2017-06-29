@@ -1,11 +1,23 @@
 <ul class="assignment-attachments attachments is-hidden">
-  <% attachments.each do |attachment| %>
-    <li class="attachment">
+  <% assignment.attachments.each do |attachment| %>
+    <li class="attachment fill-lightest-gray">
       <%= link_to attachment.name,
           manage_assignments_attachment_path(attachment) %>
       <%= link_to t(".delete-link"),
           manage_assignments_attachment_path(attachment),
           method: :delete %>
+    </li>
+  <% end %>
+
+  <% if assignment.attachments.present? %>
+    <li class="attachment">
+      <%= link_to(edit_manage_assignments_outcome_coverage_assignment_path(
+            outcome_coverage_id: assignment.outcome_coverage.id,
+            assignment: assignment),
+            class: "mx-auto") do %>
+        <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
+        <%= t(".add_another_attachment") %>
+      <% end %>
     </li>
   <% end %>
 </ul>

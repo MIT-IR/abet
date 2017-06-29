@@ -57,7 +57,8 @@
           <%= t(".add_result") %>
         <% end %>
 
-        <%= render "attachments", attachments: outcome_coverage.assignment.attachments %>
+        <%= render "attachments",
+            assignment: outcome_coverage.assignment %>
       <% end %>
 
       <%= link_to t(".delete_outcome_coverage"),
