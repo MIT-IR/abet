@@ -36,20 +36,27 @@
 
     <div class="class-card-assignment-controls">
       <% if outcome_coverage.assignment.present? %>
+        <%= inline_svg "paper_clip.svg", class: "add-item-icon" %>
+
         <% if outcome_coverage.assignment.attachments.present? %>
-          <%= link_to t(".attachments-expandable-link"), "#", class: "attachments-expandable-link" %>
-          <%= render "attachments", attachments: outcome_coverage.assignment.attachments %>
+          <%= link_to t(".attachments-expandable-link"), "#", class: "attachments-expandable-link class-card-assignment-control" %>
         <% else %>
           <%= link_to t(".attach-student-work"),
               edit_manage_assignments_outcome_coverage_assignment_path(
                 outcome_coverage_id: outcome_coverage.id,
-                assignment: outcome_coverage.assignment) %>
+                assignment: outcome_coverage.assignment),
+                class: "class-card-assignment-control" %>
         <% end %>
-        <%= link_to new_manage_results_assignment_result_path(outcome_coverage.assignment) do %>
+
+        <%= link_to new_manage_results_assignment_result_path(outcome_coverage.assignment),
+            class: "class-card-assignment-control" do %>
           <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
           <%= t(".add_result") %>
         <% end %>
+
+        <%= render "attachments", attachments: outcome_coverage.assignment.attachments %>
       <% end %>
+
       <%= link_to t(".delete_outcome_coverage"),
             manage_assignments_outcome_coverage_path(outcome_coverage),
             class: "delete-outcome-coverage",

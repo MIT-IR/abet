@@ -1,14 +1,11 @@
-<table class="assignment-attachments is-hidden">
-  <tbody>
-    <% attachments.each do |attachment| %>
-      <tr>
-        <td>
-          <%= link_to attachment.name, manage_assignments_attachment_path(attachment) %>
-        </td>
-        <td>
-          <%= link_to t(".delete-link"), manage_assignments_attachment_path(attachment), method: :delete %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="assignment-attachments attachments is-hidden">
+  <% attachments.each do |attachment| %>
+    <li class="attachment">
+      <%= link_to attachment.name,
+          manage_assignments_attachment_path(attachment) %>
+      <%= link_to t(".delete-link"),
+          manage_assignments_attachment_path(attachment),
+          method: :delete %>
+    </li>
+  <% end %>
+</ul>

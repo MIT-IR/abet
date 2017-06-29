@@ -65,7 +65,7 @@
 
   a {
     @include anchor-color($base-font-color);
-    border-bottom: $thick-border-width solid $base-border-color;
+    border-bottom: $thick-border-width solid transparent;
     padding-bottom: $thick-border-width;
 
     &:active,
@@ -95,6 +95,10 @@
   font-weight: bolder;
   margin-bottom: 0.5em;
 
+  a {
+    border-bottom: $thick-border-width solid $base-border-color;
+  }
+
   &.add-assignment {
     a {
       @include anchor-color($mit-red);
@@ -105,7 +109,9 @@
 
 .class-card-assignment-controls {
   @include margin($base-spacing null);
-  display: flex;
   font-family: $sans-serif-narrow;
-  justify-content: space-between;
+}
+
+.class-card-assignment-control {
+  margin-right: $base-spacing;
 }
