@@ -1,7 +1,7 @@
 <div class="class-card-heading">
   <div class="class-card-outcomes">
     <p class="outcome-letter-subhead">
-      Subject
+      <%= t(".subject") %>
     </p>
     <p class="outcome-nickname">
       <%= coverage.subject.number %>
@@ -12,7 +12,7 @@
       <%= coverage.subject.title %>
     </h2>
     <p class="class-card-heading-outcomes">
-      <%= coverage.outcome_coverages.size %> Matched Outcomes
+      <%= t(".matched_outcomes", count: coverage.outcome_coverages.size) %>
     </p>
   </div>
 </div>

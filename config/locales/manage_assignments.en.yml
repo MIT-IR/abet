@@ -20,6 +20,11 @@ en:
     coverages:
       coverage:
         add_another_outcome: Add an outcome
+        matched_outcomes:
+          zero: 0 Matched Outcomes
+          one: 1 Matched Outcome
+          other: "%{count} Matched Outcomes"
+        subject: Subject
       form:
         add_outcome: Add another outcome
       outcome_coverage_fields:
