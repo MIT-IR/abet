@@ -24,4 +24,8 @@ class Assignment < ApplicationRecord
   def subject_name
     subject.to_s
   end
+
+  def course_id
+    course.id
+  end
 end

@@ -4,8 +4,8 @@ class Attachment < ApplicationRecord
   belongs_to :attachable, polymorphic: true
 
   has_attached_file :file,
-    url: "/attachments/:attachable_type/:attachable_id/:updated_at/:filename",
-    path: ":attachments_root/:attachable_type/:attachable_id/:updated_at/:filename",
+    url: "/attachments/:course/:attachable_type/:attachable_id/:updated_at/:filename",
+    path: ":attachments_root/:course/:attachable_type/:attachable_id/:updated_at/:filename",
     s3_permissions: :private
 
   do_not_validate_attachment_file_type :file

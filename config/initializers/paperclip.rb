@@ -14,6 +14,10 @@ Paperclip.interpolates :attachable_type do |attachment, style|
   attachment.instance.attachable.model_name.singular
 end
 
+Paperclip.interpolates :course do |attachment, style|
+  "course-#{attachment.instance.attachable.course_id}"
+end
+
 if Rails.env.production? || Rails.env.staging?
   Paperclip::Attachment.default_options.update({
     storage: :s3,
