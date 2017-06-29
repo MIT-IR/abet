@@ -4,7 +4,7 @@ class Attachment < ApplicationRecord
   belongs_to :attachable, polymorphic: true
 
   has_attached_file :file,
-    url: "/attachments/:id",
+    url: "/attachments/:attachable_type/:attachable_id/:updated_at/:filename",
     path: ":attachments_root/:attachable_type/:attachable_id/:updated_at/:filename",
     s3_permissions: :private
 
@@ -15,7 +15,7 @@ class Attachment < ApplicationRecord
   end
 
   def expiring_url
-    file.expiring_url(Time.now + EXPIRE_TIMEFRAME)
+    file.expiring_url(EXPIRE_TIMEFRAME)
   end
 
   def course_department

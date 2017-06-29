@@ -3,7 +3,7 @@
   <%= f.file_field :file, as: :file, class: "is-hidden" %>
 
   <% if f.object.persisted? %>
-    <span class="file-name"><%= f.object.name %></span>
+    <%= link_to f.object.name, manage_assignments_attachment_path(f.object), class: "file-name" %>
   <% else %>
     <span class="file-name">
       <%= t(".mid-attachment") %>
