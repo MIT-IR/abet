@@ -19,8 +19,6 @@
     class: "headline-poster headline-poster-faint" %>
 </div>
 
-<% if form.object.new_record? %>
-  <%= render "attachments/nested_form", form: form %>
-<% end %>
+<%= render "attachments/nested_form", form: form %>
 
 <%= render "manage_assignments/madlib_controls", form: form %>

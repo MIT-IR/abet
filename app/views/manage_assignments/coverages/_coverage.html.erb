@@ -13,7 +13,15 @@
     </h2>
     <p class="class-card-heading-outcomes">
       <%= t(".matched_outcomes", count: coverage.outcome_coverages.size) %>
-    </p>
+      <div>
+        <% if coverage.attachments.present? %>
+          <%= link_to coverage.attachment.name,
+            manage_assignments_attachment_path(coverage.attachment) %>
+        <% else %>
+          <%= link_to t(".attach-syllabus"),
+            edit_manage_assignments_course_coverage_path(coverage, course_id: coverage.course_id) %>
+        <% end %>
+      </div>
   </div>
 </div>
 

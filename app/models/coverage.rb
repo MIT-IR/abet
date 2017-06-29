@@ -7,6 +7,9 @@ class Coverage < ApplicationRecord
   has_many :outcomes, through: :outcome_coverages
   has_many :attachments, as: :attachable
 
+  delegate :department, to: :course, prefix: true
+  delegate :department, to: :subject, prefix: true
+
   accepts_nested_attributes_for :outcome_coverages,
     reject_if: :all_blank
 
@@ -18,6 +21,10 @@ class Coverage < ApplicationRecord
     presence: true,
     uniqueness: { scope: [:course_id, :archived], unless: :archived }
   validate :must_have_outcomes
+
+  def attachment
+    attachments.first
+  end
 
   private
 

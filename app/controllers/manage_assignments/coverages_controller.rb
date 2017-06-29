@@ -53,7 +53,10 @@ module ManageAssignments
     def edit_coverage_params
       params.
         require(:coverage).
-        permit(outcome_coverages_attributes: [:outcome_id, :_destroy])
+        permit(
+          attachments_attributes: [:id, :file, :_destroy],
+          outcome_coverages_attributes: [:outcome_id, :_destroy]
+        )
     end
 
     def dedupe_outcomes(coverage_params)
