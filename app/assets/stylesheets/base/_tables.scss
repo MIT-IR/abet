@@ -15,7 +15,7 @@ td {
 
 th {
   @extend %small-caps;
-  border-bottom: 1px solid darken($base-border-color, 15%);
+  border-bottom: $base-border-width solid darken($base-border-color, 15%);
   font-weight: 600;
   text-align: left;
 }

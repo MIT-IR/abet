@@ -36,13 +36,17 @@
 
     <div class="class-card-assignment-controls">
       <% if outcome_coverage.assignment.present? %>
-        <%= inline_svg "paper_clip.svg", class: "add-item-icon" %>
 
         <% if outcome_coverage.assignment.attachments.present? %>
-          <%= link_to "#", class: "attachments-expandable-link" do %>
-            <%= t(".attachments-expandable-link") %>
-            <span><%= outcome_coverage.assignment.attachments.size %></span>
-          <% end %>
+          <div class="attachments-expandable-link class-card-assignment-control">
+            <%= link_to "#" do %>
+              <%= inline_svg "paper_clip.svg", class: "add-item-icon" %>
+              <%= t(".attachments-expandable-link") %>
+            <% end %>
+            <span class="emphasized-tab-digit emphasized-tab-digit-small">
+              <%= outcome_coverage.assignment.attachments.size %>
+            </span>
+          </div>
         <% else %>
           <%= link_to t(".attach-student-work"),
               edit_manage_assignments_outcome_coverage_assignment_path(

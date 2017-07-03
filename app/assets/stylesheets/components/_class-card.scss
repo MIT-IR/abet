@@ -65,8 +65,9 @@
 
   a {
     @include anchor-color($base-font-color);
-    border-bottom: $thick-border-width solid transparent;
+    border-bottom: $base-border-width solid transparent;
     padding-bottom: $thick-border-width;
+    transition: $base-transition;
 
     &:active,
     &:focus,
@@ -114,4 +115,5 @@
 
 .class-card-assignment-control {
   margin-right: $base-spacing;
+  display: inline-block;
 }

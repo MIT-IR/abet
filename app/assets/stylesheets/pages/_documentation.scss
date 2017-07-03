@@ -87,7 +87,7 @@
 
 .documentation-help-callout {
   background-color: tint($blue, 95%);
-  border: 1px solid tint($blue, 90%);
+  border: $base-border-width solid tint($blue, 90%);
   border-radius: $base-border-radius;
   margin-top: $large-spacing;
   padding: $base-spacing;

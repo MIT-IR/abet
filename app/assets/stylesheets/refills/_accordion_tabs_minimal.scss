@@ -1,5 +1,5 @@
 $tab-link-color: $dark-gray;
-$tab-border: 1px solid $base-border-color;
+$tab-border: $base-border-width solid $base-border-color;
 $tab-active-background: $base-background-color;
 $tab-inactive-color: $base-background-color;
 $tab-inactive-hover-color: silver;

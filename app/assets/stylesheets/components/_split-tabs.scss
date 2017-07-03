@@ -40,8 +40,20 @@
   font-weight: $bold;
   margin: $smallest-spacing;
   padding: 0.125em 1em;
+  transition: $base-transition;
+
+  a:hover &,
+  a:hover + & {
+    background-color: $mit-red;
+  }
 
   .is-active & {
     background-color: $mit-red;
+  }
+
+  &.emphasized-tab-digit-small {
+    @include padding(null 0.85em);
+    font-size: $smallest-font-size;
+    margin-right: 0;
   }
 }
