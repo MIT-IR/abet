@@ -48,11 +48,14 @@
             </span>
           </div>
         <% else %>
-          <%= link_to t(".attach-student-work"),
+          <%= link_to(
               edit_manage_assignments_outcome_coverage_assignment_path(
                 outcome_coverage_id: outcome_coverage.id,
                 assignment: outcome_coverage.assignment),
-                class: "class-card-assignment-control" %>
+                class: "class-card-assignment-control") do %>
+            <%= inline_svg "paper_clip.svg", class: "add-item-icon" %>
+            <%= t(".attach-student-work") %>
+          <% end %>
         <% end %>
 
         <%= link_to new_manage_results_assignment_result_path(outcome_coverage.assignment),
