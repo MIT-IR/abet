@@ -1,14 +1,18 @@
-<%= render_errors(f) %>
-
-<fieldset class="period" data-role="histogramable">
-  <legend><%= t(".period") %></legend>
-  <%= f.input :year, collection: Result::YEARS %>
-  <%= f.input :semester, collection: Result::SEMESTERS %>
-</fieldset>
-
-<%= f.input :percentage %>
-
-<div class="form-actions">
-  <%= f.submit %>
-  <%= cancel_button %>
+<div class="madlib-leadin">
+  <%= render_errors(form) %>
+  <p class="headline-poster headline-poster-copy">
+    <%= t(
+    ".intro_subject",
+    subject_number: form.object.assignment.subject.number,
+    ) %>
+  </p>
 </div>
+
+<%= form.input :year, collection: Result::YEARS %>
+<%= form.input :semester, collection: Result::SEMESTERS %>
+<%= form.input :percentage %>
+
+<p><%= @result.assignment.name %></p>
+<p><%= @result.assignment.problem if @result.assignment.problem.present? %></p>
+
+<%= render "manage_assignments/madlib_controls", form: form %>

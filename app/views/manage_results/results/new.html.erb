@@ -1,11 +1,18 @@
-<% tab(TabHelper::DATA_ENTRY) %>
+<%= content_for :full_bleed do %>
+  <div class="madlib-header">
+    <h1 class="headline-narrow">
+      <%= t(".heading") %>
+    </h1>
+    <h2 class="headline-narrow-subhead">
+      <%= @result.assignment.course_number %>
+      &middot;
+      <%= @result.assignment.course_name %>
+    </h2>
+  </div>
+<% end %>
 
-<h1><%= t(".heading") %></h1>
-
-<%= render "assignment_details", assignment: @result.assignment %>
-
-<%= simple_form_for [:manage_results, @result.assignment, @result] do |f| %>
-  <%= render "form", f: f %>
+<%= madlib_form_for [:manage_results, @result.assignment, @result] do |form| %>
+  <%= render "form", form: form %>
 <% end %>
 
 <%= render "gradebook_form", subject: @result.assignment.subject %>

@@ -28,12 +28,13 @@ en:
       destroy:
         success: Result deleted.
       edit:
-        heading: Edit Result
+        heading: Edit result
       form:
         assessment_background: Background
+        intro_subject: "In %{subject_number} —"
         period: Period
       new:
-        heading: Add A New Result
+        heading: Add a new result
       update:
         success: Result updated successfully.
     subjects:
