@@ -4,31 +4,18 @@
   border: $thick-border-width solid tint($lighter-border-color, 25%);
   border-top: 0;
   padding: $base-spacing;
+
+  .attachment:not(:last-of-type) {
+    background-color: $lightest-gray;
+  }
 }
 
 .class-card-subject-title {
   color: $white;
   font-family: $sans-serif-narrow;
   font-size: 165%;
+  line-height: $heading-line-height;
   margin: 0;
-}
-
-.class-card-heading-outcomes {
-  color: tint($medium-gray, 18%);
-  font-family: $sans-serif-narrow;
-  margin-bottom: 0;
-}
-
-.class-card-heading {
-  @include border-top-radius($base-border-radius);
-  @include padding($medium-spacing $base-spacing);
-  align-items: center;
-  background-color: $brown;
-  border-bottom: $thick-border-width solid rgba(black, 0.15);
-  color: $white;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0;
 }
 
 .class-card-subject-number {
@@ -79,6 +66,7 @@
 
 .class-card-outcomes {
   @include margin($smallest-spacing $small-spacing $small-spacing null);
+  align-self: flex-start;
   flex: 0.25 auto;
   line-height: $heading-line-height;
   width: 100px;
@@ -114,6 +102,6 @@
 }
 
 .class-card-assignment-control {
-  margin-right: $base-spacing;
   display: inline-block;
+  margin-right: $base-spacing;
 }

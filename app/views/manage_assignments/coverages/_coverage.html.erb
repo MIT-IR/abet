@@ -8,26 +8,42 @@
     </p>
   </div>
   <div class="class-card-assignments">
-    <h2 class="class-card-subject-title">
-      <%= coverage.subject.title %>
-    </h2>
-    <p class="class-card-heading-outcomes">
-      <%= t(".matched_outcomes", count: coverage.outcome_coverages.size) %>
-      <div>
-        <% if coverage.attachments.present? %>
-          <%= link_to coverage.attachment.name,
-            manage_assignments_attachment_path(coverage.attachment) %>
-        <% else %>
-          <%= link_to t(".attach-syllabus"),
-            edit_manage_assignments_course_coverage_path(coverage, course_id: coverage.course_id) %>
+    <div class="class-card-heading-meta">
+      <h2 class="class-card-subject-title">
+        <%= coverage.subject.title %>
+      </h2>
+      <p class="class-card-heading-outcomes">
+        <%= t(".matched_outcomes", count: coverage.outcome_coverages.size) %>
+      </p>
+    </div>
+
+    <div>
+      <% if coverage.attachments.present? %>
+      <div class="attachments-expandable-link class-card-assignment-control">
+        <%= link_to "#" do %>
+          <%= inline_svg "paper_clip.svg", class: "add-item-icon" %>
+          <%= t(".attachments-expandable-link") %>
         <% end %>
+        <span class="emphasized-tab-digit emphasized-tab-digit-small">
+          <%= coverage.attachments.size %>
+        </span>
       </div>
+      <% else %>
+        <%= link_to(edit_manage_assignments_course_coverage_path(coverage, course_id: coverage.course_id)) do %>
+          <%= inline_svg "paper_clip.svg", class: "add-item-icon" %>
+          <%= t(".attach-syllabus") %>
+        <% end %>
+      <% end %>
+      <%= render "manage_assignments/shared/attachments",
+        item: coverage,
+        edit_path: edit_manage_assignments_course_coverage_path(
+          coverage,
+          course_id: coverage.course_id) %>
+    </div>
   </div>
 </div>
-
 <div class="class-card">
   <%= render coverage.outcome_coverages.sort_by(&:outcome_label) %>
-
   <%= link_to(edit_manage_assignments_course_coverage_path(coverage, course_id: coverage.course_id), html_options = {class: "add-item add-item-short"}) do %>
     <%= inline_svg "plus_sign.svg", class: "add-item-icon" %>
     <%= t(".add_another_outcome") %>

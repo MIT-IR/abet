@@ -56,7 +56,8 @@
   font-family: $sans-serif-narrow;
   margin-top: $large-spacing;
 
-  .class-card & {
+  .class-card &,
+  .class-card-heading & {
     font-size: $small-font-size;
     margin-top: $base-spacing;
   }
@@ -76,8 +77,4 @@
     flex: 1;
     text-align: right;
   }
-}
-
-.is-hidden {
-  display: none;
 }

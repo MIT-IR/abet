@@ -64,8 +64,11 @@
           <%= t(".add_result") %>
         <% end %>
 
-        <%= render "attachments",
-            assignment: outcome_coverage.assignment %>
+        <%= render "manage_assignments/shared/attachments",
+            item: outcome_coverage.assignment,
+            edit_path: edit_manage_assignments_outcome_coverage_assignment_path(
+                          outcome_coverage_id: outcome_coverage.id,
+                          assignment: outcome_coverage.assignment)  %>
       <% end %>
 
       <%= link_to t(".delete_outcome_coverage"),

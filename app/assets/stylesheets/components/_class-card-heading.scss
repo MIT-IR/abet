@@ -1,0 +1,59 @@
+.class-card-heading {
+  @include border-top-radius($base-border-radius);
+  @include padding($medium-spacing $base-spacing);
+  align-items: center;
+  background-color: $brown;
+  border-bottom: $thick-border-width solid rgba(black, 0.15);
+  color: $white;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: $heading-line-height;
+  margin-bottom: 0;
+
+  a {
+    @include anchor-color($white);
+    border-bottom: $base-border-width solid transparent;
+    font-family: $sans-serif-narrow;
+    padding-bottom: $thick-border-width;
+    transition: $base-transition;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-bottom-color: $white;
+    }
+  }
+
+  svg {
+    fill: $white;
+  }
+
+  .attachments,
+  .attachment {
+    border-color: rgba($dark-gray, 0.35);
+  }
+
+  .attachment {
+    background-color: rgba($dark-gray, 0.15);
+
+    &:last-of-type {
+      background-color: transparent;
+    }
+  }
+}
+
+.class-card-heading-meta {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: $small-spacing;
+}
+
+.class-card-heading-outcomes {
+  color: tint($medium-gray, 18%);
+  font-family: $sans-serif-narrow;
+  font-size: $small-font-size;
+  margin-bottom: 0;
+  text-align: right;
+}

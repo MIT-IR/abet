@@ -20,6 +20,7 @@ en:
     coverages:
       coverage:
         add_another_outcome: Add an outcome
+        attachments-expandable-link: Attachments
         attach-syllabus: Attach a syllabus
         matched_outcomes:
           zero: 0 Matched Outcomes
@@ -56,9 +57,6 @@ en:
         title: Manage Outcome Coverage for Your Courses
         view: View Outcome Coverage
     courses:
-      attachments:
-        add_another_attachment: Add another attachment
-        delete-link: Delete
       outcome_status:
         label: Outcome %{label}
       show: &courses_show
@@ -69,3 +67,7 @@ en:
       show_without_coverages:
         <<: *courses_show
         no_classes: "%{name} doesn’t have any classes yet"
+    shared:
+      attachments:
+        add_another_attachment: Add another attachment
+        delete_link: Delete
