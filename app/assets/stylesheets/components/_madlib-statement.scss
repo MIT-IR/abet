@@ -1,12 +1,31 @@
+.madlib-statements {
+  @include media($large-screen-up) {
+    display: flex;
+  }
+
+  .madlib-statement {
+    @include media($large-screen-up) {
+      padding-right: $small-spacing;
+      width: 28%;
+    }
+  }
+}
+
 .madlib-statement {
   @include padding(null null $base-spacing);
-
   @include media($large-screen-up) {
     display: flex;
   }
 
   .headline-poster {
     padding-left: rem(8);
+  }
+
+  &.result_percentage {
+    @include media($large-screen-up) {
+      margin-right: $base-spacing;
+      width: 25%;
+    }
   }
 }
 
@@ -19,23 +38,25 @@
 
 .underline {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .field_with_errors {
-  .selectize-control .selectize-input.items {
-    background-color: tint($required-color, 90%);
-    border-bottom-color: $required-color;
+  .selectize-control .selectize-input.items,
+  #{$all-text-inputs} {
+    background-color: tint($required-color, 90%) !important;
+    border-bottom-color: $required-color !important;
   }
 
   .error {
     display: block;
 
     @at-root .error {
-      background: image-url("icon_error.svg") 100% center / 1.35em no-repeat;
+      background: image-url("icon_error.svg") 100% 15% / 1.25em no-repeat;
       color: $required-color;
       display: none;
-      font-size: $small-font-size;
+      font-size: $smallest-font-size;
       padding-right: 2em;
     }
   }

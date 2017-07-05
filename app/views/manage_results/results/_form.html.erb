@@ -1,18 +1,27 @@
 <div class="madlib-leadin">
-  <%= render_errors(form) %>
   <p class="headline-poster headline-poster-copy">
-    <%= t(
-    ".intro_subject",
-    subject_number: form.object.assignment.subject.number,
-    ) %>
+    Satisfactory performance on <%= @result.assignment.name %>,
+    <%= @result.assignment.problem if @result.assignment.problem.present? %>
+    was shown
   </p>
 </div>
 
-<%= form.input :year, collection: Result::YEARS %>
-<%= form.input :semester, collection: Result::SEMESTERS %>
-<%= form.input :percentage %>
+<div class="madlib-statements">
+  <%= form.input :semester,
+      collection: Result::SEMESTERS,
+      headline: "in" %>
+  <%= form.input :year,
+      collection: Result::YEARS,
+      headline: "of" %>
 
-<p><%= @result.assignment.name %></p>
-<p><%= @result.assignment.problem if @result.assignment.problem.present? %></p>
+</div>
+
+<div class="madlib-statement">
+  <%= form.input :percentage,
+      headline: "by" %>
+  <p class="headline-poster">
+    percent of students.
+  </p>
+</div>
 
 <%= render "manage_assignments/madlib_controls", form: form %>

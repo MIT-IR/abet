@@ -3,7 +3,7 @@ en:
   reports:
     assignment_reports:
       show:
-        actual_percentage: Actual Percentage
+        actual_percentage: Percentage
         csv_link: complete report as a CSV
         description_html: For full results, download the %{link}.
         assignment_name: Assignment Name

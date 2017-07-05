@@ -9,10 +9,10 @@ en:
       direct_assessment:
         outcome_ids: Outcomes
       result:
-        percentage: Actual Percentage
+        percentage: Percentage
     errors:
       messages:
-        blank: Please fill out this field
+        blank: Can't be blank
       models:
         direct_assessment:
           attributes:

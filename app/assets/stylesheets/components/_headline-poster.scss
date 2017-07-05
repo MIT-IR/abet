@@ -8,6 +8,7 @@
   font-family: $heading-font-family;
   font-size: modular-scale(2, $base-font-size);
   font-weight: normal;
+  hyphens: auto;
   line-height: $heading-line-height;
   transition: all $longest-transition-duration;
 
@@ -25,7 +26,7 @@
 }
 
 .headline-poster-copy {
-  color: tint($brown, 20%);
+  color: tint($brown, 25%);
 }
 
 .headline-poster-faint {

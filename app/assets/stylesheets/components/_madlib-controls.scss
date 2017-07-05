@@ -1,5 +1,5 @@
 .madlib-controls {
-  margin-top: $medium-spacing;
+  margin-top: $large-spacing;
 
   #{$all-button-inputs} {
     @include padding(null $large-spacing);
