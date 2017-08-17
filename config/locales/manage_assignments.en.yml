@@ -37,7 +37,7 @@ en:
         add_result: Add Result
         assignment_name: In %{name}
         assignment_problem: on %{problem}
-        attachments-expandable-link: Attachments
+        attachments-expandable-link: Syllabus
         attach-student-work: Attach student work
         edit_assignment: Edit Assignment
         delete_outcome_coverage: Delete
