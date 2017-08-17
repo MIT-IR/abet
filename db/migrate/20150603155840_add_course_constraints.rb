@@ -1,4 +1,4 @@
-class AddCourseConstraints < ActiveRecord::Migration[4.2]
+class AddCourseConstraints < ActiveRecord::Migration
   def change
     change_column_null :courses, :name, false
     change_column_null :courses, :number, false

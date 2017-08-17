@@ -1,4 +1,4 @@
-class AddIndirectAssessments < ActiveRecord::Migration[4.2]
+class AddIndirectAssessments < ActiveRecord::Migration
   def change
     create_table "indirect_assessments" do |t|
       t.string :assessment_name

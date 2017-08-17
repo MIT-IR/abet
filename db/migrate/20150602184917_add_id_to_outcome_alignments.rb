@@ -1,4 +1,4 @@
-class AddIdToOutcomeAlignments < ActiveRecord::Migration[4.2]
+class AddIdToOutcomeAlignments < ActiveRecord::Migration
   def change
     add_column :outcome_alignments, :id, :primary_key
   end

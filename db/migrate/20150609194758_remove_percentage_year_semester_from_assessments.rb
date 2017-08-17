@@ -1,4 +1,4 @@
-class RemovePercentageYearSemesterFromAssessments < ActiveRecord::Migration[4.2]
+class RemovePercentageYearSemesterFromAssessments < ActiveRecord::Migration
   def change
     remove_column :direct_assessments, :actual_percentage, :integer
     remove_column :direct_assessments, :semester, :string

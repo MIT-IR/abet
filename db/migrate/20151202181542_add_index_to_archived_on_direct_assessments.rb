@@ -1,4 +1,4 @@
-class AddIndexToArchivedOnDirectAssessments < ActiveRecord::Migration[4.2]
+class AddIndexToArchivedOnDirectAssessments < ActiveRecord::Migration
   def change
     add_index :direct_assessments, :archived
   end

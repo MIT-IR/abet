@@ -1,4 +1,4 @@
-class RemoveDepartmentFromAssessments < ActiveRecord::Migration[4.2]
+class RemoveDepartmentFromAssessments < ActiveRecord::Migration
   def change
     remove_reference :direct_assessments, :department
     remove_reference :indirect_assessments, :department

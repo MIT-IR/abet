@@ -1,4 +1,4 @@
-class AddDepartments < ActiveRecord::Migration[4.2]
+class AddDepartments < ActiveRecord::Migration
   def change
     create_table "departments" do |t|
       t.string "name"

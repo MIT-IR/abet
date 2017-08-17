@@ -1,4 +1,4 @@
-class AddTypeToIndirectAssessments < ActiveRecord::Migration[4.2]
+class AddTypeToIndirectAssessments < ActiveRecord::Migration
   def change
     add_column :indirect_assessments, :type, :string, null: false
   end

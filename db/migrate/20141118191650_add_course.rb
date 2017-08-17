@@ -1,4 +1,4 @@
-class AddCourse < ActiveRecord::Migration[4.2]
+class AddCourse < ActiveRecord::Migration
   def change
     create_table "courses" do |t|
       t.string "course_number"

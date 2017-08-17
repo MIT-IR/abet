@@ -1,4 +1,4 @@
-class AddMissingForeignKeys < ActiveRecord::Migration[4.2]
+class AddMissingForeignKeys < ActiveRecord::Migration
   def change
     add_foreign_key :outcomes, :courses
     add_index :courses, :department_id

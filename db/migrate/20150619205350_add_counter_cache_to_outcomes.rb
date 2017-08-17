@@ -1,4 +1,4 @@
-class AddCounterCacheToOutcomes < ActiveRecord::Migration[4.2]
+class AddCounterCacheToOutcomes < ActiveRecord::Migration
   def change
     add_column :outcomes, :assessments_count, :integer, null: false, default: 0
   end

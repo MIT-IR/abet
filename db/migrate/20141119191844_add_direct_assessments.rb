@@ -1,4 +1,4 @@
-class AddDirectAssessments < ActiveRecord::Migration[4.2]
+class AddDirectAssessments < ActiveRecord::Migration
   def change
     create_table "direct_assessments" do |t|
       t.string :subject_number

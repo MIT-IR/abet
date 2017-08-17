@@ -1,4 +1,4 @@
-class AddOutcomeAlignments < ActiveRecord::Migration[4.2]
+class AddOutcomeAlignments < ActiveRecord::Migration
   def change
     create_table "outcome_alignments", id: false do |t|
       t.belongs_to :outcome

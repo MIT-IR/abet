@@ -1,4 +1,4 @@
-class AddOutcomes < ActiveRecord::Migration[4.2]
+class AddOutcomes < ActiveRecord::Migration
   def change
     create_table "outcomes" do |t|
       t.string :name

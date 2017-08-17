@@ -1,4 +1,4 @@
-class CreateSubjects < ActiveRecord::Migration[4.2]
+class CreateSubjects < ActiveRecord::Migration
   def change
     create_table :subjects do |t|
       t.string :number, unique: true, null: false

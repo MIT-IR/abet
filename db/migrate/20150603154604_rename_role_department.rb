@@ -1,4 +1,4 @@
-class RenameRoleDepartment < ActiveRecord::Migration[4.2]
+class RenameRoleDepartment < ActiveRecord::Migration
   def change
     rename_column :departments, :role_department, :slug
     add_index :departments, :slug, unique: true
