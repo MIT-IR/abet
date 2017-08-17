@@ -1,4 +1,4 @@
-class CreateAssessmentReports < ActiveRecord::Migration
+class CreateAssessmentReports < ActiveRecord::Migration[5.1]
   def change
     create_view :assessment_reports
   end

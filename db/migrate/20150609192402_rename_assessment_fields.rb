@@ -1,4 +1,4 @@
-class RenameAssessmentFields < ActiveRecord::Migration
+class RenameAssessmentFields < ActiveRecord::Migration[5.1]
   def change
     rename_column :direct_assessments, :assignment_name, :name
     rename_column :direct_assessments, :assignment_description, :description

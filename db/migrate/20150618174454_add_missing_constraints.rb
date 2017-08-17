@@ -1,4 +1,4 @@
-class AddMissingConstraints < ActiveRecord::Migration
+class AddMissingConstraints < ActiveRecord::Migration[5.1]
   def change
     change_column_null :departments, :name, false
     change_column_null :departments, :slug, false

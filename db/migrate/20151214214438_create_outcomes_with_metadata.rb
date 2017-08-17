@@ -1,4 +1,4 @@
-class CreateOutcomesWithMetadata < ActiveRecord::Migration
+class CreateOutcomesWithMetadata < ActiveRecord::Migration[5.1]
   def change
     remove_column :outcomes,
       :archived_assessments_count,

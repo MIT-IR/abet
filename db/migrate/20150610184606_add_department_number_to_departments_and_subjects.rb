@@ -1,4 +1,4 @@
-class AddDepartmentNumberToDepartmentsAndSubjects < ActiveRecord::Migration
+class AddDepartmentNumberToDepartmentsAndSubjects < ActiveRecord::Migration[5.1]
   def change
     add_column :departments, :number, :integer, null: false
     add_index :departments, :number, unique: true
