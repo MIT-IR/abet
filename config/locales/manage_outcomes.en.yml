@@ -3,7 +3,7 @@ en:
   manage_outcomes:
     dashboard:
       aligned_outcomes_actions:
-        view_coverage: View Outcome Coverage
+        view_coverage: Add or update classes
         view_outcomes: View Outcomes
       courses_table:
         actions: Actions
@@ -42,10 +42,10 @@ en:
           unaligned_outcomes: Courses with Unaligned Outcomes
           without_outcomes: Courses without Outcomes
       unaligned_outcomes_actions:
-        view_coverage: View Outcome Coverage
+        view_coverage: Add or update classes
         view_outcomes: View Outcomes
       without_outcomes_actions:
-        adopt_standard: Adopt Standard Outcomes
+        adopt_standard: Adopt ABET Outcomes
         create_custom: Create Custom Outcome
     outcomes:
       create:

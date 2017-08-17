@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def jon_daries
-    t("helpers.jon_daries_html", email: mail_to("daries@mit.edu"))
+    t("helpers.jon_daries_html", email: mail_to("outcomes@mit.edu"))
   end
 
   def progress_bar_percentage_width(amount, total)

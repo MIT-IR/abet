@@ -66,14 +66,14 @@ en:
       recording_data: Recording Data
     tabs:
       activity_feed: Activity Feed
-      assignments: Manage Assignments
+      assignments: Manage Classes and Assignments
       data: Record Data
       outcomes: Manage Outcomes
       reports: Reports
   attachments:
     nested_form:
-      add_for_coverage: Add an attachment
-      add_for_assignment: Attach Student Work
+      add_for_coverage: Add a syllabus
+      add_for_assignment: Attach copy of assignment or example student work
   courses:
     outcomes:
       actions: Actions
@@ -82,12 +82,13 @@ en:
       label: Label
   helpers:
     cancel_button: Cancel
-    jon_daries_html: Jon Daries in Institutional Research at %{email}
+    jon_daries_html: Institutional Research at %{email}
     today: Today
     yesterday: Yesterday
   layouts:
     documentation_side_nav:
-      assessments: Assessments
+      classes: Classes
+      assignments: Assignments
       faq: FAQ
       getting_started: Getting Started
       outcomes: Outcomes

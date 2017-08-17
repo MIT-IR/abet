@@ -19,8 +19,8 @@ en:
           %{outcome_nickname}"
     coverages:
       coverage:
-        add_another_outcome: Add an outcome
-        attachments-expandable-link: Attachments
+        add_another_outcome: "Add an outcome for %{subject_number}"
+        attachments-expandable-link: Syllabus
         attach-syllabus: Attach a syllabus
         matched_outcomes:
           zero: 0 Matched Outcomes
