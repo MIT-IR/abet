@@ -1,4 +1,4 @@
-class AddCustomOutcomeFlagToCourse < ActiveRecord::Migration[5.1]
+class AddCustomOutcomeFlagToCourse < ActiveRecord::Migration[4.2]
   def change
     add_column :courses, :has_custom_outcomes, :boolean
   end

@@ -1,4 +1,4 @@
-class AddDepartmentToResults < ActiveRecord::Migration[5.1]
+class AddDepartmentToResults < ActiveRecord::Migration[4.2]
   def change
     add_column :results, :department_id, :integer, index: true
 

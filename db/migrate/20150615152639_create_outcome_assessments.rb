@@ -1,4 +1,4 @@
-class CreateOutcomeAssessments < ActiveRecord::Migration[5.1]
+class CreateOutcomeAssessments < ActiveRecord::Migration[4.2]
   def change
     create_table :outcome_assessments do |t|
       t.references :outcome, null: false, index: true

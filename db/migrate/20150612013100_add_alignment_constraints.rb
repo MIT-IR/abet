@@ -1,4 +1,4 @@
-class AddAlignmentConstraints < ActiveRecord::Migration[5.1]
+class AddAlignmentConstraints < ActiveRecord::Migration[4.2]
   def change
     change_column_null :alignments, :outcome_id, false
     change_column_null :alignments, :standard_outcome_id, false

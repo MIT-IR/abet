@@ -1,4 +1,4 @@
-class AddOutcomesConstraints < ActiveRecord::Migration[5.1]
+class AddOutcomesConstraints < ActiveRecord::Migration[4.2]
   def change
     change_column_null :outcomes, :name, false
     change_column_null :outcomes, :description, false

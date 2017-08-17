@@ -1,4 +1,4 @@
-class AddTimestampsToTables < ActiveRecord::Migration[5.1]
+class AddTimestampsToTables < ActiveRecord::Migration[4.2]
   def change
     tables = %i(
       courses

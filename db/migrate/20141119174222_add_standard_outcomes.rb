@@ -1,4 +1,4 @@
-class AddStandardOutcomes < ActiveRecord::Migration[5.1]
+class AddStandardOutcomes < ActiveRecord::Migration[4.2]
   def change
     create_table "standard_outcomes" do |t|
       t.string :name

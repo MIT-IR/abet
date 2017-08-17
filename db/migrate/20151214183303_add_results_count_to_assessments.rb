@@ -1,4 +1,4 @@
-class AddResultsCountToAssessments < ActiveRecord::Migration[5.1]
+class AddResultsCountToAssessments < ActiveRecord::Migration[4.2]
   def change
     add_column :direct_assessments, :results_count, :integer, null: false, default: 0
     add_column :indirect_assessments, :results_count, :integer, null: false, default: 0

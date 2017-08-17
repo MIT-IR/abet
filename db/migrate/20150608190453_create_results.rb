@@ -1,4 +1,4 @@
-class CreateResults < ActiveRecord::Migration[5.1]
+class CreateResults < ActiveRecord::Migration[4.2]
   def change
     create_table :results do |t|
       t.integer :assessment_id, null: false
