@@ -64,6 +64,7 @@ en:
       menu: MENU
       outcomes: Outcomes
       recording_data: Recording Data
+      classes: Classes
     tabs:
       activity_feed: Activity Feed
       assignments: Manage Classes and Assignments

@@ -1,68 +1,36 @@
 <h1>Assignments</h1>
 
-<p>Assignments are </p>
-
-<hr>
-
-<h2>Basic Information</h2>
-
-<h4>Example Assessment</h4>
-
-<p>Below is an example assessment for the subject EECS 2013 self-study. This assessment would be
-used to measure the ABET standard outcome: a &mdash; an ability to apply knowledge of mathematics,
-science, and engineering.</p>
-
-<ul>
-  <li><strong>Subject:</strong> EECS 2013 self-study</li>
-  <li><strong>Assignment Name &amp; Description:</strong> 6.02 Quiz 1, Bits module</li>
-  <li><strong>Minimum Grade:</strong> Students score 85 or higher</li>
-  <li><strong>Target Percentage:</strong> 80% of students should achieve the minimum grade</li>
-</ul>
-
-<%= image_tag "documentation/assessment_form_fields.png" %>
-
-<h4>Anatomy of a Good Assessment</h4>
-
-<ul>
-  <li>
-    <p>Assessments should be as granular as possible</p>
-
-    <ul>
-      <li>Tied to a problem on an assignment or quiz</li>
-      <li>Overall course grade not fine-grained enough</li>
-    </ul>
-  </li>
-  <li>Assessments should tie to required subjects</li>
-  <li>Assessments should have a target percentage of students who "pass" the assessment</li>
-  <li>Each semester or year, actual percentage is gathered</li>
-</ul>
+<p>Assignments are how we measure student achievement of the learning outcomes.
+In this section we ask: in a subject that teaches a given outcome, what assignment or test
+is a good place to measure how well students have learned that outcome?</p>
 
 <hr>
 
 <h2>On the Website</h2>
 
-<p>To create or edit assessments, visit the <strong>"Manage Assessments"</strong> tab.</p>
+<p>To create an Assignment, visit the <strong>"Manage Classes and Assignments"</strong> tab.</p>
 
-<%= image_tag "documentation/manage_assessments_tab.png" %>
+<%= image_tag "documentation/manage_classes_and_assignments_tab.png" %>
 
-<h4>Creating Assessments</h4>
-
-<ol>
-  <li>Click the <strong>"Manage Assessments"</strong> tab</li>
-  <li>Click the <strong>"Create New Asssessment"</strong> button</li>
-</ol>
-
-<h4>Editing or Archiving Assessments</h4>
+<h4>Creating Assignments</h4>
 
 <ol>
-  <li>Click the <strong>"Manage Assessments"</strong> tab</li>
-  <li>
-    If you only have access to one course, you'll be sent directly to that course's page and can
-    move on to Step 3. If you have access to mutliple courses, click the
-    <strong>"View Asssessments"</strong> action for course the assessment belongs to
-  </li>
-  <li>
-    Find the assessment and click the appropriate action (<strong>"Edit"</strong>,
-    <strong>"Archive"</strong>)
-  </li>
+  <li>You must first add a class (see the
+    <%=link_to t("layouts.documentation_side_nav.classes"), page_path("classes")%>
+    section of the Documentation for more information.)</li>
+  <li>After adding your class, choose the "+ Add an Assignment" link under the class title.</li>
+  <%= image_tag "documentation/add_an_assignment.png" %>
+  <li>In the form that appears, fill in the assignment (can be an exam, a quiz,
+    a problem set, project, etc.) and the problem or section of that assignment (optional)
+  that is a good way to measure student mastery of the selected learning outcome.</li>
+  <li>If you have a copy of the assignment and/or examples of graded student work,
+  you can upload those now. Or you can add them later.</li>
 </ol>
+
+<h4>Editing or Deleting an Assignment</h4>
+
+<p><strong>To edit an existing Assignment</strong>, just click on the name of the Assignment from
+  the "Manage Classes and Assessments" view.</p>
+  <p><strong>To delete an existing Assignment</strong>, click the grey "Delete"
+  link to the right of the Assignment name. Note: deleting an assignment will
+archive any data that has been attached to that assignment.</p>
