@@ -46,7 +46,7 @@
     </div>
 
     <div class="container">
-      <% @course.outcomes.each do |outcome| %>
+      <% @course.outcomes.order(:label).each do |outcome| %>
         <%= render "outcome_status", outcome: outcome %>
       <% end %>
     </div>
