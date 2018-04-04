@@ -8,6 +8,7 @@
   <table id="assignments">
     <thead>
       <tr>
+        <th><%= t(".outcome") %></th>
         <th><%= t(".assignment") %></th>
         <th><%= t(".last_entry") %></th>
         <th class="actions"><%= t(".actions") %></th>
@@ -16,7 +17,8 @@
     <tbody>
       <% @subject.assignments.each do |assignment| %>
         <tr id="assignment-<%=assignment.id %>">
-          <td><%= assignment.name %></td>
+          <td><%= assignment.outcome.label %></td>
+          <td><%= assignment.name %> <% if assignment.problem? %>: <%= assignment.problem %><% end %></td>
           <td>
             <% if assignment.results.any? %>
               <%= assignment.results.last.semester %>-<%= assignment.results.last.year %>
