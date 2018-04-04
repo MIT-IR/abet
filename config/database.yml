@@ -5,9 +5,6 @@ default: &default
 development:
   <<: *default
   database: abet_development
-staging:
-  <<: *default
-  database: abet_staging
 test:
   <<: *default
   database: abet_test
