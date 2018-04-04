@@ -32,17 +32,13 @@ ApplicationRecord.transaction do
   end
 
   standard_outcomes = [
-    ["Science and Engineering", "A", "an ability to apply knowledge of mathematics, science, and engineering"],
-    ["Experimentation", "B", "an ability to design and conduct experiments, as well as to analyze and interpret data"],
-    ["Design", "C", "an ability to design a system, component, or process to meet desired needs within realistic constraints such as economic, environmental, social, political, ethical, health and safety, manufacturability, and sustainability"],
-    ["Teamwork", "D", "an ability to function on multidisciplinary teams"],
-    ["Problem Solving", "E", "an ability to identify, formulate, and solve engineering problems"],
-    ["Ethics", "F", "an understanding of professional and ethical responsibility"],
-    ["Communication", "G", "an ability to communicate effectively"],
-    ["Broad Education", "H", "the broad education necessary to understand the impact of engineering solutions in a global, economic, environmental, and societal context"],
-    ["Life-long Learning", "I", "a recognition of the need for, and an ability to engage in life-long learning"],
-    ["Contemporary Issues", "J", "a knowledge of contemporary issues"],
-    ["Modern Practice", "K", "an ability to use the techniques, skills, and modern engineering tools necessary for engineering practice"]
+    ["Science and Engineering", "1", "an ability to identify, formulate, and solve complex engineering problems by applying principles of engineering, science, and mathematics"],
+    ["Experimentation", "6", "an ability to develop and conduct appropriate experimentation, analyze and interpret data, and use engineering judgment to draw conclusions"],
+    ["Design", "2", "an ability to apply engineering design to produce solutions that meet specified needs with consideration of public health, safety, and welfare, as well as global, cultural, social, environmental, and economic factors"],
+    ["Teamwork", "5", "an ability to function effectively on a team whose members together provide leadership, create a collaborative and inclusive environment, establish goals, plan tasks, and meet objectives"],
+    ["Ethics", "4", "an ability to recognize ethical and professional responsibilities in engineering situations and make informed judgments, which must consider the impact of engineering solutions in global, economic, environmental, and societal contexts"],
+    ["Communication", "3", "an ability to communicate effectively with a range of audiences"],
+    ["Life-long Learning", "7", "an ability to acquire and apply new knowledge as needed, using appropriate learning strategies"]
   ]
 
   standard_outcomes.each do |outcome|
