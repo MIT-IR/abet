@@ -20,7 +20,7 @@ module SubjectsClient
       end
 
       def endpoint_for(term, department)
-        "https://mit-public.cloudhub.io/coursecatalog/v2/terms/#{term}/subjects?dept=#{department}"
+        "https://mit-course-catalog-v2.cloudhub.io/coursecatalog/v2/terms/#{term}/subjects?dept=#{department}"
       end
     end
   end
